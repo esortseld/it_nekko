@@ -1,0 +1,244 @@
+:root {
+  --color-background: #faf8f4;
+  --color-surface: #fffdf8;
+  --color-text: #2d2a26;
+  --color-muted: #6f675d;
+  --color-border: #e3ddd2;
+  --color-accent: #5f7252;
+  --color-accent-dark: #41513a;
+  --color-brown: #7a6045;
+  --color-soft: #eee8dd;
+  --color-soft-green: #eef2ea;
+  --shadow-card: 0 12px 30px rgba(60, 47, 32, 0.08);
+  --font-body: "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", Meiryo, system-ui, sans-serif;
+  --font-serif: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgba(95, 114, 82, 0.035) 1px, transparent 1px),
+    var(--color-background);
+  background-size: 56px 56px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.85;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(238, 242, 234, 0.88)),
+    var(--color-background);
+  padding: 72px 0 50px;
+}
+
+.site-hero::after {
+  position: absolute;
+  right: max(24px, calc((100vw - 1120px) / 2));
+  bottom: 34px;
+  width: 118px;
+  height: 62px;
+  border: 2px solid rgba(122, 96, 69, 0.28);
+  border-top-left-radius: 54px;
+  border-top-right-radius: 54px;
+  border-bottom: 0;
+  content: "";
+}
+
+.site-hero::before {
+  position: absolute;
+  right: max(74px, calc((100vw - 1120px) / 2 + 50px));
+  bottom: 92px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid rgba(122, 96, 69, 0.28);
+  border-left: 2px solid rgba(122, 96, 69, 0.28);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.hero-inner {
+  max-width: 820px;
+}
+
+.site-kicker,
+.section-kicker,
+.category-card__label {
+  margin: 0 0 12px;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: 3.25rem;
+  font-weight: 700;
+}
+
+.cat-mark {
+  display: inline-grid;
+  min-width: 54px;
+  min-height: 36px;
+  place-items: center;
+  border: 1px solid rgba(95, 114, 82, 0.36);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.76);
+  color: var(--color-brown);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.site-subtitle {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--color-accent-dark);
+  font-size: 1.22rem;
+  font-weight: 700;
+}
+
+.site-description {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--color-muted);
+}
+
+.category-section {
+  padding: 44px 0 76px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  font-size: 1.45rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  display: flex;
+  min-height: 260px;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+.category-card--memo {
+  background: var(--color-soft-green);
+}
+
+.category-card h3 {
+  font-size: 1.28rem;
+}
+
+.category-card p {
+  margin: 14px 0 0;
+  color: var(--color-muted);
+}
+
+.status-pill {
+  align-self: flex-start;
+  margin-top: auto;
+  border: 1px solid rgba(95, 114, 82, 0.35);
+  border-radius: 999px;
+  background: var(--color-soft);
+  color: var(--color-accent-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+  padding: 4px 10px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  padding: 28px 0;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 17px;
+  }
+
+  .container {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .site-hero {
+    padding: 48px 0 38px;
+  }
+
+  .site-hero::before,
+  .site-hero::after {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  .site-subtitle {
+    font-size: 1.08rem;
+  }
+
+  .category-section {
+    padding: 34px 0 58px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    min-height: auto;
+    padding: 20px;
+  }
+}
