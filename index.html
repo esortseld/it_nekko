@@ -4,61 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ITネッコ</title>
-  <meta name="description" content="ITパスポート試験に必要な知識を、こつこつ整理する学習ノートです。">
+  <meta name="description" content="ITパスポート試験で問われる知識を、過去問をきっかけに学習要点として整理する場所です。">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="site-hero">
-    <div class="container hero-inner">
-      <p class="site-kicker">のらネコ学習室 / IT Passport</p>
-      <div class="hero-title-row">
-        <h1>ITネッコ</h1>
-        <span class="cat-mark" aria-hidden="true">mew</span>
-      </div>
-      <p class="site-subtitle">ITパスポート試験に必要な知識を、こつこつ整理する学習ノートです。</p>
-      <p class="site-description">
-        ストラテジ、マネジメント、テクノロジの要点を、あとで読み返しやすい形に少しずつまとめていきます。
-      </p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ITネッコ トップへ">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ">
+        <a href="topics/">学習要点</a>
+        <a href="fields/">学習分野</a>
+        <a href="past-questions/">過去問を起点に探す</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="category-section" aria-label="学習カテゴリ">
-      <div class="section-heading">
-        <p class="section-kicker">Categories</p>
-        <h2>学習カテゴリ</h2>
-      </div>
-
-      <div class="category-grid">
-        <article class="category-card">
-          <span class="category-card__label">Strategy</span>
-          <h3>ストラテジ系</h3>
-          <p>企業活動、法務、経営戦略、システム戦略などを整理します。</p>
-          <span class="status-pill">準備中</span>
-        </article>
-
-        <article class="category-card">
-          <span class="category-card__label">Management</span>
-          <h3>マネジメント系</h3>
-          <p>プロジェクトマネジメント、サービスマネジメント、監査の要点をまとめます。</p>
-          <span class="status-pill">準備中</span>
-        </article>
-
-        <article class="category-card">
-          <span class="category-card__label">Technology</span>
-          <h3>テクノロジ系</h3>
-          <p>基礎理論、コンピュータ構成、ネットワーク、セキュリティを扱います。</p>
-          <span class="status-pill">準備中</span>
-        </article>
-
-        <article class="category-card category-card--memo">
-          <span class="category-card__label">Questions</span>
-          <h3>過去問メモ</h3>
-          <p>過去問でつまずいた論点や、覚え直したい用語を短く残します。</p>
-          <span class="status-pill">準備中</span>
-        </article>
+  <main>
+    <section class="site-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">のらネコ学習室 / IT Passport</p>
+        <div class="hero-title-row">
+          <h1>ITネッコ</h1>
+          <span class="cat-mark" aria-hidden="true">mew</span>
+        </div>
+        <p class="site-subtitle">ITパスポート試験の知識を、学習要点として整理する場所です。</p>
+        <p class="site-description">
+          ITパスポート試験で問われる知識を、過去問をきっかけに学習要点として整理する場所です。
+        </p>
       </div>
     </section>
+
+    <div class="container page-flow">
+      <section class="intro-panel" aria-labelledby="about">
+        <p class="section-kicker">About</p>
+        <h2 id="about">このサイトについて</h2>
+        <p>
+          過去問をそのまま解説するのではなく、問題で問われている知識を取り出し、
+          あとで使える学習要点としてまとめます。
+        </p>
+      </section>
+
+      <section aria-labelledby="fields">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Fields</p>
+            <h2 id="fields">学習分野から探す</h2>
+          </div>
+          <a class="text-link" href="fields/">分野一覧へ</a>
+        </div>
+        <div class="card-grid card-grid--three">
+          <a class="link-card" href="fields/strategy/">
+            <span class="card-label">Strategy</span>
+            <h3>ストラテジ系</h3>
+            <p>企業活動、法務、経営戦略、システム戦略などを整理します。</p>
+          </a>
+          <a class="link-card" href="fields/management/">
+            <span class="card-label">Management</span>
+            <h3>マネジメント系</h3>
+            <p>開発技術、プロジェクトマネジメント、サービスマネジメントなどを整理します。</p>
+          </a>
+          <a class="link-card" href="fields/technology/">
+            <span class="card-label">Technology</span>
+            <h3>テクノロジ系</h3>
+            <p>基礎理論、コンピュータシステム、ネットワーク、セキュリティなどを整理します。</p>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="topics">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Topics</p>
+            <h2 id="topics">学習要点から読む</h2>
+          </div>
+          <a class="text-link" href="topics/">要点一覧へ</a>
+        </div>
+        <div class="card-grid">
+          <a class="topic-card topic-card--feature" href="topics/generative-ai-copyright/">
+            <span class="card-label">ストラテジ系 / 法務</span>
+            <h3>生成AI生成物と著作権</h3>
+            <p>生成AIを使った生成物でも、既存著作物に依拠し、公開利用する場合は、著作権者の許諾が必要となる可能性があります。</p>
+            <span class="read-more">この学習要点を読む</span>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="question-index">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Index</p>
+            <h2 id="question-index">過去問を起点に探す</h2>
+          </div>
+          <a class="text-link" href="past-questions/">索引へ</a>
+        </div>
+        <div class="card-grid">
+          <a class="link-card" href="past-questions/r08/">
+            <span class="card-label">Published Questions</span>
+            <h3>令和8年度公開問題</h3>
+            <p>問番号から、対応する学習要点を探します。問題文は掲載せず、問われる知識を整理します。</p>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="recent">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Recent</p>
+            <h2 id="recent">最近追加した要点</h2>
+          </div>
+        </div>
+        <div class="card-grid">
+          <a class="topic-card" href="topics/generative-ai-copyright/">
+            <span class="card-label">ストラテジ系 / 法務</span>
+            <h3>生成AI生成物と著作権</h3>
+            <p>AIを使った生成物と既存著作物の関係を、依拠性、類似性、公開利用の観点から整理します。</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
