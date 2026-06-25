@@ -258,6 +258,10 @@ h3 {
   text-decoration: none;
 }
 
+.topic-card {
+  gap: 12px;
+}
+
 .link-card:hover,
 .topic-card:hover,
 .question-card:hover {
@@ -271,7 +275,57 @@ h3 {
 .link-card p,
 .topic-card p,
 .question-card p {
-  margin: 14px 0 0;
+  margin: 4px 0 0;
+}
+
+.term-label {
+  align-self: flex-start;
+  border: 1px solid rgba(95, 114, 82, 0.22);
+  border-radius: 999px;
+  background: rgba(238, 242, 234, 0.72);
+  color: var(--color-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.45;
+  padding: 3px 10px;
+}
+
+.topic-title {
+  color: var(--color-text);
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.topic-heading-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 12px;
+}
+
+.question-badge {
+  align-self: flex-start;
+  border: 1px solid rgba(122, 96, 69, 0.26);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--color-brown);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.45;
+  padding: 3px 10px;
+}
+
+.breadcrumb {
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+.breadcrumb a {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
 }
 
 .read-more,
