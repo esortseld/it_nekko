@@ -73,6 +73,7 @@ a {
   flex-wrap: wrap;
   gap: 8px 18px;
   justify-content: flex-end;
+  max-width: 100%;
 }
 
 .site-nav a,
@@ -81,6 +82,7 @@ a {
   color: var(--color-accent-dark);
   font-size: 0.9rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
 }
@@ -248,6 +250,7 @@ h3 {
 .map-section {
   display: grid;
   gap: 22px;
+  min-width: 0;
 }
 
 .map-section--priority {
@@ -262,6 +265,7 @@ h3 {
 .theme-heading {
   display: grid;
   gap: 8px;
+  min-width: 0;
 }
 
 .section-heading h2,
@@ -308,6 +312,7 @@ h3 {
 .topic-card,
 .question-card {
   display: flex;
+  min-width: 0;
   min-height: 230px;
   flex-direction: column;
   border: 1px solid var(--color-border);
