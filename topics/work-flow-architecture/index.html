@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>働く場所を固定しない働き方をどう捉えるか | ITネッコ</title>
-  <meta name="description" content="WFAについて、ITパスポート試験で問われる判断軸を学習要点として整理します。">
-  <meta property="og:title" content="働く場所を固定しない働き方をどう捉えるか | ITネッコ"><meta property="og:description" content="オフィスや自宅に限定せず、どこからでも働ける勤務形態の特徴を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>業務分析で見る対象を区別する | ITネッコ</title>
+  <meta name="description" content="業務分析で使うWFA、CRUD図、E-R図、DMMを、何を見るためのものかで区別します。業務の流れ、データ操作、データ同士の関係、要素整理の違いを整理します。">
+  <meta property="og:title" content="業務分析で見る対象を区別する | ITネッコ"><meta property="og:description" content="業務分析で使うWFA、CRUD図、E-R図、DMMを、何を見るためのものかで区別します。"><link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -23,88 +23,89 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動・業務分析</p>
-        <div class="topic-heading-meta"><span class="question-badge">問12</span><span class="term-label">WFA</span></div><h1>働く場所を固定しない働き方をどう捉えるか</h1>
-        <p class="page-description">オフィスや自宅に限定せず、どこからでも働ける勤務形態の特徴を整理します。</p>
+        <div class="topic-heading-meta"><span class="question-badge">問12</span><span class="term-label">業務分析の図法</span></div><h1>業務分析で見る対象を区別する</h1>
+        <p class="page-description">業務分析で使うWFA、CRUD図、E-R図、DMMを、何を見るためのものかで区別します。業務の流れ、データ操作、データ同士の関係、要素整理の違いを整理します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>働く場所を固定しない働き方をどう捉えるか</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>業務分析で見る対象を区別する</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
           <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
+            <h2><span class="step-number">1</span><span>業務分析では、見る対象によって整理方法が変わる</span></h2>
             <p>
-              企業が業務プロセスの課題を見つけ、見直しを行うために、業務の流れを図で整理する場面を考えます。
+              業務を見直すときは、まず何を明らかにしたいのかを考えます。業務分析、業務改善、システム化の文脈では、同じ業務を扱っていても、見る対象によって使う図法や整理方法が変わります。
             </p>
-            <p>
-              このとき重要なのは、データ同士の関係や画面操作だけではなく、誰が、どの作業を、どの順番で行うかという業務の流れを見えるようにすることです。
-            </p>
+            <ul class="summary-list">
+              <li>業務がどのような順序で進むのか。</li>
+              <li>業務で扱うデータにどのような操作を行うのか。</li>
+              <li>業務で扱うデータ同士がどのように関係しているのか。</li>
+              <li>検討テーマに関係する要素をどう広げて整理するのか。</li>
+            </ul>
           </section>
 
           <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
+            <h2><span class="step-number">2</span><span>業務の流れを見る場合はWFA</span></h2>
             <p>
-              業務プロセスを流れ図で可視化する記述形式として使うものは、WFA（Work Flow Architecture）です。
+              WFAは、Work Flow Architectureの略で、業務プロセスの流れを可視化するための記述様式です。ここで見る対象は「仕事全体」という大きなまとまりではなく、特定の業務プロセスの流れです。
             </p>
-            <p>
-              試験では、WFAを「業務の流れを表すための記述形式」と押さえます。
-            </p>
+            <ul class="summary-list">
+              <li>どの作業から始まるのか。</li>
+              <li>次にどの作業へ進むのか。</li>
+              <li>どこで判断や分岐があるのか。</li>
+              <li>どの担当者や部門に引き継がれるのか。</li>
+              <li>どこで完了するのか。</li>
+            </ul>
           </section>
 
           <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>WFAの構造を確認する</span></h2>
+            <h2><span class="step-number">3</span><span>データへの操作を見る場合はCRUD図</span></h2>
             <p>
-              WFAでは、業務を一連の流れとして捉えます。業務の開始から終了までの作業、担当、分岐、順序を整理することで、改善点を見つけやすくします。
+              CRUD図は、業務や処理がデータに対してどの操作を行うのかを見るための図です。CRUDは、データに対する基本操作を表します。
             </p>
-            <ul>
-              <li>業務プロセス：業務が進む一連の流れ。</li>
-              <li>作業：各担当者や部門が行う処理。</li>
-              <li>順序：作業がどのような順番で進むか。</li>
-              <li>可視化：流れ図として表し、課題や無駄を見つけやすくすること。</li>
+            <ul class="summary-list">
+              <li>Create：作成</li>
+              <li>Read：参照</li>
+              <li>Update：更新</li>
+              <li>Delete：削除</li>
             </ul>
+            <p>
+              CRUD図は、業務の流れそのものではなく、業務や処理とデータ操作の対応関係を見るものです。どの業務が、どのデータを作成、参照、更新、削除するのかを整理します。
+            </p>
           </section>
 
           <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>判断ポイントを整理する</span></h2>
+            <h2><span class="step-number">4</span><span>データ同士の関係を見る場合はE-R図</span></h2>
             <p>
-              WFAが適切かどうかは、次の三つの観点で判断します。
+              E-R図は、Entity-Relationship Diagramの略で、実体と関連を表す図です。顧客、注文、商品など、システムで扱うデータ同士がどのように関係しているのかを見るときに使います。
             </p>
-            <ul>
-              <li>対象が業務プロセスである：仕事の流れを整理しようとしている。</li>
-              <li>流れ図を使う：作業の順序やつながりを図で表す。</li>
-              <li>見直しに使う：業務上の課題や改善点を見つける目的がある。</li>
-            </ul>
+            <p>
+              E-R図は、業務の作業順序や分岐を表すものではありません。データのまとまり、構造、関連を明らかにするための図法として区別します。
+            </p>
           </section>
 
           <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい図を分ける</span></h2>
-            <ul>
-              <li>CRUD図：データに対する作成、参照、更新、削除の関係を整理する図。</li>
-              <li>DMM：データ同士の関連や構造を整理するときに使う考え方。</li>
-              <li>E-R図：実体と関連を表し、データベース設計などで使う図。</li>
-              <li>WFA：業務プロセスの流れを可視化するための記述形式。</li>
-            </ul>
+            <h2><span class="step-number">5</span><span>テーマから要素を広げる場合はDMM</span></h2>
+            <p>
+              DMMは、Diamond Mandala Matrixの略です。中心となるテーマを置き、その周辺に関連する要素を展開していく考え方です。
+            </p>
+            <p>
+              DMMは、業務プロセスの流れ、データへの操作、データ同士の関係を直接表すものではありません。テーマから要素を広げ、検討すべき観点を整理するためのものです。
+            </p>
           </section>
 
           <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
+            <h2><span class="step-number">6</span><span>学習のまとめ</span></h2>
+            <p>
+              業務分析で使う図法や整理方法は、図法名を暗記するだけではなく、「何を見るためのものか」で判断します。
+            </p>
             <ul class="summary-list">
-              <li>WFAは、業務プロセスの流れを可視化するための記述形式である。</li>
-              <li>作業の順序、担当、つながりを整理する。</li>
-              <li>業務の課題抽出や見直しに使う。</li>
-              <li>試験では、データ構造を表す図と、業務の流れを表す図を区別する。</li>
+              <li>業務がどの順序で進むのかを見る → WFA</li>
+              <li>業務や処理がデータに対して何をするのかを見る → CRUD図</li>
+              <li>データ同士がどのように関係しているのかを見る → E-R図</li>
+              <li>テーマから関連する要素を広げて整理する → DMM</li>
             </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：業務の流れを見る</h2>
-            <p>
-              業務改善では、業務を個別の作業だけで見るのではなく、前後のつながりを含めて見ることが重要です。
-            </p>
-            <p>
-              WFAは、業務がどこから始まり、どの担当を通り、どこで分岐し、どこで終わるのかを整理するために使います。
-            </p>
           </section>
 
           <section class="detail-section" id="related">
@@ -112,6 +113,9 @@
             <p>関連する学習要点は、今後追加していきます。</p>
             <div class="tag-list">
               <span class="tag">WFA</span>
+              <span class="tag">CRUD図</span>
+              <span class="tag">E-R図</span>
+              <span class="tag">DMM</span>
               <span class="tag">業務プロセス</span>
               <span class="tag">業務分析</span>
             </div>
@@ -122,7 +126,7 @@
             <p>令和8年度 ITパスポート試験 公開問題 問12</p>
             <p>
               このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
+              公開問題の本文は掲載していません。
             </p>
           </section>
         </article>
