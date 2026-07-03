@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>インシデント管理と問題管理の違いを見分ける | ITネッコ</title>
-  <meta name="description" content="ITサービスマネジメントにおけるインシデント管理と問題管理の違いを、復旧と根本原因分析の観点で整理します。">
+  <title>まず使える状態に戻すのか、原因まで直すのか | ITネッコ</title>
+  <meta name="description" content="インシデント管理／問題管理について、早期復旧と根本原因の解消という目的の違いで整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
   <main>
-    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / サービスマネジメント</p><h1>インシデント管理と問題管理の違いを見分ける</h1><p class="page-description">サービスの中断に対する迅速な復旧と、根本原因を調べて解決策を示す活動の違いを整理します。</p></div></section>
-    <div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
-      <section class="detail-section"><h2>この要点で学ぶこと</h2><p>問題管理は、障害や不具合の背後にある根本原因を調査し、再発防止や恒久的な解決策につなげるプロセスです。インシデント管理は、まずサービスを早く復旧することに重点があります。</p></section>
-      <section class="detail-section"><h2>試験で問われる判断軸</h2><ul><li>迅速な復旧が中心ならインシデント管理。</li><li>根本原因を調査し、解決策を示すなら問題管理。</li><li>IT資産や構成情報の維持なら構成管理。</li><li>修正やリリースを計画して管理するなら変更管理・リリース管理に近い。</li></ul></section>
-      <section class="detail-section"><h2>間違えやすい選択肢・近い用語との違い</h2><ul><li>インシデント管理：利用者影響を抑えるため、早く復旧する。</li><li>問題管理：なぜ起きたかを分析し、再発防止につなげる。</li><li>構成管理：機器、ソフトウェア、関係などの構成情報を管理する。</li><li>変更管理：変更によるリスクを抑えながら計画・承認・実施を管理する。</li></ul></section>
-      <section class="detail-section"><h2>この問題に出会ったときの考え方</h2><p>「復旧」と「根本原因」のどちらを重視しているかで切り分けます。根本原因の調査や恒久対策が出てきたら、問題管理を考えます。</p></section>
-      <section class="detail-section"><h2>関連する要点</h2><div class="tag-list"><span class="tag">問題管理</span><span class="tag">インシデント管理</span><span class="tag">ITサービスマネジメント</span></div></section>
-      <section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問46</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section>
-    </article></div></div>
+    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / サービスマネジメント / インシデント管理・問題管理</p><div class="topic-heading-meta"><span class="term-label">概念名：インシデント管理／問題管理</span></div><h1>まず使える状態に戻すのか、原因まで直すのか</h1><p class="page-description">障害対応を、利用者への影響を早く小さくする活動と、再発防止へつなげる活動に分けて整理します。</p></div></section>
+    <div class="container page-flow"><nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>まず使える状態に戻すのか、原因まで直すのか</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a><article class="detail-flow">
+      <section class="detail-section" id="scene"><h2>場面</h2><p>販売管理システムが突然使えなくなり、店舗の業務が止まりました。現場はまず注文処理を再開したい。一方で、同じ障害が何度も起きるなら、あとで原因を調べて根本的に直す必要があります。</p></section>
+      <section class="detail-section" id="conclusion"><h2>まず押さえる結論</h2><p>インシデント管理は、障害やサービス低下が起きたときに、利用者への影響を小さくし、サービスをできるだけ早く復旧する活動です。</p><p>問題管理は、インシデントの背後にある根本原因を調べ、再発防止や恒久対策につなげる活動です。</p></section>
+      <section class="detail-section" id="structure"><h2>どう成り立っているか</h2><ul><li>サービスデスクなどが障害連絡を受け付け、内容を記録する。</li><li>インシデント管理では、回避策や復旧手順でサービスを使える状態に戻す。</li><li>問題管理では、原因分析、既知の誤りの管理、恒久対策を進める。</li><li>復旧の速さと、再発防止の深さを別の目的として扱う。</li></ul></section>
+      <section class="detail-section" id="basis"><h2>理解の基軸</h2><ul><li>今困っている利用者を助ける活動なら、インシデント管理として見る。</li><li>なぜ起きたのかを掘り下げ、再発を防ぐ活動なら、問題管理として見る。</li><li>暫定対応はインシデント管理に寄り、恒久対策は問題管理に寄る。</li><li>どちらも障害に関係するが、時間軸と目的が違う。</li></ul></section>
+      <section class="detail-section" id="mistakes"><h2>混同しやすいもの</h2><ul><li>インシデント管理：早期復旧を重視する。</li><li>問題管理：根本原因の解消と再発防止を重視する。</li><li>変更管理：対策を本番環境へ反映するとき、影響や承認を管理する。</li><li>サービスデスク：利用者からの連絡を受け付け、対応へつなぐ窓口。</li></ul></section>
+      <section class="detail-section" id="exam"><h2>試験での出方</h2><p>公開問題では、「まず使えるようにする」記述と、「根本原因を分析して再発防止する」記述を分けて読ませる形で出やすいです。</p></section>
+      <section class="detail-section" id="summary"><h2>まとめ</h2><p>インシデント管理はまず戻す、問題管理はなぜ起きたかまで直す活動です。</p></section>
+      <section class="detail-section" id="related"><h2>関連する要点</h2><p><a href="../service-desk/">サービスデスク</a>、<a href="../change-control-board/">変更管理</a>もあわせて確認できます。</p><div class="tag-list"><span class="tag">インシデント管理</span><span class="tag">問題管理</span><span class="tag">復旧</span><span class="tag">再発防止</span></div></section>
+      <section class="detail-section" id="reference"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問46</p><p>問題文・選択肢本文は掲載していません。</p></section>
+    </article></div>
   </main>
   <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
