@@ -34,18 +34,13 @@
     .official-category-card {
       display: flex;
       width: 320px;
-      min-height: 170px;
+      min-height: 190px;
       flex-direction: column;
       border: 1px solid rgba(95, 114, 82, 0.26);
       border-radius: 10px;
       background: rgba(238, 242, 234, 0.62);
       color: inherit;
       padding: 18px;
-      text-decoration: none;
-    }
-
-    .official-category-card:hover {
-      border-color: rgba(95, 114, 82, 0.58);
     }
 
     .official-category-card h4 {
@@ -62,7 +57,7 @@
       line-height: 1.7;
     }
 
-    .official-category-card .read-more {
+    .official-category-card .related-area {
       margin-top: auto;
       padding-top: 14px;
       font-size: 0.86rem;
@@ -76,9 +71,15 @@
       line-height: 1.4;
     }
 
+    .related-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
     .related-pill {
       display: inline-block;
-      margin-top: 6px;
       border: 1px solid rgba(95, 114, 82, 0.32);
       border-radius: 999px;
       background: rgba(255, 253, 248, 0.82);
@@ -87,6 +88,11 @@
       font-weight: 700;
       line-height: 1.45;
       padding: 4px 10px;
+      text-decoration: none;
+    }
+
+    .related-pill:hover {
+      border-color: rgba(95, 114, 82, 0.58);
     }
 
     @media (max-width: 720px) {
@@ -142,13 +148,13 @@
           <h3 id="official-category-guide">公式分類とITネッコ分類のつながり</h3>
           <p>公式分類は、試験で使われる分類名です。ITネッコでは、その分類を学習者が場面で理解しやすい9つの入口に置き直しています。ここでは、公式分類の言葉が出てきたときに、ITネッコではどの分類から読めばよいかをつなげます。</p>
           <div class="official-category-grid">
-            <a class="official-category-card" href="#management-area-1"><h4>ITガバナンス</h4><p>システム導入を担当者任せにせず、会社として目的・効果・リスクを見て判断する考え方です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">ITガバナンス・内部統制</span></span></a>
-            <a class="official-category-card" href="#management-area-1"><h4>システム監査・内部統制</h4><p>業務が正しく進むように、けん制や確認の仕組みをどう整えるかを見る分類です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">ITガバナンス・内部統制</span></span></a>
-            <a class="official-category-card" href="#management-area-3"><h4>プロジェクトマネジメント</h4><p>期限、費用、人員、範囲、変更などを管理し、プロジェクトを進める分類です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">見積り・計画・進捗</span></span></a>
-            <a class="official-category-card" href="#management-area-4"><h4>システム開発技術</h4><p>利用者の要求を整理し、システムとして必要な内容を決めていく分類です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">開発プロセス・要求・リリース</span></span></a>
-            <a class="official-category-card" href="#management-area-4"><h4>ソフトウェア開発管理技術</h4><p>開発の進め方や手法を選び、作りながら確認する流れを見る分類です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">開発プロセス・要求・リリース</span></span></a>
-            <a class="official-category-card" href="#management-area-5"><h4>サービスマネジメント</h4><p>ITサービスを使い続けるために、問合せ、障害、品質、設備を管理する分類です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">サービスデスク・問合せ対応</span></span></a>
-            <a class="official-category-card" href="#management-area-9"><h4>システム監査</h4><p>システムや運用が適切かを、担当者とは別の立場から確認する分類です。</p><span class="read-more"><span class="related-label">関連するITネッコ分類：</span><span class="related-pill">システム監査</span></span></a>
+            <div class="official-category-card"><h4>ITガバナンス</h4><p>システム導入を担当者任せにせず、会社として目的・効果・リスクを見て判断する考え方です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-1">ITガバナンス・内部統制</a></div></div></div>
+            <div class="official-category-card"><h4>システム監査・内部統制</h4><p>業務が正しく進むように、けん制や確認の仕組みをどう整えるかを見る分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-1">ITガバナンス・内部統制</a></div></div></div>
+            <div class="official-category-card"><h4>プロジェクトマネジメント</h4><p>プロジェクトを進めるために、契約範囲、計画、進捗、変更などを管理する考え方です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-2">契約・調達・利用範囲</a><a class="related-pill" href="#management-area-3">見積り・計画・進捗</a><a class="related-pill" href="#management-area-6">インシデント・問題・変更管理</a></div></div></div>
+            <div class="official-category-card"><h4>システム開発技術</h4><p>利用者の要求を整理し、システムとして必要な内容を決めていく分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-4">開発プロセス・要求・リリース</a></div></div></div>
+            <div class="official-category-card"><h4>ソフトウェア開発管理技術</h4><p>開発の進め方や手法を選び、作りながら確認する流れを見る分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-4">開発プロセス・要求・リリース</a></div></div></div>
+            <div class="official-category-card"><h4>サービスマネジメント</h4><p>ITサービスを使い続けるために、問合せ、障害、品質、設備を管理する考え方です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-5">サービスデスク・問合せ対応</a><a class="related-pill" href="#management-area-6">インシデント・問題・変更管理</a><a class="related-pill" href="#management-area-7">サービスレベル・可用性・改善</a><a class="related-pill" href="#management-area-8">ファシリティ・設備管理</a></div></div></div>
+            <div class="official-category-card"><h4>システム監査</h4><p>システムや運用が適切かを、担当者とは別の立場から確認する分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-9">システム監査</a></div></div></div>
           </div>
         </section>
 
