@@ -6,8 +6,35 @@
   <title>マネジメント系 | ITネッコ</title>
   <meta name="description" content="ITの開発、運用、サービス、管理の仕組みを、会社で起きる具体的な場面から整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .management-page .card-grid {
+      grid-template-columns: repeat(auto-fill, 320px);
+      justify-content: start;
+      align-items: stretch;
+    }
+
+    .management-page .topic-card {
+      width: 320px;
+      min-height: 150px;
+      padding: 20px;
+    }
+
+    .management-page .topic-card h3 {
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 720px) {
+      .management-page .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .management-page .topic-card {
+        width: auto;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="management-page">
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="../../">ITネッコ</a>
