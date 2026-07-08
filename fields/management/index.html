@@ -23,59 +23,54 @@
       font-size: 1.05rem;
     }
 
-    .official-category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 320px);
-      justify-content: start;
-      gap: 18px;
+    .category-map-table {
+      width: 100%;
+      border-collapse: collapse;
       margin-top: 18px;
-    }
-
-    .official-category-card {
-      display: flex;
-      width: 320px;
-      min-height: 190px;
-      flex-direction: column;
-      border: 1px solid rgba(95, 114, 82, 0.26);
+      overflow: hidden;
       border-radius: 10px;
-      background: rgba(238, 242, 234, 0.62);
-      color: inherit;
-      padding: 18px;
+      font-size: 0.95rem;
     }
 
-    .official-category-card h4 {
-      margin: 0;
+    .category-map-table th,
+    .category-map-table td {
+      border: 1px solid rgba(95, 114, 82, 0.22);
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .category-map-table th {
+      background: rgba(238, 242, 234, 0.78);
       color: var(--color-accent-dark);
-      font-size: 1rem;
-      line-height: 1.45;
+      font-weight: 700;
+      line-height: 1.5;
     }
 
-    .official-category-card p {
-      margin: 10px 0 0;
-      color: var(--color-muted);
-      font-size: 0.9rem;
+    .category-map-table td {
+      background: rgba(255, 253, 248, 0.66);
       line-height: 1.7;
     }
 
-    .official-category-card .related-area {
-      margin-top: auto;
-      padding-top: 14px;
-      font-size: 0.86rem;
+    .category-map-table .official-name {
+      display: block;
+      color: var(--color-accent-dark);
+      font-weight: 700;
+      line-height: 1.5;
     }
 
-    .related-label {
+    .category-map-table .official-note {
       display: block;
+      margin-top: 4px;
       color: var(--color-muted);
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.4;
+      font-size: 0.86rem;
+      line-height: 1.65;
     }
 
     .related-pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 6px;
     }
 
     .related-pill {
@@ -96,14 +91,58 @@
     }
 
     @media (max-width: 720px) {
-      .management-page .card-grid,
-      .official-category-grid {
+      .management-page .card-grid {
         grid-template-columns: 1fr;
       }
 
-      .management-page .topic-card,
-      .official-category-card {
+      .management-page .topic-card {
         width: auto;
+      }
+
+      .category-map-table,
+      .category-map-table thead,
+      .category-map-table tbody,
+      .category-map-table tr,
+      .category-map-table th,
+      .category-map-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .category-map-table thead {
+        display: none;
+      }
+
+      .category-map-table tr {
+        border: 1px solid rgba(95, 114, 82, 0.22);
+        border-radius: 10px;
+        margin-top: 12px;
+        overflow: hidden;
+      }
+
+      .category-map-table td {
+        border: 0;
+      }
+
+      .category-map-table td + td {
+        border-top: 1px solid rgba(95, 114, 82, 0.18);
+      }
+
+      .category-map-table td::before {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--color-muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .category-map-table td:first-child::before {
+        content: "公式分類";
+      }
+
+      .category-map-table td:nth-child(2)::before {
+        content: "ITネッコではここから読む";
       }
     }
   </style>
@@ -139,17 +178,46 @@
         </section>
 
         <section class="detail-section" aria-labelledby="official-category-guide">
-          <h3 id="official-category-guide">公式分類をITネッコ分類に置き直す</h3>
+          <h3 id="official-category-guide">公式分類の言葉が出てきたら、ITネッコではここから読む</h3>
           <p>公式分類は、試験で使われる分類名です。ITネッコでは、その分類をそのまま並べるのではなく、学習者が場面で理解しやすい9つの入口に置き直しています。</p>
-          <div class="official-category-grid">
-            <div class="official-category-card"><h4>ITガバナンス</h4><p>システム導入を担当者任せにせず、会社として目的・効果・リスクを見て判断する考え方です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-1">ITガバナンス・内部統制</a></div></div></div>
-            <div class="official-category-card"><h4>システム監査・内部統制</h4><p>業務が正しく進むように、けん制や確認の仕組みをどう整えるかを見る分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-1">ITガバナンス・内部統制</a></div></div></div>
-            <div class="official-category-card"><h4>プロジェクトマネジメント</h4><p>プロジェクトを進めるために、契約範囲、計画、進捗、変更などを管理する考え方です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-2">契約・調達・利用範囲</a><a class="related-pill" href="#management-area-3">見積り・計画・進捗</a><a class="related-pill" href="#management-area-6">インシデント・問題・変更管理</a></div></div></div>
-            <div class="official-category-card"><h4>システム開発技術</h4><p>利用者の要求を整理し、システムとして必要な内容を決めていく分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-4">開発プロセス・要求・リリース</a></div></div></div>
-            <div class="official-category-card"><h4>ソフトウェア開発管理技術</h4><p>開発の進め方や手法を選び、作りながら確認する流れを見る分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-4">開発プロセス・要求・リリース</a></div></div></div>
-            <div class="official-category-card"><h4>サービスマネジメント</h4><p>ITサービスを使い続けるために、問合せ、障害、品質、設備を管理する考え方です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-5">サービスデスク・問合せ対応</a><a class="related-pill" href="#management-area-6">インシデント・問題・変更管理</a><a class="related-pill" href="#management-area-7">サービスレベル・可用性・改善</a><a class="related-pill" href="#management-area-8">ファシリティ・設備管理</a></div></div></div>
-            <div class="official-category-card"><h4>システム監査</h4><p>システムや運用が適切かを、担当者とは別の立場から確認する分類です。</p><div class="related-area"><span class="related-label">関連するITネッコ分類：</span><div class="related-pill-list"><a class="related-pill" href="#management-area-9">システム監査</a></div></div></div>
-          </div>
+          <table class="category-map-table">
+            <thead>
+              <tr>
+                <th>公式分類</th>
+                <th>ITネッコではここから読む</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="official-name">ITガバナンス</span><span class="official-note">会社としてITの目的・効果・リスクを見る分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
+              </tr>
+              <tr>
+                <td><span class="official-name">システム監査・内部統制</span><span class="official-note">業務を正しく進めるための確認やけん制を見る分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
+              </tr>
+              <tr>
+                <td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">契約範囲、計画、進捗、変更などを管理する分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-2">2. 契約・調達・利用範囲</a><a class="related-pill" href="#management-area-3">3. 見積り・計画・進捗</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a></div></td>
+              </tr>
+              <tr>
+                <td><span class="official-name">システム開発技術</span><span class="official-note">利用者の要求を整理し、システムとして必要な内容を決めていく分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
+              </tr>
+              <tr>
+                <td><span class="official-name">ソフトウェア開発管理技術</span><span class="official-note">開発の進め方や手法を選び、作りながら確認する流れを見る分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
+              </tr>
+              <tr>
+                <td><span class="official-name">サービスマネジメント</span><span class="official-note">ITサービスを使い続けるための問合せ、障害、品質、設備を管理する分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-5">5. サービスデスク・問合せ対応</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a><a class="related-pill" href="#management-area-7">7. サービスレベル・可用性・改善</a><a class="related-pill" href="#management-area-8">8. ファシリティ・設備管理</a></div></td>
+              </tr>
+              <tr>
+                <td><span class="official-name">システム監査</span><span class="official-note">システムや運用が適切かを、担当者とは別の立場から確認する分類。</span></td>
+                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-9">9. システム監査</a></div></td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section class="detail-section" aria-labelledby="management-area-1">
