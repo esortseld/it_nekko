@@ -23,6 +23,57 @@
       font-size: 1.05rem;
     }
 
+    .management-block {
+      border: 1px solid rgba(95, 114, 82, 0.22);
+      border-radius: 18px;
+      margin-top: 28px;
+      padding: 22px;
+      background: rgba(255, 253, 248, 0.72);
+      box-shadow: 0 10px 28px rgba(69, 74, 55, 0.06);
+    }
+
+    .management-block > .detail-section,
+    .management-block.detail-section {
+      margin: 0;
+    }
+
+    .management-block--overview {
+      border-left: 6px solid rgba(95, 114, 82, 0.5);
+    }
+
+    .management-block--map {
+      background: rgba(238, 242, 234, 0.46);
+    }
+
+    .management-block--areas {
+      background: rgba(255, 253, 248, 0.52);
+    }
+
+    .management-block--supplement {
+      background: rgba(238, 242, 234, 0.34);
+      opacity: 0.94;
+    }
+
+    .management-block-label {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(95, 114, 82, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.86);
+      color: var(--color-accent-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 14px;
+      padding: 5px 12px;
+    }
+
+    .management-area-group .detail-section + .detail-section {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px dashed rgba(95, 114, 82, 0.22);
+    }
+
     .category-map-table {
       width: 100%;
       border-collapse: collapse;
@@ -99,6 +150,12 @@
         width: auto;
       }
 
+      .management-block {
+        border-radius: 14px;
+        margin-top: 22px;
+        padding: 16px;
+      }
+
       .category-map-table,
       .category-map-table thead,
       .category-map-table tbody,
@@ -170,151 +227,159 @@
       <section aria-labelledby="management-topics">
         <div class="section-heading"><div><p class="section-kicker">Topics</p><h2 id="management-topics">マネジメント系の学習要点</h2></div></div>
 
-        <section class="detail-section" aria-label="マネジメント系全体の概要">
-          <p>マネジメント系は、システムやITサービスを「作る」「使う」「任せる」「確認する」ときに、組織としてどう進めるかを学ぶ分野です。</p>
-          <p>ポイントは、技術そのものよりも、仕事の進め方・役割分担・責任・リスク管理にあります。</p>
-          <p>たとえば、システムを導入するとき、すべてを担当者だけで決めることはできません。経営側が決めること、利用部門が伝えること、情報システム部門が管理すること、委託先に任せること、監査で確認することがあります。</p>
-          <p>マネジメント系では、こうした関係者の立場を整理しながら、「この場面では誰が何をするのか」を見分ける力が問われます。</p>
-        </section>
+        <div class="management-block management-block--overview">
+          <section class="detail-section" aria-label="マネジメント系全体の概要">
+            <p>マネジメント系は、システムやITサービスを「作る」「使う」「任せる」「確認する」ときに、組織としてどう進めるかを学ぶ分野です。</p>
+            <p>ポイントは、技術そのものよりも、仕事の進め方・役割分担・責任・リスク管理にあります。</p>
+            <p>たとえば、システムを導入するとき、すべてを担当者だけで決めることはできません。経営側が決めること、利用部門が伝えること、情報システム部門が管理すること、委託先に任せること、監査で確認することがあります。</p>
+            <p>マネジメント系では、こうした関係者の立場を整理しながら、「この場面では誰が何をするのか」を見分ける力が問われます。</p>
+          </section>
+        </div>
 
-        <section class="detail-section" aria-labelledby="official-category-guide">
-          <h3 id="official-category-guide">公式分類の言葉が出てきたら、ITネッコではここから読む</h3>
-          <p>公式分類は、試験で使われる分類名です。ITネッコでは、その分類をそのまま並べるのではなく、学習者が場面で理解しやすい9つの入口に置き直しています。</p>
-          <table class="category-map-table">
-            <thead>
-              <tr>
-                <th>公式分類</th>
-                <th>ITネッコではここから読む</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="official-name">ITガバナンス</span><span class="official-note">会社としてITの目的・効果・リスクを見る分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
-              </tr>
-              <tr>
-                <td><span class="official-name">システム監査・内部統制</span><span class="official-note">業務を正しく進めるための確認やけん制を見る分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
-              </tr>
-              <tr>
-                <td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">契約範囲、計画、進捗、変更などを管理する分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-2">2. 契約・調達・利用範囲</a><a class="related-pill" href="#management-area-3">3. 見積り・計画・進捗</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a></div></td>
-              </tr>
-              <tr>
-                <td><span class="official-name">システム開発技術</span><span class="official-note">利用者の要求を整理し、システムとして必要な内容を決めていく分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
-              </tr>
-              <tr>
-                <td><span class="official-name">ソフトウェア開発管理技術</span><span class="official-note">開発の進め方や手法を選び、作りながら確認する流れを見る分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
-              </tr>
-              <tr>
-                <td><span class="official-name">サービスマネジメント</span><span class="official-note">ITサービスを使い続けるための問合せ、障害、品質、設備を管理する分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-5">5. サービスデスク・問合せ対応</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a><a class="related-pill" href="#management-area-7">7. サービスレベル・可用性・改善</a><a class="related-pill" href="#management-area-8">8. ファシリティ・設備管理</a></div></td>
-              </tr>
-              <tr>
-                <td><span class="official-name">システム監査</span><span class="official-note">システムや運用が適切かを、担当者とは別の立場から確認する分類。</span></td>
-                <td><div class="related-pill-list"><a class="related-pill" href="#management-area-9">9. システム監査</a></div></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+        <div class="management-block management-block--map">
+          <section class="detail-section" aria-labelledby="official-category-guide">
+            <h3 id="official-category-guide">公式分類の言葉が出てきたら、ITネッコではここから読む</h3>
+            <p>公式分類は、試験で使われる分類名です。ITネッコでは、その分類をそのまま並べるのではなく、学習者が場面で理解しやすい9つの入口に置き直しています。</p>
+            <table class="category-map-table">
+              <thead>
+                <tr>
+                  <th>公式分類</th>
+                  <th>ITネッコではここから読む</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="official-name">ITガバナンス</span><span class="official-note">会社としてITの目的・効果・リスクを見る分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
+                </tr>
+                <tr>
+                  <td><span class="official-name">システム監査・内部統制</span><span class="official-note">業務を正しく進めるための確認やけん制を見る分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
+                </tr>
+                <tr>
+                  <td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">契約範囲、計画、進捗、変更などを管理する分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-2">2. 契約・調達・利用範囲</a><a class="related-pill" href="#management-area-3">3. 見積り・計画・進捗</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a></div></td>
+                </tr>
+                <tr>
+                  <td><span class="official-name">システム開発技術</span><span class="official-note">利用者の要求を整理し、システムとして必要な内容を決めていく分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
+                </tr>
+                <tr>
+                  <td><span class="official-name">ソフトウェア開発管理技術</span><span class="official-note">開発の進め方や手法を選び、作りながら確認する流れを見る分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
+                </tr>
+                <tr>
+                  <td><span class="official-name">サービスマネジメント</span><span class="official-note">ITサービスを使い続けるための問合せ、障害、品質、設備を管理する分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-5">5. サービスデスク・問合せ対応</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a><a class="related-pill" href="#management-area-7">7. サービスレベル・可用性・改善</a><a class="related-pill" href="#management-area-8">8. ファシリティ・設備管理</a></div></td>
+                </tr>
+                <tr>
+                  <td><span class="official-name">システム監査</span><span class="official-note">システムや運用が適切かを、担当者とは別の立場から確認する分類。</span></td>
+                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-9">9. システム監査</a></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
 
-        <section class="detail-section" aria-labelledby="management-area-1">
-          <h3 id="management-area-1">1. ITガバナンス・内部統制</h3>
-          <p>経営としてITをどう方向付け、業務を適切に進める仕組みをどう整えるかを整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/it-governance-edm/"><span class="card-label">公式中分類：ITガバナンス</span><h3>新しいシステムを入れるとき、経営陣は何をするのか</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/internal-control/"><span class="card-label">公式中分類：システム監査・内部統制</span><h3>内部統制におけるけん制とITへの対応を見分ける</h3></a>
-          </div>
-        </section>
+        <div class="management-block management-block--areas management-area-group">
+          <div class="management-block-label">ITネッコ分類 9つの入口</div>
 
-        <section class="detail-section" aria-labelledby="management-area-2">
-          <h3 id="management-area-2">2. 契約・調達・利用範囲</h3>
-          <p>システムやソフトウェアを利用・導入するとき、契約範囲や対応できる範囲をどう判断するかを整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/software-installation-scope/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>契約に含まれないPCへ導入を求められたらどうするか</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-1">
+            <h3 id="management-area-1">1. ITガバナンス・内部統制</h3>
+            <p>経営としてITをどう方向付け、業務を適切に進める仕組みをどう整えるかを整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/it-governance-edm/"><span class="card-label">公式中分類：ITガバナンス</span><h3>新しいシステムを入れるとき、経営陣は何をするのか</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/internal-control/"><span class="card-label">公式中分類：システム監査・内部統制</span><h3>内部統制におけるけん制とITへの対応を見分ける</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-3">
-          <h3 id="management-area-3">3. 見積り・計画・スコープ・資源・進捗</h3>
-          <p>プロジェクトを進めるために、作業、日程、範囲、費用、人員、進み具合をどう管理するかを整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/analogous-estimation/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクト初期の概算見積りを考える</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/wbs-work-breakdown-structure/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>大きな仕事を、管理できる作業に分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-charter/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトを正式に認可する文書を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-meeting-minutes/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクト会議では決定事項を記録して共有する</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-schedule-resource-constraint/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>前提作業と要員制約から最短日数を求める</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-schedule-techniques/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>スケジュール作成に用いる技法を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-performance-indicators/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>計画値と実績値からプロジェクトの進捗とコストを評価する</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-scope-deliverables/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトスコープの対象になる成果物を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/project-human-resource-planning/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトの人的資源計画でスキルと役割を整理する</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-2">
+            <h3 id="management-area-2">2. 契約・調達・利用範囲</h3>
+            <p>システムやソフトウェアを利用・導入するとき、契約範囲や対応できる範囲をどう判断するかを整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/software-installation-scope/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>契約に含まれないPCへ導入を求められたらどうするか</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-4">
-          <h3 id="management-area-4">4. 開発プロセス・要求・リリース</h3>
-          <p>システムを作る流れ、要求の確認、開発手法、利用できる状態にする工程を整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/waterfall-model/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>ウォーターフォールモデルの進め方を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/agile-development/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>最初から全部決めず、作りながら確かめる</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/requirements-definition-user-role/"><span class="card-label">公式中分類：システム開発技術</span><h3>システム要件定義では利用者が妥当性を確認する</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/prototyping-model/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>試作品で利用者の要求を確認するプロトタイピングを見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/software-deployment/"><span class="card-label">公式中分類：システム開発技術</span><h3>完成したソフトウェアを本番環境に入れる工程を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/usability-user-interface/"><span class="card-label">公式中分類：システム開発技術</span><h3>使用性では利用者が操作するインタフェースを見る</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-3">
+            <h3 id="management-area-3">3. 見積り・計画・スコープ・資源・進捗</h3>
+            <p>プロジェクトを進めるために、作業、日程、範囲、費用、人員、進み具合をどう管理するかを整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/analogous-estimation/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクト初期の概算見積りを考える</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/wbs-work-breakdown-structure/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>大きな仕事を、管理できる作業に分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-charter/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトを正式に認可する文書を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-meeting-minutes/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクト会議では決定事項を記録して共有する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-schedule-resource-constraint/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>前提作業と要員制約から最短日数を求める</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-schedule-techniques/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>スケジュール作成に用いる技法を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-performance-indicators/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>計画値と実績値からプロジェクトの進捗とコストを評価する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-scope-deliverables/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトスコープの対象になる成果物を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-human-resource-planning/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトの人的資源計画でスキルと役割を整理する</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-5">
-          <h3 id="management-area-5">5. サービスデスク・問合せ対応</h3>
-          <p>利用者からの問合せを受け付け、記録し、対応や自動応答につなげる仕組みを整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/service-desk/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>利用者の「困った」を最初に受け止める窓口</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/chatbot-service-desk/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>チャットボットで問合せ対応の受付時間を広げる</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/service-desk-automation-efficiency/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>AI導入による対応時間短縮率を計算する</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-4">
+            <h3 id="management-area-4">4. 開発プロセス・要求・リリース</h3>
+            <p>システムを作る流れ、要求の確認、開発手法、利用できる状態にする工程を整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/waterfall-model/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>ウォーターフォールモデルの進め方を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/agile-development/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>最初から全部決めず、作りながら確かめる</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/requirements-definition-user-role/"><span class="card-label">公式中分類：システム開発技術</span><h3>システム要件定義では利用者が妥当性を確認する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/prototyping-model/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>試作品で利用者の要求を確認するプロトタイピングを見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/software-deployment/"><span class="card-label">公式中分類：システム開発技術</span><h3>完成したソフトウェアを本番環境に入れる工程を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/usability-user-interface/"><span class="card-label">公式中分類：システム開発技術</span><h3>使用性では利用者が操作するインタフェースを見る</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-6">
-          <h3 id="management-area-6">6. インシデント・問題・変更管理</h3>
-          <p>障害が起きたときに早く使える状態へ戻すこと、原因を調べること、変更を勝手に進めないことを整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/problem-management/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>まず使える状態に戻すのか、原因まで直すのか</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/change-control-board/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>変更要求は、影響を確認してから承認する</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-5">
+            <h3 id="management-area-5">5. サービスデスク・問合せ対応</h3>
+            <p>利用者からの問合せを受け付け、記録し、対応や自動応答につなげる仕組みを整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/service-desk/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>利用者の「困った」を最初に受け止める窓口</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/chatbot-service-desk/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>チャットボットで問合せ対応の受付時間を広げる</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-desk-automation-efficiency/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>AI導入による対応時間短縮率を計算する</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-7">
-          <h3 id="management-area-7">7. サービスレベル・可用性・改善</h3>
-          <p>サービス品質の約束、利用できる時間の割合、管理の仕組みを継続的に改善する考え方を整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/service-level-management/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスの約束を、数値で決めて守る</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/service-availability/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスを利用できた時間の割合を可用性として見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/service-management-system-improvement/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスマネジメントシステムの改善に当たる対応を見分ける</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-6">
+            <h3 id="management-area-6">6. インシデント・問題・変更管理</h3>
+            <p>障害が起きたときに早く使える状態へ戻すこと、原因を調べること、変更を勝手に進めないことを整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/problem-management/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>まず使える状態に戻すのか、原因まで直すのか</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/change-control-board/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>変更要求は、影響を確認してから承認する</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-8">
-          <h3 id="management-area-8">8. ファシリティ・設備管理</h3>
-          <p>オフィス、設備、配線、施設資源など、ITサービスを支える環境を整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/facility-management-workplace-improvement/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>ファシリティマネジメントで改善する対象を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/free-access-floor/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>床下配線用の空間をもつ床をフリーアクセスフロアとして見分ける</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-7">
+            <h3 id="management-area-7">7. サービスレベル・可用性・改善</h3>
+            <p>サービス品質の約束、利用できる時間の割合、管理の仕組みを継続的に改善する考え方を整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/service-level-management/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスの約束を、数値で決めて守る</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-availability/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスを利用できた時間の割合を可用性として見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-management-system-improvement/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスマネジメントシステムの改善に当たる対応を見分ける</h3></a>
+            </div>
+          </section>
 
-        <section class="detail-section" aria-labelledby="management-area-9">
-          <h3 id="management-area-9">9. システム監査</h3>
-          <p>システムや運用が適切に管理されているかを、担当者とは別の立場から確認する考え方を整理します。</p>
-          <div class="card-grid">
-            <a class="topic-card topic-card--feature" href="../../topics/system-audit-scope/"><span class="card-label">公式中分類：システム監査</span><h3>情報セキュリティ監査が検証する対象を見分ける</h3></a>
-            <a class="topic-card topic-card--feature" href="../../topics/system-auditor-independence/"><span class="card-label">公式中分類：システム監査</span><h3>システム監査人は監査対象から独立している必要がある</h3></a>
-          </div>
-        </section>
+          <section class="detail-section" aria-labelledby="management-area-8">
+            <h3 id="management-area-8">8. ファシリティ・設備管理</h3>
+            <p>オフィス、設備、配線、施設資源など、ITサービスを支える環境を整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/facility-management-workplace-improvement/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>ファシリティマネジメントで改善する対象を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/free-access-floor/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>床下配線用の空間をもつ床をフリーアクセスフロアとして見分ける</h3></a>
+            </div>
+          </section>
+
+          <section class="detail-section" aria-labelledby="management-area-9">
+            <h3 id="management-area-9">9. システム監査</h3>
+            <p>システムや運用が適切に管理されているかを、担当者とは別の立場から確認する考え方を整理します。</p>
+            <div class="card-grid">
+              <a class="topic-card topic-card--feature" href="../../topics/system-audit-scope/"><span class="card-label">公式中分類：システム監査</span><h3>情報セキュリティ監査が検証する対象を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/system-auditor-independence/"><span class="card-label">公式中分類：システム監査</span><h3>システム監査人は監査対象から独立している必要がある</h3></a>
+            </div>
+          </section>
+        </div>
       </section>
 
-      <section class="detail-section" aria-labelledby="management-policy-heading">
+      <section class="detail-section management-block management-block--supplement" aria-labelledby="management-policy-heading">
         <p class="section-kicker">Supplement</p>
         <h2 id="management-policy-heading">学習項目について</h2>
         <p>マネジメント系は、公式試験では開発技術、プロジェクトマネジメント、サービスマネジメントなどに分かれます。ITネッコでは、分類名を覚えることだけではなく、今どの論点の話をしているのかをつかむことが大事だと考えています。</p>
