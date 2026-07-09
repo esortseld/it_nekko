@@ -123,6 +123,20 @@
       line-height: 1.65;
     }
 
+    .category-map-table .map-arrow-cell,
+    .category-map-table .map-arrow-heading {
+      width: 56px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .category-map-table .map-arrow-cell {
+      color: var(--color-accent-dark);
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
     .related-pill-list {
       display: flex;
       flex-wrap: wrap;
@@ -144,6 +158,10 @@
 
     .related-pill:hover {
       border-color: rgba(95, 114, 82, 0.58);
+    }
+
+    .category-map-note {
+      margin-top: 14px;
     }
 
     @media (max-width: 720px) {
@@ -203,8 +221,12 @@
         content: "公式分類";
       }
 
-      .category-map-table td:nth-child(2)::before {
-        content: "ITネッコではここから読む";
+      .category-map-table td:nth-child(2) {
+        display: none;
+      }
+
+      .category-map-table td:nth-child(3)::before {
+        content: "ITネッコ分類";
       }
     }
   </style>
@@ -243,46 +265,36 @@
 
         <div class="management-block management-block--map">
           <section class="detail-section" aria-labelledby="official-category-guide">
-            <h3 id="official-category-guide">公式分類の言葉が出てきたら、ITネッコではここから読む</h3>
-            <p>公式分類は、試験で使われる分類名です。ITネッコでは、その分類をそのまま並べるのではなく、学習者が場面で理解しやすい9つの入口に置き直しています。</p>
+            <h3 id="official-category-guide">公式分類を、ITネッコ分類に置き直す</h3>
+            <p>マネジメント系は、公式分類では「開発技術」「プロジェクトマネジメント」「サービスマネジメント」の3つに分かれます。その中にある分類を、ITネッコでは問題を解くときに考えやすいまとまりに置き直しています。</p>
             <table class="category-map-table">
               <thead>
                 <tr>
                   <th>公式分類</th>
-                  <th>ITネッコではここから読む</th>
+                  <th class="map-arrow-heading" aria-label="置き直す"></th>
+                  <th>ITネッコ分類</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><span class="official-name">ITガバナンス</span><span class="official-note">会社としてITの目的・効果・リスクを見る分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
+                  <td><span class="official-name">開発技術</span><span class="official-note">システム開発技術／ソフトウェア開発管理技術</span></td>
+                  <td class="map-arrow-cell" aria-hidden="true">→</td>
+                  <td><div class="related-pill-list"><span class="related-pill">開発プロセス・要求・リリース</span></div></td>
                 </tr>
                 <tr>
-                  <td><span class="official-name">システム監査・内部統制</span><span class="official-note">業務を正しく進めるための確認やけん制を見る分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-1">1. ITガバナンス・内部統制</a></div></td>
+                  <td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">プロジェクトマネジメント</span></td>
+                  <td class="map-arrow-cell" aria-hidden="true">→</td>
+                  <td><div class="related-pill-list"><span class="related-pill">契約・調達・利用範囲</span><span class="related-pill">見積り・計画・進捗</span><span class="related-pill">インシデント・問題・変更管理</span></div></td>
                 </tr>
                 <tr>
-                  <td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">契約範囲、計画、進捗、変更などを管理する分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-2">2. 契約・調達・利用範囲</a><a class="related-pill" href="#management-area-3">3. 見積り・計画・進捗</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a></div></td>
-                </tr>
-                <tr>
-                  <td><span class="official-name">システム開発技術</span><span class="official-note">利用者の要求を整理し、システムとして必要な内容を決めていく分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
-                </tr>
-                <tr>
-                  <td><span class="official-name">ソフトウェア開発管理技術</span><span class="official-note">開発の進め方や手法を選び、作りながら確認する流れを見る分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-4">4. 開発プロセス・要求・リリース</a></div></td>
-                </tr>
-                <tr>
-                  <td><span class="official-name">サービスマネジメント</span><span class="official-note">ITサービスを使い続けるための問合せ、障害、品質、設備を管理する分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-5">5. サービスデスク・問合せ対応</a><a class="related-pill" href="#management-area-6">6. インシデント・問題・変更管理</a><a class="related-pill" href="#management-area-7">7. サービスレベル・可用性・改善</a><a class="related-pill" href="#management-area-8">8. ファシリティ・設備管理</a></div></td>
-                </tr>
-                <tr>
-                  <td><span class="official-name">システム監査</span><span class="official-note">システムや運用が適切かを、担当者とは別の立場から確認する分類。</span></td>
-                  <td><div class="related-pill-list"><a class="related-pill" href="#management-area-9">9. システム監査</a></div></td>
+                  <td><span class="official-name">サービスマネジメント</span><span class="official-note">サービスマネジメント／システム監査</span></td>
+                  <td class="map-arrow-cell" aria-hidden="true">→</td>
+                  <td><div class="related-pill-list"><span class="related-pill">サービスデスク・問合せ対応</span><span class="related-pill">インシデント・問題・変更管理</span><span class="related-pill">サービスレベル・可用性・改善</span><span class="related-pill">ファシリティ・設備管理</span><span class="related-pill">システム監査</span></div></td>
                 </tr>
               </tbody>
             </table>
+            <p class="category-map-note">ITガバナンス・内部統制は、開発・プロジェクト・サービス管理を読む前提として、ITネッコでは最初の入口にしています。</p>
+            <p class="category-map-note">次に、ITネッコ分類の9つの入口を順番に確認します。</p>
           </section>
         </div>
 
