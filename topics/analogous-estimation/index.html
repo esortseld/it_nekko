@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>初期段階の概算費用は類似事例から見積もる | ITネッコ</title>
-  <meta name="description" content="プロジェクト初期に短時間で概算費用を把握する場面から、類推見積りの考え方を学習要点として整理します。">
+  <title>まだ詳細が決まっていない計画の費用をどう見積もるか | ITネッコ</title>
+  <meta name="description" content="プロジェクトの初期段階で概算費用を求められる場面から、類推見積りの使いどころ、根拠、精度、他の見積手法との違いを整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
@@ -14,29 +14,244 @@
       <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
     </div>
   </header>
+
   <main>
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">マネジメント系 / プロジェクトマネジメント</p>
-        <h1>初期段階の概算費用は類似事例から見積もる</h1>
-        <p class="page-description">プロジェクトの計画初期に、短時間で大まかな費用感をつかむための類推見積りを整理します。</p>
+        <h1>まだ詳細が決まっていない計画の費用をどう見積もるか</h1>
+        <p class="page-description">
+          詳細な作業内容が決まる前でも、計画を進めるために費用の目安が必要になることがあります。見積りを使う時期と目的から、適切な方法を見分けます。
+        </p>
       </div>
     </section>
+
     <div class="container page-flow">
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section" id="scene"><h2>場面：まだ詳細が固まっていない</h2><p>プロジェクトの初期段階では、作業内容や仕様が細かく決まっていないことがあります。それでも、予算を考えるために短期間で概算費用を出したい場面があります。</p></section>
-          <section class="detail-section" id="conclusion"><h2>まず押さえる結論</h2><p>このような場面では、過去の類似プロジェクトの費用や規模を参考にする類推見積りを使います。</p><p>精度は詳細見積りより低くなりますが、情報が少ない段階でも早く概算を出せる点が特徴です。</p></section>
-          <section class="detail-section" id="checkpoints"><h2>理解の基軸</h2><ul><li>計画初期で、詳細な作業単位がまだ分からない。</li><li>短期間で概算費用を知りたい。</li><li>過去の類似プロジェクトを参考にする。</li><li>詳細なWBSの積上げや、プログラムのコード行数からの見積りとは分けて考える。</li></ul></section>
-          <section class="detail-section" id="mistakes"><h2>混同しやすい見積り</h2><ul><li>類推見積り：似た過去事例を参考に、初期段階で概算する。</li><li>ボトムアップ見積り：作業を細かく分け、それぞれを積み上げる。</li><li>ファンクションポイント法：機能量をもとにソフトウェア規模を見積もる。</li><li>LOC見積り：プログラムのコード行数をもとに見積もる。</li></ul></section>
-          <section class="detail-section" id="summary"><h2>まとめ</h2><ul class="summary-list"><li>初期段階の概算には、類推見積りが向いている。</li><li>類推見積りは、類似プロジェクトの実績を参考にする。</li><li>詳細な作業分解やコード行数が必要な見積りとは区別する。</li></ul></section>
-          <section class="detail-section" id="related"><h2>関連する要点</h2><div class="tag-list"><span class="tag">類推見積り</span><span class="tag">概算見積り</span><span class="tag">プロジェクトマネジメント</span><span class="tag">マネジメント系</span></div></section>
-          <section class="detail-section" id="reference"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問37</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section>
+          <section class="detail-section" id="scene">
+            <h2>まずは、状況を見てみよう</h2>
+            <p>
+              ある会社で、新しいシステムを導入する案が出ている。
+            </p>
+            <p>
+              まだ、必要な機能、作業の分担、開発期間などは細かく決まっていない。しかし、計画を進めるかどうかを検討するために、「およそ、いくらかかるのか」を早い段階で知りたい。
+            </p>
+            <p>
+              詳細が決まっていないため、作業を一つずつ洗い出して正確に積み上げることはできない。それでも、予算の候補を考えたり、複数の案を比較したりするための数字は必要である。
+            </p>
+            <p>
+              この場面で求められているのは、確定した費用ではない。計画を検討するために使える、大まかな費用の目安である。
+            </p>
+            <p>
+              このカードでは、見積りを出す時期、利用できる情報、求める精度を整理しながら、類推見積りが使われる場面を見分けていく。
+            </p>
+          </section>
+
+          <section class="detail-section" id="actors">
+            <h2>登場人物と、見積りの使い道</h2>
+            <p>
+              見積りは、数字を作ること自体が目的ではない。誰が、何を判断するために使うのかを考える。
+            </p>
+            <ul>
+              <li>経営者・責任者：計画を進めるか、予算を確保できるか、他の案と比べて妥当かを判断する。</li>
+              <li>プロジェクトマネージャ：現時点で利用できる情報を確認し、目的に合う見積方法を選ぶ。</li>
+              <li>過去のプロジェクト担当者・組織：以前の費用、期間、規模など、比較の基になる実績を残す。</li>
+              <li>実際に作業する担当者：詳細が決まった後、作業内容を分解し、より具体的な見積りに関わる。</li>
+            </ul>
+            <p>
+              計画初期の見積りと、実行直前の詳細な見積りは、同じ精度を目的としていない。初期には判断材料を早く用意し、詳細が固まるにつれて見積りを具体化していく。
+            </p>
+          </section>
+
+          <section class="detail-section" id="clues">
+            <h2>手掛かりになる条件</h2>
+            <p>
+              問題文では、見積手法の名前より先に、見積りを行う場面が示される。次の条件を確認する。
+            </p>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>場面に出てくる条件</th>
+                    <th>読み取ること</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>計画初期、企画段階、詳細未定</td>
+                    <td>細かな作業や仕様を使った見積りは、まだ難しい</td>
+                  </tr>
+                  <tr>
+                    <td>短期間で、大まかに、概算</td>
+                    <td>精密さより、早く目安を出すことが優先されている</td>
+                  </tr>
+                  <tr>
+                    <td>過去の類似案件、似た規模の実績</td>
+                    <td>以前のプロジェクトを比較材料として使える</td>
+                  </tr>
+                  <tr>
+                    <td>予算検討、案の比較、実施判断</td>
+                    <td>確定額ではなく、判断に使う概算が求められている</td>
+                  </tr>
+                  <tr>
+                    <td>詳細な作業分解、個別作業の積上げ</td>
+                    <td>初期の概算ではなく、詳細化された見積りを求めている</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="detail-section" id="analogous">
+            <h2>ここで使う類推見積り</h2>
+            <p>
+              類推見積りは、これから行うプロジェクトと似ている過去のプロジェクトを探し、その実績を基に費用や期間を見積もる方法である。
+            </p>
+            <p>
+              例えば、以前に同じ種類のシステムを、似た利用者数・似た規模で導入していれば、そのときの費用や期間を出発点にする。今回の規模や条件が異なる場合は、その違いを考慮して調整する。
+            </p>
+            <p>
+              詳細な作業一覧がなくても見積もれるため、計画の初期段階で早く概算を出しやすい。一方で、比較する過去事例が適切でなければ、見積りのずれが大きくなる。
+            </p>
+          </section>
+
+          <section class="detail-section" id="structure">
+            <h2>類推見積りは、何を根拠にするのか</h2>
+            <p>
+              類推見積りは、「以前も同じくらいだったから」という印象だけで決める方法ではない。比較する条件を確認する必要がある。
+            </p>
+            <ul>
+              <li>何を作る、または導入するプロジェクトか。</li>
+              <li>利用者数、対象部門、機能数などの規模は近いか。</li>
+              <li>期間、体制、技術、外部委託の範囲は近いか。</li>
+              <li>過去と今回で異なる条件は何か。</li>
+              <li>過去の実績値は、比較に使える形で記録されているか。</li>
+            </ul>
+            <p>
+              類似性が高く、過去の実績が信頼できるほど、概算の根拠は強くなる。反対に、名前や目的が似ているだけで条件が大きく違えば、比較材料としては弱い。
+            </p>
+          </section>
+
+          <section class="detail-section" id="tradeoff">
+            <h2>早さと精度の関係</h2>
+            <p>
+              見積りには、早さと精度の関係がある。
+            </p>
+            <p>
+              初期段階では、利用できる情報が少ない。そのため、短時間で出せる代わりに、見積りの幅は大きくなりやすい。詳細が決まり、作業内容を細かく確認できるようになると、より具体的な見積りへ更新できる。
+            </p>
+            <div class="formula-box">
+              情報が少ない初期段階<br>
+              → 過去の類似事例から、早く概算する<br>
+              → 計画を進めるかどうかの判断材料にする<br>
+              → 詳細が固まったら、作業を分解して見積りを更新する
+            </div>
+            <p>
+              類推見積りは、詳細見積りの代わりに最後まで使い続けるものではない。計画初期に必要な精度と速度に合う方法として使う。
+            </p>
+          </section>
+
+          <section class="detail-section" id="comparison">
+            <h2>見積方法を見分ける</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>見積方法</th>
+                    <th>何を基にするか</th>
+                    <th>見分ける場面</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>類推見積り</td>
+                    <td>過去の類似プロジェクトの実績</td>
+                    <td>詳細未定の初期段階で、早く概算したい</td>
+                  </tr>
+                  <tr>
+                    <td>ボトムアップ見積り</td>
+                    <td>細分化した個々の作業の見積り</td>
+                    <td>作業内容を具体化し、積み上げて見積もる</td>
+                  </tr>
+                  <tr>
+                    <td>ファンクションポイント法</td>
+                    <td>利用者から見たソフトウェアの機能量</td>
+                    <td>機能を基に、ソフトウェア規模を見積もる</td>
+                  </tr>
+                  <tr>
+                    <td>LOCによる見積り</td>
+                    <td>プログラムのコード行数</td>
+                    <td>作成するプログラム量を行数で捉える</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="detail-section" id="confusion">
+            <h2>取り違えやすい判断</h2>
+            <p>
+              ○ 詳細が固まっていない段階で、似た過去案件の実績から概算する<br>
+              × 詳細がないのに、個々の作業時間を正確に積み上げようとする
+            </p>
+            <p>
+              ○ 初期の概算を、予算検討や案の比較に使う<br>
+              × 初期の概算を、そのまま確定費用として扱う
+            </p>
+            <p>
+              ○ 規模や条件が似た過去事例を選び、違いを調整する<br>
+              × 内容の違いを確認せず、過去の金額をそのまま当てはめる
+            </p>
+            <p>
+              ○ 詳細が決まったら、より具体的な方法で見積りを更新する<br>
+              × 一度出した概算は、計画が具体化しても見直さない
+            </p>
+          </section>
+
+          <section class="detail-section" id="point">
+            <h2>このカードで見抜くこと</h2>
+            <p>
+              見積方法を選ぶときは、名前だけでなく、いつ、何のために、どの情報を使って見積もるのかを見る。
+            </p>
+            <p>
+              計画初期で詳細が決まっておらず、短期間で大まかな費用を知りたい。さらに、比較できる過去の類似プロジェクトがある。この組合せが、類推見積りの手掛かりになる。
+            </p>
+            <p>
+              類推見積りは、過去の実績を基に早く概算を作り、計画を検討するための判断材料にする方法である。詳細が固まった後の積上げ見積りとは、使う時期と目的が異なる。
+            </p>
+          </section>
+
+          <section class="detail-section" id="related">
+            <h2>関連する要点</h2>
+            <div class="tag-list">
+              <span class="tag">類推見積り</span>
+              <span class="tag">概算見積り</span>
+              <span class="tag">過去実績</span>
+              <span class="tag">ボトムアップ見積り</span>
+              <span class="tag">プロジェクトマネジメント</span>
+              <span class="tag">マネジメント系</span>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和8年度 ITパスポート試験 公開問題 問37</p>
+            <p>
+              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
+              問題文・選択肢本文は掲載していません。
+            </p>
+          </section>
         </article>
       </div>
     </div>
   </main>
-  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ITネッコ / のらネコ学習室</p>
+    </div>
+  </footer>
 </body>
 </html>
