@@ -7,227 +7,43 @@
   <meta name="description" content="ITを作る・使う・任せる・確認する場面から、マネジメント系の学習要点を確認します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .management-page .card-grid {
-      grid-template-columns: repeat(auto-fill, 320px);
-      justify-content: start;
-      align-items: stretch;
-    }
-
-    .management-page .topic-card {
-      width: 320px;
-      min-height: 150px;
-      padding: 20px;
-    }
-
-    .management-page .topic-card h3 {
-      font-size: 1.05rem;
-    }
-
-    .management-block {
-      border: 1px solid rgba(95, 114, 82, 0.22);
-      border-left-width: 7px;
-      border-radius: 18px;
-      margin-top: 28px;
-      padding: 22px;
-      background: rgba(255, 253, 248, 0.72);
-      box-shadow: 0 10px 28px rgba(69, 74, 55, 0.06);
-    }
-
-    .management-block > .detail-section,
-    .management-block.detail-section {
-      margin: 0;
-    }
-
-    .management-block--overview {
-      border-left-color: rgba(88, 129, 92, 0.78);
-      background: linear-gradient(90deg, rgba(232, 242, 229, 0.86), rgba(255, 253, 248, 0.74));
-    }
-
-    .management-block--map {
-      border-left-color: rgba(181, 137, 62, 0.78);
-      background: linear-gradient(90deg, rgba(250, 238, 212, 0.88), rgba(255, 253, 248, 0.74));
-    }
-
-    .management-block--areas {
-      border-left-color: rgba(94, 116, 153, 0.72);
-      background: linear-gradient(90deg, rgba(232, 237, 247, 0.76), rgba(255, 253, 248, 0.70));
-    }
-
-    .management-block--supplement {
-      border-left-color: rgba(132, 120, 108, 0.62);
-      background: linear-gradient(90deg, rgba(239, 235, 229, 0.78), rgba(255, 253, 248, 0.68));
-      opacity: 0.94;
-    }
-
-    .management-block-label {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid rgba(94, 116, 153, 0.28);
-      border-radius: 999px;
-      background: rgba(242, 245, 251, 0.92);
-      color: var(--color-accent-dark);
-      font-size: 0.82rem;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 14px;
-      padding: 5px 12px;
-    }
-
-    .management-area-group .detail-section + .detail-section {
-      margin-top: 22px;
-      padding-top: 22px;
-      border-top: 1px dashed rgba(95, 114, 82, 0.22);
-    }
-
-    .category-map-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 18px;
-      overflow: hidden;
-      border-radius: 10px;
-      font-size: 0.95rem;
-    }
-
-    .category-map-table th,
-    .category-map-table td {
-      border: 1px solid rgba(95, 114, 82, 0.22);
-      padding: 14px 16px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .category-map-table th {
-      background: rgba(245, 232, 207, 0.92);
-      color: var(--color-accent-dark);
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .category-map-table td {
-      background: rgba(255, 253, 248, 0.78);
-      line-height: 1.7;
-    }
-
-    .category-map-table .official-name {
-      display: block;
-      color: var(--color-accent-dark);
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .category-map-table .official-note {
-      display: block;
-      margin-top: 4px;
-      color: var(--color-muted);
-      font-size: 0.86rem;
-      line-height: 1.65;
-    }
-
-    .category-map-table .map-arrow-cell,
-    .category-map-table .map-arrow-heading {
-      width: 56px;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    .category-map-table .map-arrow-cell {
-      color: var(--color-accent-dark);
-      font-size: 1.55rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .related-pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .related-pill {
-      display: inline-block;
-      border: 1px solid rgba(95, 114, 82, 0.32);
-      border-radius: 999px;
-      background: rgba(255, 253, 248, 0.82);
-      color: var(--color-accent-dark);
-      font-size: 0.82rem;
-      font-weight: 700;
-      line-height: 1.45;
-      padding: 4px 10px;
-      text-decoration: none;
-    }
-
-    .related-pill:hover {
-      border-color: rgba(95, 114, 82, 0.58);
-    }
-
-    .category-map-note {
-      margin-top: 14px;
-    }
-
+    .management-page .card-grid { grid-template-columns: repeat(auto-fill, 320px); justify-content: start; align-items: stretch; }
+    .management-page .topic-card { width: 320px; min-height: 150px; padding: 20px; }
+    .management-page .topic-card h3 { font-size: 1.05rem; }
+    .management-page .topic-card .card-label { line-height: 1.55; }
+    .management-block { border: 1px solid rgba(95, 114, 82, 0.22); border-left-width: 7px; border-radius: 18px; margin-top: 28px; padding: 22px; background: rgba(255, 253, 248, 0.72); box-shadow: 0 10px 28px rgba(69, 74, 55, 0.06); }
+    .management-block > .detail-section, .management-block.detail-section { margin: 0; }
+    .management-block--overview { border-left-color: rgba(88, 129, 92, 0.78); background: linear-gradient(90deg, rgba(232, 242, 229, 0.86), rgba(255, 253, 248, 0.74)); }
+    .management-block--map { border-left-color: rgba(181, 137, 62, 0.78); background: linear-gradient(90deg, rgba(250, 238, 212, 0.88), rgba(255, 253, 248, 0.74)); }
+    .management-block--areas { border-left-color: rgba(94, 116, 153, 0.72); background: linear-gradient(90deg, rgba(232, 237, 247, 0.76), rgba(255, 253, 248, 0.70)); }
+    .management-block--supplement { border-left-color: rgba(132, 120, 108, 0.62); background: linear-gradient(90deg, rgba(239, 235, 229, 0.78), rgba(255, 253, 248, 0.68)); opacity: 0.94; }
+    .management-block-label { display: inline-flex; align-items: center; border: 1px solid rgba(94, 116, 153, 0.28); border-radius: 999px; background: rgba(242, 245, 251, 0.92); color: var(--color-accent-dark); font-size: 0.82rem; font-weight: 700; line-height: 1.4; margin-bottom: 14px; padding: 5px 12px; }
+    .management-area-group .detail-section + .detail-section { margin-top: 22px; padding-top: 22px; border-top: 1px dashed rgba(95, 114, 82, 0.22); }
+    .category-map-table { width: 100%; border-collapse: collapse; margin-top: 18px; overflow: hidden; border-radius: 10px; font-size: 0.95rem; }
+    .category-map-table th, .category-map-table td { border: 1px solid rgba(95, 114, 82, 0.22); padding: 14px 16px; text-align: left; vertical-align: top; }
+    .category-map-table th { background: rgba(245, 232, 207, 0.92); color: var(--color-accent-dark); font-weight: 700; line-height: 1.5; }
+    .category-map-table td { background: rgba(255, 253, 248, 0.78); line-height: 1.7; }
+    .category-map-table .official-name { display: block; color: var(--color-accent-dark); font-weight: 700; line-height: 1.5; }
+    .category-map-table .official-note { display: block; margin-top: 4px; color: var(--color-muted); font-size: 0.86rem; line-height: 1.65; }
+    .category-map-table .map-arrow-cell, .category-map-table .map-arrow-heading { width: 56px; text-align: center; vertical-align: middle; }
+    .category-map-table .map-arrow-cell { color: var(--color-accent-dark); font-size: 1.55rem; font-weight: 700; line-height: 1; }
+    .related-pill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .related-pill { display: inline-block; border: 1px solid rgba(95, 114, 82, 0.32); border-radius: 999px; background: rgba(255, 253, 248, 0.82); color: var(--color-accent-dark); font-size: 0.82rem; font-weight: 700; line-height: 1.45; padding: 4px 10px; text-decoration: none; }
+    .related-pill:hover { border-color: rgba(95, 114, 82, 0.58); }
+    .category-map-note { margin-top: 14px; }
     @media (max-width: 720px) {
-      .management-page .card-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .management-page .topic-card {
-        width: auto;
-      }
-
-      .management-block {
-        border-radius: 14px;
-        margin-top: 22px;
-        padding: 16px;
-      }
-
-      .category-map-table,
-      .category-map-table thead,
-      .category-map-table tbody,
-      .category-map-table tr,
-      .category-map-table th,
-      .category-map-table td {
-        display: block;
-        width: 100%;
-      }
-
-      .category-map-table thead {
-        display: none;
-      }
-
-      .category-map-table tr {
-        border: 1px solid rgba(95, 114, 82, 0.22);
-        border-radius: 10px;
-        margin-top: 12px;
-        overflow: hidden;
-      }
-
-      .category-map-table td {
-        border: 0;
-      }
-
-      .category-map-table td + td {
-        border-top: 1px solid rgba(95, 114, 82, 0.18);
-      }
-
-      .category-map-table td::before {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--color-muted);
-        font-size: 0.78rem;
-        font-weight: 700;
-        line-height: 1.4;
-      }
-
-      .category-map-table td:first-child::before {
-        content: "公式分類";
-      }
-
-      .category-map-table td:nth-child(2) {
-        display: none;
-      }
-
-      .category-map-table td:nth-child(3)::before {
-        content: "ITネッコ分類";
-      }
+      .management-page .card-grid { grid-template-columns: 1fr; }
+      .management-page .topic-card { width: auto; }
+      .management-block { border-radius: 14px; margin-top: 22px; padding: 16px; }
+      .category-map-table, .category-map-table thead, .category-map-table tbody, .category-map-table tr, .category-map-table th, .category-map-table td { display: block; width: 100%; }
+      .category-map-table thead { display: none; }
+      .category-map-table tr { border: 1px solid rgba(95, 114, 82, 0.22); border-radius: 10px; margin-top: 12px; overflow: hidden; }
+      .category-map-table td { border: 0; }
+      .category-map-table td + td { border-top: 1px solid rgba(95, 114, 82, 0.18); }
+      .category-map-table td::before { display: block; margin-bottom: 6px; color: var(--color-muted); font-size: 0.78rem; font-weight: 700; line-height: 1.4; }
+      .category-map-table td:first-child::before { content: "公式分類"; }
+      .category-map-table td:nth-child(2) { display: none; }
+      .category-map-table td:nth-child(3)::before { content: "ITネッコ分類"; }
     }
   </style>
 </head>
@@ -268,29 +84,11 @@
             <h3 id="official-category-guide">公式分類を、ITネッコ分類に置き直す</h3>
             <p>マネジメント系は、公式分類では「開発技術」「プロジェクトマネジメント」「サービスマネジメント」の3つに分かれます。その中にある分類を、ITネッコでは問題を解くときに考えやすいまとまりに置き直しています。</p>
             <table class="category-map-table">
-              <thead>
-                <tr>
-                  <th>公式分類</th>
-                  <th class="map-arrow-heading" aria-label="置き直す"></th>
-                  <th>ITネッコ分類</th>
-                </tr>
-              </thead>
+              <thead><tr><th>公式分類</th><th class="map-arrow-heading" aria-label="置き直す"></th><th>ITネッコ分類</th></tr></thead>
               <tbody>
-                <tr>
-                  <td><span class="official-name">開発技術</span><span class="official-note">システム開発技術／ソフトウェア開発管理技術</span></td>
-                  <td class="map-arrow-cell" aria-hidden="true">→</td>
-                  <td><div class="related-pill-list"><span class="related-pill">開発プロセス・要求・リリース</span></div></td>
-                </tr>
-                <tr>
-                  <td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">プロジェクトマネジメント</span></td>
-                  <td class="map-arrow-cell" aria-hidden="true">→</td>
-                  <td><div class="related-pill-list"><span class="related-pill">契約・調達・利用範囲</span><span class="related-pill">見積り・計画・進捗</span><span class="related-pill">インシデント・問題・変更管理</span></div></td>
-                </tr>
-                <tr>
-                  <td><span class="official-name">サービスマネジメント</span><span class="official-note">サービスマネジメント／システム監査</span></td>
-                  <td class="map-arrow-cell" aria-hidden="true">→</td>
-                  <td><div class="related-pill-list"><span class="related-pill">サービスデスク・問合せ対応</span><span class="related-pill">インシデント・問題・変更管理</span><span class="related-pill">サービスレベル・可用性・改善</span><span class="related-pill">ファシリティ・設備管理</span><span class="related-pill">システム監査</span></div></td>
-                </tr>
+                <tr><td><span class="official-name">開発技術</span><span class="official-note">システム開発技術／ソフトウェア開発管理技術</span></td><td class="map-arrow-cell" aria-hidden="true">→</td><td><div class="related-pill-list"><span class="related-pill">開発プロセス・要求・リリース</span></div></td></tr>
+                <tr><td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">プロジェクトマネジメント</span></td><td class="map-arrow-cell" aria-hidden="true">→</td><td><div class="related-pill-list"><span class="related-pill">契約・調達・利用範囲</span><span class="related-pill">見積り・計画・進捗</span><span class="related-pill">インシデント・問題・変更管理</span></div></td></tr>
+                <tr><td><span class="official-name">サービスマネジメント</span><span class="official-note">サービスマネジメント／システム監査</span></td><td class="map-arrow-cell" aria-hidden="true">→</td><td><div class="related-pill-list"><span class="related-pill">サービスデスク・問合せ対応</span><span class="related-pill">インシデント・問題・変更管理</span><span class="related-pill">サービスレベル・可用性・改善</span><span class="related-pill">ファシリティ・設備管理</span><span class="related-pill">システム監査</span></div></td></tr>
               </tbody>
             </table>
             <p class="category-map-note">ITガバナンス・内部統制は、開発・プロジェクト・サービス管理を読む前提として、ITネッコでは最初の入口にしています。</p>
@@ -305,8 +103,8 @@
             <h3 id="management-area-1">1. ITガバナンス・内部統制</h3>
             <p>経営としてITをどう方向付け、業務を適切に進める仕組みをどう整えるかを整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/it-governance-edm/"><span class="card-label">公式中分類：ITガバナンス</span><h3>新しいシステムを入れるとき、経営陣は何をするのか</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/internal-control/"><span class="card-label">公式中分類：システム監査・内部統制</span><h3>内部統制におけるけん制とITへの対応を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/it-governance-edm/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ システム監査 ＞ 内部統制</span><h3>新しいシステムを入れるとき、経営陣は何をするのか</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/internal-control/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ システム監査 ＞ 内部統制</span><h3>内部統制におけるけん制とITへの対応を見分ける</h3></a>
             </div>
           </section>
 
@@ -314,7 +112,7 @@
             <h3 id="management-area-2">2. 契約・調達・利用範囲</h3>
             <p>システムやソフトウェアを利用・導入するとき、契約範囲や対応できる範囲をどう判断するかを整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/software-installation-scope/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>契約に含まれないPCへ導入を求められたらどうするか</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/software-installation-scope/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 調達</span><h3>契約に含まれないPCへ導入を求められたらどうするか</h3></a>
             </div>
           </section>
 
@@ -322,15 +120,15 @@
             <h3 id="management-area-3">3. 見積り・計画・スコープ・資源・進捗</h3>
             <p>プロジェクトを進めるために、作業、日程、範囲、費用、人員、進み具合をどう管理するかを整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/analogous-estimation/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクト初期の概算見積りを考える</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/wbs-work-breakdown-structure/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>大きな仕事を、管理できる作業に分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-charter/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトを正式に認可する文書を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-meeting-minutes/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクト会議では決定事項を記録して共有する</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-schedule-resource-constraint/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>前提作業と要員制約から最短日数を求める</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-schedule-techniques/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>スケジュール作成に用いる技法を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-performance-indicators/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>計画値と実績値からプロジェクトの進捗とコストを評価する</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-scope-deliverables/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトスコープの対象になる成果物を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/project-human-resource-planning/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>プロジェクトの人的資源計画でスキルと役割を整理する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/analogous-estimation/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ コスト</span><h3>プロジェクト初期の概算見積りを考える</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/wbs-work-breakdown-structure/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スコープ</span><h3>大きな仕事を、管理できる作業に分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-charter/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 統合</span><h3>プロジェクトを正式に認可する文書を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-meeting-minutes/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ コミュニケーション</span><h3>プロジェクト会議では決定事項を記録して共有する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-schedule-resource-constraint/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スケジュール・資源</span><h3>前提作業と要員制約から最短日数を求める</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-schedule-techniques/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スケジュール</span><h3>スケジュール作成に用いる技法を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-performance-indicators/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ コスト・進捗</span><h3>計画値と実績値からプロジェクトの進捗とコストを評価する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-scope-deliverables/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スコープ</span><h3>プロジェクトスコープの対象になる成果物を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/project-human-resource-planning/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 資源</span><h3>プロジェクトの人的資源計画でスキルと役割を整理する</h3></a>
             </div>
           </section>
 
@@ -338,12 +136,12 @@
             <h3 id="management-area-4">4. 開発プロセス・要求・リリース</h3>
             <p>システムを作る流れ、要求の確認、開発手法、利用できる状態にする工程を整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/waterfall-model/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>ウォーターフォールモデルの進め方を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/agile-development/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>最初から全部決めず、作りながら確かめる</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/requirements-definition-user-role/"><span class="card-label">公式中分類：システム開発技術</span><h3>システム要件定義では利用者が妥当性を確認する</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/prototyping-model/"><span class="card-label">公式中分類：ソフトウェア開発管理技術</span><h3>試作品で利用者の要求を確認するプロトタイピングを見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/software-deployment/"><span class="card-label">公式中分類：システム開発技術</span><h3>完成したソフトウェアを本番環境に入れる工程を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/usability-user-interface/"><span class="card-label">公式中分類：システム開発技術</span><h3>使用性では利用者が操作するインタフェースを見る</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/waterfall-model/"><span class="card-label">公式シラバス上の位置<br>開発技術 ＞ ソフトウェア開発管理技術 ＞ 開発プロセス・手法</span><h3>ウォーターフォールモデルの進め方を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/agile-development/"><span class="card-label">公式シラバス上の位置<br>開発技術 ＞ ソフトウェア開発管理技術 ＞ 開発プロセス・手法</span><h3>最初から全部決めず、作りながら確かめる</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/requirements-definition-user-role/"><span class="card-label">公式シラバス上の位置<br>開発技術 ＞ システム開発技術 ＞ システム要件定義</span><h3>システム要件定義では利用者が妥当性を確認する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/prototyping-model/"><span class="card-label">公式シラバス上の位置<br>開発技術 ＞ ソフトウェア開発管理技術 ＞ 開発プロセス・手法</span><h3>試作品で利用者の要求を確認するプロトタイピングを見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/software-deployment/"><span class="card-label">公式シラバス上の位置<br>開発技術 ＞ システム開発技術 ＞ ソフトウェア受入れ・移行</span><h3>完成したソフトウェアを本番環境に入れる工程を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/usability-user-interface/"><span class="card-label">公式シラバス上の位置<br>開発技術 ＞ システム開発技術 ＞ ソフトウェア要件定義</span><h3>使用性では利用者が操作するインタフェースを見る</h3></a>
             </div>
           </section>
 
@@ -351,9 +149,9 @@
             <h3 id="management-area-5">5. サービスデスク・問合せ対応</h3>
             <p>利用者からの問合せを受け付け、記録し、対応や自動応答につなげる仕組みを整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/service-desk/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>利用者の「困った」を最初に受け止める窓口</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/chatbot-service-desk/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>チャットボットで問合せ対応の受付時間を広げる</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/service-desk-automation-efficiency/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>AI導入による対応時間短縮率を計算する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-desk/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ サービスデスク</span><h3>利用者の「困った」を最初に受け止める窓口</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/chatbot-service-desk/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ サービスデスク</span><h3>チャットボットで問合せ対応の受付時間を広げる</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-desk-automation-efficiency/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ サービスデスク</span><h3>AI導入による対応時間短縮率を計算する</h3></a>
             </div>
           </section>
 
@@ -361,8 +159,8 @@
             <h3 id="management-area-6">6. インシデント・問題・変更管理</h3>
             <p>障害が起きたときに早く使える状態へ戻すこと、原因を調べること、変更を勝手に進めないことを整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/problem-management/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>まず使える状態に戻すのか、原因まで直すのか</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/change-control-board/"><span class="card-label">公式中分類：プロジェクトマネジメント</span><h3>変更要求は、影響を確認してから承認する</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/problem-management/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ インシデント管理・問題管理</span><h3>まず使える状態に戻すのか、原因まで直すのか</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/change-control-board/"><span class="card-label">公式シラバス上の位置<br>プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 変更管理</span><h3>変更要求は、影響を確認してから承認する</h3></a>
             </div>
           </section>
 
@@ -370,9 +168,9 @@
             <h3 id="management-area-7">7. サービスレベル・可用性・改善</h3>
             <p>サービス品質の約束、利用できる時間の割合、管理の仕組みを継続的に改善する考え方を整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/service-level-management/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスの約束を、数値で決めて守る</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/service-availability/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスを利用できた時間の割合を可用性として見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/service-management-system-improvement/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>サービスマネジメントシステムの改善に当たる対応を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-level-management/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ サービスレベル管理</span><h3>サービスの約束を、数値で決めて守る</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-availability/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ 可用性管理</span><h3>サービスを利用できた時間の割合を可用性として見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/service-management-system-improvement/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ サービスマネジメントシステム</span><h3>サービスマネジメントシステムの改善に当たる対応を見分ける</h3></a>
             </div>
           </section>
 
@@ -380,8 +178,8 @@
             <h3 id="management-area-8">8. ファシリティ・設備管理</h3>
             <p>オフィス、設備、配線、施設資源など、ITサービスを支える環境を整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/facility-management-workplace-improvement/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>ファシリティマネジメントで改善する対象を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/free-access-floor/"><span class="card-label">公式中分類：サービスマネジメント</span><h3>床下配線用の空間をもつ床をフリーアクセスフロアとして見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/facility-management-workplace-improvement/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ ファシリティマネジメント</span><h3>ファシリティマネジメントで改善する対象を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/free-access-floor/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ サービスマネジメント ＞ ファシリティマネジメント</span><h3>床下配線用の空間をもつ床をフリーアクセスフロアとして見分ける</h3></a>
             </div>
           </section>
 
@@ -389,8 +187,8 @@
             <h3 id="management-area-9">9. システム監査</h3>
             <p>システムや運用が適切に管理されているかを、担当者とは別の立場から確認する考え方を整理します。</p>
             <div class="card-grid">
-              <a class="topic-card topic-card--feature" href="../../topics/system-audit-scope/"><span class="card-label">公式中分類：システム監査</span><h3>情報セキュリティ監査が検証する対象を見分ける</h3></a>
-              <a class="topic-card topic-card--feature" href="../../topics/system-auditor-independence/"><span class="card-label">公式中分類：システム監査</span><h3>システム監査人は監査対象から独立している必要がある</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/system-audit-scope/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ システム監査 ＞ システム監査</span><h3>情報セキュリティ監査が検証する対象を見分ける</h3></a>
+              <a class="topic-card topic-card--feature" href="../../topics/system-auditor-independence/"><span class="card-label">公式シラバス上の位置<br>サービスマネジメント ＞ システム監査 ＞ システム監査</span><h3>システム監査人は監査対象から独立している必要がある</h3></a>
             </div>
           </section>
         </div>
