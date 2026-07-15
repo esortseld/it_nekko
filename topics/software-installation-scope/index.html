@@ -6,6 +6,89 @@
   <title>作業中に追加を頼まれたとき、誰と何を確認するか | ITネッコ</title>
   <meta name="description" content="ソフトウェア導入中の追加依頼を例に、発注者・受注者・現場担当者の立場を整理し、契約範囲、変更の合意、費用、納期、責任を見分けます。">
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .interpretation-lead {
+      margin-bottom: 1.25rem;
+    }
+
+    .interpretation-list {
+      display: grid;
+      gap: 0.85rem;
+      margin: 1.25rem 0 1.5rem;
+    }
+
+    .interpretation-row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr);
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+
+    .interpretation-card {
+      min-width: 0;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .interpretation-card--visible {
+      background: #faf7f1;
+    }
+
+    .interpretation-card--check {
+      border-color: #b8cbbf;
+      background: #f2f8f4;
+    }
+
+    .interpretation-label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #6f675e;
+    }
+
+    .interpretation-card p {
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .interpretation-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #6f675e;
+    }
+
+    .interpretation-conclusion {
+      margin-top: 1.25rem;
+      padding: 1rem 1.15rem;
+      border-left: 4px solid #738f7d;
+      background: #f6f8f6;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .interpretation-conclusion p {
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .interpretation-row {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+      }
+
+      .interpretation-arrow {
+        min-height: 1.4rem;
+        transform: rotate(90deg);
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -32,84 +115,40 @@
         <article class="detail-flow">
           <section class="detail-section" id="scene">
             <h2>まず、何が起きているか見てみよう</h2>
-            <p>
-              ある会社が、外部の事業者に依頼して、社内のPCへ新しい業務用ソフトウェアを導入している。
-            </p>
-            <p>
-              導入するPCは、契約を結ぶときに決められている。受注者の作業担当者は、その一覧に従って作業を進めている。
-            </p>
-            <p>
-              ところが作業中、一覧に入っていないPCを使っている現場の担当者から、「このPCにも入れてください」と頼まれた。
-            </p>
-            <p>
-              ソフトウェアを入れる技術はある。目の前の担当者も希望している。短時間で終わる作業かもしれない。
-            </p>
-            <p>
-              しかし、ここで分けて考える必要がある。
-            </p>
-            <p>
-              作業を頼むこと。<br>
-              その作業を契約へ追加すること。<br>
-              追加によって生じる費用・納期・責任を決めること。
-            </p>
-            <p>
-              これらは、同じ行為ではない。
-            </p>
-            <p>
-              このカードでは、ソフトウェア導入中の追加依頼をめぐる登場人物を整理しながら、「現場から頼まれた作業」と「契約で引き受けた作業」を見分けていく。
-            </p>
+            <p>ある会社が、外部の事業者に依頼して、社内のPCへ新しい業務用ソフトウェアを導入している。</p>
+            <p>導入するPCは、契約を結ぶときに決められている。受注者の作業担当者は、その一覧に従って作業を進めている。</p>
+            <p>ところが作業中、一覧に入っていないPCを使っている現場の担当者から、「このPCにも入れてください」と頼まれた。</p>
+            <p>ソフトウェアを入れる技術はある。目の前の担当者も希望している。短時間で終わる作業かもしれない。</p>
+            <p>しかし、ここで分けて考える必要がある。</p>
+            <p>作業を頼むこと。<br>その作業を契約へ追加すること。<br>追加によって生じる費用・納期・責任を決めること。</p>
+            <p>これらは、同じ行為ではない。</p>
+            <p>このカードでは、ソフトウェア導入中の追加依頼をめぐる登場人物を整理しながら、「現場から頼まれた作業」と「契約で引き受けた作業」を見分けていく。</p>
           </section>
 
           <section class="detail-section" id="actors">
             <h2>登場人物を整理しよう</h2>
-            <p>
-              この場面には、いくつかの立場がある。まずは、誰が何を扱うのかを分ける。
-            </p>
+            <p>この場面には、いくつかの立場がある。まずは、誰が何を扱うのかを分ける。</p>
             <ul>
               <li>発注者：必要な作業を依頼し、受注者と作業範囲・費用・納期などを合意する。</li>
               <li>受注者：契約で引き受けた範囲の作業を行い、範囲を超える依頼があれば発注者へ確認する。</li>
               <li>現場の利用者・担当者：業務上の要望を伝え、対象PCを案内し、導入後に利用する。</li>
               <li>作業担当者：決められた手順と対象範囲に従って、実際の導入・確認・復旧などを行う。</li>
             </ul>
-            <p>
-              ここで大事なのは、現場で依頼した人が、契約を変更する権限を持っているとは限らないことである。目の前の依頼者の希望だけで、受注者が作業範囲を広げることはできない。
-            </p>
+            <p>ここで大事なのは、現場で依頼した人が、契約を変更する権限を持っているとは限らないことである。目の前の依頼者の希望だけで、受注者が作業範囲を広げることはできない。</p>
           </section>
 
           <section class="detail-section" id="clues">
             <h2>手掛かりを集めよう</h2>
-            <p>
-              問題文では、「契約変更」という言葉を使わずに、契約範囲を超える行動かどうかを判断させることがある。そのときは、次の言葉を手掛かりにする。
-            </p>
+            <p>問題文では、「契約変更」という言葉を使わずに、契約範囲を超える行動かどうかを判断させることがある。そのときは、次の言葉を手掛かりにする。</p>
             <div class="comparison-table-wrap">
               <table class="comparison-table">
-                <thead>
-                  <tr>
-                    <th>手掛かりになる言葉</th>
-                    <th>確認すること</th>
-                  </tr>
-                </thead>
+                <thead><tr><th>手掛かりになる言葉</th><th>確認すること</th></tr></thead>
                 <tbody>
-                  <tr>
-                    <td>契約対象、対象一覧、作業範囲、仕様</td>
-                    <td>そのPCや作業が、最初から引き受けた範囲に含まれるか</td>
-                  </tr>
-                  <tr>
-                    <td>追加依頼、現場からの要望、ついでに対応</td>
-                    <td>契約外の作業を、その場の判断で加えようとしていないか</td>
-                  </tr>
-                  <tr>
-                    <td>無償、短時間、簡単な作業</td>
-                    <td>費用の有無ではなく、範囲と責任が合意されているか</td>
-                  </tr>
-                  <tr>
-                    <td>中止、復旧、導入前の状態へ戻す</td>
-                    <td>受注者だけで決めず、発注者と対応を合意しているか</td>
-                  </tr>
-                  <tr>
-                    <td>障害、遅延、追加費用</td>
-                    <td>変更による影響と責任の所在が明確になっているか</td>
-                  </tr>
+                  <tr><td>契約対象、対象一覧、作業範囲、仕様</td><td>そのPCや作業が、最初から引き受けた範囲に含まれるか</td></tr>
+                  <tr><td>追加依頼、現場からの要望、ついでに対応</td><td>契約外の作業を、その場の判断で加えようとしていないか</td></tr>
+                  <tr><td>無償、短時間、簡単な作業</td><td>費用の有無ではなく、範囲と責任が合意されているか</td></tr>
+                  <tr><td>中止、復旧、導入前の状態へ戻す</td><td>受注者だけで決めず、発注者と対応を合意しているか</td></tr>
+                  <tr><td>障害、遅延、追加費用</td><td>変更による影響と責任の所在が明確になっているか</td></tr>
                 </tbody>
               </table>
             </div>
@@ -117,70 +156,87 @@
 
           <section class="detail-section" id="confusion">
             <h2>この出来事をどう捉えるか考えよう</h2>
-            <p>
-              これは、単に「追加作業を頼まれた」という出来事ではない。現場で見えている事情と、契約上確認すべきことが重なって見えている場面である。
-            </p>
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead>
-                  <tr>
-                    <th>現場で見えていること</th>
-                    <th>契約上、確認すること</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>利用者が作業を希望している</td>
-                    <td>その人に契約範囲を変更する権限があるか</td>
-                  </tr>
-                  <tr>
-                    <td>技術的には作業できる</td>
-                    <td>契約で引き受けた作業に含まれているか</td>
-                  </tr>
-                  <tr>
-                    <td>短時間で終わりそうである</td>
-                    <td>納期やほかの作業へ影響しないか</td>
-                  </tr>
-                  <tr>
-                    <td>無償で対応できる</td>
-                    <td>障害が起きた場合の責任は誰が負うか</td>
-                  </tr>
-                  <tr>
-                    <td>元の状態へ戻す必要がある</td>
-                    <td>復旧方法を誰が決定するのか</td>
-                  </tr>
-                </tbody>
-              </table>
+            <p class="interpretation-lead">これは、単に「追加作業を頼まれた」という出来事ではない。目の前に見える事情から、契約上の判断へ視点を移して考える。</p>
+
+            <div class="interpretation-list" aria-label="現場で見える事情と契約上の確認事項">
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible">
+                  <span class="interpretation-label">目の前に見える事情</span>
+                  <p>利用者が作業を希望している</p>
+                </div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check">
+                  <span class="interpretation-label">契約上、確認すること</span>
+                  <p>その人に契約範囲を変更する権限があるか</p>
+                </div>
+              </div>
+
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible">
+                  <span class="interpretation-label">目の前に見える事情</span>
+                  <p>技術的には作業できる</p>
+                </div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check">
+                  <span class="interpretation-label">契約上、確認すること</span>
+                  <p>契約で引き受けた作業に含まれているか</p>
+                </div>
+              </div>
+
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible">
+                  <span class="interpretation-label">目の前に見える事情</span>
+                  <p>短時間で終わりそうである</p>
+                </div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check">
+                  <span class="interpretation-label">契約上、確認すること</span>
+                  <p>納期やほかの作業へ影響しないか</p>
+                </div>
+              </div>
+
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible">
+                  <span class="interpretation-label">目の前に見える事情</span>
+                  <p>無償で対応できる</p>
+                </div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check">
+                  <span class="interpretation-label">契約上、確認すること</span>
+                  <p>障害が起きた場合の責任は誰が負うか</p>
+                </div>
+              </div>
+
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible">
+                  <span class="interpretation-label">目の前に見える事情</span>
+                  <p>元の状態へ戻す必要がある</p>
+                </div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check">
+                  <span class="interpretation-label">契約上、確認すること</span>
+                  <p>復旧方法を誰が決定するのか</p>
+                </div>
+              </div>
             </div>
-            <p>
-              現場の担当者は、業務上の要望を伝えることができる。一方、作業範囲・費用・納期・責任を変更することは、発注者と受注者の間で決める事項である。
-            </p>
-            <p>
-              判断の中心になるのは、作業の難しさや費用の有無ではない。<strong>誰が要望を出したのか、誰が契約上の変更を決めるのかを分けることである。</strong>
-            </p>
+
+            <p>現場の担当者は、業務上の要望を伝えることができる。一方、作業範囲・費用・納期・責任を変更することは、発注者と受注者の間で決める事項である。</p>
+            <div class="interpretation-conclusion">
+              <p><strong>判断の中心は、作業の難しさや費用の有無ではない。誰が要望を出したのか、誰が契約上の変更を決めるのかを分けることである。</strong></p>
+            </div>
           </section>
 
           <section class="detail-section" id="contract-scope">
             <h2>ここで問われる契約範囲</h2>
-            <p>
-              契約範囲とは、受注者が何を行い、発注者が何に対して対価を支払うのかを定めた境界である。
-            </p>
-            <p>
-              ソフトウェア導入では、対象となるPCだけでなく、導入するソフトウェア、作業場所、作業時間、確認方法、障害時の対応なども範囲に関係する。
-            </p>
-            <p>
-              契約外のPCへソフトウェアを入れると、作業が一台増えるだけでは済まないことがある。作業時間が延びる、別の設定が必要になる、障害が起きる、納期へ影響する、といった可能性が生じる。
-            </p>
-            <p>
-              そのため、追加作業を行うかどうかは、現場の親切や技術的な可否だけでは決めない。発注者と受注者が、変更後の作業範囲・費用・納期・責任を確認し、合意してから扱う。
-            </p>
+            <p>契約範囲とは、受注者が何を行い、発注者が何に対して対価を支払うのかを定めた境界である。</p>
+            <p>ソフトウェア導入では、対象となるPCだけでなく、導入するソフトウェア、作業場所、作業時間、確認方法、障害時の対応なども範囲に関係する。</p>
+            <p>契約外のPCへソフトウェアを入れると、作業が一台増えるだけでは済まないことがある。作業時間が延びる、別の設定が必要になる、障害が起きる、納期へ影響する、といった可能性が生じる。</p>
+            <p>そのため、追加作業を行うかどうかは、現場の親切や技術的な可否だけでは決めない。発注者と受注者が、変更後の作業範囲・費用・納期・責任を確認し、合意してから扱う。</p>
           </section>
 
           <section class="detail-section" id="change-flow">
             <h2>追加依頼が出たときの流れ</h2>
-            <p>
-              追加を頼まれたときは、次の順序で考える。
-            </p>
+            <p>追加を頼まれたときは、次の順序で考える。</p>
             <div class="formula-box">
               依頼されたPCや作業が、契約範囲に含まれるか確認する<br>
               → 含まれなければ、その場で勝手に実施しない<br>
@@ -188,9 +244,7 @@
               → 作業範囲・費用・納期・責任を確認する<br>
               → 発注者と受注者が合意した内容に従って作業する
             </div>
-            <p>
-              作業を続けることが難しくなった場合も同じである。受注者だけで中止や復旧方法を決めるのではなく、状況と影響を伝え、発注者と合意したうえで対応する。
-            </p>
+            <p>作業を続けることが難しくなった場合も同じである。受注者だけで中止や復旧方法を決めるのではなく、状況と影響を伝え、発注者と合意したうえで対応する。</p>
           </section>
 
           <section class="detail-section" id="related">
@@ -209,10 +263,7 @@
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問36</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
           </section>
         </article>
       </div>
