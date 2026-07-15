@@ -7,86 +7,53 @@
   <meta name="description" content="ソフトウェア導入中の追加依頼を例に、発注者・受注者・現場担当者の立場を整理し、契約範囲、変更の合意、費用、納期、責任を見分けます。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .interpretation-lead {
-      margin-bottom: 1.25rem;
-    }
+    .interpretation-lead { margin-bottom: 1.25rem; }
+    .interpretation-list { display: grid; gap: 0.85rem; margin: 1.25rem 0 1.5rem; }
+    .interpretation-row { display: grid; grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr); align-items: stretch; gap: 0.75rem; }
+    .interpretation-card { min-width: 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .interpretation-card--visible { background: #faf7f1; }
+    .interpretation-card--check { border-color: #b8cbbf; background: #f2f8f4; }
+    .interpretation-label { display: block; margin-bottom: 0.35rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: #6f675e; }
+    .interpretation-card p { margin: 0; line-height: 1.65; }
+    .interpretation-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.1rem; font-size: 1.25rem; font-weight: 700; color: #6f675e; }
+    .interpretation-conclusion { margin-top: 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #738f7d; background: #f6f8f6; border-radius: 0 12px 12px 0; }
+    .interpretation-conclusion p { margin: 0; }
 
-    .interpretation-list {
-      display: grid;
-      gap: 0.85rem;
-      margin: 1.25rem 0 1.5rem;
-    }
-
-    .interpretation-row {
-      display: grid;
-      grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr);
-      align-items: stretch;
-      gap: 0.75rem;
-    }
-
-    .interpretation-card {
-      min-width: 0;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
       border-radius: 14px;
-      background: #fff;
+      background: #f3efe7;
+      border: 1px solid #ded6c7;
     }
-
-    .interpretation-card--visible {
-      background: #faf7f1;
-    }
-
-    .interpretation-card--check {
-      border-color: #b8cbbf;
-      background: #f2f8f4;
-    }
-
-    .interpretation-label {
-      display: block;
-      margin-bottom: 0.35rem;
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label {
+      margin: 0 0 0.25rem;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #6f675e;
+      letter-spacing: 0.08em;
+      color: #776e62;
     }
-
-    .interpretation-card p {
+    .learning-phase h2 {
       margin: 0;
-      line-height: 1.65;
+      font-size: 1.2rem;
+    }
+    .learning-phase p:last-child {
+      margin-bottom: 0;
     }
 
-    .interpretation-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 0.1rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #6f675e;
-    }
-
-    .interpretation-conclusion {
-      margin-top: 1.25rem;
-      padding: 1rem 1.15rem;
-      border-left: 4px solid #738f7d;
-      background: #f6f8f6;
+    .lesson-summary {
+      padding: 1.1rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
       border-radius: 0 12px 12px 0;
     }
-
-    .interpretation-conclusion p {
-      margin: 0;
-    }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
 
     @media (max-width: 720px) {
-      .interpretation-row {
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
-      }
-
-      .interpretation-arrow {
-        min-height: 1.4rem;
-        transform: rotate(90deg);
-      }
+      .interpretation-row { grid-template-columns: 1fr; gap: 0.45rem; }
+      .interpretation-arrow { min-height: 1.4rem; transform: rotate(90deg); }
     }
   </style>
 </head>
@@ -113,6 +80,13 @@
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>出来事を読み解く</h2>
+            <p>起きたこと、関係者、手掛かりを順に整理し、この出来事が何をめぐるものなのかを捉える。</p>
+          </div>
+
           <section class="detail-section" id="scene">
             <h2>まず、何が起きているか見てみよう</h2>
             <p>ある会社が、外部の事業者に依頼して、社内のPCへ新しい業務用ソフトウェアを導入している。</p>
@@ -160,63 +134,29 @@
 
             <div class="interpretation-list" aria-label="現場で見える事情と契約上の確認事項">
               <div class="interpretation-row">
-                <div class="interpretation-card interpretation-card--visible">
-                  <span class="interpretation-label">目の前に見える事情</span>
-                  <p>利用者が作業を希望している</p>
-                </div>
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>利用者が作業を希望している</p></div>
                 <div class="interpretation-arrow" aria-hidden="true">→</div>
-                <div class="interpretation-card interpretation-card--check">
-                  <span class="interpretation-label">契約上、確認すること</span>
-                  <p>その人に契約範囲を変更する権限があるか</p>
-                </div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">契約上、確認すること</span><p>その人に契約範囲を変更する権限があるか</p></div>
               </div>
-
               <div class="interpretation-row">
-                <div class="interpretation-card interpretation-card--visible">
-                  <span class="interpretation-label">目の前に見える事情</span>
-                  <p>技術的には作業できる</p>
-                </div>
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>技術的には作業できる</p></div>
                 <div class="interpretation-arrow" aria-hidden="true">→</div>
-                <div class="interpretation-card interpretation-card--check">
-                  <span class="interpretation-label">契約上、確認すること</span>
-                  <p>契約で引き受けた作業に含まれているか</p>
-                </div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">契約上、確認すること</span><p>契約で引き受けた作業に含まれているか</p></div>
               </div>
-
               <div class="interpretation-row">
-                <div class="interpretation-card interpretation-card--visible">
-                  <span class="interpretation-label">目の前に見える事情</span>
-                  <p>短時間で終わりそうである</p>
-                </div>
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>短時間で終わりそうである</p></div>
                 <div class="interpretation-arrow" aria-hidden="true">→</div>
-                <div class="interpretation-card interpretation-card--check">
-                  <span class="interpretation-label">契約上、確認すること</span>
-                  <p>納期やほかの作業へ影響しないか</p>
-                </div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">契約上、確認すること</span><p>納期やほかの作業へ影響しないか</p></div>
               </div>
-
               <div class="interpretation-row">
-                <div class="interpretation-card interpretation-card--visible">
-                  <span class="interpretation-label">目の前に見える事情</span>
-                  <p>無償で対応できる</p>
-                </div>
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>無償で対応できる</p></div>
                 <div class="interpretation-arrow" aria-hidden="true">→</div>
-                <div class="interpretation-card interpretation-card--check">
-                  <span class="interpretation-label">契約上、確認すること</span>
-                  <p>障害が起きた場合の責任は誰が負うか</p>
-                </div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">契約上、確認すること</span><p>障害が起きた場合の責任は誰が負うか</p></div>
               </div>
-
               <div class="interpretation-row">
-                <div class="interpretation-card interpretation-card--visible">
-                  <span class="interpretation-label">目の前に見える事情</span>
-                  <p>元の状態へ戻す必要がある</p>
-                </div>
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>元の状態へ戻す必要がある</p></div>
                 <div class="interpretation-arrow" aria-hidden="true">→</div>
-                <div class="interpretation-card interpretation-card--check">
-                  <span class="interpretation-label">契約上、確認すること</span>
-                  <p>復旧方法を誰が決定するのか</p>
-                </div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">契約上、確認すること</span><p>復旧方法を誰が決定するのか</p></div>
               </div>
             </div>
 
@@ -226,8 +166,14 @@
             </div>
           </section>
 
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>この出来事をどう解決するか</h2>
+            <p>契約範囲を確認し、追加作業を扱うための判断と手順へ進む。</p>
+          </div>
+
           <section class="detail-section" id="contract-scope">
-            <h2>ここで問われる契約範囲</h2>
+            <h2>まず、契約範囲を確認する</h2>
             <p>契約範囲とは、受注者が何を行い、発注者が何に対して対価を支払うのかを定めた境界である。</p>
             <p>ソフトウェア導入では、対象となるPCだけでなく、導入するソフトウェア、作業場所、作業時間、確認方法、障害時の対応なども範囲に関係する。</p>
             <p>契約外のPCへソフトウェアを入れると、作業が一台増えるだけでは済まないことがある。作業時間が延びる、別の設定が必要になる、障害が起きる、納期へ影響する、といった可能性が生じる。</p>
@@ -235,7 +181,7 @@
           </section>
 
           <section class="detail-section" id="change-flow">
-            <h2>追加依頼が出たときの流れ</h2>
+            <h2>追加依頼をどう進めるか</h2>
             <p>追加を頼まれたときは、次の順序で考える。</p>
             <div class="formula-box">
               依頼されたPCや作業が、契約範囲に含まれるか確認する<br>
@@ -245,6 +191,21 @@
               → 発注者と受注者が合意した内容に従って作業する
             </div>
             <p>作業を続けることが難しくなった場合も同じである。受注者だけで中止や復旧方法を決めるのではなく、状況と影響を伝え、発注者と合意したうえで対応する。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>この出来事から学ぶこと</h2>
+            <p>個別のソフトウェア導入だけでなく、契約範囲を超える追加依頼に共通する判断として整理する。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>別の場面でも使える判断の基本</h2>
+            <div class="lesson-summary">
+              <p>現場から要望が出たこと、技術的に対応できること、契約上その作業を実施してよいことは、それぞれ別の判断である。</p>
+              <p>契約範囲を超える作業では、費用が発生するかどうかだけでなく、作業範囲・納期・責任・障害時の対応まで確認する。</p>
+              <p><strong>要望を出す人と、契約変更を決める人を分け、発注者と受注者が合意した範囲で進める。</strong></p>
+            </div>
           </section>
 
           <section class="detail-section" id="related">
