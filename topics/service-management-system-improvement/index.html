@@ -3,23 +3,230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サービスマネジメントシステムの改善に当たる対応を見分ける | ITネッコ</title>
-  <meta name="description" content="応急処置、問題管理、設備増強と、サービスマネジメントシステムの改善の違いを整理します。">
+  <title>同じ問題を繰り返さないために、何を変えるのか | ITネッコ</title>
+  <meta name="description" content="ITサービスで起きる障害や兆候を手掛かりに、応急処置・原因分析・設備増強と、サービスマネジメントシステムそのものの改善を見分けます。">
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .interpretation-lead { margin-bottom: 1.25rem; }
+    .interpretation-list { display: grid; gap: 0.85rem; margin: 1.25rem 0 1.5rem; }
+    .interpretation-row { display: grid; grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr); align-items: stretch; gap: 0.75rem; }
+    .interpretation-card { min-width: 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .interpretation-card--visible { background: #faf7f1; }
+    .interpretation-card--check { border-color: #b8cbbf; background: #f2f8f4; }
+    .interpretation-label { display: block; margin-bottom: 0.35rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: #6f675e; }
+    .interpretation-card p { margin: 0; line-height: 1.65; }
+    .interpretation-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.1rem; font-size: 1.25rem; font-weight: 700; color: #6f675e; }
+    .interpretation-conclusion { margin-top: 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #738f7d; background: #f6f8f6; border-radius: 0 12px 12px 0; }
+    .interpretation-conclusion p { margin: 0; }
+
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 14px;
+      background: #f3efe7;
+      border: 1px solid #ded6c7;
+    }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+
+    .lesson-summary {
+      padding: 1.1rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .interpretation-row { grid-template-columns: 1fr; gap: 0.45rem; }
+      .interpretation-arrow { min-height: 1.4rem; transform: rotate(90deg); }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
+
   <main>
-    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / サービスマネジメント</p><h1>サービスマネジメントシステムの改善に当たる対応を見分ける</h1><p class="page-description">一時対応や原因分析だけでなく、サービスを管理する仕組みそのものを改善する対応を見分けます。</p></div></section>
-    <div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
-      <section class="detail-section"><h2>この要点で学ぶこと</h2><p>サービスマネジメントシステムの改善とは、個別のトラブル対応にとどまらず、サービスの状態を把握し、兆候を早く検知し、継続的に管理できる仕組みに変えることです。</p></section>
-      <section class="detail-section"><h2>現実の場面と結び付けて考える概念</h2><ul><li>目の前の障害を止めるだけなら応急処置。</li><li>根本原因を調べるなら問題管理。</li><li>設備や容量を単純に増やすだけなら資源対策。</li><li>監視、測定、早期検知、再発しにくい管理方法を整えるなら改善。</li></ul></section>
-      <section class="detail-section"><h2>混同しやすいもの</h2><ul><li>一時対応：今困っている状態をいったん解消する。</li><li>問題管理：原因を特定し、恒久対策を検討する。</li><li>設備増強：不足している資源を増やす。</li><li>サービスマネジメントシステムの改善：兆候を把握し、管理プロセスをよくする。</li></ul></section>
-      <section class="detail-section"><h2>何を見ればこの概念だと分かるか</h2><p>「管理の仕組みがよくなるか」を基準にします。単発の対応ではなく、今後も状態を見えるようにし、早めに気付ける仕組みを作る対応を選びます。</p></section>
-      <section class="detail-section"><h2>関連する要点</h2><div class="tag-list"><a class="tag" href="../problem-management/">問題管理</a><span class="tag">継続的改善</span><span class="tag">監視</span><span class="tag">サービスマネジメント</span></div></section>
-      <section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問48</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section>
-    </article></div></div>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">マネジメント系 / サービスマネジメント</p>
+        <h1>同じ問題を繰り返さないために、何を変えるのか</h1>
+        <p class="page-description">目の前の障害を直すだけでなく、状態を把握し、早く気付き、継続的に改善できる管理の仕組みを考えます。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>出来事を読み解く</h2>
+            <p>起きたこと、関係者、手掛かりを順に整理し、この出来事が何をめぐるものなのかを捉える。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>まず、何が起きているか見てみよう</h2>
+            <p>ある会社では、業務に使うITサービスで、処理の遅れや容量不足が繰り返し起きている。</p>
+            <p>担当者は、その都度サービスを再起動したり、不要なデータを削除したりして、利用を再開できるようにしている。</p>
+            <p>一時的には直る。しかし、しばらくすると同じような兆候が現れ、再び対応が必要になる。</p>
+            <p>そこで、担当者は監視項目を見直し、容量の増加や処理時間の変化を継続して測定し、異常の兆候を早く発見できる方法を整えようとしている。</p>
+            <p>ここで考えるのは、目の前の障害を直したかどうかだけではない。</p>
+            <p>障害を見つける方法。<br>状態を記録する方法。<br>兆候を評価する方法。<br>改善を続けるための手順。</p>
+            <p>これらを含む、サービスを管理する仕組みそのものが変わるかどうかである。</p>
+          </section>
+
+          <section class="detail-section" id="actors">
+            <h2>登場人物を整理しよう</h2>
+            <p>この場面には、サービスを利用する側と、提供・管理する側がいる。</p>
+            <ul>
+              <li>利用者：ITサービスを使って業務を行い、遅延や停止などの影響を受ける。</li>
+              <li>サービスデスク・運用担当者：障害の連絡を受け、復旧や一時対応を行う。</li>
+              <li>問題管理の担当者：繰り返す障害の原因を調べ、恒久的な対策を検討する。</li>
+              <li>サービスマネジメントの責任者：監視、測定、評価、改善の方法を含む管理の仕組みを整える。</li>
+            </ul>
+            <p>同じ出来事でも、誰がどの目的で対応するかによって、応急処置、原因分析、資源対策、仕組みの改善に分かれる。</p>
+          </section>
+
+          <section class="detail-section" id="clues">
+            <h2>手掛かりを集めよう</h2>
+            <p>問題文では、「サービスマネジメントシステムの改善」という言葉を使わず、対応の目的や継続性から判断させることがある。</p>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>手掛かりになる言葉</th><th>確認すること</th></tr></thead>
+                <tbody>
+                  <tr><td>再起動、切替え、復旧、回避</td><td>今起きている障害を一時的に解消する対応か</td></tr>
+                  <tr><td>根本原因、再発防止、原因分析</td><td>問題管理として原因を突き止める対応か</td></tr>
+                  <tr><td>サーバ増設、容量追加、回線増強</td><td>不足している資源を増やす対応か</td></tr>
+                  <tr><td>監視、測定、記録、傾向、早期検知</td><td>状態を継続的に把握できる仕組みを整えるか</td></tr>
+                  <tr><td>手順の見直し、評価方法、継続的改善</td><td>個別対応ではなく管理の仕組み自体を変えるか</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="detail-section" id="confusion">
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p class="interpretation-lead">これは、単に「障害へ対応した」という出来事ではない。目の前の対応から、その後も使われる管理の仕組みへ視点を移して考える。</p>
+
+            <div class="interpretation-list" aria-label="目の前の対応と管理上の確認事項">
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える対応</span><p>サービスを再起動して復旧した</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>一時対応だけで終わっていないか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える対応</span><p>障害の原因を調べた</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>原因分析に加えて管理方法も改善されるか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える対応</span><p>設備や容量を増やした</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>今後の状態を測定・評価する仕組みがあるか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える対応</span><p>監視項目を追加した</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>兆候を早く捉え、次の判断へつなげられるか</p></div>
+              </div>
+            </div>
+
+            <p>サービスマネジメントシステムの改善は、個別の障害を一度解決することではない。監視・測定・評価・見直しを通じて、サービスを管理する方法を継続的によくすることである。</p>
+            <div class="interpretation-conclusion">
+              <p><strong>判断の中心は、問題が直ったかではなく、次の問題へ早く気付き、評価し、改善できる仕組みになったかである。</strong></p>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>この出来事をどう改善するか</h2>
+            <p>個別対応と管理の仕組みを分け、継続的な改善へつなげる流れを確認する。</p>
+          </div>
+
+          <section class="detail-section" id="system">
+            <h2>まず、改善する対象を確認する</h2>
+            <p>サービスマネジメントシステムとは、ITサービスを計画し、提供し、監視し、評価し、改善するための方針・役割・手順・記録などを組み合わせた管理の仕組みである。</p>
+            <p>改善の対象は、サーバや回線などの設備だけではない。監視する項目、記録する情報、異常と判断する基準、報告先、対応手順、見直しの方法も含まれる。</p>
+            <p>そのため、設備を増強しただけでは、必ずしもサービスマネジメントシステムの改善とはいえない。管理の仕組みが変わり、今後の運用でも使われ続けることが必要である。</p>
+          </section>
+
+          <section class="detail-section" id="improvement-flow">
+            <h2>改善をどう進めるか</h2>
+            <p>サービスを管理する仕組みの改善は、次の流れで考える。</p>
+            <div class="formula-box">
+              サービスの状態や問題を把握する<br>
+              → 測定結果や記録から傾向を確認する<br>
+              → 目標との差や改善すべき点を明らかにする<br>
+              → 監視項目・基準・手順・役割などを見直す<br>
+              → 改善後の結果を再び測定し、次の見直しにつなげる
+            </div>
+            <p>改善は一度で終わる作業ではない。状態を測り、結果を評価し、必要な変更を加え、その効果を確認する循環として続ける。</p>
+          </section>
+
+          <section class="detail-section" id="comparison">
+            <h2>似ている対応を分けて考える</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>対応</th><th>主な目的</th><th>判断の中心</th></tr></thead>
+                <tbody>
+                  <tr><td>応急処置</td><td>今起きている障害を早く解消する</td><td>利用を再開できるか</td></tr>
+                  <tr><td>問題管理</td><td>根本原因を特定し、再発を防ぐ</td><td>なぜ起きたか</td></tr>
+                  <tr><td>設備増強</td><td>不足する処理能力や容量を補う</td><td>資源が足りているか</td></tr>
+                  <tr><td>サービスマネジメントシステムの改善</td><td>管理・監視・評価の方法をよくする</td><td>継続して把握し改善できるか</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>この出来事から学ぶこと</h2>
+            <p>個別の障害対応だけでなく、サービスを継続的に管理する場面に共通する判断として整理する。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>別の場面でも使える判断の基本</h2>
+            <div class="lesson-summary">
+              <p>障害を復旧すること、原因を調べること、設備を増やすこと、管理の仕組みを改善することは、それぞれ目的が異なる。</p>
+              <p>サービスマネジメントシステムの改善では、監視・測定・評価・手順・役割などが、今後の運用でも使われる形に変わるかを見る。</p>
+              <p><strong>単発の対処ではなく、状態を把握し、早く気付き、評価し、次の改善へつなげられる仕組みを選ぶ。</strong></p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="related">
+            <h2>関連する要点</h2>
+            <div class="tag-list">
+              <a class="tag" href="../problem-management/">問題管理</a>
+              <a class="tag" href="../service-level-management/">SLA・SLM</a>
+              <a class="tag" href="../service-availability/">可用性</a>
+              <span class="tag">継続的改善</span>
+              <span class="tag">監視</span>
+              <span class="tag">サービスマネジメント</span>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和8年度 ITパスポート試験 公開問題 問48</p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+          </section>
+        </article>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+
+  <footer class="site-footer">
+    <div class="container"><p>ITネッコ / のらネコ学習室</p></div>
+  </footer>
 </body>
 </html>
