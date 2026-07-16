@@ -3,26 +3,241 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サービスの約束を、数値で決めて守る | ITネッコ</title>
-  <meta name="description" content="SLA／SLMについて、サービスレベルの合意と、その達成状況を管理・改善する活動として整理します。">
+  <title>サービスの約束は、誰がどう守り続けるのか | ITネッコ</title>
+  <meta name="description" content="ITサービスの利用者と提供者を整理し、SLAでサービス水準を合意し、SLMで実績を測定・評価・改善する流れを学びます。">
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .interpretation-lead { margin-bottom: 1.25rem; }
+    .interpretation-list { display: grid; gap: 0.85rem; margin: 1.25rem 0 1.5rem; }
+    .interpretation-row { display: grid; grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr); align-items: stretch; gap: 0.75rem; }
+    .interpretation-card { min-width: 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .interpretation-card--visible { background: #faf7f1; }
+    .interpretation-card--check { border-color: #b8cbbf; background: #f2f8f4; }
+    .interpretation-label { display: block; margin-bottom: 0.35rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: #6f675e; }
+    .interpretation-card p { margin: 0; line-height: 1.65; }
+    .interpretation-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.1rem; font-size: 1.25rem; font-weight: 700; color: #6f675e; }
+    .interpretation-conclusion { margin-top: 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #738f7d; background: #f6f8f6; border-radius: 0 12px 12px 0; }
+    .interpretation-conclusion p { margin: 0; }
+
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 14px;
+      background: #f3efe7;
+      border: 1px solid #ded6c7;
+    }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label {
+      margin: 0 0 0.25rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #776e62;
+    }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+
+    .lesson-summary {
+      padding: 1.1rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .interpretation-row { grid-template-columns: 1fr; gap: 0.45rem; }
+      .interpretation-arrow { min-height: 1.4rem; transform: rotate(90deg); }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
+
   <main>
-    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / サービスマネジメント / SLA・SLM</p><div class="topic-heading-meta"><span class="term-label">概念名：SLA／SLM</span></div><h1>サービスの約束を、数値で決めて守る</h1><p class="page-description">ITサービスの品質を、合意した目標値として決め、継続的に管理する考え方を整理します。</p></div></section>
-    <div class="container page-flow"><nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>サービスの約束を、数値で決めて守る</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a><article class="detail-flow">
-      <section class="detail-section" id="scene"><h2>場面</h2><p>社内システムを外部サービスとして利用するとき、「平日は何時から何時まで使えるのか」「障害時は何分以内に連絡が来るのか」「月間の稼働率はどれくらいか」を曖昧なままにすると、期待と実態がずれます。</p></section>
-      <section class="detail-section" id="conclusion"><h2>まず押さえる結論</h2><p>SLAは、サービス提供者と利用者の間で、サービス時間、可用性、応答時間、復旧時間などのサービスレベルを合意したものです。</p><p>SLMは、合意したサービスレベルを満たしているかを測定し、必要に応じて改善する活動です。</p></section>
-      <section class="detail-section" id="structure"><h2>どう成り立っているか</h2><ul><li>利用者が期待するサービス水準を確認する。</li><li>稼働率、応答時間、復旧目標などを測定できる形で合意する。</li><li>実績を記録し、合意値との差を確認する。</li><li>目標を満たせない場合は、原因を見て改善する。</li></ul></section>
-      <section class="detail-section" id="basis"><h2>理解の基軸</h2><ul><li>SLAは「約束の内容」、SLMは「約束を守るための管理活動」と見る。</li><li>サービス品質は、印象ではなく測定できる指標で扱う。</li><li>合意は利用者と提供者の間にあるため、一方的な社内目標とは区別する。</li><li>可用性や応答時間など、利用者が受け取るサービスの水準に注目する。</li></ul></section>
-      <section class="detail-section" id="mistakes"><h2>混同しやすいもの</h2><ul><li>SLA：サービスレベルについて合意した内容。</li><li>SLM：サービスレベルを管理し、改善する活動。</li><li>可用性：必要なときにサービスを使える性質。SLAの指標になり得る。</li><li>契約書全体：SLAは契約に含まれることがあるが、費用や法的条件すべてを指すわけではない。</li></ul></section>
-      <section class="detail-section" id="exam"><h2>試験での出方</h2><p>公開問題では、サービス品質を数値で合意する文書なのか、その達成状況を管理・改善する活動なのかを分ける形で出やすいです。</p></section>
-      <section class="detail-section" id="summary"><h2>まとめ</h2><p>SLAはサービスの約束、SLMはその約束を守り続けるための管理です。</p></section>
-      <section class="detail-section" id="related"><h2>関連する要点</h2><p><a href="../availability/">可用性</a>、<a href="../service-management-system-improvement/">サービスマネジメントシステムの改善</a>もあわせて確認できます。</p><div class="tag-list"><span class="tag">SLA</span><span class="tag">SLM</span><span class="tag">サービスレベル</span><span class="tag">可用性</span></div></section>
-      <section class="detail-section" id="reference"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問52</p><p>問題文・選択肢本文は掲載していません。</p></section>
-    </article></div>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">マネジメント系 / サービスマネジメント</p>
+        <h1>サービスの約束は、誰がどう守り続けるのか</h1>
+        <p class="page-description">利用者が必要とするサービス水準を、提供者と合意し、実績を確かめながら改善していく流れを整理します。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>出来事を読み解く</h2>
+            <p>起きていること、関係者、手掛かりを整理し、この出来事が何をめぐるものなのかを捉える。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>まず、何が起きているか見てみよう</h2>
+            <p>ある会社が、業務に必要なシステムを外部の事業者からサービスとして提供してもらっている。</p>
+            <p>利用する側は、「業務時間中は使えるだろう」「障害が起きたらすぐ対応してもらえるだろう」と考えている。一方、提供する側にも、保守体制や設備、費用の範囲がある。</p>
+            <p>ところが、サービスが停止したとき、利用者は「復旧が遅い」と感じ、提供者は「予定どおり対応している」と考えた。</p>
+            <p>どちらが正しいかを、印象だけで決めることはできない。</p>
+            <p>何時から何時まで利用できるのか。<br>どの程度の停止まで許容するのか。<br>障害の連絡や復旧を、どれくらいの時間で行うのか。</p>
+            <p>こうしたサービスの水準を事前に合意し、その実績を継続して確かめる必要がある。</p>
+            <p>このカードでは、サービスの「約束」と、その約束を守り続けるための「管理」を分けて考える。</p>
+          </section>
+
+          <section class="detail-section" id="actors">
+            <h2>登場人物を整理しよう</h2>
+            <p>サービスレベルを考えるときは、サービスを受ける立場と、提供する立場を分ける。</p>
+            <ul>
+              <li>サービス利用者：業務に必要なサービスを利用し、必要な時間帯や品質、対応水準を伝える。</li>
+              <li>サービス提供者：合意した範囲でサービスを提供し、稼働状況や障害対応の実績を記録する。</li>
+              <li>サービス管理の担当者：利用者の要求と提供可能な水準を調整し、合意内容と実績を確認する。</li>
+              <li>経営・業務部門：サービス停止による業務影響や、必要な水準にかかる費用を踏まえて判断する。</li>
+            </ul>
+            <p>利用者は高い水準を望み、提供者はその水準を実現するための設備・人員・費用を負担する。したがって、サービスレベルは提供者だけで一方的に決めるものではなく、双方が合意する。</p>
+          </section>
+
+          <section class="detail-section" id="clues">
+            <h2>手掛かりを集めよう</h2>
+            <p>問題文では、サービスの約束を扱っているのか、その達成状況を管理する活動を扱っているのかを、使われている言葉から見分ける。</p>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>手掛かりになる言葉</th><th>確認すること</th></tr></thead>
+                <tbody>
+                  <tr><td>サービス時間、稼働率、応答時間、復旧時間</td><td>サービスの水準が測定できる数値で示されているか</td></tr>
+                  <tr><td>利用者と提供者の合意、目標値、保証水準</td><td>双方が合意したサービスレベルを表しているか</td></tr>
+                  <tr><td>測定、監視、実績、報告</td><td>合意した水準を満たしているか確認する活動か</td></tr>
+                  <tr><td>未達、原因分析、見直し、改善</td><td>実績を基にサービスを改善する活動か</td></tr>
+                  <tr><td>社内目標、担当者の目標、努力目標</td><td>利用者と提供者の合意ではなく、一方的な管理目標ではないか</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="detail-section" id="interpretation">
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p class="interpretation-lead">これは、単に「システムが止まった」という出来事ではない。利用者の感覚から、合意したサービス水準と実績の確認へ視点を移して考える。</p>
+
+            <div class="interpretation-list" aria-label="利用者から見える事情とサービス管理上の確認事項">
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>業務中にサービスが停止した</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">サービス管理上、確認すること</span><p>利用可能時間や許容停止時間をどう合意していたか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>利用者は復旧が遅いと感じた</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">サービス管理上、確認すること</span><p>応答時間や復旧時間の目標値はいくつか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>提供者は予定どおり対応したと考えている</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">サービス管理上、確認すること</span><p>双方が同じ基準に合意しているか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>今月は障害が何度も起きた</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">サービス管理上、確認すること</span><p>稼働率などの実績が合意値を満たしているか</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前に見える事情</span><p>目標値を満たせなかった</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">サービス管理上、確認すること</span><p>原因を分析し、サービスや目標をどう改善するか</p></div>
+              </div>
+            </div>
+
+            <p>サービス品質は、「十分だった」「遅かった」という印象だけでは評価できない。利用者と提供者が、測定できる基準を共有して初めて、達成したかどうかを確認できる。</p>
+            <div class="interpretation-conclusion"><p><strong>判断の中心は、利用者が満足したかという感覚だけではない。何を約束し、実績がその約束を満たしたかを分けて確認することである。</strong></p></div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>この出来事をどう解決するか</h2>
+            <p>サービス水準を合意し、測定・評価・改善するための考え方へ進む。</p>
+          </div>
+
+          <section class="detail-section" id="sla">
+            <h2>まず、サービスの約束を決める</h2>
+            <p><strong>SLA（Service Level Agreement）</strong>は、サービス利用者とサービス提供者の間で、提供するサービスの水準を合意したものである。</p>
+            <p>サービス時間、稼働率、問い合わせへの応答時間、障害からの復旧時間などを、測定できる形で定める。</p>
+            <p>例えば「安定して使えるようにする」だけでは、達成したか判断できない。「月間稼働率99.9％以上」「重大障害の連絡は30分以内」のように、対象・測定方法・目標値を明確にする。</p>
+            <p>高いサービス水準を設定するほど、設備の冗長化、監視、人員配置などの費用が増えることがある。そのため、業務上必要な水準と、それを実現する費用の釣合いも考える。</p>
+          </section>
+
+          <section class="detail-section" id="slm">
+            <h2>約束を守れているか管理する</h2>
+            <p><strong>SLM（Service Level Management）</strong>は、合意したサービスレベルを満たしているかを継続的に管理し、必要に応じて改善する活動である。</p>
+            <div class="formula-box">
+              利用者が必要とするサービス水準を確認する<br>
+              → 提供者が実現可能な水準と調整する<br>
+              → 測定できる目標値としてSLAに合意する<br>
+              → 稼働率や応答時間などの実績を測定する<br>
+              → 合意値と実績を比較し、未達の原因を確認する<br>
+              → サービスの提供方法や目標値を見直す
+            </div>
+            <p>SLAを作成しただけでは、サービスレベルは維持されない。実績を測り、利用者と提供者が結果を確認し、必要な改善へつなげるところまでがSLMである。</p>
+          </section>
+
+          <section class="detail-section" id="difference">
+            <h2>SLAとSLMを分けて考える</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th></th><th>SLA</th><th>SLM</th></tr></thead>
+                <tbody>
+                  <tr><th>何か</th><td>サービスレベルについて合意した内容</td><td>サービスレベルを管理・改善する活動</td></tr>
+                  <tr><th>中心となるもの</th><td>サービス時間、稼働率、応答時間などの目標値</td><td>測定、報告、評価、原因分析、改善</td></tr>
+                  <tr><th>関係者</th><td>サービス利用者とサービス提供者</td><td>利用者、提供者、サービス管理担当者</td></tr>
+                  <tr><th>時間の捉え方</th><td>提供前または見直し時に約束を定める</td><td>サービス提供中に継続して実績を管理する</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>この出来事から学ぶこと</h2>
+            <p>個別の障害対応だけでなく、サービス品質を合意し、維持・改善する場面に共通する判断として整理する。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>別の場面でも使える判断の基本</h2>
+            <div class="lesson-summary">
+              <p>サービス品質は、利用者または提供者の印象ではなく、双方が合意した測定可能な基準で扱う。</p>
+              <p>SLAは「何をどの水準で提供するかという約束」、SLMは「その約束を守れているか確認し、改善する活動」である。</p>
+              <p>目標値を高くするほど、設備・人員・費用が増える場合があるため、業務上の必要性と実現可能性を調整する。</p>
+              <p><strong>合意して終わりではなく、実績を測定し、合意値との差を確認し、改善へつなげる。</strong></p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="related">
+            <h2>関連する要点</h2>
+            <p><a href="../availability/">可用性</a>、<a href="../service-management-system-improvement/">サービスマネジメントシステムの改善</a>もあわせて確認できます。</p>
+            <div class="tag-list">
+              <span class="tag">SLA</span>
+              <span class="tag">SLM</span>
+              <span class="tag">サービスレベル</span>
+              <span class="tag">可用性</span>
+              <span class="tag">サービスマネジメント</span>
+              <span class="tag">マネジメント系</span>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和8年度 ITパスポート試験 公開問題 問52</p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+          </section>
+        </article>
+      </div>
+    </div>
   </main>
+
   <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
