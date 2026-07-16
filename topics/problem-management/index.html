@@ -3,26 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>まず使える状態に戻すのか、原因まで直すのか | ITネッコ</title>
-  <meta name="description" content="インシデント管理／問題管理について、早期復旧と根本原因の解消という目的の違いで整理します。">
+  <title>障害が起きたとき、まず何を戻し、あとで何を直すのか | ITネッコ</title>
+  <meta name="description" content="障害発生時の利用者、サービスデスク、運用担当者、問題管理担当者を整理し、インシデント管理と問題管理の目的と流れを見分けます。">
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .interpretation-lead { margin-bottom: 1.25rem; }
+    .interpretation-list { display: grid; gap: 0.85rem; margin: 1.25rem 0 1.5rem; }
+    .interpretation-row { display: grid; grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr); align-items: stretch; gap: 0.75rem; }
+    .interpretation-card { min-width: 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .interpretation-card--visible { background: #faf7f1; }
+    .interpretation-card--check { border-color: #b8cbbf; background: #f2f8f4; }
+    .interpretation-label { display: block; margin-bottom: 0.35rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: #6f675e; }
+    .interpretation-card p { margin: 0; line-height: 1.65; }
+    .interpretation-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.1rem; font-size: 1.25rem; font-weight: 700; color: #6f675e; }
+    .interpretation-conclusion { margin-top: 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #738f7d; background: #f6f8f6; border-radius: 0 12px 12px 0; }
+    .interpretation-conclusion p { margin: 0; }
+
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 14px;
+      background: #f3efe7;
+      border: 1px solid #ded6c7;
+    }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+
+    .lesson-summary { padding: 1.1rem 1.2rem; border-left: 4px solid #8a755d; background: #faf7f2; border-radius: 0 12px 12px 0; }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .interpretation-row { grid-template-columns: 1fr; gap: 0.45rem; }
+      .interpretation-arrow { min-height: 1.4rem; transform: rotate(90deg); }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
+
   <main>
-    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / サービスマネジメント / インシデント管理・問題管理</p><div class="topic-heading-meta"><span class="term-label">概念名：インシデント管理／問題管理</span></div><h1>まず使える状態に戻すのか、原因まで直すのか</h1><p class="page-description">障害対応を、利用者への影響を早く小さくする活動と、再発防止へつなげる活動に分けて整理します。</p></div></section>
-    <div class="container page-flow"><nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>まず使える状態に戻すのか、原因まで直すのか</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a><article class="detail-flow">
-      <section class="detail-section" id="scene"><h2>場面</h2><p>販売管理システムが突然使えなくなり、店舗の業務が止まりました。現場はまず注文処理を再開したい。一方で、同じ障害が何度も起きるなら、あとで原因を調べて根本的に直す必要があります。</p></section>
-      <section class="detail-section" id="conclusion"><h2>まず押さえる結論</h2><p>インシデント管理は、障害やサービス低下が起きたときに、利用者への影響を小さくし、サービスをできるだけ早く復旧する活動です。</p><p>問題管理は、インシデントの背後にある根本原因を調べ、再発防止や恒久対策につなげる活動です。</p></section>
-      <section class="detail-section" id="structure"><h2>どう成り立っているか</h2><ul><li>サービスデスクなどが障害連絡を受け付け、内容を記録する。</li><li>インシデント管理では、回避策や復旧手順でサービスを使える状態に戻す。</li><li>問題管理では、原因分析、既知の誤りの管理、恒久対策を進める。</li><li>復旧の速さと、再発防止の深さを別の目的として扱う。</li></ul></section>
-      <section class="detail-section" id="basis"><h2>理解の基軸</h2><ul><li>今困っている利用者を助ける活動なら、インシデント管理として見る。</li><li>なぜ起きたのかを掘り下げ、再発を防ぐ活動なら、問題管理として見る。</li><li>暫定対応はインシデント管理に寄り、恒久対策は問題管理に寄る。</li><li>どちらも障害に関係するが、時間軸と目的が違う。</li></ul></section>
-      <section class="detail-section" id="mistakes"><h2>混同しやすいもの</h2><ul><li>インシデント管理：早期復旧を重視する。</li><li>問題管理：根本原因の解消と再発防止を重視する。</li><li>変更管理：対策を本番環境へ反映するとき、影響や承認を管理する。</li><li>サービスデスク：利用者からの連絡を受け付け、対応へつなぐ窓口。</li></ul></section>
-      <section class="detail-section" id="exam"><h2>試験での出方</h2><p>公開問題では、「まず使えるようにする」記述と、「根本原因を分析して再発防止する」記述を分けて読ませる形で出やすいです。</p></section>
-      <section class="detail-section" id="summary"><h2>まとめ</h2><p>インシデント管理はまず戻す、問題管理はなぜ起きたかまで直す活動です。</p></section>
-      <section class="detail-section" id="related"><h2>関連する要点</h2><p><a href="../service-desk/">サービスデスク</a>、<a href="../change-control-board/">変更管理</a>もあわせて確認できます。</p><div class="tag-list"><span class="tag">インシデント管理</span><span class="tag">問題管理</span><span class="tag">復旧</span><span class="tag">再発防止</span></div></section>
-      <section class="detail-section" id="reference"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問46</p><p>問題文・選択肢本文は掲載していません。</p></section>
-    </article></div>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">マネジメント系 / サービスマネジメント</p>
+        <h1>障害が起きたとき、まず何を戻し、あとで何を直すのか</h1>
+        <p class="page-description">利用者が使える状態を早く取り戻す活動と、障害の原因を調べて再発を防ぐ活動を、登場人物と時間の流れから整理します。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>出来事を読み解く</h2>
+            <p>起きていること、関係者、手掛かりを整理し、障害対応のどの段階を扱っているのかを捉える。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>まず、何が起きているか見てみよう</h2>
+            <p>店舗で使っている販売管理システムが突然動かなくなり、注文や会計の処理ができなくなった。</p>
+            <p>利用者が最初に必要としているのは、詳しい原因の説明ではない。業務を再開できるように、システムを使える状態へ戻すことである。</p>
+            <p>運用担当者は、再起動、予備機への切替え、以前の設定への戻しなどを行い、いったんサービスを復旧させた。</p>
+            <p>しかし、同じ障害が過去にも起きていた。今回も復旧だけで終われば、同じ原因によって再び業務が止まる可能性がある。</p>
+            <p>ここでは、今起きている影響を小さくすることと、障害の原因を調べて再発を防ぐことを分けて考える必要がある。</p>
+          </section>
+
+          <section class="detail-section" id="actors">
+            <h2>登場人物を整理しよう</h2>
+            <p>障害への対応には、同じシステムに関わりながら、異なる役割を持つ人がいる。</p>
+            <ul>
+              <li>利用者：サービスを使って業務を行い、利用できない状態や業務への影響を伝える。</li>
+              <li>サービスデスク：利用者からの連絡を受け付け、内容を記録し、適切な担当者へつなぐ。</li>
+              <li>運用担当者：障害の状況を確認し、回避策や復旧手順によってサービスを使える状態へ戻す。</li>
+              <li>問題管理担当者：複数の障害記録や技術情報を調べ、根本原因と再発防止策を検討する。</li>
+              <li>変更を承認する立場：恒久対策を本番環境へ反映するとき、影響やリスクを確認して実施を判断する。</li>
+            </ul>
+            <p>一人の担当者が複数の役割を担う場合でも、「今の復旧」と「原因の解消」は目的の異なる活動として整理する。</p>
+          </section>
+
+          <section class="detail-section" id="clues">
+            <h2>手掛かりを集めよう</h2>
+            <p>問題文では、活動名を直接示さず、目的や行動からインシデント管理と問題管理を見分けさせることがある。</p>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>手掛かりになる言葉</th><th>確認すること</th></tr></thead>
+                <tbody>
+                  <tr><td>早期復旧、業務再開、影響を小さくする</td><td>現在利用できないサービスを、できるだけ早く使える状態へ戻そうとしているか</td></tr>
+                  <tr><td>回避策、暫定対応、再起動、切替え</td><td>原因を完全に除去する前に、利用者への影響を止めようとしているか</td></tr>
+                  <tr><td>根本原因、原因分析、再発防止</td><td>障害の背後にある原因を特定し、同じ障害を繰り返さないようにしているか</td></tr>
+                  <tr><td>既知の誤り、恒久対策</td><td>原因や回避策を管理し、根本的な修正へつなげようとしているか</td></tr>
+                  <tr><td>承認、影響評価、本番環境への反映</td><td>見つけた対策を実施するための変更管理を扱っているか</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="detail-section" id="interpretation">
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p class="interpretation-lead">同じ障害を扱っていても、目の前の目的によって活動は異なる。行動だけでなく、「何を達成しようとしているか」へ視点を移す。</p>
+            <div class="interpretation-list" aria-label="目の前の行動と管理上の目的">
+              <div class="interpretation-row"><div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前の行動</span><p>利用者から障害の連絡を受ける</p></div><div class="interpretation-arrow" aria-hidden="true">→</div><div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>受付と記録を行い、復旧対応へつなげる段階か</p></div></div>
+              <div class="interpretation-row"><div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前の行動</span><p>予備の環境へ切り替える</p></div><div class="interpretation-arrow" aria-hidden="true">→</div><div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>原因の解消より、利用者への影響を早く止めることが目的か</p></div></div>
+              <div class="interpretation-row"><div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前の行動</span><p>過去の障害記録を比較する</p></div><div class="interpretation-arrow" aria-hidden="true">→</div><div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>共通する根本原因を調べているか</p></div></div>
+              <div class="interpretation-row"><div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">目の前の行動</span><p>修正プログラムを作成する</p></div><div class="interpretation-arrow" aria-hidden="true">→</div><div class="interpretation-card interpretation-card--check"><span class="interpretation-label">管理上、確認すること</span><p>再発防止のための恒久対策を検討しているか</p></div></div>
+            </div>
+            <div class="interpretation-conclusion"><p><strong>判断の中心は、障害に関係する作業かどうかではない。現在の影響を早く止める活動か、原因を解消して再発を防ぐ活動かを分けることである。</strong></p></div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>この出来事にどう対応するか</h2>
+            <p>復旧を優先するインシデント管理と、原因の解消を目指す問題管理を、時間の流れに沿って整理する。</p>
+          </div>
+
+          <section class="detail-section" id="incident-management">
+            <h2>まず、利用者への影響を小さくする</h2>
+            <p>インシデントとは、ITサービスが使えない、動作が遅い、本来の状態ではないなど、サービスの中断や品質低下が起きている状態である。</p>
+            <p>インシデント管理では、利用者への影響をできるだけ小さくし、通常のサービスを早く回復させることを優先する。</p>
+            <div class="formula-box">
+              障害を受け付けて記録する<br>
+              → 影響と緊急度を確認する<br>
+              → 担当者へ割り当てる<br>
+              → 回避策や復旧手順を実施する<br>
+              → 利用者が使える状態へ戻ったことを確認する
+            </div>
+            <p>この段階では、根本原因がまだ分からなくてもよい。まず業務を再開させることが目的である。</p>
+          </section>
+
+          <section class="detail-section" id="problem-management">
+            <h2>次に、なぜ起きたのかを調べる</h2>
+            <p>問題管理では、一つまたは複数のインシデントの背後にある原因を調べ、同じ障害が再び起きる可能性を減らす。</p>
+            <div class="formula-box">
+              関連するインシデントの記録を集める<br>
+              → 共通する条件や原因を分析する<br>
+              → 根本原因と回避策を整理する<br>
+              → 恒久対策を検討する<br>
+              → 必要な変更を管理された手順で実施する
+            </div>
+            <p>原因は判明しているが、まだ恒久対策が完了していない状態を「既知の誤り」として管理することもある。このとき、利用者への影響を抑える回避策も記録しておく。</p>
+          </section>
+
+          <section class="detail-section" id="comparison">
+            <h2>インシデント管理と問題管理を分ける</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>観点</th><th>インシデント管理</th><th>問題管理</th></tr></thead>
+                <tbody>
+                  <tr><td>中心となる目的</td><td>利用者への影響を小さくし、サービスを早く復旧する</td><td>根本原因を特定し、再発を防ぐ</td></tr>
+                  <tr><td>時間の向き</td><td>今起きている障害への対応</td><td>過去の記録も含めた原因分析と将来の再発防止</td></tr>
+                  <tr><td>代表的な対応</td><td>受付、記録、切替え、再起動、回避策、復旧確認</td><td>傾向分析、根本原因分析、既知の誤りの管理、恒久対策</td></tr>
+                  <tr><td>終了の考え方</td><td>利用者がサービスを使える状態に戻った</td><td>原因と対策が整理され、再発リスクが低減された</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>恒久対策を本番環境へ反映するときは、問題管理だけでなく変更管理も関係する。原因を見つけることと、変更を安全に実施することは別の判断である。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>この出来事から学ぶこと</h2>
+            <p>個別のシステム障害だけでなく、サービスの中断や品質低下に共通する判断として整理する。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>別の場面でも使える判断の基本</h2>
+            <div class="lesson-summary">
+              <p>障害が起きた直後は、原因究明より先に、利用者への影響を止めてサービスを復旧する必要がある。</p>
+              <p>復旧したことは、原因が解消されたことを意味しない。繰り返す障害では、記録を集め、根本原因と恒久対策を検討する。</p>
+              <p><strong>「今使えるようにする」のがインシデント管理、「なぜ起きたかを調べ、繰り返さないようにする」のが問題管理である。</strong></p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="related">
+            <h2>関連する要点</h2>
+            <div class="tag-list">
+              <a class="tag" href="../service-desk/">サービスデスク</a>
+              <a class="tag" href="../change-control-board/">変更管理</a>
+              <a class="tag" href="../service-management-system-improvement/">サービスマネジメントシステムの改善</a>
+              <span class="tag">インシデント管理</span>
+              <span class="tag">問題管理</span>
+              <span class="tag">復旧</span>
+              <span class="tag">根本原因</span>
+              <span class="tag">再発防止</span>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和8年度 ITパスポート試験 公開問題 問46</p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+          </section>
+        </article>
+      </div>
+    </div>
   </main>
+
   <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
