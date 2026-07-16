@@ -1,2 +1,231 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>サービスを利用できた時間の割合を可用性として見分ける | ITネッコ</title><meta name="description" content="可用性を、合意したサービス提供時間のうち実際に利用できた時間の割合として整理します。"><link rel="stylesheet" href="../../assets/style.css"></head><body><header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header><main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / サービスマネジメント</p><h1>サービスを利用できた時間の割合を可用性として見分ける</h1><p class="page-description">ITサービスが必要な時間帯に利用できる状態だったかを示す可用性を整理します。</p></div></section><div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow"><section class="detail-section"><h2>この要点で学ぶこと</h2><p>可用性は、合意したサービス提供時間のうち、実際に顧客がITサービスを利用できた時間の割合を表します。止まらず使える状態をどれだけ維持できたかを見る品質の観点です。</p></section><section class="detail-section"><h2>現実の場面と結び付けて考える概念</h2><ul><li>サービスが利用可能な状態だった割合を見る。</li><li>提供時間、稼働時間、停止時間などの語に注目する。</li><li>機能の多さや処理速度ではなく、使える状態かどうかを判断する。</li></ul></section><section class="detail-section"><h2>混同しやすいもの</h2><ul><li>可用性：必要なときに利用できる。</li><li>機能性：必要な機能を備えている。</li><li>効率性：少ない資源や時間で処理できる。</li><li>使用性：利用者が分かりやすく操作できる。</li></ul></section><section class="detail-section"><h2>何を見ればこの概念だと分かるか</h2><p>「提供時間のうち利用できた割合」と聞かれたら可用性を選びます。稼働率や停止時間の話も可用性の観点に近いと考えます。</p></section><section class="detail-section"><h2>参照した公開問題</h2><p>令和7年度 ITパスポート試験 公開問題 問36</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section></article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービスは、必要なときに使える状態だったか | ITネッコ</title>
+  <meta name="description" content="サービス提供時間、停止時間、利用できた時間を整理し、ITサービスの可用性を見分ける考え方を学びます。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .interpretation-lead { margin-bottom: 1.25rem; }
+    .interpretation-list { display: grid; gap: 0.85rem; margin: 1.25rem 0 1.5rem; }
+    .interpretation-row { display: grid; grid-template-columns: minmax(0, 0.92fr) auto minmax(0, 1.08fr); align-items: stretch; gap: 0.75rem; }
+    .interpretation-card { min-width: 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .interpretation-card--visible { background: #faf7f1; }
+    .interpretation-card--check { border-color: #b8cbbf; background: #f2f8f4; }
+    .interpretation-label { display: block; margin-bottom: 0.35rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: #6f675e; }
+    .interpretation-card p { margin: 0; line-height: 1.65; }
+    .interpretation-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.1rem; font-size: 1.25rem; font-weight: 700; color: #6f675e; }
+    .interpretation-conclusion { margin-top: 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #738f7d; background: #f6f8f6; border-radius: 0 12px 12px 0; }
+    .interpretation-conclusion p { margin: 0; }
+
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 14px;
+      background: #f3efe7;
+      border: 1px solid #ded6c7;
+    }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+
+    .lesson-summary {
+      padding: 1.1rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .interpretation-row { grid-template-columns: 1fr; gap: 0.45rem; }
+      .interpretation-arrow { min-height: 1.4rem; transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">マネジメント系 / サービスマネジメント</p>
+        <h1>サービスは、必要なときに使える状態だったか</h1>
+        <p class="page-description">ITサービスが予定された時間に利用できたかを、提供時間・停止時間・利用可能時間から整理します。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>出来事を読み解く</h2>
+            <p>起きていること、関係者、手掛かりを整理し、この出来事が何をめぐるものなのかを捉える。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>まず、何が起きているか見てみよう</h2>
+            <p>ある会社では、業務に必要なシステムを、平日の決められた時間帯に利用している。</p>
+            <p>ところが、その時間帯にシステム障害が起き、利用者が一時的にサービスを使えなくなった。</p>
+            <p>システム自体には必要な機能がそろっている。通常時の処理速度にも大きな問題はない。操作方法も特別に難しいわけではない。</p>
+            <p>それでも、利用者が必要とする時間に使えなければ、サービスとしての役割を果たせない。</p>
+            <p>このカードでは、「機能があるか」「速く動くか」ではなく、<strong>必要な時間に利用できる状態だったか</strong>という観点を整理する。</p>
+          </section>
+
+          <section class="detail-section" id="actors">
+            <h2>登場人物を整理しよう</h2>
+            <p>可用性を考えるときは、サービスを使う側と、使える状態を維持する側を分ける。</p>
+            <ul>
+              <li>利用者：業務のためにITサービスを利用する。必要な時間帯に使えることを期待する。</li>
+              <li>サービス提供者：システムや運用体制を整え、合意した時間にサービスを提供する。</li>
+              <li>運用担当者：稼働状況を監視し、障害の検知、連絡、復旧などを行う。</li>
+              <li>管理者：提供時間や目標値を定め、停止実績や改善状況を確認する。</li>
+            </ul>
+            <p>利用者から見た中心は、内部で何が起きたかではなく、予定された時間にサービスを利用できたかどうかである。</p>
+          </section>
+
+          <section class="detail-section" id="clues">
+            <h2>手掛かりを集めよう</h2>
+            <p>問題文では、「可用性」という言葉を直接使わず、時間や停止の情報から判断させることがある。</p>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>手掛かりになる言葉</th><th>確認すること</th></tr></thead>
+                <tbody>
+                  <tr><td>サービス提供時間、利用時間帯</td><td>本来、サービスを利用できることになっていた時間はどれだけか</td></tr>
+                  <tr><td>停止時間、障害時間、利用不能時間</td><td>提供時間のうち、利用できなかった時間はどれだけか</td></tr>
+                  <tr><td>稼働時間、利用可能時間</td><td>実際に利用できた時間はどれだけか</td></tr>
+                  <tr><td>稼働率、利用できた割合</td><td>提供時間に対して、利用可能だった時間がどの程度を占めるか</td></tr>
+                  <tr><td>必要なときに使える</td><td>機能や速度ではなく、利用可能な状態の維持を問うていないか</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="detail-section" id="confusion">
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p class="interpretation-lead">これは、単に「システム障害が起きた」という出来事ではない。見えている状態から、サービス品質のどの観点が問われているかを捉える。</p>
+
+            <div class="interpretation-list" aria-label="見えている状態と確認する品質の観点">
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">見えている状態</span><p>必要な機能は備わっている</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">確認すること</span><p>機能性の話であり、可用性とは別である</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">見えている状態</span><p>通常時の処理は速い</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">確認すること</span><p>処理性能の話であり、利用できる時間の割合とは別である</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">見えている状態</span><p>操作方法は分かりやすい</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">確認すること</span><p>使用性の話であり、停止時間の評価とは別である</p></div>
+              </div>
+              <div class="interpretation-row">
+                <div class="interpretation-card interpretation-card--visible"><span class="interpretation-label">見えている状態</span><p>提供時間中にサービスが停止した</p></div>
+                <div class="interpretation-arrow" aria-hidden="true">→</div>
+                <div class="interpretation-card interpretation-card--check"><span class="interpretation-label">確認すること</span><p>必要な時間に利用できた割合、つまり可用性を確認する</p></div>
+              </div>
+            </div>
+
+            <div class="interpretation-conclusion">
+              <p><strong>判断の中心は、システムの機能や速さではない。合意したサービス提供時間のうち、実際に利用できた時間がどれだけあったかである。</strong></p>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>この出来事をどう判断するか</h2>
+            <p>提供時間と停止時間を整理し、可用性として評価する方法へ進む。</p>
+          </div>
+
+          <section class="detail-section" id="availability">
+            <h2>まず、可用性が表すものを確認する</h2>
+            <p>可用性とは、ITサービスが<strong>必要なときに利用できる状態であること</strong>を表す。</p>
+            <p>サービスマネジメントでは、合意したサービス提供時間のうち、実際に利用できた時間の割合として扱うことが多い。</p>
+            <p>たとえば、サービス提供時間が100時間あり、そのうち2時間停止したなら、利用できた時間は98時間である。ここでは、98時間を100時間に対する割合として評価する。</p>
+          </section>
+
+          <section class="detail-section" id="calculation">
+            <h2>利用できた時間の割合を求める</h2>
+            <p>可用性を割合で表すときは、次の関係を確認する。</p>
+            <div class="formula-box">
+              利用可能時間 ＝ サービス提供時間 − 停止時間<br>
+              可用性 ＝ 利用可能時間 ÷ サービス提供時間 × 100
+            </div>
+            <p>停止時間だけを見るのではなく、何時間提供する予定だったかを基準にする。</p>
+            <p>また、あらかじめサービスを提供しないと決めていた時間は、通常、サービス提供時間には含めない。計画停止をどのように扱うかは、合意内容に従う。</p>
+          </section>
+
+          <section class="detail-section" id="distinction">
+            <h2>似ている品質の観点と分ける</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>観点</th><th>確認すること</th></tr></thead>
+                <tbody>
+                  <tr><td>可用性</td><td>必要なときにサービスを利用できるか</td></tr>
+                  <tr><td>機能性</td><td>必要な機能を備えているか</td></tr>
+                  <tr><td>性能・効率性</td><td>処理速度や資源の使い方に問題がないか</td></tr>
+                  <tr><td>使用性</td><td>利用者が理解しやすく、操作しやすいか</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>「提供時間」「停止時間」「稼働率」「利用できた割合」が中心なら、可用性の問題として捉える。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>この出来事から学ぶこと</h2>
+            <p>個別の障害だけでなく、ITサービスが利用可能な状態を維持できているかを判断する基本として整理する。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>別の場面でも使える判断の基本</h2>
+            <div class="lesson-summary">
+              <p>サービスに必要な機能があることと、必要な時間に利用できることは別の品質である。</p>
+              <p>可用性を考えるときは、サービス提供時間、利用可能時間、停止時間の関係を確認する。</p>
+              <p><strong>「必要なときに使えたか」「提供時間のうち何割利用できたか」が問われていれば、可用性の観点で判断する。</strong></p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="related">
+            <h2>関連する要点</h2>
+            <p><a href="../service-level-management/">サービスの約束は、誰がどう守り続けるのか</a>では、可用性などの目標値を合意し、測定・評価・改善するSLAとSLMの関係を確認できます。</p>
+            <div class="tag-list">
+              <span class="tag">可用性</span>
+              <span class="tag">サービス提供時間</span>
+              <span class="tag">停止時間</span>
+              <span class="tag">稼働率</span>
+              <span class="tag">サービスマネジメント</span>
+              <span class="tag">マネジメント系</span>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和7年度 ITパスポート試験 公開問題 問36</p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ITネッコ / のらネコ学習室</p>
+    </div>
+  </footer>
+</body>
+</html>
