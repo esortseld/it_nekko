@@ -178,39 +178,26 @@
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 5</p>
-            <h2>利用できない時間は、なぜ生まれるのか</h2>
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p>「システムが停止した」という事実だけでなく、その時間がサービス提供時間に含まれていたかを確認する。</p>
           </div>
 
-          <section class="detail-section" id="causes">
-            <h2>利用できない時間が長くなる理由</h2>
+          <section class="detail-section" id="interpretation">
+            <h2>停止した時間を、サービス提供時間と照らし合わせる</h2>
             <div class="comparison-table-wrap">
               <table class="comparison-table">
-                <thead><tr><th>起きていること</th><th>例</th></tr></thead>
+                <thead><tr><th>確認したこと</th><th>分かること</th></tr></thead>
                 <tbody>
-                  <tr><td>障害が起きる</td><td>機器の故障、通信回線の異常、ソフトウェアの不具合、操作ミス</td></tr>
-                  <tr><td>復旧までの時間が長い</td><td>発見の遅れ、原因特定、連絡、復旧作業、動作確認の長期化</td></tr>
+                  <tr><td>朝9時にシステムが停止していた</td><td>停止した事実だけでは、まだ可用性の問題とは決められない</td></tr>
+                  <tr><td>朝9時は社員が勤怠を登録する時間だった</td><td>サービスを利用できることになっていた時間に当たる</td></tr>
+                  <tr><td>その時間に勤怠を登録できなかった</td><td>必要な時間に利用できず、可用性に問題があった</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>利用できる時間を長く保つには、障害を起こりにくくするだけでは足りない。</p>
-            <p>障害が起きた場合に、早く発見し、早く利用できる状態へ戻すことも必要である。</p>
-          </section>
-
-          <section class="detail-section" id="measures">
-            <h2>停止を減らし、早く復旧するための対策</h2>
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead><tr><th>考える方向</th><th>主な仕組み</th></tr></thead>
-                <tbody>
-                  <tr><td>障害を起こりにくくする</td><td>定期点検、適切な更新、負荷分散、故障しにくい構成</td></tr>
-                  <tr><td>障害を早く発見する</td><td>稼働監視、自動通知、利用者からの連絡経路</td></tr>
-                  <tr><td>停止しても利用を続ける</td><td>サーバーや回線の二重化、予備設備への切替え</td></tr>
-                  <tr><td>早く復旧する</td><td>復旧手順、担当者と連絡先、代替機器、障害対応訓練</td></tr>
-                  <tr><td>同じ障害を減らす</td><td>停止時間の記録、原因分析、対策の見直し</td></tr>
-                </tbody>
-              </table>
+            <p>同じ停止でも、サービス提供時間の外であれば、直ちに可用性の問題になるとは限らない。定期メンテナンスとして利用しないことが決まっていた時間も同じである。</p>
+            <div class="lesson-summary">
+              <p><strong>判断の中心は、システムが停止したかどうかだけではない。利用できることになっていた時間に、実際に利用できたかどうかである。</strong></p>
             </div>
-            <p>可用性は、機器だけでなく、監視や復旧の体制にも左右される。</p>
           </section>
 
           <div class="learning-phase">
