@@ -41,26 +41,8 @@
     .quality-card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
     .quality-card p { margin: 0; }
     .quality-card strong { display: block; margin-top: 0.55rem; }
-    .balance-box {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-      gap: 0.8rem;
-      align-items: stretch;
-      margin: 1.25rem 0;
-    }
-    .balance-card {
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .balance-card h3 { margin-top: 0; font-size: 1rem; }
-    .balance-card p:last-child { margin-bottom: 0; }
-    .balance-arrow { display: flex; align-items: center; justify-content: center; font-weight: 700; color: #746c62; }
     @media (max-width: 720px) {
       .quality-grid { grid-template-columns: 1fr; }
-      .balance-box { grid-template-columns: 1fr; }
-      .balance-arrow { transform: rotate(90deg); min-height: 1.5rem; }
     }
   </style>
 </head>
@@ -107,35 +89,17 @@
           <section class="detail-section" id="quality-clues">
             <h2>ITサービスの品質を表す四つの言葉</h2>
             <div class="quality-grid">
-              <div class="quality-card">
-                <h3>何ができるか</h3>
-                <p>目的に必要な機能を備えているかを見る。</p>
-                <strong>機能性</strong>
-              </div>
-              <div class="quality-card">
-                <h3>どのくらい速いか</h3>
-                <p>必要な速度で処理でき、資源を適切に使えるかを見る。</p>
-                <strong>効率性</strong>
-              </div>
-              <div class="quality-card">
-                <h3>使いやすいか</h3>
-                <p>利用者が理解しやすく、操作しやすいかを見る。</p>
-                <strong>使用性</strong>
-              </div>
-              <div class="quality-card">
-                <h3>必要な時間に使えるか</h3>
-                <p>利用することになっている時間に、実際に使えるかを見る。</p>
-                <strong>可用性</strong>
-              </div>
+              <div class="quality-card"><h3>何ができるか</h3><p>目的に必要な機能を備えているかを見る。</p><strong>機能性</strong></div>
+              <div class="quality-card"><h3>どのくらい速いか</h3><p>必要な速度で処理でき、資源を適切に使えるかを見る。</p><strong>効率性</strong></div>
+              <div class="quality-card"><h3>使いやすいか</h3><p>利用者が理解しやすく、操作しやすいかを見る。</p><strong>使用性</strong></div>
+              <div class="quality-card"><h3>必要な時間に使えるか</h3><p>利用することになっている時間に、実際に使えるかを見る。</p><strong>可用性</strong></div>
             </div>
             <p><strong>機能性、効率性、使用性、可用性は、ITサービスの品質をそれぞれ表す言葉である。</strong></p>
           </section>
 
           <section class="detail-section" id="narrow-down">
             <h2>今回不足していたのは、どの品質か</h2>
-            <div class="lesson-summary">
-              <p><strong>今回問題になったのは、必要な時間に利用できたかを表す可用性である。</strong></p>
-            </div>
+            <div class="lesson-summary"><p><strong>今回問題になったのは、必要な時間に利用できたかを表す可用性である。</strong></p></div>
           </section>
 
           <div class="learning-phase">
@@ -195,37 +159,12 @@
               </table>
             </div>
             <p>同じ停止でも、サービス提供時間の外であれば、直ちに可用性の問題になるとは限らない。定期メンテナンスとして利用しないことが決まっていた時間も同じである。</p>
-            <div class="lesson-summary">
-              <p><strong>判断の中心は、システムが停止したかどうかだけではない。利用できることになっていた時間に、実際に利用できたかどうかである。</strong></p>
-            </div>
+            <div class="lesson-summary"><p><strong>判断の中心は、システムが停止したかどうかだけではない。利用できることになっていた時間に、実際に利用できたかどうかである。</strong></p></div>
+            <p>なお、停止を減らすには設備や運用体制が必要になり、その分だけ費用もかかる。どこまで可用性を高めるかは、停止したときの影響と費用を考えて決める。</p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 6</p>
-            <h2>どこまで品質を高めるか考えよう</h2>
-            <p>停止したときの影響と、対策にかかる費用を比べる。</p>
-          </div>
-
-          <section class="detail-section" id="cost-risk">
-            <h2>高い可用性には費用がかかる</h2>
-            <p>停止を減らすために、予備設備や監視体制を整えることができる。ただし、その分だけ費用がかかる。</p>
-            <div class="balance-box" aria-label="可用性と費用の関係">
-              <div class="balance-card"><h3>可用性を高める</h3><p>停止による業務への影響を抑えやすい。</p><p>設備や運用体制にかかる費用は増えやすい。</p></div>
-              <div class="balance-arrow" aria-hidden="true">⇄</div>
-              <div class="balance-card"><h3>費用を抑える</h3><p>設備や運用の負担を減らせる。</p><p>停止時間が長くなるリスクは高まりやすい。</p></div>
-            </div>
-            <p>判断するときは、次の点を確認する。</p>
-            <ul>
-              <li>このITサービスが止まると、誰の何の業務が止まるのか</li>
-              <li>停止によって、どの程度の損失や影響が生じるのか</li>
-              <li>どの程度の停止時間まで許容できるのか</li>
-              <li>その水準を保つために、どこまで費用を負担できるのか</li>
-            </ul>
-            <p><strong>停止したときの影響と、対策にかかる費用を考えて、必要な可用性を決める。</strong></p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 7</p>
             <h2>もう一度、品質全体を見渡そう</h2>
             <p>可用性と、ほかの品質との違いをもう一度確認する。</p>
           </div>
