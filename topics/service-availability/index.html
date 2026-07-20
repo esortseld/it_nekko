@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>機能も速度も問題ない。それでも使えないITサービス | ITネッコ</title>
-  <meta name="description" content="必要な機能があり、処理も速く、操作にも問題がないのに利用できなかった出来事から、ITサービスの可用性を読み解きます。">
+  <meta name="description" content="必要な機能があり、処理も速く、操作にも問題がないのに利用できなかった出来事から、ITサービスの品質と可用性を読み解きます。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .learning-phase {
@@ -26,7 +26,8 @@
     }
     .lesson-summary p { margin: 0 0 0.8rem; }
     .lesson-summary p:last-child { margin-bottom: 0; }
-    .calculation-box {
+    .calculation-box,
+    .quality-map {
       margin: 1.2rem 0;
       padding: 1rem 1.1rem;
       border: 1px solid var(--line, #d9d3c8);
@@ -35,6 +36,9 @@
     }
     .calculation-box p { margin: 0 0 0.6rem; }
     .calculation-box p:last-child { margin-bottom: 0; }
+    .quality-map > p { margin-top: 0; }
+    .quality-map ul { margin-bottom: 0; }
+    .quality-map ul ul { margin-top: 0.45rem; }
   </style>
 </head>
 <body>
@@ -50,7 +54,7 @@
       <div class="container hero-inner">
         <p class="site-kicker">マネジメント系 / サービスマネジメント</p>
         <h1>機能も速度も問題ない。それでも使えないITサービス</h1>
-        <p class="page-description">必要な機能があり、処理も速く、操作にも問題はない。それでも使えなかった出来事から、ITサービスを利用できる時間について考えます。</p>
+        <p class="page-description">一見すると問題のない勤怠システムが、なぜ役に立たなかったのか。起きた出来事を、ITサービスの品質全体から読み解きます。</p>
       </div>
     </section>
 
@@ -62,7 +66,7 @@
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 1</p>
             <h2>まず、何が起きているか見てみよう</h2>
-            <p>一見すると問題のなさそうなITサービスが、なぜ役に立たなかったのかを考える。</p>
+            <p>一見すると問題のなさそうなITサービスが、なぜ役に立たなかったのかを確認する。</p>
           </div>
 
           <section class="detail-section" id="situation">
@@ -71,30 +75,43 @@
             <p>このシステムには、勤怠を登録するために必要な機能が備わっている。処理も速く、操作にも問題はない。</p>
             <p>ところが、社員が出勤する朝9時にシステムが停止し、勤怠を登録できなかった。</p>
             <p>必要な機能はある。処理も遅くない。操作もしにくくない。それでも、この時間には利用できなかった。</p>
-            <p>このITサービスでは、何が不足していたのだろうか。</p>
+            <p><strong>このITサービスでは、何が不足していたのだろうか。</strong></p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 2</p>
             <h2>手掛かりを集めよう</h2>
-            <p>出来事を、ITサービスの品質という観点から見直す。</p>
+            <p>ITサービスの品質全体を見渡し、今回の出来事に関係する観点を探す。</p>
           </div>
 
           <section class="detail-section" id="quality-clues">
             <h2>このシステムでは、何が「使えなかった」のか</h2>
             <p>勤怠システムが使えなかったとき、どの品質に問題があったのかは、状況によって異なる。</p>
-            <p>ITサービスの品質は、いくつかの異なる観点から見ることができる。</p>
-            <p>例えば、目的に必要な機能を備えているかを見る機能性、必要な速度で処理でき、資源を適切に使えるかを見る効率性、利用者が理解しやすく、操作しやすいかを見る使用性、安定して利用できるかを見る信頼性などがある。</p>
-            <p>信頼性をいくつかの観点に分けて考えたとき、その一つに、利用することになっている時間に、実際に利用できるかを見る可用性がある。</p>
+            <p>ITサービスの品質は、一つの観点だけで決まるものではない。目的に必要な機能があるか、必要な速度で処理できるか、利用者が操作しやすいか、安定して利用できるかなど、複数の方向から見る必要がある。</p>
+
+            <div class="quality-map">
+              <p><strong>ITサービスの品質を見る主な観点</strong></p>
+              <ul>
+                <li><strong>機能性</strong>：目的に必要な機能を備えているか</li>
+                <li><strong>効率性</strong>：必要な速度で処理でき、資源を適切に使えるか</li>
+                <li><strong>使用性</strong>：利用者が理解しやすく、操作しやすいか</li>
+                <li><strong>信頼性</strong>：サービスを安定して利用できるか
+                  <ul>
+                    <li><strong>可用性</strong>：利用することになっている時間に、実際に利用できるか</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
             <p>今回の勤怠システムには、必要な機能があり、処理速度や操作方法にも問題はなかった。</p>
-            <p>問題になったのは、社員が勤怠を登録する時間に、システムそのものを利用できなかったことである。</p>
-            <div class="lesson-summary"><p><strong>つまり、今回の出来事では、可用性に問題があったことになる。</strong></p></div>
+            <p>残った手掛かりは、社員が勤怠を登録する時間に、システムそのものを利用できなかったことである。</p>
+            <div class="lesson-summary"><p><strong>この出来事を判断するには、「利用することになっていた時間に使えたか」を確かめる必要がある。</strong></p></div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 3</p>
             <h2>判断の基準を確かめよう</h2>
-            <p>出来事を判断するために、何を基準に確認するのかを整理する。</p>
+            <p>「使いたかった時間」ではなく、サービスを提供することになっていた時間を確認する。</p>
           </div>
 
           <section class="detail-section" id="service-time">
@@ -107,8 +124,8 @@
               <li>24時間365日。ただし、定期メンテナンスを除く</li>
             </ul>
             <p><strong>このITサービスは、いつ利用できることになっているのか。</strong></p>
-            <p>可用性は、合意したサービス提供時間に、実際に利用できたかを表す。</p>
-            <p>その実績は、サービス提供時間のうち、実際に利用できた時間の割合で表すことができる。</p>
+            <p>合意したサービス提供時間に、実際に利用できたかを見る品質が可用性である。</p>
+            <p>可用性の実績は、サービス提供時間のうち、実際に利用できた時間の割合で表すことができる。</p>
             <div class="calculation-box">
               <p><strong>サービス提供時間が9時から18時までの場合</strong></p>
               <p>サービス提供時間：9時間</p>
@@ -122,14 +139,14 @@
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 4</p>
             <h2>登場人物を整理しよう</h2>
-            <p>サービス提供時間に利用できる状態を保つために、誰が何を担っているのかを見る。</p>
+            <p>サービス提供時間を決め、利用できる状態を支える人の役割を見る。</p>
           </div>
 
           <section class="detail-section" id="actors">
             <h2>定めた時間に利用できる状態を、誰が支えるのか</h2>
             <div class="comparison-table-wrap">
               <table class="comparison-table">
-                <thead><tr><th>関係者</th><th>可用性に関する役割</th></tr></thead>
+                <thead><tr><th>関係者</th><th>担っていること</th></tr></thead>
                 <tbody>
                   <tr><td>利用者・顧客</td><td>いつITサービスを使う必要があり、停止すると何ができなくなるのかを示す</td></tr>
                   <tr><td>サービス提供者</td><td>利用できる時間を定め、その時間にサービスを提供する</td></tr>
@@ -138,14 +155,13 @@
                 </tbody>
               </table>
             </div>
-            <p>サービスを止めないように障害を防ぎ、発生した場合には復旧するなど、定めた時間にサービスを提供するための役割が分かれている。</p>
-            <p>定めたサービス提供時間に利用できるようにするためには、設備だけでなく、監視や復旧などの運用体制も必要である。</p>
+            <p>可用性は、機器一つだけの性質ではない。利用者とサービス提供者が決めた時間と、それを守るための設備・監視・復旧体制によって成り立つ。</p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 5</p>
             <h2>この出来事をどう捉えるか考えよう</h2>
-            <p>停止した事実だけでなく、その時間がサービス提供時間に含まれていたかを確認する。</p>
+            <p>集めた手掛かりと判断基準を使い、事件をもう一度確認する。</p>
           </div>
 
           <section class="detail-section" id="interpretation">
@@ -154,27 +170,29 @@
             <p>確認する必要があるのは、その停止が、合意したサービス提供時間の中で起きたかどうかである。</p>
             <p>例えば、サービス提供時間が平日の9時から18時までと定められている場合、その時間内に停止すれば、利用できた時間が減り、可用性に影響する。</p>
             <p>一方、サービス提供時間外の深夜に、予定されたメンテナンスのため停止していても、その時間があらかじめ提供時間に含まれていなければ、同じようには扱わない。</p>
+            <p>可用性を判断するときは、システムが停止したという事実だけを見るのではなく、次の二つを確認する。</p>
             <div class="lesson-summary">
               <p><strong>その時間は、サービスを提供することになっていたか。</strong></p>
               <p><strong>その時間に、実際にサービスを利用できたか。</strong></p>
             </div>
-            <p>今回の勤怠システムでは、社員が勤怠を登録する朝9時がサービス提供時間に含まれていた。それにもかかわらず利用できなかったため、可用性に問題があったと判断できる。</p>
+            <p>今回の勤怠システムでは、社員が勤怠を登録する朝9時がサービス提供時間に含まれていた。それにもかかわらず利用できなかった。</p>
+            <p><strong>ITサービスの品質全体から出来事を見た結果、この事件では可用性に問題があったと判断できる。</strong></p>
           </section>
 
           <section class="detail-section" id="lesson">
             <h2>この学習要点で整理したこと</h2>
             <div class="lesson-summary">
-              <p>ITサービスが使えるかどうかは、必要な機能があるか、十分な速度で処理できるか、操作しやすいかだけでは判断できない。</p>
-              <p>利用することになっている時間に、実際に利用できるかを見るのが可用性である。</p>
+              <p>ITサービスの品質には、機能性、効率性、使用性、信頼性など、複数の観点がある。</p>
+              <p>信頼性を具体的に見る観点の一つが、利用することになっている時間に実際に利用できるかを見る可用性である。</p>
               <p>可用性は、合意したサービス提供時間のうち、実際に利用できた時間の割合で表される。</p>
-              <p><strong>システムが停止したという事実だけでなく、その時間がサービス提供時間に含まれていたかを確認することが、今回の出来事を判断する手掛かりになる。</strong></p>
+              <p><strong>一つの用語だけを見るのではなく、ITサービスの品質全体から事件を捉え、どの観点に問題があったのかを判断する。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="related">
             <h2>関連する要点</h2>
             <p><a href="../service-level-management/">サービスの約束は、誰がどう守り続けるのか</a>では、可用性などの目標値を合意し、測定・評価・改善するSLAとSLMの関係を確認できます。</p>
-            <div class="tag-list"><span class="tag">ITサービスの品質</span><span class="tag">可用性</span><span class="tag">サービス提供時間</span><span class="tag">サービスマネジメント</span><span class="tag">マネジメント系</span></div>
+            <div class="tag-list"><span class="tag">ITサービスの品質</span><span class="tag">信頼性</span><span class="tag">可用性</span><span class="tag">サービス提供時間</span><span class="tag">サービスマネジメント</span><span class="tag">マネジメント系</span></div>
           </section>
 
           <section class="detail-section" id="reference">
