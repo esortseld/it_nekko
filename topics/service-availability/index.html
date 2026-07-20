@@ -18,7 +18,6 @@
     .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
     .learning-phase h2 { margin: 0; font-size: 1.2rem; }
     .learning-phase p:last-child { margin-bottom: 0; }
-
     .lesson-summary {
       padding: 1.1rem 1.2rem;
       border-left: 4px solid #8a755d;
@@ -27,27 +26,21 @@
     }
     .lesson-summary p { margin: 0 0 0.8rem; }
     .lesson-summary p:last-child { margin-bottom: 0; }
-
-    .clue-list,
     .quality-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.8rem;
       margin: 1.2rem 0;
     }
-    .clue-card,
     .quality-card {
       padding: 1rem 1.1rem;
       border: 1px solid var(--line, #d9d3c8);
       border-radius: 14px;
       background: #fff;
     }
-    .clue-card h3,
     .quality-card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
-    .clue-card p,
     .quality-card p { margin: 0; }
     .quality-card strong { display: block; margin-top: 0.55rem; }
-
     .balance-box {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -64,9 +57,7 @@
     .balance-card h3 { margin-top: 0; font-size: 1rem; }
     .balance-card p:last-child { margin-bottom: 0; }
     .balance-arrow { display: flex; align-items: center; justify-content: center; font-weight: 700; color: #746c62; }
-
     @media (max-width: 720px) {
-      .clue-list,
       .quality-grid { grid-template-columns: 1fr; }
       .balance-box { grid-template-columns: 1fr; }
       .balance-arrow { transform: rotate(90deg); min-height: 1.5rem; }
@@ -119,7 +110,7 @@
           </div>
 
           <section class="detail-section" id="quality-clues">
-            <h2>同じITサービスでも、見る方向は一つではない</h2>
+            <h2>ITサービスの品質を表す四つの言葉</h2>
             <div class="quality-grid">
               <div class="quality-card">
                 <h3>何ができるか</h3>
@@ -142,7 +133,7 @@
                 <strong>可用性</strong>
               </div>
             </div>
-            <p>これらは、別々のITサービスを表す言葉ではない。一つのITサービスを、異なる方向から見たものである。</p>
+            <p><strong>機能性、効率性、使用性、可用性は、ITサービスの品質をそれぞれ表す言葉である。</strong></p>
           </section>
 
           <section class="detail-section" id="narrow-down">
@@ -245,17 +236,9 @@
             <p>サーバーの二重化、予備回線、24時間監視、自動切替え、復旧要員の待機などを行えば、停止を減らしやすくなる。</p>
             <p>一方で、設備費や運用費は増える。対策を少なくすれば費用は下がるが、障害時に停止が長引くリスクは高くなる。</p>
             <div class="balance-box" aria-label="可用性と費用の関係">
-              <div class="balance-card">
-                <h3>可用性を高める</h3>
-                <p>停止による業務への影響を抑えやすい。</p>
-                <p>設備や運用体制にかかる費用は増えやすい。</p>
-              </div>
+              <div class="balance-card"><h3>可用性を高める</h3><p>停止による業務への影響を抑えやすい。</p><p>設備や運用体制にかかる費用は増えやすい。</p></div>
               <div class="balance-arrow" aria-hidden="true">⇄</div>
-              <div class="balance-card">
-                <h3>費用を抑える</h3>
-                <p>設備や運用の負担を減らせる。</p>
-                <p>停止時間が長くなるリスクは高まりやすい。</p>
-              </div>
+              <div class="balance-card"><h3>費用を抑える</h3><p>設備や運用の負担を減らせる。</p><p>停止時間が長くなるリスクは高まりやすい。</p></div>
             </div>
             <p>判断するときは、次の点を確認する。</p>
             <ul>
@@ -274,45 +257,36 @@
           </div>
 
           <section class="detail-section" id="overview">
-            <h2>一つのITサービスを、四つの方向から見る</h2>
+            <h2>ITサービスの品質を四つに分けて整理する</h2>
             <div class="comparison-table-wrap">
               <table class="comparison-table">
-                <thead><tr><th>観点</th><th>確認すること</th><th>表す言葉</th><th>主に支えるもの</th></tr></thead>
+                <thead><tr><th>品質</th><th>確認すること</th><th>主に支えるもの</th></tr></thead>
                 <tbody>
-                  <tr><td>何ができるか</td><td>必要な機能を備えているか</td><td>機能性</td><td>要求の整理、設計、テスト</td></tr>
-                  <tr><td>どのくらい速いか</td><td>必要な速度で処理でき、資源を適切に使えるか</td><td>効率性</td><td>処理方法、機器性能、負荷管理</td></tr>
-                  <tr><td>使いやすいか</td><td>理解しやすく、操作しやすいか</td><td>使用性</td><td>画面設計、操作設計、利用者による確認</td></tr>
-                  <tr><td>必要な時間に使えるか</td><td>合意した時間に利用できる状態か</td><td>可用性</td><td>監視、予備設備、復旧体制</td></tr>
+                  <tr><td>機能性</td><td>必要な機能を備えているか</td><td>要求の整理、設計、テスト</td></tr>
+                  <tr><td>効率性</td><td>必要な速度で処理でき、資源を適切に使えるか</td><td>処理方法、機器性能、負荷管理</td></tr>
+                  <tr><td>使用性</td><td>理解しやすく、操作しやすいか</td><td>画面設計、操作設計、利用者による確認</td></tr>
+                  <tr><td>可用性</td><td>合意した時間に利用できる状態か</td><td>監視、予備設備、復旧体制</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>一つの観点が高ければ、ほかの観点も高いとは限らない。</p>
             <p>機能が充実していても、処理が遅いことはある。操作しやすくても、必要な時間に停止していることもある。</p>
-            <p>用語だけを個別に覚えるのではなく、<strong>ITサービスの何を見ている観点なのか</strong>と、その品質が<strong>何によって支えられているのか</strong>を結び付けて理解する。</p>
+            <p>用語だけを個別に覚えるのではなく、<strong>それぞれがどのような品質を表しているのか</strong>と、その品質が<strong>何によって支えられているのか</strong>を結び付けて理解する。</p>
           </section>
 
           <section class="detail-section" id="lesson">
             <h2>この学習要点で整理したこと</h2>
             <div class="lesson-summary">
-              <p>ITサービスの品質には、機能性、効率性、使用性、可用性など、複数の観点がある。</p>
+              <p>ITサービスの品質には、機能性、効率性、使用性、可用性などがある。</p>
               <p>今回の出来事では、必要な機能、処理速度、使いやすさではなく、必要な時間に利用できたかが問題であった。</p>
-              <p>この観点を可用性といい、利用者とサービス提供者が合意したサービス提供時間を基準に考える。</p>
-              <p><strong>可用性という名称だけでなく、ITサービス品質全体の中で何を表す観点なのかを理解することが、この問題から学ぶ要点である。</strong></p>
+              <p>この品質を可用性といい、利用者とサービス提供者が合意したサービス提供時間を基準に考える。</p>
+              <p><strong>可用性という名称だけでなく、ITサービスの品質の中で何を表す言葉なのかを理解することが、この問題から学ぶ要点である。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="related">
             <h2>関連する要点</h2>
             <p><a href="../service-level-management/">サービスの約束は、誰がどう守り続けるのか</a>では、可用性などの目標値を合意し、測定・評価・改善するSLAとSLMの関係を確認できます。</p>
-            <div class="tag-list">
-              <span class="tag">ITサービスの品質</span>
-              <span class="tag">可用性</span>
-              <span class="tag">機能性</span>
-              <span class="tag">効率性</span>
-              <span class="tag">使用性</span>
-              <span class="tag">サービスマネジメント</span>
-              <span class="tag">マネジメント系</span>
-            </div>
+            <div class="tag-list"><span class="tag">ITサービスの品質</span><span class="tag">可用性</span><span class="tag">機能性</span><span class="tag">効率性</span><span class="tag">使用性</span><span class="tag">サービスマネジメント</span><span class="tag">マネジメント系</span></div>
           </section>
 
           <section class="detail-section" id="reference">
@@ -325,10 +299,6 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
