@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>機能も速度も問題ない。それでも使えないITサービス | ITネッコ</title>
-  <meta name="description" content="必要な機能があり、処理も速く、操作にも問題がないのに利用できなかった出来事から、ITサービスの品質をどの観点で見るかを整理します。">
+  <meta name="description" content="必要な機能があり、処理も速く、操作にも問題がないのに利用できなかった出来事から、ITサービスの品質を表す言葉の違いを整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .learning-phase {
@@ -27,7 +27,7 @@
     .lesson-summary p { margin: 0 0 0.8rem; }
     .lesson-summary p:last-child { margin-bottom: 0; }
     .quality-map,
-    .supplement-box {
+    .clue-box {
       margin: 1.2rem 0;
       padding: 1rem 1.1rem;
       border: 1px solid var(--line, #d9d3c8);
@@ -35,9 +35,9 @@
       background: #fff;
     }
     .quality-map > p,
-    .supplement-box > p { margin-top: 0; }
+    .clue-box > p { margin-top: 0; }
     .quality-map ul,
-    .supplement-box ul { margin-bottom: 0; }
+    .clue-box ul { margin-bottom: 0; }
     .quality-map ul ul { margin-top: 0.45rem; }
   </style>
 </head>
@@ -54,7 +54,7 @@
       <div class="container hero-inner">
         <p class="site-kicker">マネジメント系 / サービスマネジメント</p>
         <h1>機能も速度も問題ない。それでも使えないITサービス</h1>
-        <p class="page-description">一見すると問題のない勤怠システムが、なぜ使えなかったのか。起きた出来事を、ITサービスの品質全体から読み解きます。</p>
+        <p class="page-description">一見すると問題のない勤怠システムが、なぜ使えなかったのか。手掛かりを集め、ITサービスの品質を表す言葉の中から当てはまるものを探します。</p>
       </div>
     </section>
 
@@ -66,148 +66,114 @@
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 1</p>
             <h2>まず、何が起きているか見てみよう</h2>
-            <p>一見すると問題のなさそうな勤怠システムで、何が起きたのかを確認する。</p>
+            <p>問題のないように見える勤怠システムで、何が起きたのかを確認する。</p>
           </div>
 
           <section class="detail-section" id="situation">
             <h2>朝9時、勤怠システムが使えない</h2>
             <p>ある会社で、社員が勤怠を登録するためのシステムを利用している。</p>
-            <p>このシステムには、勤怠を登録するために必要な機能が備わっている。処理も速く、操作にも問題はない。</p>
+            <p>勤怠を登録する機能はある。処理も速く、操作も難しくない。</p>
             <p>ところが、社員が出勤する朝9時にシステムが停止し、勤怠を登録できなかった。</p>
-            <p>必要な機能はある。処理も遅くない。操作もしにくくない。それでも、この時間には利用できなかった。</p>
-            <p><strong>このITサービスでは、何が満たされていなかったのだろうか。</strong></p>
+            <p><strong>機能も速度も操作も問題ない。それでも使えなかったのは、なぜだろう。</strong></p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 2</p>
-            <h2>登場人物を整理しよう</h2>
-            <p>この出来事に関わる人と、それぞれの立場を確認する。</p>
+            <h2>手掛かりを集めよう</h2>
+            <p>問題があったことと、問題がなかったことを分けてみる。</p>
           </div>
 
-          <section class="detail-section" id="actors">
-            <h2>誰にとって、何が問題になったのか</h2>
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead><tr><th>関係者</th><th>この出来事との関わり</th></tr></thead>
-                <tbody>
-                  <tr><td>利用者</td><td>朝9時に勤怠を登録する社員</td></tr>
-                  <tr><td>サービス提供者</td><td>勤怠システムを利用できる状態で提供する側</td></tr>
-                  <tr><td>運用担当者</td><td>システムを監視し、停止したときに復旧する側</td></tr>
-                  <tr><td>サービス管理者</td><td>利用できる時間やサービスの実績を管理する側</td></tr>
-                </tbody>
-              </table>
+          <section class="detail-section" id="clues">
+            <h2>残った手掛かりは何か</h2>
+            <div class="clue-box">
+              <ul>
+                <li>勤怠を登録する機能は備わっていた</li>
+                <li>処理速度には問題がなかった</li>
+                <li>社員は操作方法を理解していた</li>
+                <li>社員が利用する朝9時に、システムが停止していた</li>
+              </ul>
             </div>
-            <p>社員が困ったという事実だけでなく、サービスを提供する側が、どの状態を保つことになっていたのかも関係している。</p>
+            <p>問題があったのは、何ができるかでも、どれくらい速いかでも、使いやすいかでもない。</p>
+            <div class="lesson-summary">
+              <p><strong>利用することになっていた時間に、実際に利用できなかった。</strong></p>
+            </div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 3</p>
-            <h2>手掛かりを集めよう</h2>
-            <p>何ができていて、何ができていなかったのかを分けて考える。</p>
-          </div>
-
-          <section class="detail-section" id="clues">
-            <h2>不足していたものを絞り込む</h2>
-            <ul>
-              <li>勤怠を登録する機能は備わっていた</li>
-              <li>処理速度には問題がなかった</li>
-              <li>社員は操作方法を理解していた</li>
-              <li>社員が利用する朝9時に、システムが停止していた</li>
-            </ul>
-            <div class="lesson-summary">
-              <p><strong>問題は、何ができるか、どれくらい速いか、使いやすいかではなかった。</strong></p>
-              <p><strong>利用することになっていた時間に、実際に利用できなかったことが残る。</strong></p>
-            </div>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 4</p>
-            <h2>この出来事は、何について考える話なのか</h2>
-            <p>原因や責任を追う前に、どの枠組みで出来事を見るのかを定める。</p>
-          </div>
-
-          <section class="detail-section" id="framework">
-            <h2>ITサービスとして、何が満たされなかったのか</h2>
-            <p>システムが停止した原因を調べるのであれば、機器の故障や設定、運用手順などを確認することになる。</p>
-            <p>誰の責任かを考えるのであれば、担当範囲や対応状況を確認することになる。</p>
-            <p>ここで考えるのは、そのどちらでもない。</p>
-            <p><strong>このITサービスが、利用者に対してどのような点で役割を果たせなかったのか。</strong></p>
-            <p>これは、ITサービスの品質をどの観点から見るかという話である。</p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 5</p>
-            <h2>品質を、異なる観点から見てみよう</h2>
-            <p>同じITサービスでも、どの点に注目するかによって評価する内容は変わる。</p>
+            <h2>候補となる言葉を確認しよう</h2>
+            <p>ITサービスの品質を表す言葉は、それぞれ見ているものが違う。</p>
           </div>
 
           <section class="detail-section" id="quality-viewpoints">
-            <h2>「使えない」の中身は一つではない</h2>
-            <p>ITサービスの品質は、一つの観点だけで決まるものではない。</p>
+            <h2>同じ「使えない」でも、理由は一つではない</h2>
             <div class="quality-map">
-              <p><strong>ITサービスの品質を見る主な観点</strong></p>
               <ul>
                 <li><strong>機能性</strong>：目的に必要な機能を備えているか</li>
                 <li><strong>効率性</strong>：必要な速度で処理でき、資源を適切に使えるか</li>
                 <li><strong>使用性</strong>：利用者が理解しやすく、操作しやすいか</li>
-                <li><strong>信頼性</strong>：サービスを安定して利用できるか
+                <li><strong>信頼性</strong>：安定して利用できるか
                   <ul>
                     <li><strong>可用性</strong>：利用することになっている時間に、実際に利用できるか</li>
                   </ul>
                 </li>
               </ul>
             </div>
-            <p>これらは、別々のITサービスを表す言葉ではない。一つのITサービスの品質を、異なる方向から見たものである。</p>
+            <p>どれもITサービスの品質を表す言葉だが、確認している内容は同じではない。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>手掛かりと候補を照らし合わせよう</h2>
+            <p>今回の出来事に当てはまらないものから外していく。</p>
+          </div>
+
+          <section class="detail-section" id="elimination">
+            <h2>どの言葉が残るのか</h2>
+            <p>必要な機能はあった。だから、機能性の話ではない。</p>
+            <p>処理は遅くなかった。だから、効率性の話でもない。</p>
+            <p>操作に迷ったわけでもない。だから、使用性の話でもない。</p>
+            <p>残ったのは、利用することになっていた時間に利用できなかったという手掛かりである。</p>
+            <div class="lesson-summary">
+              <p><strong>この手掛かりに当てはまるのは、可用性である。</strong></p>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>もう一つの手掛かりを確かめよう</h2>
+            <p>問題文に時間の割合が出てきたとき、何を比べているのかを見る。</p>
+          </div>
+
+          <section class="detail-section" id="ratio-clue">
+            <h2>基準になる時間はどれか</h2>
+            <p>例えば、サービスを提供することになっていた時間が40時間で、そのうち38時間利用できたとする。</p>
+            <div class="clue-box">
+              <p><strong>実際に利用できた38時間 ÷ 提供することになっていた40時間 × 100 ＝ 95％</strong></p>
+            </div>
+            <p>ここで比べているのは、利用者が使いたいと思ったすべての時間ではない。</p>
+            <p><strong>サービスを提供することになっていた時間と、その中で実際に利用できた時間である。</strong></p>
+            <p>この組合せも、可用性を見分ける手掛かりになる。</p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 6</p>
-            <h2>この出来事をどう捉えるか考えよう</h2>
-            <p>集めた手掛かりを、品質の観点と照らし合わせる。</p>
+            <h2>この問題で見分けるものを整理しよう</h2>
+            <p>言葉だけではなく、説明が何について述べているかを見る。</p>
           </div>
-
-          <section class="detail-section" id="interpretation">
-            <h2>今回、問題になった品質はどれか</h2>
-            <p>勤怠を登録する機能は備わっていたため、機能性の問題ではない。</p>
-            <p>処理速度にも問題はなかったため、効率性の問題でもない。</p>
-            <p>操作方法も分かっていたため、使用性の問題でもない。</p>
-            <p>一方で、社員が勤怠を登録することになっていた朝9時に、システムを利用できなかった。</p>
-            <div class="lesson-summary">
-              <p><strong>この出来事で問題になったのは、利用することになっていた時間に、実際に利用できたかという品質である。</strong></p>
-              <p><strong>この観点を、可用性という。</strong></p>
-            </div>
-            <p>ただし、システムが停止したという事実だけで、いつでも可用性の問題になるわけではない。</p>
-            <p>確認する必要があるのは、その時間が、サービスを提供することになっていた時間に含まれていたかどうかである。</p>
-          </section>
 
           <section class="detail-section" id="lesson">
             <h2>この学習要点で整理したこと</h2>
             <div class="lesson-summary">
-              <p>ITサービスの品質は、一つの観点だけで判断するものではない。</p>
-              <p>まず、出来事の中で何が満たされなかったのかを整理し、どの品質の観点から見るべきかを考える。</p>
-              <p>今回の勤怠システムでは、機能、処理速度、操作方法ではなく、利用することになっていた時間に実際に利用できなかったことが問題だった。</p>
-              <p><strong>一つの用語だけを覚えるのではなく、ITサービスの品質全体から出来事を捉え、どの観点が問われているのかを判断する。</strong></p>
+              <p>ITサービスの品質を表す言葉は、それぞれ確認する内容が違う。</p>
+              <p>機能を備えているか、速く処理できるか、使いやすいか、利用することになっている時間に利用できるかを分けて考える。</p>
+              <p><strong>問題文の説明が何について述べているのかを捉え、当てはまる品質を選ぶ。</strong></p>
             </div>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足　可用性はどのように表すのか</h2>
-            <p>可用性は、合意したサービス提供時間のうち、実際に利用できた時間の割合で表すことができる。</p>
-            <div class="supplement-box">
-              <p><strong>例</strong></p>
-              <ul>
-                <li>合意したサービス提供時間：40時間</li>
-                <li>利用できなかった時間：2時間</li>
-                <li>実際に利用できた時間：38時間</li>
-              </ul>
-              <p><strong>38時間 ÷ 40時間 × 100 ＝ 95％</strong></p>
-            </div>
-            <p>ここで基準になるのは、利用者が使いたいと思ったすべての時間ではない。利用者とサービス提供者の間で、サービスを提供することになっていた時間である。</p>
           </section>
 
           <section class="detail-section" id="related">
             <h2>関連する要点</h2>
-            <p><a href="../service-level-management/">サービスの約束は、誰がどう守り続けるのか</a>では、可用性などの目標値を合意し、測定・評価・改善するSLAとSLMの関係を確認できます。</p>
+            <p><a href="../service-level-management/">サービスの約束は、誰がどう守り続けるのか</a>では、サービスの目標を決め、実績を確認し、改善していく流れを整理しています。</p>
             <div class="tag-list"><span class="tag">ITサービスの品質</span><span class="tag">信頼性</span><span class="tag">可用性</span><span class="tag">サービス提供時間</span><span class="tag">サービスマネジメント</span><span class="tag">マネジメント系</span></div>
           </section>
 
