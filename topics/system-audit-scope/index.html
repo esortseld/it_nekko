@@ -1,2 +1,151 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>情報セキュリティ監査が検証する対象を見分ける | ITネッコ</title><meta name="description" content="システム監査や情報セキュリティ監査で確認する対象と、監査の流れを整理します。"><link rel="stylesheet" href="../../assets/style.css"></head><body><header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header><main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / システム監査</p><h1>情報セキュリティ監査が検証する対象を見分ける</h1><p class="page-description">監査が、管理策や運用状況を客観的に確認する活動であることを整理します。</p></div></section><div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow"><section class="detail-section"><h2>この要点で学ぶこと</h2><p>システム監査は、情報システムに関するリスクや統制を独立した立場で評価する活動です。情報セキュリティ監査では、機密性、完全性、可用性を守るための管理策が適切に整備され、運用されているかを確認します。</p></section><section class="detail-section"><h2>現実の場面と結び付けて考える概念</h2><ul><li>監査は、客観的な証拠に基づいて評価する。</li><li>情報セキュリティ監査では、セキュリティ管理策の整備状況と運用状況を見る。</li><li>監査の結論は、確認した事実と基準に基づいて導く。</li></ul></section><section class="detail-section"><h2>混同しやすいもの</h2><ul><li>システム監査：情報システム全般のリスクや統制を評価する。</li><li>情報セキュリティ監査：セキュリティ管理策に焦点を当てる。</li><li>運用作業：監査対象を実際に動かす作業であり、監査そのものではない。</li><li>改善命令：監査人は通常、評価や助言を行い、業務執行そのものは担わない。</li></ul></section><section class="detail-section"><h2>何を見ればこの概念だと分かるか</h2><p>「監査では何を確認するか」と問われたら、基準、証拠、管理策、運用状況という語に注目します。監査人が自ら対策を実施する選択肢は慎重に見ます。</p></section><section class="detail-section"><h2>参照した公開問題</h2><p>令和7年度 ITパスポート試験 公開問題 問38</p><p>令和8年度 ITパスポート試験 公開問題 問47・問51</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section></article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>情報を守る取組が機能しているか、誰が確かめるのか | ITネッコ</title>
+  <meta name="description" content="情報を守るルールや対策が実際に機能しているかを確かめる場面から、情報セキュリティ監査が確認する対象を整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .learning-phase { margin: 2rem 0 1rem; padding: 0.9rem 1.1rem; border-radius: 14px; background: #f3efe7; border: 1px solid #ded6c7; }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+    .fact-grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 1.2rem 0; }
+    .fact-card { padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .fact-card h3 { margin: 0 0 0.45rem; font-size: 1rem; }
+    .fact-card p { margin: 0; }
+    .concept-result { margin-top: 1.2rem; padding: 1rem 1.15rem; border-left: 4px solid #738f7d; background: #f2f8f4; border-radius: 0 12px 12px 0; }
+    .concept-result p { margin: 0; }
+    .lesson-summary { padding: 1.1rem 1.2rem; border-left: 4px solid #8a755d; background: #faf7f2; border-radius: 0 12px 12px 0; }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+    @media (max-width: 720px) { .fact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">マネジメント系 / システム監査</p>
+        <h1>情報を守る取組が機能しているか、誰が確かめるのか</h1>
+        <p class="page-description">ルールや対策を用意しただけでは、情報が守られているとは限りません。何を確かめる活動なのかを、会社で起きた出来事から読み解きます。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>何が起きたのか</h2>
+            <p>一見すると問題のない会社で、情報を守る取組が本当に機能しているかを確かめる。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>1．何が起きたのか</h2>
+            <p>ある会社では、顧客情報や社内資料を守るために、利用者ごとのアクセス権限、パスワードのルール、データのバックアップ、事故が起きたときの連絡手順などを定めている。</p>
+            <p>担当者は日々の運用を行い、管理者も定期的に報告を受けている。書類を見る限り、必要な仕組みは用意されているように見える。</p>
+            <p>しかし、経営者には一つの疑問が残った。</p>
+            <p>決めたルールは、現場で守られているのか。対策によって、情報の漏えい、改ざん、消失などの危険を実際に抑えられているのか。</p>
+            <p>ここで必要なのは、新しい対策を導入することでも、ITの方針を決めることでもない。現在の取組が、目的どおりに機能しているかを確かめることである。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>この出来事に関わる人たち</h2>
+            <p>情報を扱う人、対策を運用する人、全体を管理する人、確認する人の立場を分ける。</p>
+          </div>
+
+          <section class="detail-section" id="actors">
+            <h2>2．この出来事に関わる人たち</h2>
+            <ul>
+              <li>経営者・組織の責任者：情報を守る方針を示し、必要な管理体制を整える。</li>
+              <li>情報セキュリティの管理者：リスクを整理し、ルールや対策を設計し、運用状況を管理する。</li>
+              <li>業務担当者・システム運用担当者：決められたルールや手順に従って、情報やシステムを扱う。</li>
+              <li>監査を行う人：対策を実施する担当者とは別の立場から、基準と証拠に照らして取組を検証・評価する。</li>
+            </ul>
+            <p>監査を行う人は、現場に代わって対策を運用する人ではない。確認した事実をもとに評価し、必要に応じて改善につながる指摘や助言を行う。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>この出来事を検証する</h2>
+            <p>分かっている事実を切り分け、今回確かめたいことを絞り込む。</p>
+          </div>
+
+          <section class="detail-section" id="verification">
+            <h2>3．この出来事を検証する</h2>
+            <div class="fact-grid">
+              <div class="fact-card"><h3>方針やルールはある</h3><p>何を守り、どのように扱うかは定められている。</p></div>
+              <div class="fact-card"><h3>対策も用意されている</h3><p>アクセス制御、バックアップ、事故対応などの仕組みがある。</p></div>
+              <div class="fact-card"><h3>まだ分からないことがある</h3><p>ルールが守られ、対策が継続して機能し、危険を抑えられているかは確認できていない。</p></div>
+              <div class="fact-card"><h3>確認したい対象は情報資産である</h3><p>顧客情報、社内資料、データ、システムなどに関わる危険への対応を見ようとしている。</p></div>
+            </div>
+            <p>この会社が求めているのは、コンピュータの持出しを物理的に防ぐ道具ではない。また、組織としてITをどの方向に活用するかを決める活動でもない。</p>
+            <p>さらに、情報システムの利用全般を広く確認するだけでは、今回の焦点を十分に表せない。集まった事実が示しているのは、情報資産に関わるリスクへの対応が効果的に行われているかという確認である。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>この出来事の真相</h2>
+            <p>似て見える活動を、それぞれ何を確認するものなのかで整理する。</p>
+          </div>
+
+          <section class="detail-section" id="truth">
+            <h2>4．この出来事の真相</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>活動や仕組み</th><th>何を見ているか</th></tr></thead>
+                <tbody>
+                  <tr><td>物理的なセキュリティ対策</td><td>機器の盗難や不正な持出しを、鍵、入退室管理、固定器具などで防げるか</td></tr>
+                  <tr><td>ITガバナンス</td><td>組織がITをどのように活用し、誰が方針や重要事項を決め、監督するか</td></tr>
+                  <tr><td>システム監査</td><td>情報システムの利用、管理、統制などを一定の基準に照らして広く検証・評価する</td></tr>
+                  <tr><td>情報セキュリティ監査</td><td>情報資産に関わるリスクへの管理が、適切かつ効果的に行われているかを検証・評価する</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="concept-result"><p>今回の会社が確かめようとしていたのは、情報を守るためのリスク管理が実際に機能しているかである。この出来事に付く名前が、<strong>情報セキュリティ監査</strong>である。</p></div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>今回の学習要点</h2>
+            <p>別の場面でも使える判断の手掛かりを整理する。</p>
+          </div>
+
+          <section class="detail-section" id="summary">
+            <h2>5．今回の学習要点</h2>
+            <div class="lesson-summary">
+              <p>似た用語が並んだときは、活動の名称だけでなく、「何を対象に、何を確かめようとしているか」を確認する。</p>
+              <p>方針や重要事項を決め、監督する話は、組織によるITの統治を見ている。機器の盗難や持出しを防ぐ話は、具体的な物理対策を見ている。</p>
+              <p>一定の基準と証拠に基づいて、取組が適切に行われているかを独立した立場から検証・評価する話は、監査を見ている。</p>
+              <p>その中でも、情報資産に関わるリスク管理が効果的に行われているかが焦点なら、情報セキュリティ監査として捉える。</p>
+              <p>監査を行う人は、対策を自ら運用するのではなく、実施状況を確認し、評価や助言を行う。</p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和7年度 ITパスポート試験 公開問題 問38</p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
