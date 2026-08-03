@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>作業時間ではなく成果物で責任を判断する | ITネッコ</title>
-  <meta name="description" content="請負契約について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="作業時間ではなく成果物で責任を判断する | ITネッコ"><meta property="og:description" content="仕事の完成を目的とし、成果物に対して責任を負う契約形態を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>依頼した会社と開発会社は、何を担うのか | ITネッコ</title>
+  <meta name="description" content="プログラム開発を請負で依頼した場面から、注文者と請負人の役割、作業者への指示、仕事の完成、報酬、解除、引渡し後の責任を整理します。">
+  <meta property="og:title" content="依頼した会社と開発会社は、何を担うのか | ITネッコ">
+  <meta property="og:description" content="請負では、誰が作業を管理し、誰が仕事の完成に責任を負うのか。二つの公開問題から、請負の役割と責任を整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .learning-phase { margin: 2rem 0 1rem; padding: 0.9rem 1.1rem; border-radius: 14px; background: #f3efe7; border: 1px solid #ded6c7; }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+    .lesson-summary { padding: 1.1rem 1.2rem; border-left: 4px solid #8a755d; background: #faf7f2; border-radius: 0 12px 12px 0; }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+    .viewpoint-box { margin: 1.2rem 0; padding: 1rem 1.1rem; border: 1px solid var(--line, #d9d3c8); border-radius: 14px; background: #fff; }
+    .viewpoint-box h3 { margin-top: 0; }
+    .viewpoint-box ul { margin-bottom: 0; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,137 +34,190 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務・契約</p>
-        <div class="topic-heading-meta"><span class="term-label">請負契約</span></div><h1>作業時間ではなく成果物で責任を判断する</h1>
-        <p class="page-description">仕事の完成を目的とし、成果物に対して責任を負う契約形態を整理します。</p>
+        <div class="topic-heading-meta"><span class="term-label">請負</span></div>
+        <h1>依頼した会社と開発会社は、何を担うのか</h1>
+        <p class="page-description">プログラム開発を外部へ依頼したとき、注文者が作業者を直接動かすのではなく、請負人が作業を管理して仕事を完成させます。誰が指示し、誰がどの責任を負うのかを整理します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>作業時間ではなく成果物で責任を判断する</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>依頼した会社と開発会社は、何を担うのか</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              プログラム開発やWebサイト制作などでは、発注者が成果物の作成を依頼し、受注者が完成した成果物を納める形の契約が使われます。
-            </p>
-            <p>
-              このように、作業そのものではなく、完成した仕事の結果を目的とする契約が請負契約です。
-            </p>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>まず、何が起きているか見てみよう</h2>
+            <p>一つのプログラム開発の中で、誰が作業を管理し、誰が責任を負うのかを確認する。</p>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>外部の開発会社へ依頼したあと、判断に迷う出来事が起きた</h2>
+            <p>ある会社が、業務で使用するプログラムの開発を、外部の開発会社へ依頼した。</p>
+            <p>開発会社の作業者は、依頼した会社の事業所で作業している。依頼した会社の担当者は、作業の進め方について、作業者へ直接指示を出そうとしている。</p>
+            <p>その後、開発の一部を別の会社へ任せること、完成前に契約を終了すること、完成したプログラムの代金を支払う時期、引渡し後に見つかった不具合への対応も問題になった。</p>
+            <p>いずれも同じプログラム開発に関する出来事だが、確認する内容は一つではない。</p>
+            <p><strong>依頼した会社と開発会社は、それぞれ何を担うことになっているのだろうか。</strong></p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              請負契約では、請負人は仕事を完成させる義務を負い、注文者はその仕事の結果に対して報酬を支払います。
-            </p>
-            <p>
-              試験では、作業時間そのものではなく、仕事の完成、成果物、報酬の関係を押さえます。
-            </p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>登場人物・関係するものを整理しよう</h2>
+            <p>この出来事に関わる会社、人、成果物を整理する。</p>
+          </div>
+
+          <section class="detail-section" id="actors">
+            <h2>誰が、誰に、何を依頼しているのか</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>関係するもの</th><th>この出来事との関わり</th></tr></thead>
+                <tbody>
+                  <tr><td>注文者</td><td>必要なプログラムの開発を依頼し、仕事の結果に対して報酬を支払う会社</td></tr>
+                  <tr><td>請負人</td><td>契約で定められたプログラムを完成させ、作業を管理する会社</td></tr>
+                  <tr><td>請負人の作業者</td><td>請負人から指示を受けて、プログラムを開発する人</td></tr>
+                  <tr><td>再委託先</td><td>請負人から、開発作業の一部を任されることがある会社</td></tr>
+                  <tr><td>プログラム</td><td>契約に従って完成させ、引き渡す対象</td></tr>
+                  <tr><td>契約書</td><td>完成させる内容、報酬、納期、再委託、検収などの条件を定めるもの</td></tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>請負契約の構造を確認する</span></h2>
-            <p>
-              請負契約では、注文者と請負人の役割を分けて考えます。
-            </p>
-            <ul>
-              <li>注文者：仕事の完成を依頼し、完成した結果に対して報酬を支払う。</li>
-              <li>請負人：契約で定められた仕事を完成させる。</li>
-              <li>成果物：プログラム、システム、設計書など、完成の対象となるもの。</li>
-              <li>責任：完成した仕事が契約内容に合わない場合、契約不適合責任が問題になる。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>手掛かりを集めよう</h2>
+            <p>作業の進め方と、契約の進行に関する事実を分けて確認する。</p>
+          </div>
+
+          <section class="detail-section" id="clues">
+            <h2>同じ契約でも、確認する事実は二つに分かれる</h2>
+            <div class="viewpoint-box">
+              <h3>作業の進め方に関する事実</h3>
+              <ul>
+                <li>契約上は、外部の開発会社が仕事を引き受けている</li>
+                <li>作業者は、請負人に所属している</li>
+                <li>作業場所は、注文者の事業所である</li>
+                <li>実際に誰が作業者へ指示しているかが問題になる</li>
+              </ul>
+            </div>
+            <div class="viewpoint-box">
+              <h3>契約の進行に関する事実</h3>
+              <ul>
+                <li>開発作業の一部を、別の会社へ任せる可能性がある</li>
+                <li>注文者が、仕事の完成前に契約を終了したいと考えている</li>
+                <li>完成したプログラムを引き渡し、報酬を支払う段階がある</li>
+                <li>引渡し後に、契約内容と異なる部分が見つかることがある</li>
+              </ul>
+            </div>
+            <div class="lesson-summary">
+              <p><strong>作業場所だけを見ても、誰が作業を管理しているかは分からない。</strong></p>
+              <p><strong>また、契約上の権利や義務は、出来事が起きた段階によって変わる。</strong></p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              請負契約かどうかは、次の観点で判断します。
-            </p>
-            <ul>
-              <li>契約の目的が、仕事の完成である。</li>
-              <li>完成した結果に対して報酬が支払われる。</li>
-              <li>成果物が契約内容に適合しているかが重要になる。</li>
-              <li>成果物の完成に責任を負うのは請負先である。</li>
-              <li>請負先の従業員へ直接指示するのは、請負先の責任者である。</li>
-              <li>発注元が請負先の従業員へ直接指揮命令すると、偽装請負とみなされる可能性がある。</li>
-              <li>作業場所ではなく、指揮命令の所在を見る。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>この出来事は、何について考える話なのか</h2>
+            <p>プログラムの性能や開発手法ではなく、役割と責任の分かれ方を見る。</p>
+          </div>
+
+          <section class="detail-section" id="framework">
+            <h2>誰が作業を管理し、誰が仕事の完成を担うのか</h2>
+            <p>プログラムの機能や処理速度を評価するのであれば、成果物の品質を確認することになる。</p>
+            <p>開発の進捗を管理するのであれば、工程、納期、要員などを確認することになる。</p>
+            <p>ここで考えるのは、そのどちらでもない。</p>
+            <p><strong>外部へ仕事を依頼したとき、注文者と請負人の役割がどのように分かれ、誰が何に責任を負うのか。</strong></p>
+            <p>これは、請負という契約の構造を考える話である。</p>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい考え方を分ける</span></h2>
-            <ul>
-              <li>請負契約：仕事の完成を目的とする契約。</li>
-              <li>委任契約：一定の事務処理を委ねる契約であり、完成物そのものを目的とするとは限らない。</li>
-              <li>派遣契約：派遣先が労働者に指揮命令する形で労務を受ける契約。</li>
-              <li>請負契約では、発注者が作業者へ直接指揮命令する関係とは整理しない。</li>
-              <li>偽装請負：契約名は請負契約でも、実態として発注元が請負先の従業員へ直接指示している状態。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>請負における役割と責任を、二つの方向から見てみよう</h2>
+            <p>作業者への指示と、契約上の権利・義務を分けて整理する。</p>
+          </div>
+
+          <section class="detail-section" id="viewpoints">
+            <h2>注文者が仕事を依頼しても、すべてを直接管理するわけではない</h2>
+            <div class="viewpoint-box">
+              <h3>1　作業者への指示は誰が出すのか</h3>
+              <p>請負人は、自社の作業者へ指示を出し、仕事の進め方を管理する。</p>
+              <p>注文者は、請負人に対して契約で定めた仕事の完成を求める立場であり、請負人の作業者へ直接、作業方法や順序を指示する立場ではない。</p>
+              <p>作業者が注文者の事業所で働いているという事実だけでは、請負かどうかは判断できない。確認するのは、実際に誰が作業者へ指揮命令しているかである。</p>
+            </div>
+            <div class="viewpoint-box">
+              <h3>2　契約の進行段階で、何が問題になるのか</h3>
+              <ul>
+                <li><strong>開発中</strong>：請負人が仕事を管理し、完成に向けて作業する。再委託については、契約上の条件も確認する。</li>
+                <li><strong>完成前</strong>：注文者が契約を解除する場合、請負人に生じた損害の負担が問題になる。</li>
+                <li><strong>完成・引渡し時</strong>：請負人は完成した成果物を引き渡し、注文者は仕事の結果に対して報酬を支払う。</li>
+                <li><strong>引渡し後</strong>：成果物が契約内容に適合しているか、修正などを求められる条件や期間はどうなっているかを確認する。</li>
+              </ul>
+            </div>
+            <p>法律上の基本的なルールだけでなく、再委託、検収、支払時期、保証期間などを契約書で別に定めている場合は、その内容も確認する。</p>
           </section>
 
-          <section class="detail-section" id="disguised-contract">
-            <h2>偽装請負で見る指揮命令の所在</h2>
-            <p>
-              請負契約では、請負先が仕事の完成に責任を負います。そのため、請負先の従業員へ指示するのは、発注元ではなく請負先の責任者です。
-            </p>
-            <p>
-              契約名が請負契約であっても、発注元の責任者が請負先の従業員へ直接作業指示をしている場合、実態として労働者派遣に近い状態になり、偽装請負とみなされる可能性があります。
-            </p>
-            <p>
-              試験では、作業場所だけで判断するのではなく、「誰が作業者に直接指示しているか」を確認します。
-            </p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 6</p>
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p>集めた事実を、請負の構造と照らし合わせる。</p>
+          </div>
+
+          <section class="detail-section" id="interpretation">
+            <h2>請負では、仕事の完成と作業の管理を請負人が担う</h2>
+            <p>注文者は、必要な仕事を請負人へ依頼する。</p>
+            <p>請負人は、自ら作業を管理し、契約で定められた仕事を完成させる。注文者は、その仕事の結果に対して報酬を支払う。</p>
+            <div class="lesson-summary">
+              <p><strong>一方が仕事の完成を約束し、もう一方が仕事の結果に対して報酬を支払う契約を、請負契約という。</strong></p>
+              <p><strong>作業の実態を見るときは、誰が作業者へ指示しているかを確認する。</strong></p>
+              <p><strong>契約上の扱いを見るときは、どの段階で、誰にどの権利・義務があるかを確認する。</strong></p>
+            </div>
+            <p>契約書の名称が請負であっても、注文者が請負人の作業者へ直接指示している場合は、契約と実態が一致していない可能性がある。</p>
+            <p>また、「請負人は仕事を完成させる」という一文だけで、再委託、解除、報酬、引渡し後の責任をすべて判断することはできない。出来事が起きた時点と、契約書の条件を確認する必要がある。</p>
           </section>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>請負契約は、仕事の完成を目的とする契約である。</li>
-              <li>請負人は、契約で定められた仕事を完成させる義務を負う。</li>
-              <li>注文者は、完成した結果に対して報酬を支払う。</li>
-              <li>成果物が契約内容に合わない場合は、契約不適合責任が問題になる。</li>
-              <li>偽装請負は、契約名だけでなく指揮命令の実態で判断する。</li>
-            </ul>
+          <section class="detail-section" id="lesson">
+            <h2>この学習要点で整理したこと</h2>
+            <div class="lesson-summary">
+              <p>請負では、注文者が請負人へ仕事の完成を依頼し、請負人が作業を管理して成果物を完成させる。</p>
+              <p>請負人の作業者へ指示するのは、原則として請負人側である。作業場所ではなく、実際の指揮命令の所在を見る。</p>
+              <p>契約上の権利・義務を判断するときは、開発中、完成前、引渡し時、引渡し後のどの段階かを確認する。</p>
+              <p>再委託、解除、報酬、引渡し後の対応については、法律上の原則と契約書の条件を照らし合わせる。</p>
+              <p><strong>同じ「請負」に関する問題でも、何を判断する問題なのかによって、見る手掛かりを切り替える。</strong></p>
+            </div>
           </section>
 
           <section class="detail-section" id="supplement">
-            <h2>補足：プログラム開発で見る</h2>
-            <p>
-              プログラム開発の請負契約では、受注者が作業時間を提供すること自体ではなく、契約で定められたプログラムを完成させることが中心になります。
-            </p>
-            <p>
-              そのため、試験では、成果物の完成、報酬、契約内容への適合を見ます。あわせて、発注元社内で作業しているかどうかではなく、作業者への指揮命令の所在を確認します。
-            </p>
+            <h2>補足　請負・派遣・委任は、何を見て分けるのか</h2>
+            <ul>
+              <li><strong>請負</strong>：請負人が仕事を管理し、仕事の完成を担う。</li>
+              <li><strong>派遣</strong>：派遣先が、派遣労働者へ指揮命令する。</li>
+              <li><strong>委任・準委任</strong>：事務や業務の遂行を委ねるもので、仕事の完成そのものを目的とするとは限らない。</li>
+            </ul>
+            <p>名称だけでなく、実際に誰が作業を管理しているか、何に対して責任を負う契約なのかを確認する。</p>
           </section>
 
           <section class="detail-section" id="related">
             <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
             <div class="tag-list">
-              <span class="tag">請負契約</span>
-              <span class="tag">契約不適合責任</span>
+              <span class="tag">請負</span>
+              <span class="tag">指揮命令</span>
+              <span class="tag">契約不適合</span>
               <span class="tag">法務</span>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
-            <p>令和8年度 ITパスポート試験 公開問題 問29</p>
             <p>令和7年度 ITパスポート試験 公開問題 問1</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>令和8年度 ITパスポート試験 公開問題 問29</p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
           </section>
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
