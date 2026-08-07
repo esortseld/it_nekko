@@ -3,9 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIで作ったものにも著作権の判断が必要になる理由 | ITネッコ</title>
-  <meta name="description" content="生成AI生成物と著作権について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="AIで作ったものにも著作権の判断が必要になる理由 | ITネッコ"><meta property="og:description" content="生成AIを使った生成物でも、既存著作物への依拠や表現の類似性、公開利用の有無によって、著作権上の判断が必要になることを整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>AIで作った音楽は、そのまま公開してよいのか | ITネッコ</title>
+  <meta name="description" content="生成AIで作った音楽について、何をもとに作られたか、既存作品とどのような関係があるか、どのように利用するかを順に整理します。">
+  <meta property="og:title" content="AIで作った音楽は、そのまま公開してよいのか | ITネッコ">
+  <meta property="og:description" content="生成AIで作った音楽について、何をもとに作られたか、既存作品とどのような関係があるか、どのように利用するかを順に整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 14px;
+      background: #f3efe7;
+      border: 1px solid #ded6c7;
+    }
+    .learning-phase:first-of-type { margin-top: 0; }
+    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
+    .learning-phase p:last-child { margin-bottom: 0; }
+    .lesson-summary {
+      padding: 1.1rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 0.8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+    .viewpoint-map,
+    .supplement-box {
+      margin: 1.2rem 0;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .viewpoint-map > p,
+    .supplement-box > p { margin-top: 0; }
+    .viewpoint-map ul,
+    .supplement-box ul { margin-bottom: 0; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,88 +54,156 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
-        <div class="topic-heading-meta"><span class="question-badge">問1</span><span class="term-label">生成AI生成物と著作権</span></div><h1>AIで作ったものにも著作権の判断が必要になる理由</h1>
-        <p class="page-description">生成AIを使った生成物でも、既存著作物への依拠や表現の類似性、公開利用の有無によって、著作権上の判断が必要になることを整理します。</p>
+        <h1>AIで作った音楽は、そのまま公開してよいのか</h1>
+        <p class="page-description">生成AIで作った音楽について、何をもとに作られたか、既存作品とどのような関係があるか、どのように利用するかを順に整理します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>AIで作ったものにも著作権の判断が必要になる理由</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              生成AIを使うと、文章、画像、音楽、動画などを作ることができます。例えば、既存の作品に似た雰囲気のものを作り、それをインターネット上に公開する場面を考えます。
-            </p>
-            <p>
-              このとき問題になるのは、「AIが作ったから自由に使えるか」ではありません。既存著作物をもとにしたといえるか、できあがったものが既存著作物の具体的な表現に似ているか、どのように利用するかが問題になります。
-            </p>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>まず、何が起きているか見てみよう</h2>
+            <p>生成AIで作った音楽を公開しようとしている場面から、確認する必要があることを探す。</p>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>好きな曲に似た音楽を、生成AIで作った</h2>
+            <p>ある人が、好きなアーティストの特定の楽曲に似た音楽を作りたいと考え、生成AIを使って新しい楽曲を作った。</p>
+            <p>できあがった楽曲を聴くと、もとの楽曲を思い浮かべるような部分がある。</p>
+            <p>その人は、この楽曲をインターネット上にアップロードし、誰でも聴けるようにしようとしている。料金を取る予定はない。</p>
+            <p>生成AIが作った音楽であり、無料で公開するのであれば、そのまま使ってよいのだろうか。</p>
+            <p><strong>確認する必要があるのは、「AIで作ったか」「お金を取るか」だけではなさそうだ。</strong></p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              生成AIを使って作った生成物であっても、既存著作物に依拠し、その具体的な表現に似ている場合は、著作権者の許諾が必要となる可能性があります。
-            </p>
-            <p>
-              一方で、偶然似たものができただけの場合や、私的使用の範囲にとどまる場合は、直ちに許諾が必要になるとは限りません。
-            </p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>登場人物・関係するものを整理しよう</h2>
+            <p>生成された楽曲だけを見るのではなく、その前後で誰と何が関わっているのかを確認する。</p>
+          </div>
+
+          <section class="detail-section" id="actors">
+            <h2>この出来事に関わるもの</h2>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>関係するもの</th><th>この出来事との関わり</th></tr></thead>
+                <tbody>
+                  <tr><td>生成AIの利用者</td><td>生成AIに指示を出し、できあがった楽曲を保存・公開する人</td></tr>
+                  <tr><td>既存の楽曲</td><td>利用者が似た音楽を作ろうとしたときに意識していた作品</td></tr>
+                  <tr><td>既存の楽曲の著作者・著作権者</td><td>その楽曲の表現について権利を持つ人や組織</td></tr>
+                  <tr><td>生成AI</td><td>利用者の指示に応じて新しい楽曲を出力する仕組み</td></tr>
+                  <tr><td>インターネット上の利用者</td><td>公開された生成物を視聴できる人</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>生成AIが出力したという事実だけではなく、既存の作品との関係と、生成した人がその後に何をするのかが関わっている。</p>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>生成AI生成物と著作権の構造を確認する</span></h2>
-            <p>
-              著作権で保護されるのは、単なるアイデア、作風、雰囲気、ジャンルそのものではなく、具体的な表現です。
-            </p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>手掛かりを集めよう</h2>
+            <p>出来事から確認できることを、作る前・できあがったもの・その後の利用に分けて整理する。</p>
+          </div>
+
+          <section class="detail-section" id="clues">
+            <h2>判断に関係しそうな事実を分ける</h2>
             <ul>
-              <li>既存著作物：著作権者が権利を持つ文章、楽曲、画像など。</li>
-              <li>生成物：生成AIを使って作られた文章、楽曲、画像など。</li>
-              <li>利用者：生成AIを使い、生成物を保存、公開、配布などする人。</li>
-              <li>利用方法：個人で使うのか、インターネット上に公開するのか。</li>
+              <li>利用者は、特定の既存楽曲を意識して、それに似た音楽を作ろうとしていた</li>
+              <li>生成された楽曲には、既存楽曲を思い浮かべるような部分がある</li>
+              <li>生成された楽曲を、自分だけで聴くのではなく、インターネット上で公開しようとしている</li>
+              <li>公開は無料で行う予定である</li>
             </ul>
+            <div class="lesson-summary">
+              <p><strong>「AIで作った」「無料で公開する」という事実だけでは、判断できない。</strong></p>
+              <p><strong>何をもとに作ったのか、どのような表現になったのか、どのように使うのかを分けて見る必要がある。</strong></p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              許諾が必要となる可能性は、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>依拠：既存著作物に似せる目的で生成したか。</li>
-              <li>類似：生成物が既存著作物の具体的な表現に似ているか。</li>
-              <li>利用：私的使用にとどまるか、公開・配布などをするか。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>この出来事は、何について考える話なのか</h2>
+            <p>生成AIそのものの仕組みではなく、生成物と既存作品との権利関係を考える。</p>
+          </div>
+
+          <section class="detail-section" id="framework">
+            <h2>生成した音楽そのものではなく、既存作品との関係を見る</h2>
+            <p>生成AIがどのような技術で音楽を作ったのかを調べるのであれば、AIの仕組みや学習方法を見ることになる。</p>
+            <p>生成された音楽自体に新たな著作権が認められるかを考えるのであれば、人がどの程度創作に関与したかなど、別の論点を確認することになる。</p>
+            <p>ここで考えるのは、そのどちらでもない。</p>
+            <p><strong>生成した音楽を作成・利用することが、すでに存在する楽曲の著作権との関係でどのように扱われるかという話である。</strong></p>
+            <p>生成AIを使った場合でも、既存の著作物との関係を確認する必要がある。</p>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい点を分ける</span></h2>
-            <ul>
-              <li>AIが作ったから自由に使える、と考えない。</li>
-              <li>似ているだけで必ず許諾が必要、と決めつけない。</li>
-              <li>私的使用と公開利用を同じように扱わない。</li>
-              <li>作風や雰囲気の類似と、具体的な表現の類似を分けて考える。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>異なる観点から見てみよう</h2>
+            <p>同じ「既存の曲に似ている」という出来事でも、確認する内容は一つではない。</p>
+          </div>
+
+          <section class="detail-section" id="viewpoints">
+            <h2>見る場所を三つに分ける</h2>
+            <div class="viewpoint-map">
+              <p><strong>生成物と既存作品の関係を見る三つの観点</strong></p>
+              <ul>
+                <li><strong>何をもとに作ったのか</strong>：特定の既存作品を知り、それをもとにして作ったといえるか</li>
+                <li><strong>何が似ているのか</strong>：単なる作風やアイデアではなく、既存作品の具体的な表現に共通する部分があるか</li>
+                <li><strong>その後どう使うのか</strong>：自分だけで利用するのか、不特定または多数の人が利用できるよう公開・配布するのか</li>
+              </ul>
+            </div>
+            <p>「似ている」という言葉だけでは、どの観点の話か分からない。</p>
+            <p>また、無料か有料かだけで決まるものでもない。インターネット上で誰でも利用できるようにする行為は、自分だけで利用する場合とは扱いが異なる。</p>
           </section>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>生成AIを使ったかどうかだけでは判断しない。</li>
-              <li>著作権で保護されるのは、アイデアや雰囲気ではなく具体的な表現である。</li>
-              <li>既存著作物への依拠と、具体的な表現の類似性を見る。</li>
-              <li>公開・配布などの利用は、私的な利用よりも著作権上の問題が生じやすい。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 6</p>
+            <h2>この出来事をどう捉えるか考えよう</h2>
+            <p>集めた事実を、著作権上の判断に使われる観点と照らし合わせる。</p>
+          </div>
+
+          <section class="detail-section" id="interpretation">
+            <h2>三つの観点に名前を付けて整理する</h2>
+            <p>特定の既存楽曲を知り、それをもとに生成したといえるかを見る観点を、<strong>依拠性</strong>という。</p>
+            <p>生成物から、既存著作物の表現上の本質的な特徴を直接感じ取れるほど共通しているかを見る観点を、<strong>類似性</strong>という。</p>
+            <p>さらに、著作物の利用には、一定の私的使用など、法律上、著作権者の許諾を得ずに利用できる場合がある。どのような利用をするのかによって、こうした<strong>権利制限規定</strong>が適用されるかも確認する。</p>
+            <div class="lesson-summary">
+              <p>生成AIによる生成物でも、既存著作物との関係は、AIを使わない創作物の場合と同じように考える。</p>
+              <p><strong>既存著作物への依拠性と類似性があり、その利用について権利制限規定も適用されない場合には、著作権者の許諾が必要となる可能性がある。</strong></p>
+            </div>
+            <p>今回のように、特定の楽曲に似せようとして生成し、既存楽曲の具体的な表現との類似性が認められる生成物をインターネット上で公開する場合は、著作権者の許諾が必要となる可能性がある。</p>
+            <p>一方、自分だけで利用する場合や、偶然似たものが生成された場合は、確認する観点が変わる。生成AIを使ったという一つの事実だけで、すべてを同じように判断することはできない。</p>
           </section>
 
-          <section class="detail-section" id="permission">
-            <h2>補足：許諾が必要となりやすい場面</h2>
-            <p>
-              既存著作物に似せる目的で生成し、できあがった生成物が既存著作物の具体的な表現に似ていて、それを公開・配布する場合は、著作権者の許諾が必要となる可能性が高くなります。
-            </p>
-            <p>
-              反対に、個人で視聴するだけである、偶然似たものができただけである、既存著作物に依拠したとはいえないといった場合は、許諾が必要となる可能性は低くなります。
-            </p>
+          <section class="detail-section" id="lesson">
+            <h2>この学習要点で整理したこと</h2>
+            <div class="lesson-summary">
+              <p>生成AIで作ったものだからといって、既存著作物との関係を考えなくてよいわけではない。</p>
+              <p>まず、特定の既存著作物をもとにして作ったといえるかを確認する。</p>
+              <p>次に、生成物が既存著作物の具体的な表現と著作権法上の意味で似ているかを確認する。</p>
+              <p>そのうえで、私的に利用するのか、公開・配布するのかなど、生成物をどのように利用するのかを確認する。</p>
+              <p><strong>「AIが作ったか」「無料か」「似ているか」という一つの言葉だけで決めず、依拠性・類似性・利用方法を分けて判断する。</strong></p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="supplement-similarity">
+            <h2>補足　「作風が似ている」と「著作物が類似している」は同じではない</h2>
+            <p>著作権法が保護するのは、アイデアや作風そのものではなく、創作的に表現された部分である。</p>
+            <p>そのため、「同じジャンルに聞こえる」「作風が似ている」といった印象だけで、直ちに著作権法上の類似性が認められるわけではない。</p>
+            <p>類似性を考えるときは、既存著作物の表現上の本質的な特徴を、生成物から直接感じ取れるかどうかを見る。</p>
+          </section>
+
+          <section class="detail-section" id="supplement-rights">
+            <h2>補足　生成物そのものに著作権があるかは別の論点</h2>
+            <p>「生成AIで作ったもの自体が著作物として保護されるか」と、「生成AIで作ったものが既存著作物の著作権を侵害するか」は別の話である。</p>
+            <p>今回の学習要点で扱っているのは、後者の、既存著作物との関係である。</p>
+          </section>
+
+          <section class="detail-section" id="sources">
+            <h2>補足　生成AIと著作権の考え方</h2>
+            <p>文化庁は、生成AIによる生成物の生成・利用段階について、既存著作物との類似性と依拠性が認められる場合には、従来の著作権侵害と同様の考え方で判断すると整理している。</p>
+            <p><a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank" rel="noopener noreferrer">文化庁「AIと著作権について」</a></p>
           </section>
 
           <section class="detail-section" id="related">
@@ -109,6 +212,7 @@
             <div class="tag-list">
               <span class="tag">著作権</span>
               <span class="tag">生成AI</span>
+              <span class="tag">知的財産権</span>
               <span class="tag">法務</span>
             </div>
           </section>
@@ -116,10 +220,7 @@
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問1</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
           </section>
         </article>
       </div>
