@@ -4,73 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>マネジメント系 | ITネッコ</title>
-  <meta name="description" content="ITを作る・使う・任せる・確認する場面から、マネジメント系の学習要点を確認します。">
+  <meta name="description" content="ITパスポート試験の公式出題範囲を骨格に、マネジメント系の全体像を見渡すための学習地図です。">
   <link rel="stylesheet" href="../../assets/style.css">
-  <style>
-    .management-page .card-grid { grid-template-columns: repeat(auto-fill, 320px); justify-content: start; align-items: stretch; }
-    .management-page .topic-card { width: 320px; min-height: 150px; padding: 20px; display: flex; flex-direction: column; }
-    .management-page .topic-card h3 { font-size: 1.05rem; margin-top: 0; }
-    .management-page .topic-card .syllabus-path { display: block; margin-top: auto; padding-top: 14px; color: var(--color-muted); font-size: 0.74rem; font-weight: 400; line-height: 1.55; }
-    .management-block { border: 1px solid rgba(95, 114, 82, 0.22); border-left-width: 7px; border-radius: 18px; margin-top: 28px; padding: 22px; background: rgba(255, 253, 248, 0.72); box-shadow: 0 10px 28px rgba(69, 74, 55, 0.06); }
-    .management-block > .detail-section, .management-block.detail-section { margin: 0; }
-    .management-block--overview { border-left-color: rgba(88, 129, 92, 0.78); background: linear-gradient(90deg, rgba(232, 242, 229, 0.86), rgba(255, 253, 248, 0.74)); }
-    .management-block--map { border-left-color: rgba(181, 137, 62, 0.78); background: linear-gradient(90deg, rgba(250, 238, 212, 0.88), rgba(255, 253, 248, 0.74)); }
-    .management-block--areas { border-left-color: rgba(94, 116, 153, 0.72); background: linear-gradient(90deg, rgba(232, 237, 247, 0.76), rgba(255, 253, 248, 0.70)); }
-    .management-block--supplement { border-left-color: rgba(132, 120, 108, 0.62); background: linear-gradient(90deg, rgba(239, 235, 229, 0.78), rgba(255, 253, 248, 0.68)); opacity: 0.94; }
-    .management-block-label { display: inline-flex; align-items: center; border: 1px solid rgba(94, 116, 153, 0.28); border-radius: 999px; background: rgba(242, 245, 251, 0.92); color: var(--color-accent-dark); font-size: 0.82rem; font-weight: 700; line-height: 1.4; margin-bottom: 14px; padding: 5px 12px; }
-    .management-area-group .detail-section + .detail-section { margin-top: 22px; padding-top: 22px; border-top: 1px dashed rgba(95, 114, 82, 0.22); }
-    .category-map-table { width: 100%; border-collapse: collapse; margin-top: 18px; overflow: hidden; border-radius: 10px; font-size: 0.95rem; }
-    .category-map-table th, .category-map-table td { border: 1px solid rgba(95, 114, 82, 0.22); padding: 14px 16px; text-align: left; vertical-align: top; }
-    .category-map-table th { background: rgba(245, 232, 207, 0.92); color: var(--color-accent-dark); font-weight: 700; line-height: 1.5; }
-    .category-map-table td { background: rgba(255, 253, 248, 0.78); line-height: 1.7; }
-    .category-map-table .official-name { display: block; color: var(--color-accent-dark); font-weight: 700; line-height: 1.5; }
-    .category-map-table .official-note { display: block; margin-top: 4px; color: var(--color-muted); font-size: 0.86rem; line-height: 1.65; }
-    .category-map-table .map-arrow-cell, .category-map-table .map-arrow-heading { width: 56px; text-align: center; vertical-align: middle; }
-    .category-map-table .map-arrow-cell { color: var(--color-accent-dark); font-size: 1.55rem; font-weight: 700; line-height: 1; }
-    .related-pill-list { display: flex; flex-wrap: wrap; gap: 6px; }
-    .related-pill { display: inline-block; border: 1px solid rgba(95, 114, 82, 0.32); border-radius: 999px; background: rgba(255, 253, 248, 0.82); color: var(--color-accent-dark); font-size: 0.82rem; font-weight: 700; line-height: 1.45; padding: 4px 10px; text-decoration: none; }
-    .related-pill:hover { border-color: rgba(95, 114, 82, 0.58); }
-    .category-map-note { margin-top: 14px; }
-    @media (max-width: 720px) {
-      .management-page .card-grid { grid-template-columns: 1fr; }
-      .management-page .topic-card { width: auto; }
-      .management-block { border-radius: 14px; margin-top: 22px; padding: 16px; }
-      .category-map-table, .category-map-table thead, .category-map-table tbody, .category-map-table tr, .category-map-table th, .category-map-table td { display: block; width: 100%; }
-      .category-map-table thead { display: none; }
-      .category-map-table tr { border: 1px solid rgba(95, 114, 82, 0.22); border-radius: 10px; margin-top: 12px; overflow: hidden; }
-      .category-map-table td { border: 0; }
-      .category-map-table td + td { border-top: 1px solid rgba(95, 114, 82, 0.18); }
-      .category-map-table td::before { display: block; margin-bottom: 6px; color: var(--color-muted); font-size: 0.78rem; font-weight: 700; line-height: 1.4; }
-      .category-map-table td:first-child::before { content: "公式分類"; }
-      .category-map-table td:nth-child(2) { display: none; }
-      .category-map-table td:nth-child(3)::before { content: "ITネッコ分類"; }
-    }
-  </style>
 </head>
-<body class="management-page">
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
   <main>
-    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">Management</p><h1>マネジメント系</h1><p class="page-description">ITを作る・使う・任せる・確認する場面から、マネジメント系の学習要点を確認します。</p></div></section>
-    <div class="container page-flow">
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">Management</p>
+        <h1>マネジメント系</h1>
+        <p class="page-description">ITパスポート試験の公式出題範囲を骨格に、マネジメント系で扱われる内容の位置関係を見渡すための学習地図です。公開問題を一つずつ確認しながら、この地図のどこに関係する問題なのかを見ていきます。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow learning-map">
       <a class="back-link" href="../">学習分野一覧へ戻る</a>
-      <section aria-labelledby="management-topics">
-        <div class="section-heading"><div><p class="section-kicker">Topics</p><h2 id="management-topics">マネジメント系の学習要点</h2></div></div>
-        <div class="management-block management-block--overview"><section class="detail-section" aria-label="マネジメント系全体の概要"><p>マネジメント系は、システムやITサービスを「作る」「使う」「任せる」「確認する」ときに、組織としてどう進めるかを学ぶ分野です。</p><p>ポイントは、技術そのものよりも、仕事の進め方・役割分担・責任・リスク管理にあります。</p><p>たとえば、システムを導入するとき、すべてを担当者だけで決めることはできません。経営側が決めること、利用部門が伝えること、情報システム部門が管理すること、委託先に任せること、監査で確認することがあります。</p><p>マネジメント系では、こうした関係者の立場を整理しながら、「この場面では誰が何をするのか」を見分ける力が問われます。</p></section></div>
-        <div class="management-block management-block--map"><section class="detail-section" aria-labelledby="official-category-guide"><h3 id="official-category-guide">公式分類を、ITネッコ分類に置き直す</h3><p>マネジメント系は、公式分類では「開発技術」「プロジェクトマネジメント」「サービスマネジメント」の3つに分かれます。その中にある分類を、ITネッコでは問題を解くときに考えやすいまとまりに置き直しています。</p><table class="category-map-table"><thead><tr><th>公式分類</th><th class="map-arrow-heading" aria-label="置き直す"></th><th>ITネッコ分類</th></tr></thead><tbody><tr><td><span class="official-name">開発技術</span><span class="official-note">システム開発技術／ソフトウェア開発管理技術</span></td><td class="map-arrow-cell" aria-hidden="true">→</td><td><div class="related-pill-list"><span class="related-pill">開発プロセス・要求・リリース</span></div></td></tr><tr><td><span class="official-name">プロジェクトマネジメント</span><span class="official-note">プロジェクトマネジメント</span></td><td class="map-arrow-cell" aria-hidden="true">→</td><td><div class="related-pill-list"><span class="related-pill">契約・調達・利用範囲</span><span class="related-pill">見積り・計画・進捗</span><span class="related-pill">インシデント・問題・変更管理</span></div></td></tr><tr><td><span class="official-name">サービスマネジメント</span><span class="official-note">サービスマネジメント／システム監査</span></td><td class="map-arrow-cell" aria-hidden="true">→</td><td><div class="related-pill-list"><span class="related-pill">サービスデスク・問合せ対応</span><span class="related-pill">インシデント・問題・変更管理</span><span class="related-pill">サービスレベル・可用性・改善</span><span class="related-pill">ファシリティ・設備管理</span><span class="related-pill">システム監査</span></div></td></tr></tbody></table><p class="category-map-note">ITガバナンス・内部統制は、開発・プロジェクト・サービス管理を読む前提として、ITネッコでは最初の入口にしています。</p><p class="category-map-note">次に、ITネッコ分類の9つの入口を順番に確認します。</p></section></div>
-        <div class="management-block management-block--areas management-area-group">
-          <div class="management-block-label">ITネッコ分類 9つの入口</div>
-          <section class="detail-section" aria-labelledby="management-area-1"><h3 id="management-area-1">1. ITガバナンス・内部統制</h3><p>経営としてITをどう方向付け、業務を適切に進める仕組みをどう整えるかを整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/it-governance-edm/"><h3>新しいシステムを入れるとき、経営陣は何をするのか</h3><span class="syllabus-path">サービスマネジメント ＞ システム監査 ＞ 内部統制</span></a><a class="topic-card topic-card--feature" href="../../topics/internal-control/"><h3>一人に任せきりにしない仕組みから、内部統制を見抜く</h3><span class="syllabus-path">サービスマネジメント ＞ システム監査 ＞ 内部統制</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-2"><h3 id="management-area-2">2. 契約・調達・利用範囲</h3><p>システムやソフトウェアを利用・導入するとき、契約範囲や対応できる範囲をどう判断するかを整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/software-installation-scope/"><h3>作業中に追加を頼まれたとき、誰と何を確認するか</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 調達</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-3"><h3 id="management-area-3">3. 見積り・計画・スコープ・資源・進捗</h3><p>プロジェクトを進めるために、作業、日程、範囲、費用、人員、進み具合をどう管理するかを整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/analogous-estimation/"><h3>まだ詳細が決まっていない計画の費用をどう見積もるか</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ コスト</span></a><a class="topic-card topic-card--feature" href="../../topics/wbs-work-breakdown-structure/"><h3>大きな仕事を、管理できる作業に分ける</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スコープ</span></a><a class="topic-card topic-card--feature" href="../../topics/project-charter/"><h3>プロジェクトを正式に認可する文書を見分ける</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 統合</span></a><a class="topic-card topic-card--feature" href="../../topics/project-meeting-minutes/"><h3>プロジェクト会議では決定事項を記録して共有する</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ コミュニケーション</span></a><a class="topic-card topic-card--feature" href="../../topics/project-schedule-resource-constraint/"><h3>前提作業と要員制約から最短日数を求める</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スケジュール・資源</span></a><a class="topic-card topic-card--feature" href="../../topics/project-schedule-techniques/"><h3>スケジュール作成に用いる技法を見分ける</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スケジュール</span></a><a class="topic-card topic-card--feature" href="../../topics/project-performance-indicators/"><h3>計画値と実績値からプロジェクトの進捗とコストを評価する</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ コスト・進捗</span></a><a class="topic-card topic-card--feature" href="../../topics/project-scope-deliverables/"><h3>プロジェクトスコープの対象になる成果物を見分ける</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ スコープ</span></a><a class="topic-card topic-card--feature" href="../../topics/project-human-resource-planning/"><h3>プロジェクトの人的資源計画でスキルと役割を整理する</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 資源</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-4"><h3 id="management-area-4">4. 開発プロセス・要求・リリース</h3><p>システムを作る流れ、要求の確認、開発手法、利用できる状態にする工程を整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/waterfall-model/"><h3>ウォーターフォールモデルの進め方を見分ける</h3><span class="syllabus-path">開発技術 ＞ ソフトウェア開発管理技術 ＞ 開発プロセス・手法</span></a><a class="topic-card topic-card--feature" href="../../topics/agile-development/"><h3>最初から全部決めず、作りながら確かめる</h3><span class="syllabus-path">開発技術 ＞ ソフトウェア開発管理技術 ＞ 開発プロセス・手法</span></a><a class="topic-card topic-card--feature" href="../../topics/requirements-definition-user-role/"><h3>システム要件定義では利用者が妥当性を確認する</h3><span class="syllabus-path">開発技術 ＞ システム開発技術 ＞ システム要件定義</span></a><a class="topic-card topic-card--feature" href="../../topics/prototyping-model/"><h3>試作品で利用者の要求を確認するプロトタイピングを見分ける</h3><span class="syllabus-path">開発技術 ＞ ソフトウェア開発管理技術 ＞ 開発プロセス・手法</span></a><a class="topic-card topic-card--feature" href="../../topics/software-deployment/"><h3>完成したソフトウェアを本番環境に入れる工程を見分ける</h3><span class="syllabus-path">開発技術 ＞ システム開発技術 ＞ ソフトウェア受入れ・移行</span></a><a class="topic-card topic-card--feature" href="../../topics/usability-user-interface/"><h3>使用性では利用者が操作するインタフェースを見る</h3><span class="syllabus-path">開発技術 ＞ システム開発技術 ＞ ソフトウェア要件定義</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-5"><h3 id="management-area-5">5. サービスデスク・問合せ対応</h3><p>利用者からの問合せを受け付け、記録し、対応や自動応答につなげる仕組みを整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/service-desk/"><h3>利用者の「困った」を最初に受け止める窓口</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ サービスデスク</span></a><a class="topic-card topic-card--feature" href="../../topics/chatbot-service-desk/"><h3>チャットボットで問合せ対応の受付時間を広げる</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ サービスデスク</span></a><a class="topic-card topic-card--feature" href="../../topics/service-desk-automation-efficiency/"><h3>AI導入による対応時間短縮率を計算する</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ サービスデスク</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-6"><h3 id="management-area-6">6. インシデント・問題・変更管理</h3><p>障害が起きたときに早く使える状態へ戻すこと、原因を調べること、変更を勝手に進めないことを整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/problem-management/"><h3>まず使える状態に戻すのか、原因まで直すのか</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ インシデント管理・問題管理</span></a><a class="topic-card topic-card--feature" href="../../topics/change-control-board/"><h3>変更要求は、影響を確認してから承認する</h3><span class="syllabus-path">プロジェクトマネジメント ＞ プロジェクトマネジメント ＞ 変更管理</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-7"><h3 id="management-area-7">7. サービスレベル・可用性・改善</h3><p>サービス品質の約束、利用できる時間の割合、管理の仕組みを継続的に改善する考え方を整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/service-level-management/"><h3>サービスの約束は、誰がどう守り続けるのか</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ サービスレベル管理</span></a><a class="topic-card topic-card--feature" href="../../topics/service-availability/"><h3>サービスは、必要なときに使える状態だったか</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ 可用性管理</span></a><a class="topic-card topic-card--feature" href="../../topics/service-management-system-improvement/"><h3>同じ問題を繰り返さないために、何を変えるのか</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ サービスマネジメントシステム</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-8"><h3 id="management-area-8">8. ファシリティ・設備管理</h3><p>オフィス、設備、配線、施設資源など、ITサービスを支える環境を整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/facility-management-workplace-improvement/"><h3>ファシリティマネジメントで改善する対象を見分ける</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ ファシリティマネジメント</span></a><a class="topic-card topic-card--feature" href="../../topics/free-access-floor/"><h3>床下配線用の空間をもつ床をフリーアクセスフロアとして見分ける</h3><span class="syllabus-path">サービスマネジメント ＞ サービスマネジメント ＞ ファシリティマネジメント</span></a></div></section>
-          <section class="detail-section" aria-labelledby="management-area-9"><h3 id="management-area-9">9. システム監査</h3><p>システムや運用が適切に管理されているかを、担当者とは別の立場から確認する考え方を整理します。</p><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/system-audit-scope/"><h3>情報セキュリティ監査が検証する対象を見分ける</h3><span class="syllabus-path">サービスマネジメント ＞ システム監査 ＞ システム監査</span></a><a class="topic-card topic-card--feature" href="../../topics/system-auditor-independence/"><h3>システム監査人は監査対象から独立している必要がある</h3><span class="syllabus-path">サービスマネジメント ＞ システム監査 ＞ システム監査</span></a></div></section>
+
+      <section class="map-section" aria-labelledby="map-heading">
+        <div class="section-heading">
+          <p class="site-kicker">Learning Map</p>
+          <h2 id="map-heading">マネジメント系の白地図</h2>
+          <p>公式の出題範囲では、マネジメント系は3つの大分類、その下の5つの中分類に分かれています。ここでは、まずこの分類だけを全体を見るための骨格として置いています。</p>
+        </div>
+        <div class="theme-list">
+          <section class="theme-block">
+            <div class="theme-heading"><h3>4. 開発技術</h3><p>システムやソフトウェアを、どのような工程や方法で作るかを扱う領域です。</p></div>
+            <nav class="theme-toc" aria-label="開発技術の中分類"><ol><li>システム開発技術</li><li>ソフトウェア開発管理技術</li></ol></nav>
+          </section>
+          <section class="theme-block">
+            <div class="theme-heading"><h3>5. プロジェクトマネジメント</h3><p>目的を達成するために、作業、期間、費用、要員、変更などを管理する領域です。</p></div>
+            <nav class="theme-toc" aria-label="プロジェクトマネジメントの中分類"><ol><li>プロジェクトマネジメント</li></ol></nav>
+          </section>
+          <section class="theme-block">
+            <div class="theme-heading"><h3>6. サービスマネジメント</h3><p>ITサービスを安定して提供し、管理・改善・監査する領域です。</p></div>
+            <nav class="theme-toc" aria-label="サービスマネジメントの中分類"><ol><li>サービスマネジメント</li><li>システム監査</li></ol></nav>
+          </section>
         </div>
       </section>
-      <section class="detail-section management-block management-block--supplement" aria-labelledby="management-policy-heading"><p class="section-kicker">Supplement</p><h2 id="management-policy-heading">学習項目について</h2><p>マネジメント系は、公式試験では開発技術、プロジェクトマネジメント、サービスマネジメントなどに分かれます。ITネッコでは、分類名を覚えることだけではなく、今どの論点の話をしているのかをつかむことが大事だと考えています。</p><p>そのため、このページでは公式分類を参考にしながら、ITネッコ分類として9つの領域に分けています。まずは上の分類から学習要点に入り、必要に応じて公式分類との関係を確認できるようにしています。</p></section>
+
+      <section class="map-section" aria-labelledby="mapped-heading">
+        <div class="section-heading">
+          <p class="site-kicker">Mapped Questions</p>
+          <h2 id="mapped-heading">公開問題を配置した地図</h2>
+          <p>これまで取り上げた公開問題を、上の白地図と同じ分類に配置しています。</p>
+        </div>
+
+        <div class="theme-list">
+          <section class="theme-block">
+            <div class="theme-heading"><h3>4. 開発技術</h3></div>
+            <section class="year-block"><div class="theme-heading"><h3>システム開発技術</h3></div><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/requirements-definition-user-role/"><h3 class="topic-title">令和8年度 問52｜システム要件定義では利用者が妥当性を確認する</h3></a><a class="topic-card topic-card--feature" href="../../topics/software-deployment/"><h3 class="topic-title">令和7年度 問46｜完成したソフトウェアを本番環境に入れる工程を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/usability-user-interface/"><h3 class="topic-title">令和7年度 問47｜使用性では利用者が操作するインタフェースを見る</h3></a></div></section>
+            <section class="year-block"><div class="theme-heading"><h3>ソフトウェア開発管理技術</h3></div><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/waterfall-model/"><h3 class="topic-title">令和8年度 問38｜ウォーターフォールモデルの進め方を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/agile-development/"><h3 class="topic-title">令和8年度 問43・令和7年度 問39｜最初から全部決めず、作りながら確かめる</h3></a><a class="topic-card topic-card--feature" href="../../topics/prototyping-model/"><h3 class="topic-title">令和7年度 問44｜試作品で利用者の要求を確認するプロトタイピングを見分ける</h3></a></div></section>
+          </section>
+
+          <section class="theme-block">
+            <div class="theme-heading"><h3>5. プロジェクトマネジメント</h3></div>
+            <section class="year-block"><div class="theme-heading"><h3>プロジェクトマネジメント</h3></div><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/software-installation-scope/"><h3 class="topic-title">令和8年度 問36｜作業中に追加を頼まれたとき、誰と何を確認するか</h3></a><a class="topic-card topic-card--feature" href="../../topics/analogous-estimation/"><h3 class="topic-title">令和8年度 問37｜まだ詳細が決まっていない計画の費用をどう見積もるか</h3></a><a class="topic-card topic-card--feature" href="../../topics/wbs-work-breakdown-structure/"><h3 class="topic-title">令和8年度 問39｜大きな仕事を、管理できる作業に分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-charter/"><h3 class="topic-title">令和8年度 問45｜プロジェクトを正式に認可する文書を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-meeting-minutes/"><h3 class="topic-title">令和8年度 問49｜プロジェクト会議では決定事項を記録して共有する</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-schedule-resource-constraint/"><h3 class="topic-title">令和8年度 問50｜前提作業と要員制約から最短日数を求める</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-schedule-techniques/"><h3 class="topic-title">令和7年度 問41｜スケジュール作成に用いる技法を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-performance-indicators/"><h3 class="topic-title">令和7年度 問45｜計画値と実績値からプロジェクトの進捗とコストを評価する</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-scope-deliverables/"><h3 class="topic-title">令和7年度 問48｜プロジェクトスコープの対象になる成果物を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/project-human-resource-planning/"><h3 class="topic-title">令和7年度 問55｜プロジェクトの人的資源計画でスキルと役割を整理する</h3></a><a class="topic-card topic-card--feature" href="../../topics/change-control-board/"><h3 class="topic-title">令和7年度 問40｜変更要求は、影響を確認してから承認する</h3></a></div></section>
+          </section>
+
+          <section class="theme-block">
+            <div class="theme-heading"><h3>6. サービスマネジメント</h3></div>
+            <section class="year-block"><div class="theme-heading"><h3>サービスマネジメント</h3></div><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/service-desk/"><h3 class="topic-title">令和8年度 問42｜利用者の「困った」を最初に受け止める窓口</h3></a><a class="topic-card topic-card--feature" href="../../topics/chatbot-service-desk/"><h3 class="topic-title">令和7年度 問49・問50｜チャットボットで問合せ対応の受付時間を広げる</h3></a><a class="topic-card topic-card--feature" href="../../topics/service-desk-automation-efficiency/"><h3 class="topic-title">令和8年度 問44・令和7年度 問54｜AI導入による対応時間短縮率を計算する</h3></a><a class="topic-card topic-card--feature" href="../../topics/problem-management/"><h3 class="topic-title">令和8年度 問46｜まず使える状態に戻すのか、原因まで直すのか</h3></a><a class="topic-card topic-card--feature" href="../../topics/service-level-management/"><h3 class="topic-title">令和8年度 問53・令和7年度 問37｜サービスの約束は、誰がどう守り続けるのか</h3></a><a class="topic-card topic-card--feature" href="../../topics/service-availability/"><h3 class="topic-title">令和8年度 問54・令和7年度 問36｜サービスは、必要なときに使える状態だったか</h3></a><a class="topic-card topic-card--feature" href="../../topics/service-management-system-improvement/"><h3 class="topic-title">令和8年度 問48｜同じ問題を繰り返さないために、何を変えるのか</h3></a><a class="topic-card topic-card--feature" href="../../topics/facility-management-workplace-improvement/"><h3 class="topic-title">令和8年度 問54｜ファシリティマネジメントで改善する対象を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/free-access-floor/"><h3 class="topic-title">令和7年度 問42｜床下配線用の空間をもつ床をフリーアクセスフロアとして見分ける</h3></a></div></section>
+            <section class="year-block"><div class="theme-heading"><h3>システム監査</h3></div><div class="card-grid"><a class="topic-card topic-card--feature" href="../../topics/it-governance-edm/"><h3 class="topic-title">令和8年度 問35・問41｜新しいシステムを入れるとき、経営陣は何をするのか</h3></a><a class="topic-card topic-card--feature" href="../../topics/internal-control/"><h3 class="topic-title">令和8年度 問40・令和7年度 問43・問53｜一人に任せきりにしない仕組みから、内部統制を見抜く</h3></a><a class="topic-card topic-card--feature" href="../../topics/system-audit-scope/"><h3 class="topic-title">令和8年度 問47・問51・令和7年度 問38｜情報セキュリティ監査が検証する対象を見分ける</h3></a><a class="topic-card topic-card--feature" href="../../topics/system-auditor-independence/"><h3 class="topic-title">令和7年度 問51・問52｜システム監査人は監査対象から独立している必要がある</h3></a></div></section>
+          </section>
+        </div>
+      </section>
     </div>
   </main>
   <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
