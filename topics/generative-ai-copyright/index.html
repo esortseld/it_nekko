@@ -4,42 +4,123 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AIで作った音楽は、そのまま公開してよいのか | ITネッコ</title>
-  <meta name="description" content="生成AIで作った音楽について、既存著作物との関係と、その生成物をどう利用するかを分けて整理します。">
+  <meta name="description" content="生成AIで作った音楽について、既存著作物との関係と利用方法を順にたどり、著作権上の判断材料を整理します。">
   <meta property="og:title" content="AIで作った音楽は、そのまま公開してよいのか | ITネッコ">
-  <meta property="og:description" content="生成AIで作った音楽について、既存著作物との関係と、その生成物をどう利用するかを分けて整理します。">
+  <meta property="og:description" content="生成AIで作った音楽について、既存著作物との関係と利用方法を順にたどり、著作権上の判断材料を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .learning-phase {
-      margin: 2rem 0 1rem;
-      padding: 0.9rem 1.1rem;
-      border-radius: 14px;
-      background: #f3efe7;
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border-radius: 16px;
+      background: #faf7f2;
       border: 1px solid #ded6c7;
     }
-    .learning-phase:first-of-type { margin-top: 0; }
-    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
-    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
-    .learning-phase p:last-child { margin-bottom: 0; }
-    .lesson-summary {
-      padding: 1.1rem 1.2rem;
-      border-left: 4px solid #8a755d;
-      background: #faf7f2;
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      background: #f3efe7;
       border-radius: 0 12px 12px 0;
     }
-    .lesson-summary p { margin: 0 0 0.8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
-    .viewpoint-map,
-    .supplement-box {
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .actor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .actor-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .actor-card strong { display: block; margin-bottom: .35rem; }
+    .actor-card p { margin: 0; }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
       margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
       padding: 1rem 1.1rem;
       border: 1px solid var(--line, #d9d3c8);
       border-radius: 14px;
       background: #fff;
     }
-    .viewpoint-map > p,
-    .supplement-box > p { margin-top: 0; }
-    .viewpoint-map ul,
-    .supplement-box ul { margin-bottom: 0; }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+
+    .clue-box {
+      margin: 1rem 0;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: #faf7f2;
+    }
+    .clue-box p { margin: 0 0 .55rem; }
+    .clue-box p:last-child { margin-bottom: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    .term-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .term-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .term-card p { margin: 0; }
+
+    @media (max-width: 720px) {
+      .actor-grid,
+      .term-list { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -55,7 +136,7 @@
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
         <h1>AIで作った音楽は、そのまま公開してよいのか</h1>
-        <p class="page-description">生成AIで作った音楽について、既存著作物との関係と、その生成物をどう利用するかを分けて整理します。</p>
+        <p class="page-description">生成AIで作ったものと既存の著作物の関係を、出来事の中から順にたどって考えます。</p>
       </div>
     </section>
 
@@ -64,152 +145,133 @@
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 1</p>
-            <h2>まず、どんな場面なのか</h2>
-            <p>生成AIで作ったものと、すでに存在する著作物との関係を考える場面から始める。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見てみよう</h2>
           </div>
 
           <section class="detail-section" id="situation">
-            <h2>好きな曲に似た音楽を、生成AIで作った</h2>
-            <p>ある人が、好きなアーティストの特定の楽曲に似た音楽を作りたいと考え、生成AIを使って新しい楽曲を作った。</p>
-            <p>できあがった楽曲を聴くと、もとの楽曲を思い浮かべるような部分がある。</p>
-            <p>その人は、この楽曲をインターネット上にアップロードし、誰でも聴けるようにしようとしている。料金を取る予定はない。</p>
-            <p>生成AIが作った音楽であり、無料で公開するのであれば、そのまま使ってよいのだろうか。</p>
-            <p><strong>「生成AIで作ったか」「無料か」だけで判断するのではなく、既存の著作物をもとにして作られたものか、できあがったものが既存の著作物の具体的な表現に似ているか、さらに、その生成物を個人で使うのか、公開・配布するのかを分けて考える必要がある。</strong></p>
+            <h2>生成AIで作った音楽を公開しようとしている</h2>
+            <div class="case-lead">
+              <p>ある人が、好きなアーティストの楽曲を意識しながら、生成AIを使って音楽を作った。</p>
+              <p>できあがった音楽には、その楽曲を思い浮かべるような部分がある。</p>
+              <p>その人は、生成した音楽をインターネット上で公開し、第三者が聴ける状態にしようとしている。</p>
+            </div>
+            <p>この出来事では、生成した方法、既存の楽曲との関係、できあがった音楽の内容、その後の使い方という複数の事実が関わっている。</p>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 2</p>
-            <h2>登場人物・関係するものを整理しよう</h2>
-            <p>生成された楽曲だけを見るのではなく、もとになった既存の楽曲、生成AIを使って楽曲を作る人、生成AIによって作られた楽曲、その楽曲を公開・配布するなどして利用する人がどのように関わっているのかを整理する。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>関係するものを整理しよう</h2>
           </div>
 
           <section class="detail-section" id="actors">
-            <h2>この出来事に関わるもの</h2>
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead><tr><th>関係するもの</th><th>この出来事との関わり</th></tr></thead>
-                <tbody>
-                  <tr><td>生成AIの利用者</td><td>生成AIに指示を出し、できあがった楽曲を保存・公開する人</td></tr>
-                  <tr><td>既存の楽曲</td><td>生成物との関係を確認する対象となる作品</td></tr>
-                  <tr><td>既存の楽曲の著作者・著作権者</td><td>その楽曲の表現について権利を持つ人や組織</td></tr>
-                  <tr><td>生成AI</td><td>利用者の指示に応じて新しい楽曲を出力する仕組み</td></tr>
-                  <tr><td>生成物を受け取る人</td><td>公開・配布された生成物を視聴・利用する人</td></tr>
-                </tbody>
-              </table>
+            <h2>誰と何が関わっているのか</h2>
+            <div class="actor-grid">
+              <div class="actor-card">
+                <strong>既存の楽曲</strong>
+                <p>生成した音楽との関係を確認する対象になる。</p>
+              </div>
+              <div class="actor-card">
+                <strong>既存楽曲の著作者・著作権者</strong>
+                <p>その楽曲の創作的な表現について権利を持つ。</p>
+              </div>
+              <div class="actor-card">
+                <strong>生成AIの利用者</strong>
+                <p>生成AIに指示を出し、生成物の使い方を決める。</p>
+              </div>
+              <div class="actor-card">
+                <strong>生成された音楽</strong>
+                <p>既存楽曲との関係と、その後の利用方法を確認する対象になる。</p>
+              </div>
             </div>
-            <p>生成AIが出力したという事実だけではなく、既存著作物・生成物・その利用までを一つの関係として見る。</p>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 3</p>
-            <h2>まず押さえること</h2>
-            <p>著作権上の判断を、一つの問いにまとめず二段階に分けて考える。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>手掛かりを順番に確認しよう</h2>
+            <p>この出来事を判断するために必要な確認を、順にたどる。</p>
           </div>
 
-          <section class="detail-section" id="framework">
-            <h2>「既存著作物との関係」と「その後の利用」を分ける</h2>
-            <div class="viewpoint-map">
-              <p><strong>第1段階　既存著作物との関係を見る</strong></p>
-              <ul>
-                <li><strong>類似性</strong>：既存著作物の具体的な表現と共通する部分があるか</li>
-                <li><strong>依拠性</strong>：既存著作物をもとにして作られたといえる関係があるか</li>
-              </ul>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この4つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>既存の著作物をもとにして作ったといえるか</h3>
+                <p>特定の楽曲を知っていたか、どのような指示で生成したか、生成までの経緯に既存作品とのつながりがあるかを確認する。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>既存著作物の創作的な表現と類似しているか</h3>
+                <p>既存作品の具体的な表現と、生成物に共通する部分があるかを確認する。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>生成したものをどのように利用するのか</h3>
+                <p>自分で利用するのか、インターネットで公開するのか、配布するのかなど、生成後の使い方を確認する。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">04</span><h3>その利用が、許諾を得ずに認められる範囲に当たるか</h3>
+                <p>私的使用など、著作権者の許諾を得ずに利用できる場合に当たるかを確認する。</p>
+              </div>
             </div>
-            <div class="viewpoint-map">
-              <p><strong>第2段階　その生成物をどう利用するかを見る</strong></p>
-              <ul>
-                <li>自分だけで利用するのか、公開・配布するのか</li>
-                <li>私的使用など、著作権者の許諾を得ずに利用できる場合に当たるか</li>
-              </ul>
-            </div>
-            <p><strong>類似性・依拠性と、利用方法・権利制限規定は、同じ高さの三つの条件ではない。</strong></p>
-            <p>まず既存著作物との関係を確認し、そのうえで、生成物をどのように利用するかを確認する。</p>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 4</p>
-            <h2>既存著作物との関係を見よう</h2>
-            <p>「似ている」という一つの言葉でまとめず、類似性と依拠性を分けて考える。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>手掛かりに名前を付けよう</h2>
+            <p>ここまで確認してきた内容は、著作権ではそれぞれ次のように整理される。</p>
           </div>
 
-          <section class="detail-section" id="viewpoints">
-            <h2>類似性と依拠性は別の観点</h2>
-            <h3>類似性</h3>
-            <p>生成物から、既存著作物の表現上の本質的な特徴を直接感じ取れるほど共通しているかを見る観点を、<strong>類似性</strong>という。</p>
-            <p>同じジャンル、同じ雰囲気、同じ作風、同じアイデアというだけで、直ちに著作権法上の類似性が認められるわけではない。著作権で見るのは、既存著作物の具体的な表現である。</p>
-
-            <h3>依拠性</h3>
-            <p>既存著作物をもとにして作られたといえる関係があるかを見る観点を、<strong>依拠性</strong>という。</p>
-            <p>人が特定の既存作品を知っていて、それをもとに作った場合は、依拠性を考える一つの典型例である。</p>
-            <p>ただし、生成AIの場合は、利用者本人がその既存著作物を認識していたかだけで判断するとは限らない。AIの学習データにその著作物が含まれていたかなど、生成AI特有の事情が依拠性の判断に影響する場合がある。</p>
-            <div class="lesson-summary">
-              <p><strong>「似ているか」と「もとにして作られたか」は別の話として確認する。</strong></p>
+          <section class="detail-section" id="terms">
+            <h2>既存著作物との関係と、生成後の利用</h2>
+            <div class="term-list">
+              <div class="term-card">
+                <h3>依拠性</h3>
+                <p>既存著作物をもとにして作られたといえる関係があるかを見る。</p>
+              </div>
+              <div class="term-card">
+                <h3>類似性</h3>
+                <p>既存著作物の創作的な表現と共通する部分があるかを見る。</p>
+              </div>
+              <div class="term-card">
+                <h3>利用方法</h3>
+                <p>生成物を個人的に使うのか、公開・配布するのかなど、実際の使い方を見る。</p>
+              </div>
+              <div class="term-card">
+                <h3>権利制限規定</h3>
+                <p>私的使用など、一定の条件で著作権者の許諾を得ずに利用できる場合を定めている。</p>
+              </div>
+            </div>
+            <div class="clue-box">
+              <p><strong>判断の流れ</strong></p>
+              <p>依拠性 → 類似性 → 利用方法 → 許諾を得ずに利用できる範囲か、という順に確認すると、何を調べる必要があるのか整理しやすくなる。</p>
             </div>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 5</p>
-            <h2>その生成物をどう利用するか見よう</h2>
-            <p>既存著作物との関係を確認したあとで、生成物の利用方法を考える。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
           </div>
-
-          <section class="detail-section" id="use">
-            <h2>許諾なしで利用できる場合に当たるか</h2>
-            <p>著作物には、一定の場合に著作権者の許諾を得ずに利用できる<strong>権利制限規定</strong>がある。</p>
-            <p>たとえば、自分や家庭内など限られた範囲で利用する私的使用と、インターネット上で誰でも利用できるよう公開することでは、利用の仕方が異なる。</p>
-            <p>そのため、既存著作物との間に類似性・依拠性があるかを確認したうえで、<strong>その利用が、許諾を得ずに認められる場合に当たるか</strong>を別に確認する。</p>
-            <p>無料であることだけで、許諾が不要になるわけではない。</p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 6</p>
-            <h2>取り違えやすい考え方を分けよう</h2>
-            <p>生成AIに関する言葉だけで判断せず、どの観点についての話かを確認する。</p>
-          </div>
-
-          <section class="detail-section" id="interpretation">
-            <h2>一つの事実だけで決めない</h2>
-            <div class="supplement-box">
-              <p><strong>「AIが作ったから問題ない」</strong></p>
-              <p>生成AIを使った場合でも、既存著作物との類似性や依拠性を確認するという基本的な考え方がある。</p>
-            </div>
-            <div class="supplement-box">
-              <p><strong>「無料なら問題ない」</strong></p>
-              <p>有料か無料かだけでは決まらない。どのように利用するか、権利制限規定が適用されるかを確認する。</p>
-            </div>
-            <div class="supplement-box">
-              <p><strong>「似ていれば問題になる」</strong></p>
-              <p>単なる作風やアイデアの共通ではなく、著作権で保護される具体的な表現について類似性を確認する。</p>
-            </div>
-            <div class="supplement-box">
-              <p><strong>「生成AIなら従来とまったく同じ」</strong></p>
-              <p>類似性や依拠性を確認するという基本的な考え方は共通するが、依拠性については、学習データとの関係など生成AI特有の事情が判断に影響する場合がある。</p>
-            </div>
-          </section>
 
           <section class="detail-section" id="lesson">
-            <h2>この学習要点で整理したこと</h2>
+            <h2>生成AIと既存著作物の関係を考えるとき</h2>
             <div class="lesson-summary">
-              <p><strong>第1段階</strong>として、生成物と既存著作物との関係を、<strong>類似性</strong>と<strong>依拠性</strong>に分けて確認する。</p>
-              <p><strong>第2段階</strong>として、その生成物をどのように利用するのかを確認し、私的使用などの<strong>権利制限規定</strong>が適用されるかを考える。</p>
-              <p>生成AIを使ったという事実や、無料であることだけで判断しない。</p>
-              <p><strong>既存著作物との関係と、その後の利用を分けて考えることが、判断の手掛かりになる。</strong></p>
+              <p>生成AIで作ったものと既存著作物との関係を考えるときは、まず、<strong>既存著作物をもとにして作られたか</strong>を確認する。</p>
+              <p>次に、<strong>既存著作物の創作的な表現と生成物が類似しているか</strong>を確認する。</p>
+              <p>さらに、<strong>生成物をどのように利用するのか</strong>を確認し、その利用が<strong>著作権者の許諾を得ずに認められる範囲に当たるか</strong>を確認する。</p>
+              <p><strong>依拠性、類似性、利用方法、権利制限規定を順に確認することが、生成AIによる生成物と既存著作物の関係を整理する手掛かりになる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="supplement-similarity">
-            <h2>補足　「作風が似ている」と「著作物が類似している」は同じではない</h2>
-            <p>著作権法が保護するのは、アイデアや作風そのものではなく、創作的に表現された部分である。</p>
-            <p>そのため、「同じジャンルに聞こえる」「作風が似ている」といった印象だけで、直ちに著作権法上の類似性が認められるわけではない。</p>
-            <p>類似性を考えるときは、既存著作物の表現上の本質的な特徴を、生成物から直接感じ取れるかどうかを見る。</p>
+            <h2>補足　類似性で確認するもの</h2>
+            <p>著作権で保護されるのは、作品に表された創作的な表現である。</p>
+            <p>類似性を考えるときは、既存著作物の具体的な表現と生成物を比べ、共通する部分を確認する。</p>
           </section>
 
           <section class="detail-section" id="supplement-rights">
-            <h2>補足　生成物そのものに著作権があるかは別の論点</h2>
-            <p>「生成AIで作ったもの自体が著作物として保護されるか」と、「生成AIで作ったものが既存著作物の著作権を侵害するか」は別の話である。</p>
-            <p>今回の学習要点で扱っているのは、後者の、既存著作物との関係である。</p>
+            <h2>補足　生成物そのものの著作権は別の論点</h2>
+            <p>生成AIで作ったもの自体が著作物として保護されるかという問題と、生成AIで作ったものが既存著作物の著作権とどのような関係にあるかという問題は、それぞれ別に整理する。</p>
+            <p>このページでは、既存著作物との関係を扱っている。</p>
           </section>
 
           <section class="detail-section" id="sources">
