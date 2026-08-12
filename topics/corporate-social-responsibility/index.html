@@ -3,41 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>法律を守り、利益も出している。それでも企業が責任を問われる理由 | ITネッコ</title>
-  <meta name="description" content="法律を守り、利益を上げている企業が社会から責任を問われた出来事から、企業活動と社会的責任の関係を整理します。">
+  <title>「組織の社会的責任」。企業の話にすると何を指す？ | ITネッコ</title>
+  <meta name="description" content="国際規格が扱う『組織の社会的責任』という言葉から、対象を企業に絞ったとき何を意味するのかを順番にたどります。">
+  <meta property="og:title" content="「組織の社会的責任」。企業の話にすると何を指す？ | ITネッコ">
+  <meta property="og:description" content="ISO 26000が扱う『組織の社会的責任』から、対象を企業に絞って意味をたどる判断の流れを整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .learning-phase {
-      margin: 2rem 0 1rem;
-      padding: 0.9rem 1.1rem;
-      border-radius: 14px;
-      background: #f3efe7;
-      border: 1px solid #ded6c7;
-    }
-    .learning-phase:first-of-type { margin-top: 0; }
-    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
-    .learning-phase h2 { margin: 0; font-size: 1.2rem; }
-    .learning-phase p:last-child { margin-bottom: 0; }
-    .lesson-summary {
-      padding: 1.1rem 1.2rem;
-      border-left: 4px solid #8a755d;
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 16px;
       background: #faf7f2;
-      border-radius: 0 12px 12px 0;
     }
-    .lesson-summary p { margin: 0 0 0.8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
-    .responsibility-map,
-    .supplement-box {
-      margin: 1.2rem 0;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #f3efe7;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .scope-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: .8rem;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .scope-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border, #e3ddd2);
       border-radius: 14px;
       background: #fff;
     }
-    .responsibility-map > p,
-    .supplement-box > p { margin-top: 0; }
-    .responsibility-map ul,
-    .supplement-box ul { margin-bottom: 0; }
+    .scope-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+    .scope-card strong { display: block; margin-bottom: .35rem; }
+    .scope-card p { margin: 0; }
+    .scope-arrow {
+      font-weight: 700;
+      color: #8a755d;
+      font-size: 1.2rem;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .scope-flow { grid-template-columns: 1fr; }
+      .scope-arrow { text-align: center; transform: rotate(90deg); }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -51,172 +140,120 @@
   <main>
     <section class="page-hero">
       <div class="container hero-inner">
-        <p class="site-kicker">ストラテジ系 / 企業活動</p>
-        <h1>法律を守り、利益も出している。それでも企業が責任を問われる理由</h1>
-        <p class="page-description">事業としては問題なく見える企業が、なぜ社会から責任を問われたのか。企業活動が周囲に与える影響から読み解きます。</p>
+        <p class="site-kicker">ストラテジ系 / 法務・標準化</p>
+        <h1>「組織の社会的責任」。企業の話にすると何を指す？</h1>
+        <p class="page-description">国際規格が扱う「組織の社会的責任」という言葉から、対象を企業に絞ったとき何を意味するのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>組織の社会的責任を企業に絞って考える</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 1</p>
-            <h2>まず、何が起きているか見てみよう</h2>
-            <p>利益を上げ、法律も守っている企業が、なぜ責任を問われたのかを確認する。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
           </div>
 
           <section class="detail-section" id="situation">
-            <h2>事業は順調なのに、企業への批判が広がった</h2>
-            <p>ある企業が、取引先の工場で製造した商品を販売している。</p>
-            <p>商品はよく売れ、企業は利益を上げている。自社の事業について、法令違反も確認されていない。</p>
-            <p>ところが、取引先の工場で働く人の労働環境や、製造時に生じる環境への負荷が問題になり、企業にも対応を求める声が上がった。</p>
-            <p>企業は、「問題が起きたのは取引先であり、自社は法律を守って商品を販売している」と説明した。</p>
-            <p><strong>法律を守り、利益を上げている企業が、なぜ自社以外で起きたことについても責任を問われるのだろうか。</strong></p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 2</p>
-            <h2>登場人物を整理しよう</h2>
-            <p>企業活動に関わる人と、どのような影響を受けるのかを確認する。</p>
-          </div>
-
-          <section class="detail-section" id="actors">
-            <h2>企業活動は、誰とつながっているのか</h2>
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead><tr><th>関係者</th><th>企業活動との関わり</th></tr></thead>
-                <tbody>
-                  <tr><td>企業</td><td>商品を企画・販売し、取引や事業活動から利益を得る</td></tr>
-                  <tr><td>従業員</td><td>企業で働き、労働条件や職場環境の影響を受ける</td></tr>
-                  <tr><td>取引先とその従業員</td><td>原材料や商品を供給し、企業の発注条件や取引方針の影響を受ける</td></tr>
-                  <tr><td>顧客</td><td>商品やサービスを購入し、安全性や表示、品質の影響を受ける</td></tr>
-                  <tr><td>地域社会</td><td>雇用や事業活動の恩恵を受ける一方、騒音や廃棄物などの影響も受ける</td></tr>
-                  <tr><td>社会・環境</td><td>資源の使用、排出物、事業の継続などによる長期的な影響を受ける</td></tr>
-                </tbody>
-              </table>
+            <h2>国際規格が「組織の社会的責任」を扱っている</h2>
+            <div class="case-lead">
+              <p>ISO 26000という国際規格が、組織の社会的責任について扱っている。</p>
+              <p>そのうえで、企業が果たすべき社会的責任を表す用語が問われている。</p>
             </div>
-            <p>企業の活動は、企業の中だけで完結しない。商品を作り、売り、利益を得るまでに、多くの人や社会、環境と関わっている。</p>
+            <p>ここで最初に確認するのは、<strong>規格が何についてのものなのか</strong>である。</p>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 3</p>
-            <h2>手掛かりを集めよう</h2>
-            <p>企業が果たしていたことと、問題として残ったことを分けて考える。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>対象がどう絞られているか整理する</h2>
           </div>
 
-          <section class="detail-section" id="clues">
-            <h2>法律と利益だけでは説明できないもの</h2>
-            <ul>
-              <li>企業は商品を販売し、事業として利益を上げていた</li>
-              <li>自社の事業について、法令違反は確認されていなかった</li>
-              <li>取引先の労働環境や、製造時の環境負荷が問題になっていた</li>
-              <li>企業は、その取引を通じて商品を調達し、利益を得ていた</li>
-              <li>問題の影響は、取引先の従業員や環境など、企業の外にも及んでいた</li>
-            </ul>
-            <div class="lesson-summary">
-              <p><strong>企業が法律を守り、利益を上げているかだけでは、企業活動による影響のすべてを判断できない。</strong></p>
-              <p><strong>企業が誰にどのような影響を与え、その影響に対してどのように行動するかという問題が残る。</strong></p>
+          <section class="detail-section" id="scope">
+            <h2>「組織」から「企業」へ、対象が具体化されている</h2>
+            <div class="scope-flow">
+              <div class="scope-card">
+                <strong>規格が扱う対象</strong>
+                <p>組織の社会的責任。</p>
+              </div>
+              <div class="scope-arrow" aria-hidden="true">→</div>
+              <div class="scope-card scope-card--key">
+                <strong>今回問われる対象</strong>
+                <p>企業が果たすべき社会的責任。</p>
+              </div>
+            </div>
+            <p>対象は具体化されているが、確認している中心はどちらも<strong>社会に対して果たす責任</strong>である。</p>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>「誰の」「何についての」概念なのかを、そのままたどる。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>ISO 26000が扱うのは、社会的責任</h3>
+                <p>まず、規格が扱っている内容そのものを確認する。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>その社会的責任を、今回は企業について尋ねている</h3>
+                <p>「組織」という広い対象から、「企業」という具体的な対象へ絞られている。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>必要なのは、「企業が社会に対して果たす責任」を表す名前</h3>
+                <p>対象と内容を普通の言葉に戻すと、何を表す用語が必要なのかが見えてくる。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>企業という対象と、社会に対して果たす責任という内容を対応させる</strong>ことが判断の中心になる。</p>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した内容に名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>企業が社会に対して果たす責任</h2>
+            <div class="term-card">
+              <h3>CSR（Corporate Social Responsibility）</h3>
+              <p>ここまで見てきた「企業が社会に対して果たす責任」を表す用語には、CSRという名前が付く。英語の Corporate は企業、Social は社会、Responsibility は責任を表している。</p>
             </div>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 4</p>
-            <h2>この出来事は、何について考える話なのか</h2>
-            <p>個別の違反や経営成績ではなく、企業と社会の関係を捉える。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
           </div>
-
-          <section class="detail-section" id="framework">
-            <h2>企業は、どこまで自らの活動として考えるのか</h2>
-            <p>法律に違反しているかを調べるのであれば、該当する法令や契約、事実関係を確認することになる。</p>
-            <p>利益が出ているかを調べるのであれば、売上、費用、収益などを確認することになる。</p>
-            <p>ここで考えるのは、そのどちらだけでもない。</p>
-            <p><strong>企業が事業活動を通じて社会や環境に与える影響を認識し、その影響に対してどのような責任を果たすのか。</strong></p>
-            <p>これは、企業と社会の関係をどのように捉えるかという話である。</p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 5</p>
-            <h2>企業活動を、異なる観点から見てみよう</h2>
-            <p>同じ企業活動でも、どの点に注目するかによって考える内容は変わる。</p>
-          </div>
-
-          <section class="detail-section" id="viewpoints">
-            <h2>企業に求められるものは一つではない</h2>
-            <p>企業は、事業を続けるために複数の責任や仕組みを持っている。</p>
-            <div class="responsibility-map">
-              <p><strong>企業活動を見る主な観点</strong></p>
-              <ul>
-                <li><strong>経済的な役割</strong>：商品やサービスを提供し、利益を上げ、事業を継続する</li>
-                <li><strong>法的な責任</strong>：法令や契約、社会のルールを守る</li>
-                <li><strong>経営を監督する仕組み</strong>：経営者の判断や企業運営を監督・統制する</li>
-                <li><strong>社会に対する責任</strong>：企業活動が人、社会、環境に与える影響を考え、責任ある行動を取る</li>
-              </ul>
-            </div>
-            <p>これらは、互いに置き換えられるものではない。利益を上げていることや法令を守っていることだけで、社会への影響に対する責任まで果たしたことにはならない。</p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 6</p>
-            <h2>この出来事をどう捉えるか考えよう</h2>
-            <p>集めた手掛かりを、企業と社会の関係に照らし合わせる。</p>
-          </div>
-
-          <section class="detail-section" id="interpretation">
-            <h2>企業が社会的責任を負うのはなぜか</h2>
-            <p>企業は、商品やサービスを提供し、雇用や取引を行うことで利益を得る。</p>
-            <p>その活動は、従業員、顧客、取引先、地域社会、人権、環境などに影響を与える。</p>
-            <p>企業が直接行った行為だけでなく、原材料の調達や製造の委託など、事業を成り立たせるつながりの中でも影響は生じる。</p>
-            <p>そのため、企業には、法令を守ることに加えて、自らの活動が社会や環境に与える影響を認識し、関係者に配慮して行動することが求められる。</p>
-            <div class="lesson-summary">
-              <p><strong>企業が、自らの活動による社会や環境への影響を考え、関係者に対して責任ある行動を取るという考え方を、企業の社会的責任という。</strong></p>
-              <p><strong>この考え方を表す用語が、CSRである。</strong></p>
-            </div>
-            <p>CSRは、寄付やボランティアなど、事業とは別に行う活動だけを指すものではない。</p>
-            <p>商品の安全、従業員の働く環境、公正な取引、人権への配慮、環境負荷の低減など、企業が日常の事業活動をどのように行うかにも関係する。</p>
-          </section>
 
           <section class="detail-section" id="lesson">
-            <h2>この学習要点で整理したこと</h2>
+            <h2>略語より先に、「誰の」「何についての」を読む</h2>
             <div class="lesson-summary">
-              <p>企業活動は、企業の中だけで完結するものではなく、さまざまな人、社会、環境に影響を与える。</p>
-              <p>企業が利益を上げ、法令を守っていることと、社会への影響に対して責任ある行動を取っていることは、同じではない。</p>
-              <p>企業の社会的責任を考えるときは、企業が何をしたかだけでなく、その活動が誰にどのような影響を与えているかを確認する。</p>
-              <p><strong>CSRという用語だけを覚えるのではなく、企業が社会に影響を与える立場にあるため、その影響に対する責任を負うという関係を捉える。</strong></p>
+              <p>略語や制度名が並ぶ問題では、まず<strong>問題文が何を対象にし、何について説明しているのか</strong>を普通の言葉で確認する。</p>
+              <p>今回なら、対象は企業、内容は社会に対して果たす責任である。</p>
+              <p><strong>用語名から逆算するのではなく、「誰の」「何についての」概念なのかを先に整理し、その意味に対応する名前へ進む。</strong></p>
             </div>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足　ISO 26000との関係</h2>
-            <p>ISO 26000は、社会的責任に関する国際的な手引である。</p>
-            <div class="supplement-box">
-              <ul>
-                <li>対象は企業だけではなく、さまざまな組織である</li>
-                <li>組織が社会に与える影響に責任を持つための考え方を示している</li>
-                <li>品質管理規格などのように、認証を受けることを目的とした規格ではない</li>
-              </ul>
-            </div>
-            <p>企業について社会的責任を考える場合はCSR、企業を含む組織全体について考える場合は社会的責任という関係で整理できる。</p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list"><span class="tag">CSR</span><span class="tag">企業の社会的責任</span><span class="tag">ISO 26000</span><span class="tag">ステークホルダ</span><span class="tag">企業活動</span><span class="tag">ストラテジ系</span></div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問14</p>
-            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+  <footer class="site-footer">
+    <div class="container">
+      <p>ITネッコ / のらネコ学習室</p>
+    </div>
+  </footer>
 </body>
 </html>
