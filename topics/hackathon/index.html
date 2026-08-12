@@ -3,26 +3,383 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>短期間でアイデアを形にするイベントの意味 | ITネッコ</title>
-  <meta name="description" content="ハッカソンについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="短期間でアイデアを形にするイベントの意味 | ITネッコ"><meta property="og:description" content="限られた時間で企画、開発、発表まで行い、アイデアを試作品として形にする活動を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>短期間でアイディアを形にするイベント | ITネッコ</title>
+  <meta name="description" content="ある目的や課題について人が集まり、短期間にアイディアを出し合い、共同で開発して成果を形にする出来事から、イベントの性格を判断する流れを整理します。">
+  <meta property="og:title" content="短期間でアイディアを形にするイベント | ITネッコ">
+  <meta property="og:description" content="誰が、何のために集まり、その場で何をして、何を成果として残すのか。出来事からイベントの性格を読み解きます。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid #ded6c7;
+      border-radius: 14px;
+      background: #f3efe7;
+    }
+
+    .learning-phase:first-of-type { margin-top: 0; }
+
+    .learning-phase__label {
+      margin: 0 0 0.25rem;
+      color: #776e62;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .learning-phase h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .learning-phase p:last-child { margin-bottom: 0; }
+
+    .scene-card,
+    .concept-card,
+    .lesson-card {
+      margin-top: 1rem;
+      padding: 1.15rem 1.2rem;
+      border-radius: 14px;
+    }
+
+    .scene-card {
+      border: 1px solid #ddd5c7;
+      background: #fffaf3;
+    }
+
+    .concept-card {
+      border: 1px solid rgba(95, 114, 82, 0.28);
+      background: var(--color-soft-green);
+    }
+
+    .lesson-card {
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+
+    .scene-card p,
+    .concept-card p,
+    .lesson-card p { margin: 0 0 0.8rem; }
+
+    .scene-card p:last-child,
+    .concept-card p:last-child,
+    .lesson-card p:last-child { margin-bottom: 0; }
+
+    .relation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 1rem;
+    }
+
+    .relation-card {
+      min-width: 0;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .relation-card h3 {
+      margin-bottom: 0.45rem;
+      color: var(--color-accent-dark);
+      font-size: 1rem;
+    }
+
+    .relation-card p { margin: 0; }
+
+    .mini-flow,
+    .decision-flow {
+      display: grid;
+      gap: 0;
+      margin-top: 1.1rem;
+    }
+
+    .mini-flow__item,
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(95, 114, 82, 0.26);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .mini-flow__item + .mini-flow__item,
+    .decision-card + .decision-card { margin-top: 2rem; }
+
+    .mini-flow__item + .mini-flow__item::before,
+    .decision-card + .decision-card::before {
+      position: absolute;
+      left: 50%;
+      top: -1.55rem;
+      color: #8a806f;
+      content: "↓";
+      font-size: 1.25rem;
+      font-weight: 700;
+      transform: translateX(-50%);
+    }
+
+    .decision-card {
+      padding-left: 4rem;
+      background: linear-gradient(90deg, rgba(238, 242, 234, 0.78), #fff 38%);
+    }
+
+    .decision-card__number {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: #fffdf8;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .decision-card h3 {
+      margin-bottom: 0.35rem;
+      color: var(--color-accent-dark);
+      font-size: 1.05rem;
+    }
+
+    .decision-card p { margin: 0; }
+
+    .concept-name {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: #fffdf8;
+      font-weight: 700;
+    }
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .keyword-row span {
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--color-muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 860px) {
+      .relation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .relation-grid { grid-template-columns: 1fr; }
+
+      .decision-card {
+        padding: 3.4rem 1rem 1rem;
+        background: linear-gradient(180deg, rgba(238, 242, 234, 0.88), #fff 48%);
+      }
+
+      .decision-card__number {
+        left: 1rem;
+        top: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ">
+        <a href="../../">トップ</a>
+        <a href="../../fields/">学習分野</a>
+        <a href="../../past-questions/">過去問から探す</a>
+        <a href="../../about/">このサイトについて</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 企業活動・IT活用</p><div class="topic-heading-meta"><span class="question-badge">問4</span><span class="term-label">ハッカソン</span></div><h1>短期間でアイデアを形にするイベントの意味</h1><p class="page-description">限られた時間で企画、開発、発表まで行い、アイデアを試作品として形にする活動を整理します。</p></div></section>
-    <div class="container page-flow"><nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>短期間でアイデアを形にするイベントの意味</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
-      <section class="detail-section step-section" id="scene"><h2><span class="step-number">1</span><span>場面をつかむ</span></h2><p>新しいアプリやサービスのアイデアを形にしたいとき、開発者、デザイナー、企画者などが集まり、短期間で共同作業を行う場面を考えます。</p><p>このような場面では、長期間の通常開発ではなく、限られた時間内でアイデアを出し、試作品や企画案などの成果を作り、最後に発表や審査を行うことがあります。</p></section>
-      <section class="detail-section step-section" id="conclusion"><h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2><p>ハッカソンとは、特定のテーマや目的のもとで、プログラマーやデザイナーなどの参加者がチームを組み、短期集中的にアイデアを出し合い、ソフトウェア開発などの共同作業を行い、成果を競い合うイベントです。</p><p>試験では、ハッカソンを「短期間」「共同作業」「アイデア創出」「開発や成果発表」という要素で押さえます。</p></section>
-      <section class="detail-section step-section" id="structure"><h2><span class="step-number">3</span><span>ハッカソンの構造を確認する</span></h2><p>ハッカソンは、単なる会議や講演会ではありません。参加者が実際に手を動かし、与えられたテーマに関するプロトタイプなどを短期間で作る点が特徴です。</p><ul><li>テーマ：解決したい課題や達成したい目的。</li><li>参加者：ソフトウェア開発者、企画者、デザイナー、利用部門の担当者など。</li><li>共同作業：アイデア出し、設計、開発、試作、発表準備など。</li><li>成果：試作品、プロトタイプ、アプリ、サービス案、プレゼンテーションなど。</li></ul></section>
-      <section class="detail-section step-section" id="checkpoints"><h2><span class="step-number">4</span><span>理解の基軸</span></h2><p>ハッカソンかどうかは、次の三つの観点で判断します。</p><ul><li>短期集中：限られた時間内で集中的に取り組む。</li><li>共同作業：プログラマーやデザイナーなどがチームを組み、開発や試作を行う。</li><li>成果を競う：作った成果を発表し、評価や審査を行うことがある。</li></ul></section>
-      <section class="detail-section step-section" id="mistakes"><h2><span class="step-number">5</span><span>間違えやすい用語を分ける</span></h2><ul><li>トレードフェア：製品やサービスを展示し、商談や情報交換を行う見本市。</li><li>パネルディスカッション：複数の登壇者がテーマについて討論する形式。</li><li>レセプション：参加者を招いて行う歓迎会、交流会、式典後の会合など。</li><li>情報セキュリティの合宿学習：セキュリティを学ぶ場であり、短期間で成果物を作る活動とは限らない。</li><li>ディベート：立場を分けて議論する活動であり、具体的な成果物を短期間で形にする活動とは異なる。</li><li>ゲーミフィケーション：ゲームの要素をサービスや学習に取り入れる考え方である。</li><li>ハッカソン：短期間で共同作業を行い、ソフトウェア開発などの成果を作るイベント。</li></ul></section>
-      <section class="detail-section step-section" id="summary"><h2><span class="step-number">6</span><span>まとめで定着させる</span></h2><ul class="summary-list"><li>ハッカソンは、短期集中型の共同作業イベントである。</li><li>参加者は、テーマに沿ってアイデアを出し合い、開発や試作を行う。</li><li>プロトタイプなどの成果物を発表し、評価や審査を行うことが多い。</li><li>試験では、展示会、討論会、交流会、ゲーミフィケーションとの違いを整理する。</li></ul></section>
-      <section class="detail-section" id="supplement"><h2>補足：名前の意味</h2><p>ハッカソンは、ハックとマラソンを組み合わせた言葉です。ここでのハックは、コンピュータや技術を使って工夫しながら作るという意味で使われます。</p><p>そのため、単に話し合うだけではなく、短い期間で実際に成果を作る点が重要です。</p></section>
-      <section class="detail-section" id="related"><h2>関連する要点</h2><p>関連する学習要点は、今後追加していきます。</p><div class="tag-list"><span class="tag">ハッカソン</span><span class="tag">アイデア創出</span><span class="tag">IT活用</span></div></section>
-      <section class="detail-section" id="reference"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問4</p><p>令和7年度 ITパスポート試験 公開問題 問9</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section>
-    </article></div></div>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">ストラテジ系 / 企業活動・IT活用</p>
+        <div class="topic-heading-meta"><span class="question-badge">問4</span></div>
+        <h1>短期間でアイディアを形にするイベント</h1>
+        <p class="page-description">あるテーマや課題について人が集まり、アイディアを出し合い、協力して開発し、成果を形にしています。この集まりがどのような特徴を持つイベントなのか、出来事から順に読み解きます。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <nav class="breadcrumb" aria-label="パンくず">
+        <a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>短期間でアイディアを形にするイベント</span>
+      </nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+            <p>イベント名を考える前に、参加者が集まって何をしているのかを確認する。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>課題について考えるだけでなく、実際に作っている</h2>
+            <p>ある目的や課題をテーマに、開発や企画に関わる人たちが集まっています。</p>
+            <p>参加者は、その場でアイディアを出し合い、それをもとに協力して開発を進め、一定の期間内に成果を形にします。</p>
+            <div class="scene-card">
+              <p><strong>出来事として見えること</strong></p>
+              <p>共通する目的や課題があり、複数の人が参加し、アイディアを出し、共同で開発し、成果を作っています。</p>
+            </div>
+            <p><strong>最初に見るのは、「誰が、何のために集まり、そこで何をしているのか」です。</strong></p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>関係する人・もの・立場を整理する</h2>
+            <p>参加者だけでなく、目的、活動、成果のつながりを分けて見る。</p>
+          </div>
+
+          <section class="detail-section" id="relations">
+            <h2>この出来事を作っている四つの要素</h2>
+            <div class="relation-grid">
+              <div class="relation-card">
+                <h3>目的・課題</h3>
+                <p>参加者が取り組む対象。</p>
+              </div>
+              <div class="relation-card">
+                <h3>参加者</h3>
+                <p>アイディアを出し、開発や企画に関わる人たち。</p>
+              </div>
+              <div class="relation-card">
+                <h3>活動</h3>
+                <p>参加者同士で考え、協力して開発すること。</p>
+              </div>
+              <div class="relation-card">
+                <h3>成果</h3>
+                <p>活動の結果として形になるソフトウェアなど。</p>
+              </div>
+            </div>
+
+            <div class="mini-flow" aria-label="目的から成果までの流れ">
+              <div class="mini-flow__item"><strong>目的・課題がある</strong></div>
+              <div class="mini-flow__item"><strong>参加者が集まる</strong></div>
+              <div class="mini-flow__item"><strong>アイディアを出し合う</strong></div>
+              <div class="mini-flow__item"><strong>共同で開発する</strong></div>
+              <div class="mini-flow__item"><strong>成果を形にする</strong></div>
+            </div>
+            <p>この一連の関係が、イベントの性格を判断する材料になります。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>目的、活動、成果、進め方の順に見ていく。</p>
+          </div>
+
+          <section class="detail-section" id="clues">
+            <h2>何を確認すれば、この集まりの性格が分かるのか</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">1</span>
+                <h3>何を目的として集まっているか</h3>
+                <p>特定の目的を達成することや、課題を解決することがテーマになっています。</p>
+              </div>
+
+              <div class="decision-card">
+                <span class="decision-card__number">2</span>
+                <h3>参加者がその場で何をしているか</h3>
+                <p>参加者自身がアイディアを出し、他の参加者と協力して、実際に開発しています。</p>
+              </div>
+
+              <div class="decision-card">
+                <span class="decision-card__number">3</span>
+                <h3>活動の結果として何が残るか</h3>
+                <p>アイディアをもとに開発を行い、成果物を形にするところまで進みます。</p>
+              </div>
+
+              <div class="decision-card">
+                <span class="decision-card__number">4</span>
+                <h3>どのような進め方をしているか</h3>
+                <p>一定の期間内に、課題について考え、協力して開発し、成果を作ります。</p>
+              </div>
+            </div>
+
+            <div class="lesson-card">
+              <p><strong>ここまで確認すると、課題に対して複数の参加者が短期間に協力し、成果物を作る形式のイベントであることが分かります。</strong></p>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>ここまで確認した活動の形式に名前を付ける</h2>
+            <p>出来事から見えてきた特徴を、必要な用語と結び付ける。</p>
+          </div>
+
+          <section class="detail-section" id="concept">
+            <h2>短期間で協力して成果を作るイベント</h2>
+            <div class="concept-card">
+              <span class="concept-name">ハッカソン</span>
+              <p>特定の目的や課題について参加者が集まり、短期間にアイディアを出し合い、共同で開発して成果を作る形式のイベントを、ハッカソンといいます。</p>
+              <div class="keyword-row" aria-label="ハッカソンの特徴">
+                <span>目的・課題</span>
+                <span>アイディア</span>
+                <span>共同開発</span>
+                <span>短期間</span>
+                <span>成果物</span>
+              </div>
+            </div>
+            <p>ハッカソンは、<strong>hack</strong> と <strong>marathon</strong> を組み合わせた言葉です。</p>
+            <p>用語だけを覚えるのではなく、<strong>目的・参加者・活動・成果の関係</strong>と結び付けて捉えます。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点を整理する</h2>
+            <p>問題固有の設定を離れ、他の場面でも使える判断材料を残す。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>イベントの種類は、目的と活動内容から見る</h2>
+            <div class="lesson-card">
+              <p>イベントや活動の種類を判断するときは、名称から考えるのではなく、<strong>目的と参加者の活動内容</strong>を確認します。</p>
+              <p><strong>何を目的として集まるか → 参加者がその場で何をするか → 何を成果として残すか → どのような進め方をするか</strong></p>
+              <p>この関係を見ることで、その集まりがどのような性格のイベントなのかを捉えられます。</p>
+              <p>特定の目的や課題について参加者が集まり、短期間にアイディアを出し合い、共同で開発して成果を形にする形式を、ハッカソンといいます。</p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="related">
+            <h2>関連する要点</h2>
+            <p>関連する学習要点は、今後追加していきます。</p>
+            <div class="tag-list">
+              <span class="tag">ハッカソン</span>
+              <span class="tag">アイディア創出</span>
+              <span class="tag">IT活用</span>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和8年度 ITパスポート試験 公開問題 問4</p>
+            <p>このページは、上記の公開問題を起点に、そこから残せる学習要点を整理したものです。問題文・選択肢本文は掲載していません。</p>
+          </section>
+        </article>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+
+  <footer class="site-footer">
+    <div class="container"><p>ITネッコ / のらネコ学習室</p></div>
+  </footer>
 </body>
 </html>
