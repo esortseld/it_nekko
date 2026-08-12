@@ -3,9 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人情報を使える形にするための条件 | ITネッコ</title>
-  <meta name="description" content="匿名加工情報について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="個人情報を使える形にするための条件 | ITネッコ"><meta property="og:description" content="特定の個人を識別できないように加工し、復元できない形で利活用する情報の考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>名前を消しただけで、もう個人は分からない？ | ITネッコ</title>
+  <meta name="description" content="個人情報を加工したあと、本当に個人を特定できず、元の情報にも戻せない状態になっているのかを順番に確認します。">
+  <meta property="og:title" content="名前を消しただけで、もう個人は分からない？ | ITネッコ">
+  <meta property="og:description" content="個人情報を加工したあと、特定の個人を識別できるか、元の個人情報へ復元できるかを順に確認します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid #ded6c7;
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #f3efe7;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .state-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: .8rem;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .state-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .state-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+    .state-card strong { display: block; margin-bottom: .35rem; }
+    .state-card p { margin: 0; }
+    .state-arrow {
+      font-weight: 700;
+      color: #8a755d;
+      font-size: 1.2rem;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .state-flow { grid-template-columns: 1fr; }
+      .state-arrow { text-align: center; transform: rotate(90deg); }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,108 +141,109 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
-        <div class="topic-heading-meta"><span class="question-badge">問13</span><span class="term-label">匿名加工情報</span></div><h1>個人情報を使える形にするための条件</h1>
-        <p class="page-description">特定の個人を識別できないように加工し、復元できない形で利活用する情報の考え方を整理します。</p>
+        <h1>名前を消しただけで、もう個人は分からない？</h1>
+        <p class="page-description">個人情報を加工したあと、本当に個人を特定できず、元の情報にも戻せない状態になっているのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>個人情報を使える形にするための条件</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>加工後に個人を特定・復元できるか</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              企業が、顧客の購買履歴、利用履歴、属性情報などを分析し、商品開発やサービス改善に役立てたい場面を考えます。
-            </p>
-            <p>
-              ただし、そのままでは個人を識別できる情報が含まれるため、個人情報保護法上の取扱いに注意が必要です。そこで、個人を識別できない形に加工し、復元できないようにする考え方が出てきます。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>個人情報を加工して、別の形で利用しようとしている</h2>
+            <div class="case-lead">
+              <p>もともとは、特定の個人に関する情報を含む個人情報がある。</p>
+              <p>その情報を加工し、加工後の情報として利用しようとしている。</p>
+            </div>
+            <p>ここで確認するのは、<strong>加工したという事実だけではなく、加工後にどのような状態になったか</strong>である。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              匿名加工情報とは、個人情報を法令に定める方法で加工し、特定の個人を識別できず、元の個人情報へ復元できないようにした情報です。
-            </p>
-            <p>
-              試験では、匿名加工情報を「個人を識別できず、復元もできないように加工した情報」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>加工する前と、加工した後を整理する</h2>
+          </div>
+
+          <section class="detail-section" id="states">
+            <h2>見るのは、加工後に残っている情報の状態</h2>
+            <div class="state-flow">
+              <div class="state-card">
+                <strong>加工前</strong>
+                <p>特定の個人に関する情報を含む個人情報。</p>
+              </div>
+              <div class="state-arrow" aria-hidden="true">→</div>
+              <div class="state-card state-card--key">
+                <strong>加工後</strong>
+                <p>誰の情報か分かる状態が残っていないか、元の個人情報へ戻せる状態が残っていないかを確認する。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>匿名加工情報の構造を確認する</span></h2>
-            <p>
-              匿名加工情報では、単に氏名を消すだけでは足りません。ほかの情報と組み合わせても個人が識別されないようにし、元の個人情報に戻せない状態にすることが重要です。
-            </p>
-            <ul>
-              <li>元の情報：氏名、住所、購買履歴などを含む個人情報。</li>
-              <li>加工：個人を識別できる記述を削除・置換する処理。</li>
-              <li>復元不能性：加工後の情報から元の個人情報に戻せない状態。</li>
-              <li>利活用：一定のルールの下で、本人の同意なく利用できる場合がある。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>加工後の情報について、識別と復元の二つを順に確認する。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>出発点は個人情報</h3>
+                <p>もともと個人に関する情報を含むデータを加工している。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>加工後の情報から、特定の個人を識別できない</h3>
+                <p>氏名だけではなく、加工後に残った情報から特定の誰かだと分かる状態が残っていないことを確認する。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>加工後の情報から、元の個人情報へ復元できない</h3>
+                <p>加工した情報を手掛かりに、元の個人情報へ戻せる状態が残っていないことを確認する。</p>
+              </div>
+            </div>
+            <p>この二つの条件を確認すると、<strong>加工後の情報は、特定の個人を識別できず、元の個人情報にも復元できない状態になっている</strong>と分かる。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              匿名加工情報かどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>個人情報を加工している：元は個人情報である。</li>
-              <li>個人を識別できない：特定の個人が分からない状態になっている。</li>
-              <li>復元できない：元の個人情報に戻せないように加工されている。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した状態に名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>識別も復元もできないように加工された情報</h2>
+            <div class="term-card">
+              <h3>匿名加工情報</h3>
+              <p>ここまで見てきたように、個人情報を法令に定める基準に従って加工し、特定の個人を識別できず、元の個人情報を復元できないようにした情報には、匿名加工情報という名前が付く。一定のルールの下では、本人の同意を得ずに第三者へ提供することができる。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい情報を分ける</span></h2>
-            <ul>
-              <li>統計情報を自社向けに加工した情報：個人情報を匿名加工したものとは限らない。</li>
-              <li>氏名だけを一定ルールで匿名化し、復元を担保した情報：復元できるため、匿名加工情報とはいえない。</li>
-              <li>氏名を取得せず、ほかの情報で個人を識別できる情報：個人を識別できるなら匿名加工情報ではない。</li>
-              <li>個人情報を復元できないように加工した情報：匿名加工情報に当たる。</li>
-            </ul>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>匿名加工情報は、個人情報を加工して作る。</li>
-              <li>特定の個人を識別できない状態にする。</li>
-              <li>元の個人情報に復元できないようにする。</li>
-              <li>試験では、「匿名化」だけでなく「復元できないこと」まで確認する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：仮名加工情報との違い</h2>
-            <p>
-              仮名加工情報は、ほかの情報と照合すれば本人を識別できる余地がある情報です。
-            </p>
-            <p>
-              匿名加工情報は、特定の個人を識別できず、元の個人情報へ復元できないように加工された情報として整理します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">匿名加工情報</span>
-              <span class="tag">個人情報保護法</span>
-              <span class="tag">法務</span>
+          <section class="detail-section" id="lesson">
+            <h2>「加工した」ではなく、加工後の状態を確認する</h2>
+            <div class="lesson-summary">
+              <p>個人に関する情報を加工した場面では、まず<strong>加工後の情報から特定の個人を識別できるか</strong>を確認する。</p>
+              <p>次に、<strong>加工後の情報から元の個人情報へ復元できるか</strong>を確認する。</p>
+              <p><strong>名称や加工方法の言い方だけで判断せず、加工後に識別可能性と復元可能性が残っているかを見る。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問13</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
