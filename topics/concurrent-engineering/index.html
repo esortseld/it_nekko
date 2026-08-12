@@ -3,9 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>設計と生産を同時に進めて開発を早める考え方 | ITネッコ</title>
-  <meta name="description" content="コンカレントエンジニアリングについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="設計と生産を同時に進めて開発を早める考え方 | ITネッコ"><meta property="og:description" content="開発、設計、生産などの工程を並行して進め、期間短縮や品質向上を狙う考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>工程を一つずつ待たずに進めたら、全体の時間はどう変わる？ | ITネッコ</title>
+  <meta name="description" content="製品開発の複数工程を、順番に待って進める場合と、重ねて進める場合で、全体が終わるまでの時間がどう変わるのかを順番にたどります。">
+  <meta property="og:title" content="工程を一つずつ待たずに進めたら、全体の時間はどう変わる？ | ITネッコ">
+  <meta property="og:description" content="製品開発の工程を並行して進めることで、工程間の待ち時間が減り、全体の開発期間が短くなる関係を判断の流れから整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #f3efe7;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .state-card {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .state-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+    .state-card strong { display: block; margin-bottom: .45rem; }
+    .state-card p { margin: 0; }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .state-grid { grid-template-columns: 1fr; }
+      .case-lead,
+      .state-card,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,117 +135,114 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動・生産管理</p>
-        <div class="topic-heading-meta"><span class="question-badge">問18</span><span class="term-label">コンカレントエンジニアリング</span></div><h1>設計と生産を同時に進めて開発を早める考え方</h1>
-        <p class="page-description">開発、設計、生産などの工程を並行して進め、期間短縮や品質向上を狙う考え方を整理します。</p>
+        <h1>工程を一つずつ待たずに進めたら、全体の時間はどう変わる？</h1>
+        <p class="page-description">製品開発の複数工程を、順番に待って進める場合と、重ねて進める場合で、全体が終わるまでの時間がどう変わるのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>設計と生産を同時に進めて開発を早める考え方</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>工程を並行して進めたときの全体時間を見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              製品を開発するとき、企画、設計、試作、製造準備、販売準備などを順番に進めると、全体の期間が長くなりやすくなります。
-            </p>
-            <p>
-              そこで、関係部門が早い段階から情報を共有し、できる工程を並行して進めることで、手戻りを減らし、開発から市場投入までの時間を短くする考え方が使われます。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>製品開発には、いくつかの工程がある</h2>
+            <div class="case-lead">
+              <p>製品を完成させるまでには、複数の工程を進める必要がある。</p>
+              <p>全体が終わるまでの時間は、それぞれの工程をどのような順番で進めるかによって変わる。</p>
+            </div>
+            <p>ここで見るのは、<strong>各工程を一つずつ待って進める必要があるのか、それとも重ねて進められるのか</strong>である。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              コンカレントエンジニアリングとは、製品開発の複数工程を同時並行で進めることによって、開発期間の短縮を図る手法です。
-            </p>
-            <p>
-              試験では、「工程を順番に進める」のではなく、「関係部門が並行して進めることでリードタイムを短縮する」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>工程の進め方を整理する</h2>
+          </div>
+          <section class="detail-section" id="states">
+            <h2>順番に進める状態から、重ねて進める状態へ</h2>
+            <div class="state-grid">
+              <div class="state-card">
+                <strong>一つずつ順番に進める</strong>
+                <p>前の工程が終わるまで、次の工程は待つ。工程の間に待ち時間が生じる。</p>
+              </div>
+              <div class="state-card state-card--key">
+                <strong>進められる工程を重ねて進める</strong>
+                <p>前の工程がすべて終わるのを待たず、可能な工程を並行して進める。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>コンカレントエンジニアリングの構造を確認する</span></h2>
-            <p>
-              コンカレントエンジニアリングでは、後工程の担当者も早い段階から開発に関わります。これにより、後で発生しやすい問題を先に見つけ、手戻りを抑えます。
-            </p>
-            <ul>
-              <li>並行化：設計、製造準備、調達、品質確認などを重ねて進める。</li>
-              <li>部門連携：設計部門、製造部門、購買部門、営業部門などが早期に関与する。</li>
-              <li>手戻り削減：後工程で判明する問題を早めに確認する。</li>
-              <li>期間短縮：開発リードタイムや市場投入までの時間を短くする。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>工程の進め方が変わると、全体が終わるまでの時間がどう変わるかを見る。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>工程を一つずつ進めると、次の工程に待ち時間が生じる</h3>
+                <p>前の工程が終わるまで次へ進めない時間が、全体の所要時間に含まれる。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>進められる工程を、重ねて並行して進める</h3>
+                <p>判断を分けるのは、工程の進め方が「順番」から「並行」へ変わることである。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>工程間の待ち時間が減る</h3>
+                <p>複数工程が同じ時間帯に進むため、全工程を順番につなげた場合より待つ時間が少なくなる。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">04</span><h3>開発全体が終わるまでの時間が短くなる</h3>
+                <p>その結果、製品開発に必要な期間や納期を短くできる。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>複数工程を並行して進めることで工程間の待ち時間を減らし、開発全体の所要時間を短縮する</strong>という関係である。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              コンカレントエンジニアリングかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>製品開発や設計開発の場面である。</li>
-              <li>複数の工程や部門を並行して進めている。</li>
-              <li>開発期間やリードタイムの短縮を目的としている。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した進め方に名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>複数工程を並行して進める開発の進め方</h2>
+            <div class="term-card">
+              <h3>コンカレントエンジニアリング</h3>
+              <p>ここまで確認した、製品開発の複数工程を並行して進め、開発期間や納期の短縮につなげる進め方には、コンカレントエンジニアリングという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい考え方を分ける</span></h2>
-            <ul>
-              <li>順番に工程を進める：前工程が終わってから次工程へ進むため、期間が長くなりやすい。</li>
-              <li>作業者を増やすだけ：並行化や部門連携の考え方とは限らない。</li>
-              <li>在庫を多く持つ：開発期間短縮ではなく、供給リスク対応などの考え方である。</li>
-              <li>複数工程を同時並行で進める：コンカレントエンジニアリングに当たる。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>コンカレントエンジニアリングは、複数工程を同時並行で進める手法である。</li>
-              <li>関係部門が早い段階から情報を共有する。</li>
-              <li>手戻りを減らし、開発期間を短縮する。</li>
-              <li>試験では、「並行」「部門連携」「リードタイム短縮」を手掛かりにする。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：逐次型との違い</h2>
-            <p>
-              逐次型の開発では、企画、設計、製造準備などを順番に進めます。一方、コンカレントエンジニアリングでは、後工程の視点を早い段階で取り入れ、可能な作業を重ねて進めます。
-            </p>
-            <p>
-              その結果、後から大きな修正が必要になることを防ぎやすくなり、開発全体のスピード向上につながります。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">コンカレントエンジニアリング</span>
-              <span class="tag">開発期間短縮</span>
-              <span class="tag">生産管理</span>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>全体時間は、「同時に進められるか」でも変わる</h2>
+            <div class="lesson-summary">
+              <p>複数の作業で全体の所要時間を考えるときは、各作業に掛かる時間だけを見ない。</p>
+              <p><strong>前の作業を待つ必要があるか、複数の作業を同時に進められるか</strong>を確認する。</p>
+              <p><strong>進められる作業を並行化すると、待ち時間を減らし、全体が終わるまでの時間を短くできる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問18</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
+    <div class="container"><p>ITネッコ / のらネコ学習室</p></div>
   </footer>
 </body>
 </html>
