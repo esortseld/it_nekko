@@ -3,9 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>新しい商品が一般層に広がる前に越える壁 | ITネッコ</title>
-  <meta name="description" content="キャズムについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="新しい商品が一般層に広がる前に越える壁 | ITネッコ"><meta property="og:description" content="新製品が初期採用者から一般市場へ広がるときに生じる大きな溝を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>新しい製品が、次の層へ広がらない。どこで止まっている？ | ITネッコ</title>
+  <meta name="description" content="新しい製品やサービスの普及が進む途中で、どの層からどの層へ移るところに大きな隔たりがあるのかを順番に確認します。">
+  <meta property="og:title" content="新しい製品が、次の層へ広がらない。どこで止まっている？ | ITネッコ">
+  <meta property="og:description" content="普及の途中で、アーリーアダプターからアーリーマジョリティへ移る境目に生じる越えにくい隔たりを、判断順序から整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #f3efe7;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .boundary-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: .8rem;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .boundary-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .boundary-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+    .boundary-card strong { display: block; margin-bottom: .35rem; }
+    .boundary-card p { margin: 0; }
+    .boundary-arrow {
+      font-weight: 700;
+      color: #8a755d;
+      font-size: 1.2rem;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--color-border, #e3ddd2);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .boundary-flow { grid-template-columns: 1fr; }
+      .boundary-arrow { text-align: center; transform: rotate(90deg); }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,108 +141,109 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 経営戦略・マーケティング</p>
-        <div class="topic-heading-meta"><span class="question-badge">問15</span><span class="term-label">キャズム</span></div><h1>新しい商品が一般層に広がる前に越える壁</h1>
-        <p class="page-description">新製品が初期採用者から一般市場へ広がるときに生じる大きな溝を整理します。</p>
+        <h1>新しい製品が、次の層へ広がらない。どこで止まっている？</h1>
+        <p class="page-description">新しい製品やサービスの普及が進む途中で、どの層からどの層へ移るところに大きな隔たりがあるのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>新しい商品が一般層に広がる前に越える壁</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>普及のどの境目で止まるかを見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              新しい製品やサービスは、最初から多くの消費者に受け入れられるわけではありません。まず新しいものに関心が高い層が使い始め、その後、慎重な一般層へ広がっていきます。
-            </p>
-            <p>
-              この普及の途中で、初期に受け入れる層と、一般市場を形成する層との間に大きな隔たりが生じることがあります。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>新しい製品やサービスが、消費者へ広がっている途中</h2>
+            <div class="case-lead">
+              <p>新しい製品やサービスは、受け入れる時期の異なる消費者へ順に広がっていく。</p>
+              <p>その普及の途中で、次の層へ広がろうとするところに、越えることが難しい隔たりが生じている。</p>
+            </div>
+            <p>ここで最初に確認するのは、<strong>その隔たりが普及のどの位置で起きているのか</strong>である。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              キャズムとは、新しい製品やサービスが、アーリーアダプターからアーリーマジョリティへ普及する際に生じる、越えることが難しい隔たりのことです。
-            </p>
-            <p>
-              試験では、イノベーター理論の普及段階において、「アーリーアダプターとアーリーマジョリティの間にある壁」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>隔たりが生じる境目を整理する</h2>
+          </div>
+
+          <section class="detail-section" id="boundary">
+            <h2>アーリーアダプターから、アーリーマジョリティへ</h2>
+            <div class="boundary-flow">
+              <div class="boundary-card">
+                <strong>アーリーアダプター</strong>
+                <p>普及の早い段階で新しい製品やサービスを受け入れる層。</p>
+              </div>
+              <div class="boundary-arrow" aria-hidden="true">→</div>
+              <div class="boundary-card boundary-card--key">
+                <strong>アーリーマジョリティ</strong>
+                <p>その次に普及していく層。この層へ移る境目が今回の確認場所になる。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>イノベーター理論の構造を確認する</span></h2>
-            <p>
-              イノベーター理論では、消費者を新しい製品やサービスを受け入れる早さによって分類します。
-            </p>
-            <ul>
-              <li>イノベーター：最も早く新しいものを試す層。</li>
-              <li>アーリーアダプター：新しい価値を見極め、早い段階で採用する層。</li>
-              <li>アーリーマジョリティ：慎重だが、比較的早めに採用する一般層。</li>
-              <li>レイトマジョリティ、ラガード：普及後に採用する層、または最後まで慎重な層。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>何の途中で、どの境目に、何が起きているのかを見る。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>新しい製品・サービスの普及過程である</h3>
+                <p>消費者へ広がっていく途中に起きている現象だと確認する。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>アーリーアダプターからアーリーマジョリティへ移る境目である</h3>
+                <p>普及のどの段階でもよいのではなく、この二つの層の間が問題になっている。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>その境目に、越えることが困難な隔たりが生じている</h3>
+                <p>単に次の段階へ進むのではなく、普及を妨げる大きな隔たりが存在している。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>新しい製品・サービスの普及過程で、アーリーアダプターからアーリーマジョリティへ移る境目に、越えにくい隔たりが生じている</strong>という関係である。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              キャズムかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>新しい製品やサービスの普及過程である。</li>
-              <li>初期に採用する層から、一般市場を形成する層へ移る段階である。</li>
-              <li>普及が一気に広がらず、越えにくい隔たりがある。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した現象に名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>普及の途中にある、越えにくい隔たり</h2>
+            <div class="term-card">
+              <h3>キャズム（Chasm）</h3>
+              <p>ここまで確認した、アーリーアダプターからアーリーマジョリティへ普及するときに生じる、越えることが困難な隔たりには、キャズムという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい用語を分ける</span></h2>
-            <ul>
-              <li>カニバリゼーション：自社の新商品が既存商品の売上を奪うこと。</li>
-              <li>死の谷：研究開発から事業化へ進む途中で資金や成果につまずく困難。</li>
-              <li>レッドオーシャン：競争が激しい既存市場。</li>
-              <li>キャズム：新製品の普及における初期市場と一般市場の隔たり。</li>
-            </ul>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>キャズムは、新しい製品やサービスの普及過程で生じる隔たりである。</li>
-              <li>アーリーアダプターからアーリーマジョリティへ広がる段階で問題になる。</li>
-              <li>初期市場と一般市場では、求める価値や判断基準が異なる。</li>
-              <li>試験では、「普及」「アーリーアダプター」「アーリーマジョリティ」を手掛かりにする。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：なぜ隔たりが生じるのか</h2>
-            <p>
-              初期に採用する層は、新しさや先進性に価値を感じやすい一方、一般市場の層は、安心感、実績、使いやすさ、周囲での利用状況などを重視しやすくなります。
-            </p>
-            <p>
-              そのため、初期利用者に受け入れられた製品でも、そのまま一般市場に広がるとは限りません。この隔たりを越えることが、普及拡大の重要な課題になります。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">キャズム</span>
-              <span class="tag">イノベーター理論</span>
-              <span class="tag">マーケティング</span>
+          <section class="detail-section" id="lesson">
+            <h2>現象名は、「どこで何が起きたか」からたどる</h2>
+            <div class="lesson-summary">
+              <p>現象や障壁の名前を問われたときは、まず<strong>何のプロセスの途中なのか</strong>を確認する。</p>
+              <p>次に、<strong>どの段階からどの段階へ移る境目なのか</strong>、そこで<strong>実際に何が起きているのか</strong>を見る。</p>
+              <p><strong>用語名を先に思い出すのではなく、「何の途中で・どの境目で・何が起きたか」を特定してから、その現象の名前へ進む。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問15</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
