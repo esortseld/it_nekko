@@ -3,9 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>製品に直接ひも付かない費用をどう読むか | ITネッコ</title>
-  <meta name="description" content="間接費について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="製品に直接ひも付かない費用をどう読むか | ITネッコ"><meta property="og:description" content="特定の製品に直接対応しない共通費用を、直接費と区別して読む考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>この費用は、どの製品のために掛かったかたどれる？ | ITネッコ</title>
+  <meta name="description" content="製造に関する費用について、作業の対象を確認し、特定の製品まで直接たどれるかどうかから費用の扱いを判断する流れを整理します。">
+  <meta property="og:title" content="この費用は、どの製品のために掛かったかたどれる？ | ITネッコ">
+  <meta property="og:description" content="製造に関する費用を、作業の対象と特定製品への結び付きから判断する流れを整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border-radius: 16px;
+      background: #faf7f2;
+      border: 1px solid #ded6c7;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      background: #f3efe7;
+      border-radius: 0 12px 12px 0;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .target-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .target-card strong { display: block; margin-bottom: .35rem; }
+    .target-card p { margin: 0; }
+    .target-card--shared {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .term-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .target-grid,
+      .term-grid { grid-template-columns: 1fr; }
+      .case-lead,
+      .decision-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,108 +139,119 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 会計・財務</p>
-        <div class="topic-heading-meta"><span class="question-badge">問9</span><span class="term-label">間接費</span></div><h1>製品に直接ひも付かない費用をどう読むか</h1>
-        <p class="page-description">特定の製品に直接対応しない共通費用を、直接費と区別して読む考え方を整理します。</p>
+        <h1>この費用は、どの製品のために掛かったかたどれる？</h1>
+        <p class="page-description">製造に関する費用を、費用の名前ではなく「何を対象にした作業か」から順番に見ていきます。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>製品に直接ひも付かない費用をどう読むか</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>製造費用を対象との結び付きから見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              工場で製品を作るとき、材料費、作業者の労務費、外注加工費、設備の保守費など、さまざまな費用が発生します。
-            </p>
-            <p>
-              この費用を整理するときは、特定の製品を作るために直接発生した費用なのか、工場全体や複数の製品に共通して発生した費用なのかを分けて考えます。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>製品を作るために、いくつかの費用が発生している</h2>
+            <div class="case-lead">
+              <p>完成した製品を検査するために、人が作業している。</p>
+              <p>工場の電気供給設備を保守するためにも、人が作業している。</p>
+              <p>製品の加工の一部を外部へ依頼し、その加工費も発生している。</p>
+            </div>
+            <p>どれも製造に関係する費用だが、同じ扱いになるとは限らない。まず、それぞれの費用が<strong>何を対象にして発生しているか</strong>を見る。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              間接費とは、特定の製品に直接ひも付けにくい費用のことです。
-            </p>
-            <p>
-              試験では、間接費を「工場全体や複数の製品に共通して発生する費用」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>費用が向いている対象を整理する</h2>
+          </div>
+
+          <section class="detail-section" id="targets">
+            <h2>作業の先にあるのは、製品か、工場の共通設備か</h2>
+            <div class="target-grid">
+              <div class="target-card">
+                <strong>完成した製品の検査</strong>
+                <p>検査する対象となる製品がある。</p>
+              </div>
+              <div class="target-card target-card--shared">
+                <strong>電気供給設備の保守</strong>
+                <p>特定の製品ではなく、工場で共用する設備を維持する作業である。</p>
+              </div>
+              <div class="target-card">
+                <strong>製品の外注加工</strong>
+                <p>加工の対象となる製品がある。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>製造費用の構造を確認する</span></h2>
-            <p>
-              製造に関する費用は、特定の製品に直接対応させられるかどうかで、直接費と間接費に分けられます。
-            </p>
-            <ul>
-              <li>直接費：特定の製品に直接対応させやすい費用。</li>
-              <li>間接費：特定の製品だけに直接対応させにくい費用。</li>
-              <li>製造直接費：材料費、直接作業の労務費、外注加工費など。</li>
-              <li>製造間接費：工場の設備保守費、共通部門の費用など。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>費用から、どの製品のために掛かったのかを直接たどれるか確認する。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、費用と製品の結び付き</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>まず、費用が発生した作業の対象を見る</h3>
+                <p>製品そのものを検査・加工する作業なのか、工場で共用する設備を維持する作業なのかを確認する。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>その対象を、特定の製品まで直接たどれるか確認する</h3>
+                <p>検査する製品や加工する製品が特定できれば、その費用をその製品へ直接対応付けられる。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>工場の共通設備に向いた作業は、特定の製品へ直接たどれない</h3>
+                <p>電気供給設備の保守は、工場全体で共用する設備を維持する作業である。どれか一つの製品だけのために掛かった費用として直接対応付けることができない。</p>
+              </div>
+            </div>
+            <p>判断を分けているのは、労務費か外注費かという費用名ではなく、<strong>その費用を特定の製品へ直接対応付けられるか</strong>という関係である。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              間接費かどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>特定の製品だけに対応するか：対応するなら直接費になりやすい。</li>
-              <li>工場全体に関係するか：全体に関係するなら間接費になりやすい。</li>
-              <li>複数の製品に共通するか：共通して使われる費用は間接費になりやすい。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した違いに名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="terms">
+            <h2>特定製品へ直接たどれるかで、費用の扱いが分かれる</h2>
+            <div class="term-grid">
+              <div class="term-card">
+                <h3>直接費</h3>
+                <p>特定の製品へ直接対応付けられる費用。</p>
+              </div>
+              <div class="term-card">
+                <h3>間接費</h3>
+                <p>製造に関係していても、特定の製品へ直接対応付けられない費用。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい費用を分ける</span></h2>
-            <ul>
-              <li>完成した製品を検査する労務費：製品の製造に直接関係する作業として扱う。</li>
-              <li>製品の外注加工費：特定の製品の加工に対応するため、直接費として扱う。</li>
-              <li>工場の電気供給設備を保守する労務費：工場全体に関係するため、間接費として扱う。</li>
-              <li>間接費だけを選ぶときは、特定の製品に直接結び付かない費用を選ぶ。</li>
-            </ul>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>間接費は、特定の製品に直接ひも付けにくい費用である。</li>
-              <li>工場全体や複数の製品に共通する費用は、間接費になりやすい。</li>
-              <li>特定の製品の検査、加工、直接作業は、直接費として扱われやすい。</li>
-              <li>試験では、「製品に直接対応するか」「工場全体に関係するか」で見分ける。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：直接費と間接費の見分け方</h2>
-            <p>
-              費用名だけを見るのではなく、その費用がどこに結び付くかを考えます。
-            </p>
-            <p>
-              特定の製品に結び付くなら直接費、工場全体や複数の製品にまたがるなら間接費として整理します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">間接費</span>
-              <span class="tag">直接費</span>
-              <span class="tag">会計・財務</span>
+          <section class="detail-section" id="lesson">
+            <h2>費用名ではなく、「何に結び付く費用か」を見る</h2>
+            <div class="lesson-summary">
+              <p>製造に関する費用を整理するときは、まず<strong>その費用がどの作業・対象に対して発生したか</strong>を確認する。</p>
+              <p>次に、その対象を<strong>特定の製品まで直接たどれるか</strong>を見る。製品まで直接たどれる費用と、工場全体で共用する設備などに向いた費用では扱いが分かれる。</p>
+              <p><strong>同じ労務費でも、作業の対象が製品なのか共通設備なのかで、製品との結び付きは変わる。費用の名称ではなく、費用と対象の関係から判断する。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問9</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
