@@ -3,9 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>モノからデータを集めて活用する仕組み | ITネッコ</title>
-  <meta name="description" content="IoTを利用したシステムについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="モノからデータを集めて活用する仕組み | ITネッコ"><meta property="og:description" content="センサーや機器からデータを収集し、状態把握や制御、サービス改善に活用する仕組みを整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>設備の状態を、離れた場所からどうやって知る？ | ITネッコ</title>
+  <meta name="description" content="店舗や工場の設備から得た情報が、センサー、インターネット、スマートフォンへどうつながり、設備の状態把握に使われるのかを順にたどります。">
+  <meta property="og:title" content="設備の状態を、離れた場所からどうやって知る？ | ITネッコ">
+  <meta property="og:description" content="設備の状態をセンサーで取得し、インターネット経由で集め、離れたスマートフォンから監視するまでの情報の流れを整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border-radius: 16px;
+      background: #faf7f2;
+      border: 1px solid #ded6c7;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      background: #f3efe7;
+      border-radius: 0 12px 12px 0;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .route-card {
+      position: relative;
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .route-card strong { display: block; margin-bottom: .35rem; }
+    .route-card p { margin: 0; }
+    .route-card + .route-card::before {
+      content: "→";
+      position: absolute;
+      left: -.72rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .route-grid { grid-template-columns: 1fr; }
+      .route-card + .route-card::before {
+        content: "↓";
+        left: 50%;
+        top: -.78rem;
+        transform: translateX(-50%);
+      }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,108 +145,113 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム戦略・IT活用</p>
-        <div class="topic-heading-meta"><span class="question-badge">問8</span><span class="term-label">IoTを利用したシステム</span></div><h1>モノからデータを集めて活用する仕組み</h1>
-        <p class="page-description">センサーや機器からデータを収集し、状態把握や制御、サービス改善に活用する仕組みを整理します。</p>
+        <h1>設備の状態を、離れた場所からどうやって知る？</h1>
+        <p class="page-description">設備から得た情報が、どこから始まり、どう届き、何に使われるのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>モノからデータを集めて活用する仕組み</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>設備の状態を離れた場所から知る仕組み</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              工場の設備、店舗の機器、家電、自動車などにセンサーを取り付け、温度、稼働状況、位置、異常の有無などを取得する場面を考えます。
-            </p>
-            <p>
-              取得した情報をインターネット経由で集めることで、離れた場所から状態を確認したり、異常を検知したり、保守や運用の判断に使ったりできます。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>店舗や工場の設備を、スマートフォンから監視している</h2>
+            <div class="case-lead">
+              <p>店舗や工場などの設備にセンサーが設置されている。</p>
+              <p>そのセンサーの情報がインターネット経由で集められている。</p>
+              <p>従業員は、集められた情報をスマートフォンで見て、設備の状況を監視している。</p>
+            </div>
+            <p>この出来事では、情報がどこから生まれ、どの経路を通り、何のために使われているのかを順に見る。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              IoTとは、さまざまなモノをインターネットに接続し、そこから得られる情報を収集・活用する仕組みです。
-            </p>
-            <p>
-              試験では、IoTを「モノに取り付けたセンサーなどの情報を、インターネット経由で集めて活用すること」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>情報の出発点から到着点までを整理する</h2>
+          </div>
+
+          <section class="detail-section" id="route">
+            <h2>設備の状態が、スマートフォンへ届くまで</h2>
+            <div class="route-grid">
+              <div class="route-card">
+                <strong>設備のセンサー</strong>
+                <p>現実の設備から状態を表す情報を取得する。</p>
+              </div>
+              <div class="route-card">
+                <strong>インターネット</strong>
+                <p>センサーから得た情報を離れた場所へ届ける。</p>
+              </div>
+              <div class="route-card">
+                <strong>従業員のスマートフォン</strong>
+                <p>届いた情報を使って設備の状況を確認する。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>IoTの構造を確認する</span></h2>
-            <p>
-              IoTは、単にインターネットを使うサービスではありません。現実のモノから情報を取り出し、ネットワークを通じて利用する点が中心です。
-            </p>
-            <ul>
-              <li>モノ：設備、機器、車両、家電、店舗の装置など。</li>
-              <li>センサー：温度、振動、位置、稼働状況などを取得する装置。</li>
-              <li>ネットワーク：取得した情報をインターネット経由で送る仕組み。</li>
-              <li>利用者：集めた情報を監視、分析、制御、保守などに使う人やシステム。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>情報の流れを、出発点から順にたどる。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つのつながり</h2>
+            <div class="decision-flow">
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">01</span><h3>情報の出発点は、現実の設備に設置されたセンサー</h3>
+                <p>設備そのものの状態が、センサーによって情報として取り出されている。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>その情報を、インターネット経由で集めている</h3>
+                <p>設備のある場所だけで情報を見るのではなく、ネットワークを通して離れた場所へ届けている。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>届いた情報で、元の設備の状態を監視している</h3>
+                <p>スマートフォンに届いた情報が、設備の状況を把握するために使われている。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>現実のモノの状態をデータとして取り出し、そのデータをインターネットで届け、離れた場所でそのモノの状態把握に使う</strong>という一連の関係ができている。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              IoTを利用したシステムかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>モノがある：設備や機器など、現実の対象がある。</li>
-              <li>情報を取得する：センサーなどで状態や環境のデータを集める。</li>
-              <li>インターネットで活用する：集めた情報をネットワーク経由で監視・分析・制御する。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した仕組みに名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>モノの状態を、ネットワークを通して利用する</h2>
+            <div class="term-card">
+              <h3>IoT（Internet of Things）</h3>
+              <p>ここまで見てきたように、設備などのモノからセンサーで情報を取り出し、インターネット経由で集めて、そのモノの状態把握に使う仕組みには、IoTという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすいサービスを分ける</span></h2>
-            <ul>
-              <li>クラウドストレージ：文書や画像などの電子ファイルをインターネット上に保存するサービス。</li>
-              <li>フィンテック系サービス：資金調達や決済など、金融分野でITを活用するサービス。</li>
-              <li>感情分析：SNSや通話内容などから、商品やサービスに対する感情を分析すること。</li>
-              <li>IoT：設備や機器などのモノから情報を取得し、インターネット経由で活用する仕組み。</li>
-            </ul>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>IoTは、モノをインターネットにつなげて情報を活用する仕組みである。</li>
-              <li>設備や機器に設置したセンサー情報を集める場面が典型例である。</li>
-              <li>集めた情報は、監視、分析、制御、保守などに使われる。</li>
-              <li>試験では、単なるインターネットサービスやデータ保存サービスと区別する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：IoTで重要なつながり</h2>
-            <p>
-              IoTでは、現実世界のモノ、センサー、ネットワーク、利用者やシステムがつながっています。
-            </p>
-            <p>
-              そのため、単にWebサービスを使うことではなく、現実の設備や機器の状態をデータとして取得し、離れた場所から活用できる点が重要です。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">IoT</span>
-              <span class="tag">センサー</span>
-              <span class="tag">IT活用</span>
+          <section class="detail-section" id="lesson">
+            <h2>情報がどこから始まり、何に戻って使われるかを見る</h2>
+            <div class="lesson-summary">
+              <p>モノとインターネットが関わる仕組みを判断するときは、まず<strong>情報の出発点</strong>を確認する。</p>
+              <p>現実の設備や機器の状態をセンサーで取得し、その情報がインターネットを通って離れた場所へ届き、<strong>元の設備や機器の状態把握に使われている</strong>という流れをたどる。</p>
+              <p><strong>「モノ → 状態をデータ化 → ネットワーク → そのモノの状態把握」というつながりを確認することが、同じ考え方を別の場面でも使うための手掛かりになる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問8</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
