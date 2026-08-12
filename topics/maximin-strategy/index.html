@@ -3,9 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>最悪の結果を避ける戦略をどう選ぶか | ITネッコ</title>
-  <meta name="description" content="マクシミン戦略について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="最悪の結果を避ける戦略をどう選ぶか | ITネッコ"><meta property="og:description" content="各選択肢の最悪ケースを比較し、その中で最もましな結果を選ぶ意思決定の考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>将来が分からないとき、どの結果を見て戦略を選ぶのか | ITネッコ</title>
+  <meta name="description" content="将来の状況によって結果が変わる場面で、戦略ごとの最小の結果を確認し、比較して選ぶ判断の流れを整理します。">
+  <meta property="og:title" content="将来が分からないとき、どの結果を見て戦略を選ぶのか | ITネッコ">
+  <meta property="og:description" content="戦略・将来の状況・結果の関係から、どの値を確認し、何と何を比べるのかを順番に整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid #ded6c7;
+      border-radius: 14px;
+      background: #f3efe7;
+    }
+
+    .learning-phase:first-of-type {
+      margin-top: 0;
+    }
+
+    .learning-phase__label {
+      margin: 0 0 0.25rem;
+      color: #776e62;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .learning-phase h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .learning-phase p:last-child {
+      margin-bottom: 0;
+    }
+
+    .scene-card,
+    .concept-card,
+    .lesson-card {
+      margin-top: 1.1rem;
+      padding: 1.15rem 1.2rem;
+      border-radius: 14px;
+    }
+
+    .scene-card {
+      border: 1px solid #ddd5c7;
+      background: #fffaf3;
+    }
+
+    .concept-card {
+      border: 1px solid rgba(95, 114, 82, 0.28);
+      background: var(--color-soft-green);
+    }
+
+    .lesson-card {
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .scene-card p,
+    .concept-card p,
+    .lesson-card p {
+      margin: 0 0 0.8rem;
+    }
+
+    .scene-card p:last-child,
+    .concept-card p:last-child,
+    .lesson-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .relation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 1.2rem;
+    }
+
+    .relation-card {
+      min-width: 0;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .relation-card__label {
+      margin: 0 0 0.35rem;
+      color: var(--color-accent-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .relation-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .relation-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.2rem;
+      padding: 0.9rem 1rem;
+      border: 1px dashed rgba(95, 114, 82, 0.35);
+      border-radius: 12px;
+      background: rgba(238, 242, 234, 0.45);
+      color: var(--color-accent-dark);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .relation-line__arrow {
+      color: var(--color-muted);
+      font-weight: 400;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: 12px;
+      margin-top: 1.2rem;
+      counter-reset: decision-step;
+    }
+
+    .decision-step {
+      position: relative;
+      padding: 1rem 1.1rem 1rem 3.7rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .decision-step::before {
+      counter-increment: decision-step;
+      content: counter(decision-step);
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: #fffdf8;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .decision-step h3 {
+      margin: 0 0 0.35rem;
+      color: var(--color-accent-dark);
+      font-size: 1.03rem;
+    }
+
+    .decision-step p {
+      margin: 0;
+    }
+
+    .decision-arrow {
+      color: var(--color-accent);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .split-check {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 1.2rem;
+    }
+
+    .split-check > div {
+      min-width: 0;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .split-check h3 {
+      margin-bottom: 0.4rem;
+      color: var(--color-accent-dark);
+      font-size: 1rem;
+    }
+
+    .split-check p {
+      margin: 0;
+    }
+
+    .term-structure {
+      display: grid;
+      gap: 8px;
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(95, 114, 82, 0.24);
+      border-radius: 12px;
+      background: rgba(255, 253, 248, 0.72);
+      text-align: center;
+    }
+
+    .term-structure strong {
+      color: var(--color-accent-dark);
+    }
+
+    .lesson-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+      margin-top: 1rem;
+      color: var(--color-accent-dark);
+      font-weight: 700;
+    }
+
+    .lesson-flow span {
+      padding: 0.35rem 0.6rem;
+      border: 1px solid rgba(95, 114, 82, 0.24);
+      border-radius: 999px;
+      background: rgba(238, 242, 234, 0.72);
+    }
+
+    .lesson-flow b {
+      color: var(--color-muted);
+      font-weight: 400;
+    }
+
+    @media (max-width: 720px) {
+      .relation-grid,
+      .split-check {
+        grid-template-columns: 1fr;
+      }
+
+      .relation-line,
+      .lesson-flow {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .relation-line__arrow,
+      .lesson-flow b {
+        transform: rotate(90deg);
+        align-self: center;
+      }
+
+      .decision-step {
+        padding: 3.5rem 1rem 1rem;
+      }
+
+      .decision-step::before {
+        top: 0.9rem;
+        left: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,88 +274,162 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 経営戦略</p>
-        <div class="topic-heading-meta"><span class="question-badge">問3</span><span class="term-label">マクシミン戦略</span></div><h1>最悪の結果を避ける戦略をどう選ぶか</h1>
-        <p class="page-description">各選択肢の最悪ケースを比較し、その中で最もましな結果を選ぶ意思決定の考え方を整理します。</p>
+        <h1>将来が分からないとき、どの結果を見て戦略を選ぶのか</h1>
+        <p class="page-description">複数の戦略があり、将来の状況によって結果が変わる。そんな場面で、どの事実を拾い、何を比べれば戦略を選べるのかを順番に整理します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>最悪の結果を避ける戦略をどう選ぶか</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>将来が分からないとき、どの結果を見て戦略を選ぶのか</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              企業が複数の投資案や事業戦略から一つを選ぶ場面を考えます。将来の市況が良くなるか悪くなるかは、事前には確定していません。
-            </p>
-            <p>
-              このような場面では、各戦略がうまくいった場合の利益だけでなく、悪い状況になった場合にどこまで利益が下がるかも比較します。
-            </p>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+            <p>将来の状況が決まっていない中で、複数の戦略から一つを選ぶ場面を確認する。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>同じ戦略でも、将来の状況によって結果が変わる</h2>
+            <div class="scene-card">
+              <p>ある会社が、複数の投資戦略から一つを選ぼうとしている。</p>
+              <p>一方、将来の市況にも複数の可能性があり、どの状況になるかは戦略を選ぶ時点では決まっていない。</p>
+              <p>そのため、一つの戦略でも、市況によって得られる利益は変わる。</p>
+            </div>
+            <div class="relation-line" aria-label="戦略と状況と結果の関係">
+              <span>戦略を選ぶ</span>
+              <span class="relation-line__arrow">→</span>
+              <span>将来の状況が起きる</span>
+              <span class="relation-line__arrow">→</span>
+              <span>組合せによって結果が決まる</span>
+            </div>
+            <p><strong>まず確認するのは、「どの戦略を選んだとき、どの状況で、どの結果になるのか」という組合せである。</strong></p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              マクシミン戦略とは、各戦略で予想される利益の最小値を見て、その最小値が最も大きい戦略を選ぶ考え方です。
-            </p>
-            <p>
-              試験では、マクシミン戦略を「最悪の場合の結果を比較し、その中で最も良いものを選ぶこと」と押さえます。
-            </p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>関係するものを整理する</h2>
+            <p>会社が選べるもの、選ぶ時点では決められないもの、その組合せから生じるものを分ける。</p>
+          </div>
+
+          <section class="detail-section" id="relations">
+            <h2>判断に関係しているのは三つ</h2>
+            <div class="relation-grid">
+              <div class="relation-card">
+                <p class="relation-card__label">戦略</p>
+                <p>会社が複数の案から選ぶことのできる行動。</p>
+              </div>
+              <div class="relation-card">
+                <p class="relation-card__label">将来の状況</p>
+                <p>戦略を選ぶ時点では決まっていない条件。</p>
+              </div>
+              <div class="relation-card">
+                <p class="relation-card__label">結果</p>
+                <p>選んだ戦略と、実際に起きた状況の組合せによって変わるもの。</p>
+              </div>
+            </div>
+            <div class="lesson-card">
+              <p><strong>会社が選べるのは戦略であり、将来の状況そのものではない。</strong></p>
+              <p>そこで、将来の状況が一つに決まっていなくても戦略を選べるように、どの結果を基準にするかを定める必要がある。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>マクシミン戦略の構造を確認する</span></h2>
-            <p>
-              マクシミン戦略では、表の中から単純に最大の利益を探すのではありません。まず、戦略ごとに最も悪い結果を取り出します。
-            </p>
-            <ul>
-              <li>戦略：選択できる投資案、事業案、行動案など。</li>
-              <li>状況：市況が好転する、悪化するなど、結果に影響する条件。</li>
-              <li>利益：戦略と状況の組合せによって予想される結果。</li>
-              <li>最小値：各戦略で想定される最も低い利益。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>ここからは、戦略を選ぶために何を見るのかを上から順にたどる。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>どの値を取り出し、何と何を比べるのか</h2>
+            <div class="decision-flow">
+              <div class="decision-step">
+                <h3>それぞれの戦略で、起こり得る結果を確認する</h3>
+                <p>一つの戦略について、将来の状況ごとにどのような結果になるかを見る。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>戦略ごとに、最も小さい結果を一つ取り出す</h3>
+                <p>その戦略を選んだときに起こり得る結果の中から、最小の結果を確認する。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>取り出した最小の結果どうしを比べる</h3>
+                <p>比較するのは、すべての結果ではなく、それぞれの戦略から一つずつ取り出した最小の結果である。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>最小の結果が最も大きい戦略を選ぶ</h3>
+                <p>最も厳しい状況になった場合でも、結果がより大きく残る戦略を選ぶ。</p>
+              </div>
+            </div>
+
+            <div class="lesson-card">
+              <p><strong>判断の基準は、「各戦略で最も小さい結果を確認し、その最小結果の中で最も大きいものを持つ戦略を選ぶ」である。</strong></p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              マクシミン戦略かどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>戦略ごとに見る：表全体からいきなり最大値を探さない。</li>
-              <li>最小値を取る：各戦略について、最も悪い利益を確認する。</li>
-              <li>最小値を比べる：取り出した最小値の中で、最も大きいものを選ぶ。</li>
-            </ul>
+          <section class="detail-section" id="after-choice">
+            <h2>戦略を選ぶ判断と、その後の結果を分ける</h2>
+            <p>戦略を決めるときに使う値と、戦略を選んだあとに特定の状況で得られる結果は、確認する段階が異なる。</p>
+            <div class="split-check">
+              <div>
+                <h3>戦略を選ぶとき</h3>
+                <p>各戦略の最小の結果を取り出し、最小結果どうしを比べる。</p>
+              </div>
+              <div>
+                <h3>選んだ後の結果を見るとき</h3>
+                <p>選んだ戦略と、実際に起きた状況の組合せから結果を確認する。</p>
+              </div>
+            </div>
+            <p><strong>「戦略を決めるために見る値」と「選んだ戦略で特定の状況になったときの結果」を分けて考える。</strong></p>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい点を分ける</span></h2>
-            <ul>
-              <li>最大の利益だけを見て選ばない。</li>
-              <li>市況が好転した場合だけを見て選ばない。</li>
-              <li>戦略ごとの最小値を出す前に、表全体の数値を比較しない。</li>
-              <li>マクシミンは、最大値を選ぶ前に最小値を見る考え方である。</li>
-            </ul>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>ここまで確認した考え方に名前を付ける</h2>
+            <p>先に判断の仕組みを確認し、その仕組みに付いている用語をここで結び付ける。</p>
+          </div>
+
+          <section class="detail-section" id="concept">
+            <h2>最小の結果を比べ、その中で最も大きいものを選ぶ</h2>
+            <div class="concept-card">
+              <p>各戦略で起こり得る結果の<strong>最小値</strong>を確認し、その最小値どうしを比べて、<strong>最も大きいものを持つ戦略</strong>を選ぶ。</p>
+              <p>この意思決定の方法を、<strong>マクシミン戦略</strong>という。</p>
+            </div>
+            <div class="term-structure">
+              <div><strong>minimum</strong>：各戦略の最小値を確認する</div>
+              <div>↓</div>
+              <div><strong>maximum</strong>：その最小値の中から最大のものを選ぶ</div>
+            </div>
+            <p>用語だけを覚えるのではなく、<strong>どの値を取り出し、何と何を比べる考え方なのか</strong>を結び付けて理解する。</p>
           </section>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>マクシミン戦略は、最悪の場合の利益を重視する考え方である。</li>
-              <li>まず、戦略ごとに予想利益の最小値を取り出す。</li>
-              <li>次に、その最小値どうしを比較する。</li>
-              <li>最小値が最も大きい戦略を選ぶ。</li>
-            </ul>
-          </section>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点を整理する</h2>
+            <p>投資や市況という今回の設定から離れ、別の場面でも使える判断の形として残す。</p>
+          </div>
 
-          <section class="detail-section" id="example">
-            <h2>補足：表で確認する考え方</h2>
-            <p>
-              例えば、投資戦略aの利益が20と-15、投資戦略bの利益が5と0である場合、まず戦略ごとの最小値を確認します。
-            </p>
-            <p>
-              投資戦略aの最小値は-15、投資戦略bの最小値は0です。マクシミン戦略では、この最小値どうしを比べ、より大きい0を持つ投資戦略bを選びます。
-            </p>
+          <section class="detail-section" id="lesson">
+            <h2>不確実な状況では、何を基準に選ぶかを確認する</h2>
+            <div class="lesson-card">
+              <p>将来どの状況になるか分からず、選択肢によって結果が変わる場合には、まず<strong>意思決定の基準</strong>を確認する。</p>
+              <p>マクシミン戦略では、それぞれの選択肢について最小の結果を確認し、その最小結果どうしを比べ、最も大きい結果を持つ選択肢を採る。</p>
+              <div class="lesson-flow" aria-label="学習要点の判断の流れ">
+                <span>選択肢ごとの結果を確認</span>
+                <b>→</b>
+                <span>最小結果を取り出す</span>
+                <b>→</b>
+                <span>最小結果どうしを比較</span>
+                <b>→</b>
+                <span>最も大きいものを持つ選択肢を採る</span>
+              </div>
+              <p><strong>さらに、選択肢を決めるために使う値と、選択後に特定の状況で得られる結果は別に確認する。</strong></p>
+            </div>
           </section>
 
           <section class="detail-section" id="related">
@@ -116,10 +445,7 @@
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問3</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、そこから残せる判断材料と学習要点を整理したものです。問題文・選択肢・正解は掲載していません。</p>
           </section>
         </article>
       </div>
