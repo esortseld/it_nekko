@@ -3,9 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DXは単なるIT導入ではないと見抜く | ITネッコ</title>
-  <meta name="description" content="デジタルトランスフォーメーションについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="DXは単なるIT導入ではないと見抜く | ITネッコ"><meta property="og:description" content="デジタル技術で業務やビジネスモデル、組織のあり方を変革する考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>デジタル技術を使った。その先で、何が変わった？ | ITネッコ</title>
+  <meta name="description" content="デジタル技術が何に作用し、その結果として何が変わったのかを、出来事から順番にたどって整理します。">
+  <meta property="og:title" content="デジタル技術を使った。その先で、何が変わった？ | ITネッコ">
+  <meta property="og:description" content="デジタル技術が何に作用し、その結果として何が変わったのかを、出来事から順番にたどって整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .dx-flow {
+      display: grid;
+      gap: 22px;
+    }
+
+    .dx-scene,
+    .dx-state,
+    .dx-judgment,
+    .dx-term,
+    .dx-learning {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-card);
+      padding: 26px;
+    }
+
+    .dx-scene {
+      border-left: 6px solid rgba(122, 96, 69, 0.5);
+    }
+
+    .dx-state {
+      border-left: 6px solid rgba(95, 114, 82, 0.42);
+    }
+
+    .dx-judgment {
+      border-left: 6px solid rgba(95, 114, 82, 0.72);
+      background:
+        linear-gradient(90deg, rgba(238, 242, 234, 0.78), rgba(255, 253, 248, 0.98) 38%),
+        var(--color-surface);
+    }
+
+    .dx-term {
+      border-left: 6px solid rgba(122, 96, 69, 0.4);
+      background: rgba(255, 253, 248, 0.9);
+    }
+
+    .dx-learning {
+      border-left: 6px solid rgba(95, 114, 82, 0.56);
+      background: var(--color-soft-green);
+    }
+
+    .dx-flow h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(95, 114, 82, 0.22);
+      color: var(--color-accent-dark);
+      font-size: 1.28rem;
+      padding-bottom: 12px;
+    }
+
+    .dx-flow h3 {
+      margin-top: 0;
+      color: var(--color-text);
+      font-size: 1.08rem;
+    }
+
+    .dx-flow p,
+    .dx-flow li {
+      color: var(--color-muted);
+    }
+
+    .dx-flow p,
+    .dx-flow ul {
+      margin: 14px 0 0;
+    }
+
+    .dx-flow ul {
+      padding-left: 1.3em;
+    }
+
+    .dx-simple-flow,
+    .dx-state-flow,
+    .dx-judgment-flow {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .dx-state-flow {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .dx-flow-card {
+      min-width: 0;
+      border: 1px solid rgba(95, 114, 82, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.86);
+      padding: 18px;
+    }
+
+    .dx-flow-card p:first-child {
+      margin-top: 0;
+    }
+
+    .dx-flow-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .dx-flow-label {
+      margin: 0 0 6px;
+      color: var(--color-accent-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .dx-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--color-accent);
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .dx-state-flow .dx-arrow {
+      display: none;
+    }
+
+    .dx-judgment-flow {
+      gap: 0;
+    }
+
+    .dx-judgment-item {
+      position: relative;
+      border: 1px solid rgba(95, 114, 82, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.92);
+      padding: 20px;
+    }
+
+    .dx-judgment-item + .dx-judgment-item {
+      margin-top: 34px;
+    }
+
+    .dx-judgment-item + .dx-judgment-item::before {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      color: var(--color-accent);
+      content: "↓";
+      font-size: 1.35rem;
+      font-weight: 700;
+      transform: translateX(-50%);
+    }
+
+    .dx-judgment-item--key {
+      border-width: 2px;
+      border-color: rgba(95, 114, 82, 0.58);
+      background: var(--color-soft-green);
+    }
+
+    .dx-check {
+      margin: 0;
+      color: var(--color-accent-dark);
+      font-weight: 700;
+    }
+
+    .dx-fact {
+      margin-top: 8px;
+    }
+
+    .dx-result {
+      margin-top: 10px;
+      border-top: 1px solid rgba(95, 114, 82, 0.2);
+      padding-top: 10px;
+      font-weight: 700;
+    }
+
+    .dx-term-name {
+      margin-top: 18px;
+      border: 1px solid rgba(122, 96, 69, 0.24);
+      border-radius: 8px;
+      background: var(--color-soft);
+      color: var(--color-text);
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 16px 18px;
+      text-align: center;
+    }
+
+    .dx-learning-line {
+      margin-top: 20px;
+      border: 1px solid rgba(95, 114, 82, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.72);
+      color: var(--color-accent-dark);
+      font-weight: 700;
+      padding: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .dx-scene,
+      .dx-state,
+      .dx-judgment,
+      .dx-term,
+      .dx-learning {
+        padding: 20px;
+      }
+
+      .dx-flow h2 {
+        align-items: flex-start;
+      }
+
+      .dx-state-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .dx-state-flow .dx-arrow {
+        display: grid;
+      }
+
+      .dx-flow-card,
+      .dx-judgment-item,
+      .dx-term-name,
+      .dx-learning-line {
+        overflow-wrap: anywhere;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,107 +246,120 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム戦略・IT活用</p>
-        <div class="topic-heading-meta"><span class="question-badge">問6</span><span class="term-label">デジタルトランスフォーメーション</span></div><h1>DXは単なるIT導入ではないと見抜く</h1>
-        <p class="page-description">デジタル技術で業務やビジネスモデル、組織のあり方を変革する考え方を整理します。</p>
+        <div class="topic-heading-meta"><span class="question-badge">問6</span></div>
+        <h1>デジタル技術を使った。その先で、何が変わった？</h1>
+        <p class="page-description">デジタル技術が使われている場面では、技術そのものだけを見ても、起きていることは分かりません。見る必要があるのは、その技術が何に作用し、その結果として何が変わったのかです。今回は、デジタル技術によって生活やビジネスに変化が起きる場面から、変化の中身を順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>DXは単なるIT導入ではないと見抜く</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>デジタル技術を使った。その先で、何が変わった？</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+
       <div class="topic-layout">
-        <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              企業がスマートフォン、クラウド、AI、IoT、データ分析などを使って、商品、サービス、働き方、顧客との関係を変えていく場面を考えます。
-            </p>
-            <p>
-              このとき重要なのは、単にアナログ情報をデジタルデータに変えることではありません。デジタル技術によって、人の生活や企業活動の仕組みそのものが変わっていく点です。
-            </p>
-          </section>
-
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              デジタルトランスフォーメーションとは、デジタル技術が人間の生活やビジネスなどのあらゆる面に影響を与え、変革をもたらしていくことです。
-            </p>
-            <p>
-              試験では、デジタルトランスフォーメーションを「デジタル技術による社会やビジネスの変革」と押さえます。
-            </p>
-          </section>
-
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>デジタルトランスフォーメーションの構造を確認する</span></h2>
-            <p>
-              デジタルトランスフォーメーションは、技術の導入だけで完結するものではありません。デジタル技術を使って、価値の出し方や業務の仕組みを変えることが中心です。
-            </p>
-            <ul>
-              <li>デジタル技術：AI、IoT、クラウド、データ分析、スマートフォンなど。</li>
-              <li>対象：生活、ビジネス、商品、サービス、業務プロセスなど。</li>
-              <li>変化：効率化、新しい価値の創出、顧客体験の変化、働き方の変化など。</li>
-              <li>目的：単なる電子化ではなく、社会や企業活動の変革につなげること。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              デジタルトランスフォーメーションかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>デジタル技術を使う：ITやデータを活用している。</li>
-              <li>広い対象に影響する：生活やビジネスなど、複数の面に関係する。</li>
-              <li>変革をもたらす：単なる置換や保存ではなく、仕組みや価値を変える。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい用語を分ける</span></h2>
-            <ul>
-              <li>デジタルデバイド：デジタル製品を使える人と使えない人の間に生じる格差。</li>
-              <li>デジタルネイティブ：生まれた時からインターネットやデジタル製品が身近にある世代。</li>
-              <li>デジタル化：アナログ信号や紙の情報などをデジタルデータに変換すること。</li>
-              <li>デジタルトランスフォーメーション：デジタル技術が生活やビジネスに変革をもたらすこと。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>デジタルトランスフォーメーションは、デジタル技術による変革を表す。</li>
-              <li>単なる電子化やデータ変換だけではない。</li>
-              <li>生活、ビジネス、業務、サービスなど広い範囲に影響する。</li>
-              <li>試験では、格差、世代、単なるデジタル化との違いを整理する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：デジタル化との違い</h2>
-            <p>
-              デジタル化は、音声、画像、紙の情報などをデジタルデータとして扱えるようにすることです。
-            </p>
-            <p>
-              デジタルトランスフォーメーションは、そのデジタル技術やデータを使って、生活やビジネスの仕組み、価値の出し方、働き方などを変えていくことです。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">DX</span>
-              <span class="tag">デジタル技術</span>
-              <span class="tag">IT活用</span>
+        <article class="detail-flow dx-flow">
+          <section class="dx-scene" id="scene">
+            <h2><span class="step-number">1</span><span>まず、何が起きているか見る</span></h2>
+            <h3>デジタル技術が使われ、生活やビジネスに変化が起きた</h3>
+            <p>あるデジタル技術が使われるようになりました。</p>
+            <p>その結果、人の生活や仕事、ビジネスの進め方に変化が起きています。</p>
+            <p>ここで見るのは、どんな技術が使われたかだけではありません。その技術によって、<strong>何が変わったのか</strong>を追っていきます。</p>
+            <div class="dx-simple-flow" aria-label="出来事の流れ">
+              <div class="dx-flow-card"><p class="dx-flow-label">出来事</p><p>デジタル技術が使われる</p></div>
+              <div class="dx-arrow" aria-hidden="true">↓</div>
+              <div class="dx-flow-card"><p class="dx-flow-label">起きたこと</p><p>生活やビジネスに変化が起きる</p></div>
             </div>
+          </section>
+
+          <section class="dx-state" id="state">
+            <h2><span class="step-number">2</span><span>変化する前と、変化した後を見る</span></h2>
+            <p>デジタル技術が加わったことで、変化している対象があります。</p>
+            <p>見るのは、<strong>技術そのものの変化ではなく、技術が作用した先の変化</strong>です。</p>
+            <div class="dx-state-flow" aria-label="変化する前から変化した後まで">
+              <div class="dx-flow-card">
+                <p class="dx-flow-label">変化する前</p>
+                <p>これまでの生活、仕事、サービス、ビジネスの進め方がある。</p>
+              </div>
+              <div class="dx-arrow" aria-hidden="true">↓</div>
+              <div class="dx-flow-card">
+                <p class="dx-flow-label">デジタル技術が使われる</p>
+                <p>技術が、これらの活動や仕組みに作用する。</p>
+              </div>
+              <div class="dx-arrow" aria-hidden="true">↓</div>
+              <div class="dx-flow-card">
+                <p class="dx-flow-label">変化した後</p>
+                <p>生活の仕方や仕事の進め方、サービスの提供方法、ビジネスのあり方に変化が起きる。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="dx-judgment" id="judgment">
+            <h2><span class="step-number">3</span><span>何が変わったのかを順番に確認する</span></h2>
+            <p>ここが、このページの中心です。</p>
+
+            <div class="dx-judgment-flow" aria-label="判断の流れ">
+              <div class="dx-judgment-item">
+                <p class="dx-check">① デジタル技術が使われている</p>
+                <p class="dx-fact">まず、デジタル技術が使われています。</p>
+                <p class="dx-result">この事実だけでは、まだ判断できません。次に、その技術が何に作用しているかを確認します。</p>
+              </div>
+
+              <div class="dx-judgment-item">
+                <p class="dx-check">② 技術が作用している対象を見る</p>
+                <p class="dx-fact">今回、技術が作用しているのは、人の生活や、仕事、ビジネスなどの活動や仕組みです。単に技術やデータだけが存在しているのではなく、その技術が実際の活動に入り込んでいます。</p>
+                <p class="dx-result">次に、作用した結果、対象にどんな変化が起きたかを確認します。</p>
+              </div>
+
+              <div class="dx-judgment-item dx-judgment-item--key">
+                <p class="dx-check">③ 対象のあり方そのものが変わっている</p>
+                <p class="dx-fact">デジタル技術が使われた結果、次のような変化が起きています。</p>
+                <ul>
+                  <li>仕事の進め方が変わる</li>
+                  <li>商品やサービスの提供方法が変わる</li>
+                  <li>人の生活の仕方が変わる</li>
+                  <li>ビジネスの仕組みが変わる</li>
+                </ul>
+                <p class="dx-result">ここで判断を分けているのは、デジタル技術を使ったという事実ではなく、<strong>その技術によって対象のあり方まで変わっていること</strong>です。</p>
+              </div>
+
+              <div class="dx-judgment-item">
+                <p class="dx-check">④ 技術と変化の関係を見る</p>
+                <p class="dx-fact">ここまでをつなげると、<strong>デジタル技術 → 活動や仕組みに作用する → そのあり方が変化する</strong>という関係になっています。</p>
+                <p class="dx-result">判断するときは、<strong>「何をデジタルにしたか」よりも、「デジタル技術によって何がどう変わったか」</strong>を見ます。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="dx-term" id="term">
+            <h2><span class="step-number">4</span><span>ここまで確認した内容に名前を付ける</span></h2>
+            <p>ここまで見てきたのは、<strong>デジタル技術が、生活や仕事、ビジネスなどに作用し、そのあり方そのものを変えていく</strong>という関係です。</p>
+            <p>このような変化には、次の名前が付いています。</p>
+            <div class="dx-term-name">デジタルトランスフォーメーション（DX）</div>
+            <p>大切なのは、最初にこの言葉を覚えて判断することではありません。</p>
+            <div class="dx-simple-flow" aria-label="用語にたどり着くまで">
+              <div class="dx-flow-card"><p>技術が使われた</p></div>
+              <div class="dx-arrow" aria-hidden="true">↓</div>
+              <div class="dx-flow-card"><p>何に作用したかを見る</p></div>
+              <div class="dx-arrow" aria-hidden="true">↓</div>
+              <div class="dx-flow-card"><p>何が変わったかを見る</p></div>
+            </div>
+            <p>この順番で確認し、その結果として用語にたどり着きます。</p>
+          </section>
+
+          <section class="dx-learning" id="learning">
+            <h2><span class="step-number">5</span><span>この出来事から残せる学習要点</span></h2>
+            <h3>デジタル技術を見るときは、その先で起きた変化まで見る</h3>
+            <p>デジタル技術に関する出来事では、<strong>技術が使われていることだけではなく、その技術によって何が変わったのか</strong>まで確認します。</p>
+            <p>見る順番は、次のとおりです。</p>
+            <div class="dx-learning-line">デジタル技術 → 何に作用しているか → どのような変化が起きたか</div>
+            <p>そのとき、単に情報や処理の形式が変わっただけなのか、それとも、<strong>仕事、サービス、生活、ビジネスなどのあり方そのものまで変化したのか</strong>を確認します。</p>
+            <p>別の問題や現実の場面でも、<strong>技術を見て終わらず、その技術が作用した先に起きた変化を見る</strong>ことが判断の手掛かりになります。</p>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問6</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、判断に必要な事実と学習要点を整理したものです。問題文・選択肢本文は掲載していません。</p>
           </section>
         </article>
       </div>
