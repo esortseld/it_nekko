@@ -3,9 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>有名人の名前や写真を勝手に使えない理由 | ITネッコ</title>
-  <meta name="description" content="パブリシティ権について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="有名人の名前や写真を勝手に使えない理由 | ITネッコ"><meta property="og:description" content="著名人の氏名や肖像が持つ顧客吸引力を、無断で商業利用できない理由を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>この写真は、誰の人気で売れている？ | ITネッコ</title>
+  <meta name="description" content="人気のある人物が写った写真を販売する場面で、誰が写っているか、その人物の人気が販売物の価値として使われているかを順に確認します。">
+  <meta property="og:title" content="この写真は、誰の人気で売れている？ | ITネッコ">
+  <meta property="og:description" content="人物の人気・知名度が、写真を販売するための価値として利用されているかを判断する流れを整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid #ded6c7;
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #f3efe7;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .relation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .relation-card {
+      position: relative;
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .relation-card strong { display: block; margin-bottom: .35rem; }
+    .relation-card p { margin: 0; }
+    .relation-card + .relation-card::before {
+      content: "→";
+      position: absolute;
+      left: -.72rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .relation-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .relation-grid { grid-template-columns: 1fr; }
+      .relation-card + .relation-card::before {
+        content: "↓";
+        left: 50%;
+        top: -.78rem;
+        transform: translateX(-50%);
+      }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,108 +150,112 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
-        <div class="topic-heading-meta"><span class="question-badge">問11</span><span class="term-label">パブリシティ権</span></div><h1>有名人の名前や写真を勝手に使えない理由</h1>
-        <p class="page-description">著名人の氏名や肖像が持つ顧客吸引力を、無断で商業利用できない理由を整理します。</p>
+        <h1>この写真は、誰の人気で売れている？</h1>
+        <p class="page-description">人気のある人物が写った写真を販売する場面で、写真の価値がどこから生まれているのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>有名人の名前や写真を勝手に使えない理由</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>人物の人気が販売物の価値になる場面</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              人気のある選手、俳優、歌手などの写真や名前を使うと、商品やサービスへの注目が集まりやすくなります。
-            </p>
-            <p>
-              その写真や名前を本人の許可なく商品販売や広告に使うと、本人がもつ経済的な価値を利用することになり、権利侵害が問題になります。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>人気のある選手を撮影し、その写真を販売している</h2>
+            <div class="case-lead">
+              <p>ファンが集まる場で、人気のある選手がサインをしている姿を撮影した。</p>
+              <p>その写真をプリントし、販売物としてフリーマーケットで売っている。</p>
+            </div>
+            <p>ここで確認するのは、写真があることだけではなく、<strong>その写真を販売する価値が何によって生まれているか</strong>である。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              パブリシティ権とは、人の氏名や肖像などがもつ顧客吸引力を、本人が排他的に利用できる権利です。
-            </p>
-            <p>
-              試験では、「有名人の写真や名前を、商品の販売促進などに無断で利用する場面」は、パブリシティ権と関係すると押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>人物・写真・販売のつながりを整理する</h2>
+          </div>
+
+          <section class="detail-section" id="relations">
+            <h2>写真の中の人物が、販売物の価値につながっている</h2>
+            <div class="relation-grid">
+              <div class="relation-card">
+                <strong>人気のある選手</strong>
+                <p>多くの人が関心を持つ人物が写っている。</p>
+              </div>
+              <div class="relation-card relation-card--key">
+                <strong>その選手が写った写真</strong>
+                <p>人物を見たい、持ちたいという関心が写真の価値につながる。</p>
+              </div>
+              <div class="relation-card">
+                <strong>写真を販売する</strong>
+                <p>その価値を利用して、写真そのものを販売物にしている。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>パブリシティ権の構造を確認する</span></h2>
-            <p>
-              パブリシティ権では、顔や名前そのものだけではなく、それが商品やサービスを引き付ける力をもつ点が重要です。
-            </p>
-            <ul>
-              <li>対象：氏名、肖像、姿、声など、人を識別できる要素。</li>
-              <li>価値：人気や知名度によって生まれる顧客吸引力。</li>
-              <li>利用場面：商品販売、広告、宣伝、販促物など。</li>
-              <li>問題点：本人の許可なく、経済的価値を利用すること。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>誰が写っているか、その人物の人気が販売に使われているかをたどる。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つのつながり</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>写真に写っているのは、人気のある人物</h3>
+                <p>写真の被写体は、ファンが集まるほど関心を持たれている選手である。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>その人物が写った写真を、販売物にしている</h3>
+                <p>撮影しただけで終わらず、プリントした写真をフリーマーケットで販売している。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>人物の人気・知名度が、販売物の価値として利用されている</h3>
+                <p>購入する人が関心を持つ理由は、写真用紙そのものではなく、人気のある選手が写っていることにある。人物が人を引き付ける力が、販売につながっている。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>特定の人物が持つ人気・知名度による価値を、その人物が写ったものの販売に利用している</strong>という関係ができている。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              パブリシティ権が関係するかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>人物を識別できる：写真、氏名、姿などから特定の人物だと分かる。</li>
-              <li>顧客吸引力がある：その人物の人気や知名度が、販売や集客に使われている。</li>
-              <li>商業的に利用している：広告、商品、販売物などに利用している。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した関係に名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>人物が人を引き付ける力にも、経済的な価値がある</h2>
+            <div class="term-card">
+              <h3>パブリシティ権</h3>
+              <p>ここまで見てきたように、著名な人物の氏名や肖像などが持つ、人を商品などに引き付ける力から生じる経済的価値を本人が利用する利益には、パブリシティ権という名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい権利を分ける</span></h2>
-            <ul>
-              <li>意匠権：物品などのデザインを保護する権利。</li>
-              <li>商標権：商品やサービスを識別するマークや名称を保護する権利。</li>
-              <li>著作権：文章、画像、音楽などの表現を保護する権利。</li>
-              <li>パブリシティ権：人物の氏名や肖像などがもつ顧客吸引力を保護する権利。</li>
-            </ul>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>パブリシティ権は、人の氏名や肖像などがもつ顧客吸引力に関する権利である。</li>
-              <li>有名人の写真や名前を、商品の販売や広告に無断利用する場面で問題になる。</li>
-              <li>単なるデザイン、商標、著作物そのものの保護とは区別する。</li>
-              <li>試験では、「人物の人気を利用して売る」という構造を見分ける。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：肖像権との違い</h2>
-            <p>
-              肖像権は、みだりに自分の容ぼうなどを撮影・公表されない利益に関係します。
-            </p>
-            <p>
-              パブリシティ権は、氏名や肖像がもつ経済的な価値、特に顧客吸引力を商業利用する場面に関係します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">パブリシティ権</span>
-              <span class="tag">知的財産権</span>
-              <span class="tag">法務</span>
+          <section class="detail-section" id="lesson">
+            <h2>「何を売っているか」だけでなく、「何が売れる力になっているか」を見る</h2>
+            <div class="lesson-summary">
+              <p>人物が写ったものを販売・宣伝に使う場面では、まず<strong>その人物自身の人気や知名度が、商品や販売物の価値になっているか</strong>を確認する。</p>
+              <p>次に、その価値が実際に販売や集客のために利用されているかを見る。</p>
+              <p><strong>人物そのものが人を引き付ける力を持ち、その力を経済的な利用につなげていることが、判断の手掛かりになる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問11</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
