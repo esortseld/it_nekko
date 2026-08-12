@@ -3,9 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIに学習させるため、人がデータに意味を付ける | ITネッコ</title>
-  <meta name="description" content="アノテーションについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="AIに学習させるため、人がデータに意味を付ける | ITネッコ"><meta property="og:description" content="画像、文章、音声などのデータにラベルや意味を付け、AI学習に使える形にする作業を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>学習用データに、何を付け加えている？ | ITネッコ</title>
+  <meta name="description" content="教師あり学習で使うデータに対して、どんな情報を新しく加えている作業なのかを順番に確認します。">
+  <meta property="og:title" content="学習用データに、何を付け加えている？ | ITネッコ">
+  <meta property="og:description" content="教師あり学習のデータに正解情報を付与するという変化から、作業の意味を順番にたどります。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead { margin:1rem 0 1.5rem; padding:1.2rem 1.3rem; border:1px solid var(--color-border,#e3ddd2); border-radius:16px; background:#faf7f2; }
+    .case-lead p { margin:0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom:0; }
+    .step-heading { margin:2.2rem 0 .9rem; padding:.85rem 1rem; border-left:5px solid #8a755d; border-radius:0 12px 12px 0; background:#f3efe7; }
+    .step-heading__label { margin:0 0 .2rem; font-size:.76rem; font-weight:700; letter-spacing:.08em; color:#776e62; }
+    .step-heading h2 { margin:0; font-size:1.2rem; }
+    .state-flow { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:.8rem; align-items:center; margin:1rem 0; }
+    .state-card { padding:1rem; border:1px solid var(--color-border,#e3ddd2); border-radius:14px; background:#fff; }
+    .state-card--key { border-width:2px; border-color:#8a755d; background:#faf7f2; }
+    .state-card strong { display:block; margin-bottom:.35rem; }
+    .state-card p { margin:0; }
+    .state-arrow { font-weight:700; color:#8a755d; font-size:1.2rem; }
+    .decision-flow { display:grid; gap:.75rem; margin:1.2rem 0; }
+    .decision-card { position:relative; padding:1rem 1.1rem; border:1px solid var(--color-border,#e3ddd2); border-radius:14px; background:#fff; }
+    .decision-card + .decision-card { margin-top:.55rem; }
+    .decision-card + .decision-card::before { content:"↓"; position:absolute; top:-1.45rem; left:50%; transform:translateX(-50%); font-weight:700; color:#8a755d; }
+    .decision-card__number { display:inline-block; margin-right:.45rem; font-size:.78rem; font-weight:700; color:#776e62; }
+    .decision-card h3 { display:inline; margin:0; font-size:1.05rem; }
+    .decision-card p { margin:.55rem 0 0; }
+    .decision-card--key { border-width:2px; border-color:#8a755d; background:#faf7f2; }
+    .term-card { margin:1rem 0; padding:1.15rem 1.2rem; border:1px solid var(--color-border,#e3ddd2); border-radius:14px; background:#fff; }
+    .term-card h3 { margin:0 0 .6rem; font-size:1.1rem; }
+    .term-card p { margin:0; }
+    .lesson-summary { margin:1.1rem 0; padding:1.15rem 1.2rem; border-left:4px solid #8a755d; border-radius:0 12px 12px 0; background:#faf7f2; }
+    .lesson-summary p { margin:0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom:0; }
+    @media (max-width:720px) {
+      .state-flow { grid-template-columns:1fr; }
+      .state-arrow { text-align:center; transform:rotate(90deg); }
+      .case-lead,.decision-card,.term-card,.lesson-summary { padding-left:1rem; padding-right:1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,117 +54,111 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / AI活用</p>
-        <div class="topic-heading-meta"><span class="question-badge">問16</span><span class="term-label">アノテーション</span></div><h1>AIに学習させるため、人がデータに意味を付ける</h1>
-        <p class="page-description">画像、文章、音声などのデータにラベルや意味を付け、AI学習に使える形にする作業を整理します。</p>
+        <h1>学習用データに、何を付け加えている？</h1>
+        <p class="page-description">教師あり学習で使うデータに対して、どんな情報を新しく加えている作業なのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>AIに学習させるため、人がデータに意味を付ける</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>学習用データに何を加えるかを見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              AIに画像、文章、音声などを学習させるとき、ただ大量のデータを集めるだけでは十分ではありません。
-            </p>
-            <p>
-              例えば、画像に「猫」「犬」、文章に「肯定的」「否定的」、音声に「発話内容」などの正解情報を付けることで、AIは入力データと正解の対応関係を学習できます。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>教師あり学習で使うデータを用意している</h2>
+            <div class="case-lead">
+              <p>教師あり学習に使うためのデータを準備している。</p>
+              <p>その準備の中で、元のデータに新しい情報を付け加える作業が行われている。</p>
+            </div>
+            <p>ここで最初に見るのは、<strong>データに対して何をしている作業なのか</strong>である。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              アノテーションとは、AIの学習に使うデータに、正解や意味を示す情報を付与する作業です。
-            </p>
-            <p>
-              試験では、教師あり学習で「正解となる情報をデータに付ける作業」はアノテーションと押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>作業の前後で、データがどう変わるか整理する</h2>
+          </div>
+          <section class="detail-section" id="state-change">
+            <h2>元のデータに、「正解となる情報」が加わる</h2>
+            <div class="state-flow">
+              <div class="state-card">
+                <strong>作業前</strong>
+                <p>教師あり学習に使う元のデータがある。</p>
+              </div>
+              <div class="state-arrow" aria-hidden="true">→</div>
+              <div class="state-card state-card--key">
+                <strong>作業後</strong>
+                <p>元のデータに、正解となる情報が付与されている。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>教師あり学習の構造を確認する</span></h2>
-            <p>
-              教師あり学習では、入力データと正解データの組を使って、AIに判断の仕方を学習させます。
-            </p>
-            <ul>
-              <li>入力データ：画像、文章、音声、数値データなど。</li>
-              <li>正解情報：分類名、ラベル、範囲指定、回答など。</li>
-              <li>アノテーション：入力データに正解情報を付ける作業。</li>
-              <li>学習：入力と正解の対応関係をAIが学ぶこと。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>作業名ではなく、実際にデータへ何をしているかを追う。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>教師あり学習で使うデータを準備している</h3>
+                <p>まず、どの場面で行われている作業なのかを確認する。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>データに「正解となる情報」を新たに付与している</h3>
+                <p>判断を分けるのは、元のデータに正解情報が加わるという変化である。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>入力データと正解情報の対応を学習に使える状態になる</h3>
+                <p>正解情報が付いたことで、入力と正解を対応させた学習用データとして扱える。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>教師あり学習のために、元のデータへ正解となる情報を付け加えている作業</strong>だと分かる。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              アノテーションかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>AIや機械学習のためのデータ準備である。</li>
-              <li>データにラベルや正解情報を付けている。</li>
-              <li>教師あり学習で使うための作業である。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した作業に名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>正解となる情報をデータに付与する作業</h2>
+            <div class="term-card">
+              <h3>アノテーション（annotation）</h3>
+              <p>ここまで確認した、教師あり学習で使うデータに正解となる情報を付与する作業には、アノテーションという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい用語を分ける</span></h2>
-            <ul>
-              <li>アノテーション：データに正解情報や意味付けを付与する作業。</li>
-              <li>エンコード：データを一定の形式に変換すること。</li>
-              <li>データクレンジング：誤り、重複、表記揺れなどを修正する作業。</li>
-              <li>フィルタリング：条件に合うデータを選別したり、不要なデータを除いたりすること。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>アノテーションは、データに正解情報を付ける作業である。</li>
-              <li>教師あり学習では、入力データと正解情報の組が重要である。</li>
-              <li>画像分類、文章分類、音声認識などで使われる。</li>
-              <li>試験では、変換、修正、選別ではなく「正解付け」を見分ける。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：ラベル付けと考える</h2>
-            <p>
-              アノテーションは、学習データにラベルを付ける作業と考えると理解しやすくなります。
-            </p>
-            <p>
-              例えば、画像に写っているものを分類名で示したり、文章の感情を分類したり、音声に文字起こしを付けたりする作業が該当します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">アノテーション</span>
-              <span class="tag">教師あり学習</span>
-              <span class="tag">AI活用</span>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>処理名より先に、「データに何をしたか」を見る</h2>
+            <div class="lesson-summary">
+              <p>データに関する作業の名前を判断するときは、まず<strong>作業の前後でデータがどう変わったか</strong>を確認する。</p>
+              <p>今回なら、元のデータに<strong>正解となる情報が新しく加わっている</strong>。</p>
+              <p><strong>用語名を先に思い出すのではなく、データに何を加えた・変えたのかを特定してから、その作業の名前へ進む。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問16</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
+    <div class="container"><p>ITネッコ / のらネコ学習室</p></div>
   </footer>
 </body>
 </html>
