@@ -1,11 +1,126 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>業務分析で見る対象を区別する | ITネッコ</title>
-  <meta name="description" content="業務分析で使うWFA、CRUD図、E-R図、DMMを、何を見るためのものかで区別します。業務の流れ、データ操作、データ同士の関係、要素整理の違いを整理します。">
-  <meta property="og:title" content="業務分析で見る対象を区別する | ITネッコ"><meta property="og:description" content="業務分析で使うWFA、CRUD図、E-R図、DMMを、何を見るためのものかで区別します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>業務を見直したい。仕事の流れをどう見せる？ | ITネッコ</title>
+  <meta name="description" content="業務プロセスの課題を探すために流れ図を作る場面で、何を見えるようにする必要があるのかを順番にたどります。">
+  <meta property="og:title" content="業務を見直したい。仕事の流れをどう見せる？ | ITネッコ">
+  <meta property="og:description" content="業務プロセスを流れ図で可視化するとき、処理の順序やつながりを追える記述が必要になる判断の流れを整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid #ded6c7;
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #f3efe7;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .focus-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .focus-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+    .focus-card strong { display: block; margin-bottom: .35rem; }
+    .focus-card p { margin: 0; }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0; }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .focus-grid { grid-template-columns: 1fr; }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,112 +134,108 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動・業務分析</p>
-        <div class="topic-heading-meta"><span class="question-badge">問12</span><span class="term-label">業務分析の図法</span></div><h1>業務分析で見る対象を区別する</h1>
-        <p class="page-description">業務分析で使うWFA、CRUD図、E-R図、DMMを、何を見るためのものかで区別します。業務の流れ、データ操作、データ同士の関係、要素整理の違いを整理します。</p>
+        <h1>業務を見直したい。仕事の流れをどう見せる？</h1>
+        <p class="page-description">業務プロセスの課題を探すために流れ図を作る場面で、何を見えるようにする必要があるのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>業務分析で見る対象を区別する</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>業務プロセスを流れ図で見せる</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>業務分析では、見る対象によって整理方法が変わる</span></h2>
-            <p>
-              業務を見直すときは、まず何を明らかにしたいのかを考えます。業務分析、業務改善、システム化の文脈では、同じ業務を扱っていても、見る対象によって使う図法や整理方法が変わります。
-            </p>
-            <ul class="summary-list">
-              <li>業務がどのような順序で進むのか。</li>
-              <li>業務で扱うデータにどのような操作を行うのか。</li>
-              <li>業務で扱うデータ同士がどのように関係しているのか。</li>
-              <li>検討テーマに関係する要素をどう広げて整理するのか。</li>
-            </ul>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>業務プロセスの課題を見つけ、見直したい</h2>
+            <div class="case-lead">
+              <p>会社が、自社の業務プロセスにどこか問題がないかを確認しようとしている。</p>
+              <p>そのために、業務プロセスを目で追える形にして、見直しに使おうとしている。</p>
+            </div>
+            <p>ここで最初に確認するのは、<strong>何を見えるようにしたいのか</strong>である。</p>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>業務の流れを見る場合はWFA</span></h2>
-            <p>
-              WFAは、Work Flow Architectureの略で、業務プロセスの流れを可視化するための記述様式です。ここで見る対象は「仕事全体」という大きなまとまりではなく、特定の業務プロセスの流れです。
-            </p>
-            <ul class="summary-list">
-              <li>どの作業から始まるのか。</li>
-              <li>次にどの作業へ進むのか。</li>
-              <li>どこで判断や分岐があるのか。</li>
-              <li>どの担当者や部門に引き継がれるのか。</li>
-              <li>どこで完了するのか。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>見たい対象と、見せ方を整理する</h2>
+          </div>
+
+          <section class="detail-section" id="focus">
+            <h2>見たいのは「業務プロセス」、使うのは「流れ図」</h2>
+            <div class="focus-grid">
+              <div class="focus-card">
+                <strong>見たい対象</strong>
+                <p>業務プロセスが、どのようにつながって進んでいるか。</p>
+              </div>
+              <div class="focus-card focus-card--key">
+                <strong>見せ方</strong>
+                <p>流れ図にして、処理の順序やつながりを目で追えるようにする。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>データへの操作を見る場合はCRUD図</span></h2>
-            <p>
-              CRUD図は、業務や処理がデータに対してどの操作を行うのかを見るための図です。CRUDは、データに対する基本操作を表します。
-            </p>
-            <ul class="summary-list">
-              <li>Create：作成</li>
-              <li>Read：参照</li>
-              <li>Update：更新</li>
-              <li>Delete：削除</li>
-            </ul>
-            <p>
-              CRUD図は、業務の流れそのものではなく、業務や処理とデータ操作の対応関係を見るものです。どの業務が、どのデータを作成、参照、更新、削除するのかを整理します。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>何を見直したいのかと、どの形で可視化するのかを順に確認する。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>見直したい対象は、業務プロセス</h3>
+                <p>課題を抽出するために、現在の業務がどのように進んでいるかを確認したい。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>その業務プロセスを、流れ図で可視化する</h3>
+                <p>文章や一覧ではなく、処理がどの順番でつながっているかを流れとして見えるようにする。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>必要なのは、業務処理の順序やつながりを追える記述様式</h3>
+                <p>流れ図を見れば、業務処理がどこからどこへ進むのかをたどれる形で表現できる必要がある。</p>
+              </div>
+            </div>
+            <p>つまり、<strong>業務プロセスを見直すために、その処理の順序やつながりを流れとして可視化できる記述様式</strong>が必要になる。</p>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>データ同士の関係を見る場合はE-R図</span></h2>
-            <p>
-              E-R図は、Entity-Relationship Diagramの略で、実体と関連を表す図です。顧客、注文、商品など、システムで扱うデータ同士がどのように関係しているのかを見るときに使います。
-            </p>
-            <p>
-              E-R図は、業務の作業順序や分岐を表すものではありません。データのまとまり、構造、関連を明らかにするための図法として区別します。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した記述様式に名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>業務の流れを記述する</h2>
+            <div class="term-card">
+              <h3>WFA（Work Flow Architecture）</h3>
+              <p>ここまで見てきたように、業務プロセスの処理やそのつながりを流れ図として表し、業務の進み方を可視化するための記述様式には、WFAという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>テーマから要素を広げる場合はDMM</span></h2>
-            <p>
-              DMMは、Diamond Mandala Matrixの略です。中心となるテーマを置き、その周辺に関連する要素を展開していく考え方です。
-            </p>
-            <p>
-              DMMは、業務プロセスの流れ、データへの操作、データ同士の関係を直接表すものではありません。テーマから要素を広げ、検討すべき観点を整理するためのものです。
-            </p>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>学習のまとめ</span></h2>
-            <p>
-              業務分析で使う図法や整理方法は、図法名を暗記するだけではなく、「何を見るためのものか」で判断します。
-            </p>
-            <ul class="summary-list">
-              <li>業務がどの順序で進むのかを見る → WFA</li>
-              <li>業務や処理がデータに対して何をするのかを見る → CRUD図</li>
-              <li>データ同士がどのように関係しているのかを見る → E-R図</li>
-              <li>テーマから関連する要素を広げて整理する → DMM</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">WFA</span>
-              <span class="tag">CRUD図</span>
-              <span class="tag">E-R図</span>
-              <span class="tag">DMM</span>
-              <span class="tag">業務プロセス</span>
-              <span class="tag">業務分析</span>
+          <section class="detail-section" id="lesson">
+            <h2>図法名より先に、「何を見えるようにしたいか」を確認する</h2>
+            <div class="lesson-summary">
+              <p>業務を可視化するときは、まず<strong>何を見直すための図なのか</strong>を確認する。</p>
+              <p>今回のように、業務プロセスの課題を探すために流れ図を使うなら、必要なのは<strong>業務処理の順序やつながりを目で追えること</strong>である。</p>
+              <p><strong>表現方法を選ぶときは、名前から考えるのではなく、「何を、どの関係で見えるようにしたいか」から必要な記述方法を判断する。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問12</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              公開問題の本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
