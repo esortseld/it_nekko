@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>短期間でアイディアを形にするイベント | ITネッコ</title>
-  <meta name="description" content="ある目的や課題について人が集まり、短期間にアイディアを出し合い、共同で開発して成果を形にする出来事から、イベントの性格を判断する流れを整理します。">
-  <meta property="og:title" content="短期間でアイディアを形にするイベント | ITネッコ">
-  <meta property="og:description" content="誰が、何のために集まり、その場で何をして、何を成果として残すのか。出来事からイベントの性格を読み解きます。">
+  <title>人が集まるイベントは、何をしているかで見分ける | ITネッコ</title>
+  <meta name="description" content="人が集まるイベントについて、目的、参加者の活動、成果、進め方を順に確認し、その集まりの性格を判断する流れを整理します。">
+  <meta property="og:title" content="人が集まるイベントは、何をしているかで見分ける | ITネッコ">
+  <meta property="og:description" content="何のために集まり、参加者が何をし、何を成果として残し、どのように進めるのか。出来事からイベントの性格を読み解きます。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .learning-phase {
@@ -34,37 +34,75 @@
 
     .learning-phase p:last-child { margin-bottom: 0; }
 
-    .scene-card,
-    .concept-card,
-    .lesson-card {
+    .scene-panel,
+    .concept-panel,
+    .lesson-panel {
       margin-top: 1rem;
-      padding: 1.15rem 1.2rem;
+      padding: 1.2rem;
       border-radius: 14px;
     }
 
-    .scene-card {
+    .scene-panel {
       border: 1px solid #ddd5c7;
       background: #fffaf3;
     }
 
-    .concept-card {
+    .concept-panel {
       border: 1px solid rgba(95, 114, 82, 0.28);
       background: var(--color-soft-green);
     }
 
-    .lesson-card {
+    .lesson-panel {
       border-left: 4px solid #8a755d;
       border-radius: 0 12px 12px 0;
       background: #faf7f2;
     }
 
-    .scene-card p,
-    .concept-card p,
-    .lesson-card p { margin: 0 0 0.8rem; }
+    .scene-panel p,
+    .concept-panel p,
+    .lesson-panel p { margin: 0 0 0.8rem; }
 
-    .scene-card p:last-child,
-    .concept-card p:last-child,
-    .lesson-card p:last-child { margin-bottom: 0; }
+    .scene-panel p:last-child,
+    .concept-panel p:last-child,
+    .lesson-panel p:last-child { margin-bottom: 0; }
+
+    .scene-flow,
+    .relation-flow,
+    .decision-flow,
+    .lesson-flow {
+      display: grid;
+      gap: 0;
+      margin-top: 1.1rem;
+    }
+
+    .scene-flow__item,
+    .relation-flow__item,
+    .lesson-flow__item {
+      position: relative;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .scene-flow__item + .scene-flow__item,
+    .relation-flow__item + .relation-flow__item,
+    .lesson-flow__item + .lesson-flow__item { margin-top: 1.8rem; }
+
+    .scene-flow__item + .scene-flow__item::before,
+    .relation-flow__item + .relation-flow__item::before,
+    .lesson-flow__item + .lesson-flow__item::before {
+      position: absolute;
+      left: 50%;
+      top: -1.42rem;
+      color: #8a806f;
+      content: "↓";
+      font-size: 1.15rem;
+      font-weight: 700;
+      transform: translateX(-50%);
+    }
 
     .relation-grid {
       display: grid;
@@ -89,54 +127,46 @@
 
     .relation-card p { margin: 0; }
 
-    .mini-flow,
     .decision-flow {
-      display: grid;
-      gap: 0;
-      margin-top: 1.1rem;
+      position: relative;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      padding-left: 1rem;
     }
 
-    .mini-flow__item,
+    .decision-flow::before {
+      position: absolute;
+      left: 1.95rem;
+      top: 1.8rem;
+      bottom: 1.8rem;
+      width: 2px;
+      background: rgba(95, 114, 82, 0.28);
+      content: "";
+    }
+
     .decision-card {
       position: relative;
-      padding: 1rem 1.1rem;
-      border: 1px solid rgba(95, 114, 82, 0.26);
-      border-radius: 12px;
-      background: #fff;
-    }
-
-    .mini-flow__item + .mini-flow__item,
-    .decision-card + .decision-card { margin-top: 2rem; }
-
-    .mini-flow__item + .mini-flow__item::before,
-    .decision-card + .decision-card::before {
-      position: absolute;
-      left: 50%;
-      top: -1.55rem;
-      color: #8a806f;
-      content: "↓";
-      font-size: 1.25rem;
-      font-weight: 700;
-      transform: translateX(-50%);
-    }
-
-    .decision-card {
-      padding-left: 4rem;
-      background: linear-gradient(90deg, rgba(238, 242, 234, 0.78), #fff 38%);
+      margin-left: 2.6rem;
+      padding: 1rem 1.1rem 1rem 1.2rem;
+      border: 1px solid rgba(95, 114, 82, 0.3);
+      border-radius: 14px;
+      background: linear-gradient(90deg, rgba(238, 242, 234, 0.9), #fff 42%);
     }
 
     .decision-card__number {
       position: absolute;
-      left: 1rem;
+      left: -3.25rem;
       top: 1rem;
+      z-index: 1;
       display: grid;
-      width: 2rem;
-      height: 2rem;
+      width: 2.35rem;
+      height: 2.35rem;
       place-items: center;
+      border: 3px solid var(--color-background);
       border-radius: 999px;
       background: var(--color-accent);
       color: #fffdf8;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 700;
     }
 
@@ -148,6 +178,16 @@
 
     .decision-card p { margin: 0; }
 
+    .decision-result {
+      margin: 1.3rem 0 0 3.6rem;
+      padding: 1rem 1.1rem;
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--color-soft-green);
+    }
+
+    .decision-result p { margin: 0; }
+
     .concept-name {
       display: inline-block;
       margin-bottom: 0.8rem;
@@ -158,21 +198,24 @@
       font-weight: 700;
     }
 
-    .keyword-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
+    .concept-order {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
       margin-top: 1rem;
     }
 
-    .keyword-row span {
-      padding: 0.35rem 0.7rem;
-      border: 1px solid var(--color-border);
-      border-radius: 999px;
+    .concept-order__item {
+      padding: 0.8rem;
+      border: 1px solid rgba(95, 114, 82, 0.22);
+      border-radius: 10px;
       background: #fff;
-      color: var(--color-muted);
-      font-size: 0.88rem;
+      text-align: center;
       font-weight: 700;
+    }
+
+    .concept-order__arrow {
+      display: none;
     }
 
     @media (max-width: 860px) {
@@ -182,14 +225,47 @@
     @media (max-width: 620px) {
       .relation-grid { grid-template-columns: 1fr; }
 
+      .decision-flow {
+        padding-left: 0.2rem;
+      }
+
+      .decision-flow::before {
+        left: 1.15rem;
+      }
+
       .decision-card {
-        padding: 3.4rem 1rem 1rem;
-        background: linear-gradient(180deg, rgba(238, 242, 234, 0.88), #fff 48%);
+        margin-left: 2.4rem;
+        padding: 0.95rem 1rem;
+        background: linear-gradient(180deg, rgba(238, 242, 234, 0.92), #fff 58%);
       }
 
       .decision-card__number {
-        left: 1rem;
-        top: 0.9rem;
+        left: -2.95rem;
+        width: 2.15rem;
+        height: 2.15rem;
+      }
+
+      .decision-result {
+        margin-left: 0;
+      }
+
+      .concept-order {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .concept-order__item + .concept-order__item {
+        margin-top: 1.8rem;
+      }
+
+      .concept-order__item + .concept-order__item::before {
+        position: absolute;
+        left: 50%;
+        margin-top: -1.5rem;
+        color: #8a806f;
+        content: "↓";
+        font-weight: 700;
+        transform: translateX(-50%);
       }
     }
   </style>
@@ -212,14 +288,14 @@
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動・IT活用</p>
         <div class="topic-heading-meta"><span class="question-badge">問4</span></div>
-        <h1>短期間でアイディアを形にするイベント</h1>
-        <p class="page-description">あるテーマや課題について人が集まり、アイディアを出し合い、協力して開発し、成果を形にしています。この集まりがどのような特徴を持つイベントなのか、出来事から順に読み解きます。</p>
+        <h1>人が集まるイベントは、何をしているかで見分ける</h1>
+        <p class="page-description">ある目的や課題について人が集まり、アイディアを出し合いながら、協力して成果を形にしています。何のために集まり、参加者が何をし、何を成果として残しているのかを順に見ていきます。</p>
       </div>
     </section>
 
     <div class="container page-flow">
       <nav class="breadcrumb" aria-label="パンくず">
-        <a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>短期間でアイディアを形にするイベント</span>
+        <a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>人が集まるイベントは、何をしているかで見分ける</span>
       </nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
 
@@ -229,28 +305,35 @@
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 1</p>
             <h2>まず、何が起きているか見る</h2>
-            <p>イベント名を考える前に、参加者が集まって何をしているのかを確認する。</p>
+            <p>名前を付ける前に、出来事として起きていることを拾う。</p>
           </div>
 
           <section class="detail-section" id="scene">
-            <h2>課題について考えるだけでなく、実際に作っている</h2>
-            <p>ある目的や課題をテーマに、開発や企画に関わる人たちが集まっています。</p>
-            <p>参加者は、その場でアイディアを出し合い、それをもとに協力して開発を進め、一定の期間内に成果を形にします。</p>
-            <div class="scene-card">
+            <h2>人が集まり、考えるだけでなく、実際に作っている</h2>
+            <p>ある目的や課題に取り組むために、開発や企画に関わる人たちが集まっています。</p>
+            <p>参加者はアイディアを出し合い、そのアイディアをもとに協力して作業し、一定の期間内に成果を形にしています。</p>
+
+            <div class="scene-panel">
               <p><strong>出来事として見えること</strong></p>
-              <p>共通する目的や課題があり、複数の人が参加し、アイディアを出し、共同で開発し、成果を作っています。</p>
+              <div class="scene-flow" aria-label="出来事の流れ">
+                <div class="scene-flow__item">目的や課題がある</div>
+                <div class="scene-flow__item">複数の人が集まる</div>
+                <div class="scene-flow__item">アイディアを出し合う</div>
+                <div class="scene-flow__item">協力して作る</div>
+                <div class="scene-flow__item">成果を形にする</div>
+              </div>
             </div>
-            <p><strong>最初に見るのは、「誰が、何のために集まり、そこで何をしているのか」です。</strong></p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 2</p>
             <h2>関係する人・もの・立場を整理する</h2>
-            <p>参加者だけでなく、目的、活動、成果のつながりを分けて見る。</p>
+            <p>目的、参加者、活動、成果がどうつながっているかを見る。</p>
           </div>
 
           <section class="detail-section" id="relations">
             <h2>この出来事を作っている四つの要素</h2>
+
             <div class="relation-grid">
               <div class="relation-card">
                 <h3>目的・課題</h3>
@@ -258,103 +341,110 @@
               </div>
               <div class="relation-card">
                 <h3>参加者</h3>
-                <p>アイディアを出し、開発や企画に関わる人たち。</p>
+                <p>目的や課題について考え、実際の作業に関わる人たち。</p>
               </div>
               <div class="relation-card">
                 <h3>活動</h3>
-                <p>参加者同士で考え、協力して開発すること。</p>
+                <p>アイディアを出し合い、参加者同士で協力して作ること。</p>
               </div>
               <div class="relation-card">
                 <h3>成果</h3>
-                <p>活動の結果として形になるソフトウェアなど。</p>
+                <p>活動の結果として形になったもの。</p>
               </div>
             </div>
 
-            <div class="mini-flow" aria-label="目的から成果までの流れ">
-              <div class="mini-flow__item"><strong>目的・課題がある</strong></div>
-              <div class="mini-flow__item"><strong>参加者が集まる</strong></div>
-              <div class="mini-flow__item"><strong>アイディアを出し合う</strong></div>
-              <div class="mini-flow__item"><strong>共同で開発する</strong></div>
-              <div class="mini-flow__item"><strong>成果を形にする</strong></div>
+            <div class="relation-flow" aria-label="目的から成果までの関係">
+              <div class="relation-flow__item">目的・課題</div>
+              <div class="relation-flow__item">参加者が集まる</div>
+              <div class="relation-flow__item">考える・協力して作る</div>
+              <div class="relation-flow__item">成果が形になる</div>
             </div>
-            <p>この一連の関係が、イベントの性格を判断する材料になります。</p>
+
+            <p>この関係が、集まりの性格を判断する材料になります。</p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 3</p>
             <h2>判断に必要な手掛かりを順番に確認する</h2>
-            <p>目的、活動、成果、進め方の順に見ていく。</p>
+            <p>目的、活動、成果、進め方の順に確認する。</p>
           </div>
 
           <section class="detail-section" id="clues">
             <h2>何を確認すれば、この集まりの性格が分かるのか</h2>
+
             <div class="decision-flow">
               <div class="decision-card">
                 <span class="decision-card__number">1</span>
-                <h3>何を目的として集まっているか</h3>
-                <p>特定の目的を達成することや、課題を解決することがテーマになっています。</p>
+                <h3>何のために集まっているか</h3>
+                <p>特定の目的を達成したり、課題を解決したりするために集まっています。</p>
               </div>
 
               <div class="decision-card">
                 <span class="decision-card__number">2</span>
                 <h3>参加者がその場で何をしているか</h3>
-                <p>参加者自身がアイディアを出し、他の参加者と協力して、実際に開発しています。</p>
+                <p>参加者自身がアイディアを出し、ほかの参加者と協力して、実際に作業しています。</p>
               </div>
 
               <div class="decision-card">
                 <span class="decision-card__number">3</span>
                 <h3>活動の結果として何が残るか</h3>
-                <p>アイディアをもとに開発を行い、成果物を形にするところまで進みます。</p>
+                <p>考えるだけで終わらず、アイディアを成果物として形にしています。</p>
               </div>
 
               <div class="decision-card">
                 <span class="decision-card__number">4</span>
-                <h3>どのような進め方をしているか</h3>
-                <p>一定の期間内に、課題について考え、協力して開発し、成果を作ります。</p>
+                <h3>どのように進めているか</h3>
+                <p>限られた期間の中で、考えるところから成果を作るところまで集中して進めています。</p>
               </div>
             </div>
 
-            <div class="lesson-card">
-              <p><strong>ここまで確認すると、課題に対して複数の参加者が短期間に協力し、成果物を作る形式のイベントであることが分かります。</strong></p>
+            <div class="decision-result">
+              <p><strong>ここまで確認すると、特定の目的や課題について、参加者が短期間に協力し、アイディアを実際の成果にする活動だと分かります。</strong></p>
             </div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 4</p>
             <h2>ここまで確認した活動の形式に名前を付ける</h2>
-            <p>出来事から見えてきた特徴を、必要な用語と結び付ける。</p>
+            <p>出来事から見えてきた活動の特徴に、必要な用語を結び付ける。</p>
           </div>
 
           <section class="detail-section" id="concept">
-            <h2>短期間で協力して成果を作るイベント</h2>
-            <div class="concept-card">
+            <h2>この活動の形式に付いている名前</h2>
+
+            <div class="concept-panel">
               <span class="concept-name">ハッカソン</span>
-              <p>特定の目的や課題について参加者が集まり、短期間にアイディアを出し合い、共同で開発して成果を作る形式のイベントを、ハッカソンといいます。</p>
-              <div class="keyword-row" aria-label="ハッカソンの特徴">
-                <span>目的・課題</span>
-                <span>アイディア</span>
-                <span>共同開発</span>
-                <span>短期間</span>
-                <span>成果物</span>
+              <p>ここまで確認してきた、<strong>特定の目的や課題について人が集まり、短期間にアイディアを出し合い、協力して成果を形にするイベント</strong>には、ハッカソンという名前があります。</p>
+
+              <div class="concept-order" aria-label="出来事から用語に至る順序">
+                <div class="concept-order__item">出来事を見る</div>
+                <div class="concept-order__item">活動の特徴が分かる</div>
+                <div class="concept-order__item">形式に名前が付く</div>
               </div>
             </div>
-            <p>ハッカソンは、<strong>hack</strong> と <strong>marathon</strong> を組み合わせた言葉です。</p>
-            <p>用語だけを覚えるのではなく、<strong>目的・参加者・活動・成果の関係</strong>と結び付けて捉えます。</p>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 5</p>
             <h2>この出来事から残せる学習要点を整理する</h2>
-            <p>問題固有の設定を離れ、他の場面でも使える判断材料を残す。</p>
+            <p>問題固有の設定を離れ、別の場面でも使える判断材料を残す。</p>
           </div>
 
           <section class="detail-section" id="lesson">
-            <h2>イベントの種類は、目的と活動内容から見る</h2>
-            <div class="lesson-card">
-              <p>イベントや活動の種類を判断するときは、名称から考えるのではなく、<strong>目的と参加者の活動内容</strong>を確認します。</p>
-              <p><strong>何を目的として集まるか → 参加者がその場で何をするか → 何を成果として残すか → どのような進め方をするか</strong></p>
-              <p>この関係を見ることで、その集まりがどのような性格のイベントなのかを捉えられます。</p>
-              <p>特定の目的や課題について参加者が集まり、短期間にアイディアを出し合い、共同で開発して成果を形にする形式を、ハッカソンといいます。</p>
+            <h2>人が集まるイベントは、そこで行われる活動から判断する</h2>
+
+            <div class="lesson-panel">
+              <p>人が集まるイベントや活動について考えるときは、<strong>何を目的としているか、参加者が何をしているか、活動によって何が残るか、どのような進め方をしているか</strong>を順に確認します。</p>
+
+              <div class="lesson-flow" aria-label="学習要点として残す判断の流れ">
+                <div class="lesson-flow__item">何を目的としているか</div>
+                <div class="lesson-flow__item">参加者が何をしているか</div>
+                <div class="lesson-flow__item">活動によって何が残るか</div>
+                <div class="lesson-flow__item">どのような進め方をしているか</div>
+              </div>
+
+              <p>同じように複数の人が集まっていても、目的・活動・成果・進め方の関係が違えば、その集まりの性格も異なります。</p>
+              <p><strong>実際に行われていることを順に確認し、その活動の性格を判断すること</strong>が、別の問題や現実の場面でも使える手掛かりになります。</p>
             </div>
           </section>
 
@@ -362,8 +452,8 @@
             <h2>関連する要点</h2>
             <p>関連する学習要点は、今後追加していきます。</p>
             <div class="tag-list">
-              <span class="tag">ハッカソン</span>
-              <span class="tag">アイディア創出</span>
+              <span class="tag">イベント</span>
+              <span class="tag">活動の目的</span>
               <span class="tag">IT活用</span>
             </div>
           </section>
