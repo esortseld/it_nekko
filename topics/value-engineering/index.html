@@ -3,9 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>価値を下げずにコストを見直す考え方 | ITネッコ</title>
-  <meta name="description" content="バリューエンジニアリングについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="価値を下げずにコストを見直す考え方 | ITネッコ"><meta property="og:description" content="必要な機能を保ちながらコストを見直し、価値を高める考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>機能が上がる、コストが下がる。価値はどう変わる？ | ITネッコ</title>
+  <meta name="description" content="製品やサービスの機能とコストが変わったとき、価値がどちらへ動くのかを順に確認し、機能とコストの関係から価値を考える判断方法を整理します。">
+  <meta property="og:title" content="機能が上がる、コストが下がる。価値はどう変わる？ | ITネッコ">
+  <meta property="og:description" content="製品やサービスの機能とコストが変わったとき、価値がどちらへ動くのかを順に確認し、機能とコストの関係から価値を考える判断方法を整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.2rem 1.3rem;
+      border-radius: 16px;
+      background: #faf7f2;
+      border: 1px solid #ded6c7;
+    }
+    .case-lead p { margin: 0 0 .75rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
+      background: #f3efe7;
+      border-radius: 0 12px 12px 0;
+    }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
+    .step-heading p:last-child { margin-bottom: 0; }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem;
+      margin: 1rem 0;
+    }
+    .state-card {
+      padding: 1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .state-card strong { display: block; margin-bottom: .35rem; }
+    .state-card p { margin: 0; }
+
+    .decision-flow {
+      display: grid;
+      gap: .75rem;
+      margin: 1.2rem 0;
+    }
+    .decision-card {
+      position: relative;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
+      position: absolute;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #776e62;
+    }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
+    .decision-card--key {
+      border-width: 2px;
+      border-color: #8a755d;
+      background: #faf7f2;
+    }
+
+    .term-card {
+      margin: 1rem 0;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
+    .term-card p { margin: 0 0 .65rem; }
+    .term-card p:last-child { margin-bottom: 0; }
+    .formula {
+      margin: .9rem 0;
+      padding: .9rem 1rem;
+      border-radius: 12px;
+      background: #faf7f2;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      .state-grid { grid-template-columns: 1fr; }
+      .case-lead,
+      .decision-card,
+      .term-card,
+      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,108 +139,108 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動・経営戦略</p>
-        <div class="topic-heading-meta"><span class="question-badge">問7</span><span class="term-label">バリューエンジニアリング</span></div><h1>価値を下げずにコストを見直す考え方</h1>
-        <p class="page-description">必要な機能を保ちながらコストを見直し、価値を高める考え方を整理します。</p>
+        <h1>機能が上がる、コストが下がる。価値はどう変わる？</h1>
+        <p class="page-description">製品やサービスを改善するとき、機能とコストの変化を一つずつ見て、価値がどちらへ動くのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>価値を下げずにコストを見直す考え方</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>機能とコストから価値を考える</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              企業が製品やサービスを改善するとき、単に高機能にすればよいわけではありません。機能が高くても、コストが大きすぎると、価値は高いとはいえない場合があります。
-            </p>
-            <p>
-              そこで、利用者にとって必要な機能を確保しながら、過剰なコストを抑え、製品やサービスの価値を高める考え方が必要になります。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+
+          <section class="detail-section" id="situation">
+            <h2>製品やサービスの価値を高めたい</h2>
+            <div class="case-lead">
+              <p>製品やサービスを改善するとき、どれだけの機能を実現できるかと、そのためにどれだけコストが掛かるかの両方が関わっている。</p>
+              <p>ここで知りたいのは、機能やコストが変わったとき、価値がどちらへ動くのかという関係である。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              バリューエンジニアリングにおける価値は、機能をコストで割ったものとして表されます。
-            </p>
-            <p>
-              試験では、バリューエンジニアリングを「価値＝機能／コスト」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>判断する前の状態を整理する</h2>
+          </div>
+
+          <section class="detail-section" id="states">
+            <h2>一方を同じにして、もう一方の変化を見る</h2>
+            <div class="state-grid">
+              <div class="state-card">
+                <strong>コストが同じ</strong>
+                <p>実現できる機能が増えたとき、価値がどう変わるかを見る。</p>
+              </div>
+              <div class="state-card">
+                <strong>機能が同じ</strong>
+                <p>必要なコストが変わったとき、価値がどう変わるかを見る。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>価値・機能・コストの構造を確認する</span></h2>
-            <p>
-              バリューエンジニアリングでは、価値を感覚的に捉えるのではなく、機能とコストの関係で整理します。
-            </p>
-            <ul>
-              <li>価値：製品やサービスがどれだけ有用かを表すもの。</li>
-              <li>機能：製品やサービスが果たす働きや性能。</li>
-              <li>コスト：その機能を実現するために必要な費用。</li>
-              <li>価値向上：機能を高める、コストを下げる、またはその両方を行うこと。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>価値の動きを、機能とコストの変化から確かめる。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>二つの変化を順に見る</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>コストを同じにして、機能を増やす</h3>
+                <p>同じコストで、より多くの機能を実現できるようになれば、得られるものが増えるので価値は高くなる。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>機能を同じにして、コストを下げる</h3>
+                <p>同じ機能を、より小さいコストで実現できるようになれば、価値は高くなる。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>機能とコストの役割が分かる</h3>
+                <p>機能は大きいほど価値を高め、コストは小さいほど価値を高める。つまり、価値は「掛けたコストに対して、どれだけの機能を得られるか」という関係で捉えられる。</p>
+              </div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              バリューエンジニアリングの式は、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>価値を求める：式の左側は価値である。</li>
-              <li>機能は価値を高める要素：機能が大きいほど価値は高くなる。</li>
-              <li>コストは価値を下げる要素：コストが大きいほど価値は低くなる。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した関係に名前を付ける</h2>
+          </div>
+
+          <section class="detail-section" id="term">
+            <h2>機能とコストの関係で価値を捉える</h2>
+            <div class="term-card">
+              <h3>バリューエンジニアリング</h3>
+              <p>ここまで見てきたように、製品やサービスの価値を、実現する機能とそのためのコストの関係で捉えて価値の向上を図る手法を、バリューエンジニアリングという。</p>
+              <div class="formula">価値 ＝ 機能 ÷ コスト</div>
+              <p>この式は、機能が増えると価値が高くなり、コストが増えると価値が低くなるという、STEP 3で確認した関係を表している。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい式を分ける</span></h2>
-            <ul>
-              <li>価値＝機能／コスト：バリューエンジニアリングの基本式。</li>
-              <li>価値＝コスト／機能：分母と分子が逆になっている。</li>
-              <li>価値＝機能×コスト：コストが増えるほど価値が上がる形になってしまう。</li>
-              <li>価値＝機能／（コスト＋機能）：基本式とは異なる形である。</li>
-            </ul>
-          </section>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
 
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>バリューエンジニアリングでは、価値を機能とコストの関係で捉える。</li>
-              <li>基本式は、価値＝機能／コストである。</li>
-              <li>機能が上がると価値は上がりやすい。</li>
-              <li>コストが上がると価値は下がりやすい。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：価値を高める考え方</h2>
-            <p>
-              価値を高めるには、必要な機能を高めるだけでなく、同じ機能をより低いコストで実現することも重要です。
-            </p>
-            <p>
-              そのため、バリューエンジニアリングでは、機能を維持したままコストを下げる、またはコストに見合う以上に機能を高めるという考え方をします。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">バリューエンジニアリング</span>
-              <span class="tag">価値</span>
-              <span class="tag">コスト</span>
+          <section class="detail-section" id="lesson">
+            <h2>価値を考えるときは、二つの変化を分けて見る</h2>
+            <div class="lesson-summary">
+              <p>機能とコストの関係から価値を判断するときは、まず一方を同じにして、もう一方が変わったときの価値の動きを確認する。</p>
+              <p><strong>同じコストで機能が増えれば価値は高くなり、同じ機能でコストが下がっても価値は高くなる。</strong></p>
+              <p>この二つの変化を押さえると、価値は「コストに対してどれだけの機能を得られるか」という関係で整理できる。</p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問7</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
