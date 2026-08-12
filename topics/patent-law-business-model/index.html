@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>同じシステムでも、守りたいものは一つではない | ITネッコ</title>
-  <meta name="description" content="知的財産を判断するとき、作られたものの中で何を保護しようとしているのかを、出来事から順番に整理します。">
-  <meta property="og:title" content="同じシステムでも、守りたいものは一つではない | ITネッコ">
-  <meta property="og:description" content="何が作られ、その中の何を保護しようとしているのか。知的財産制度にたどり着く判断の流れを整理します。">
+  <title>新しいビジネスの仕組みは、どこから「技術」になるのか | ITネッコ</title>
+  <meta name="description" content="新しいビジネスの仕組みが、情報技術を使った具体的な仕組みとして実現されるまでを、出来事から順番に整理します。">
+  <meta property="og:title" content="新しいビジネスの仕組みは、どこから「技術」になるのか | ITネッコ">
+  <meta property="og:description" content="何を考え、どのように実現したのか。ビジネスの仕組みが技術として具体化される流れを整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .topic-layout { grid-template-columns: minmax(0, 1fr); }
@@ -23,28 +23,26 @@
     .page-lead strong { color: var(--color-accent-dark); }
     .section-label {
       display: inline-block;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
       color: var(--color-brown);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: .04em;
     }
-    .scene-card,
-    .relation-card,
+    .scene-panel,
+    .change-card,
     .term-card,
     .learning-box {
-      margin-top: 18px;
       border: 1px solid var(--color-border);
       border-radius: 8px;
-      background: rgba(255, 253, 248, 0.86);
-      padding: 20px;
+      background: rgba(255, 253, 248, 0.88);
     }
+    .scene-panel { margin-top: 18px; padding: 20px; }
     .scene-flow {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr);
       gap: 12px;
       align-items: center;
-      margin-top: 18px;
     }
     .scene-node {
       min-width: 0;
@@ -56,25 +54,49 @@
       text-align: center;
       padding: 18px 16px;
     }
-    .scene-arrow,
-    .decision-arrow {
+    .flow-arrow {
       color: var(--color-accent);
       font-size: 1.5rem;
       font-weight: 700;
       text-align: center;
       line-height: 1;
     }
-    .relation-grid {
+    .change-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
       gap: 14px;
+      align-items: stretch;
       margin-top: 18px;
     }
-    .relation-card { margin-top: 0; }
-    .relation-card h3,
-    .term-card h3 { color: var(--color-accent-dark); font-size: 1rem; }
-    .relation-card p,
-    .term-card p { margin: 8px 0 0; }
+    .change-card {
+      display: grid;
+      align-content: start;
+      padding: 20px;
+    }
+    .change-card h3 {
+      color: var(--color-accent-dark);
+      font-size: 1.06rem;
+    }
+    .change-card p { margin: 10px 0 0; }
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .process-strip span {
+      display: grid;
+      place-items: center;
+      min-height: 70px;
+      border: 1px solid rgba(95, 114, 82, .24);
+      border-radius: 8px;
+      background: var(--color-soft-green);
+      color: var(--color-accent-dark);
+      font-size: .9rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 10px;
+    }
     .decision-flow {
       display: grid;
       gap: 0;
@@ -82,16 +104,15 @@
       margin: 22px auto 0;
     }
     .decision-step {
-      position: relative;
       border: 1px solid rgba(95, 114, 82, 0.3);
       border-radius: 8px;
       background: #fffdf8;
       box-shadow: 0 8px 22px rgba(60, 47, 32, 0.06);
       padding: 18px 20px;
     }
-    .decision-step .decision-kicker {
-      margin: 0 0 6px;
-      color: var(--color-brown);
+    .decision-kicker {
+      margin: 0 0 6px !important;
+      color: var(--color-brown) !important;
       font-size: .78rem;
       font-weight: 700;
     }
@@ -111,13 +132,13 @@
     }
     .decision-arrow { padding: 9px 0; }
     .decision-result {
-      border: 1px solid rgba(122, 96, 69, 0.28);
+      border: 1px solid rgba(122, 96, 69, 0.3);
       border-radius: 8px;
       background: var(--color-soft);
       color: var(--color-text);
       font-weight: 700;
-      padding: 18px 20px;
       text-align: center;
+      padding: 18px 20px;
     }
     .term-grid {
       display: grid;
@@ -125,21 +146,37 @@
       gap: 14px;
       margin-top: 18px;
     }
-    .term-card { margin-top: 0; background: var(--color-soft-green); }
+    .term-card {
+      padding: 20px;
+      background: var(--color-soft-green);
+    }
+    .term-card h3 {
+      color: var(--color-accent-dark);
+      font-size: 1.06rem;
+    }
+    .term-card p { margin: 8px 0 0; }
+    .term-note {
+      margin-top: 16px;
+      border-left: 4px solid rgba(122, 96, 69, .45);
+      background: rgba(238, 232, 221, .58);
+      padding: 14px 16px;
+    }
     .learning-box {
+      margin-top: 18px;
       border-left: 6px solid var(--color-accent);
       background: linear-gradient(135deg, rgba(238, 242, 234, .92), rgba(255, 253, 248, .98));
+      padding: 22px;
     }
     .learning-flow {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       margin-top: 18px;
     }
     .learning-flow span {
       display: grid;
       place-items: center;
-      min-height: 76px;
+      min-height: 78px;
       border: 1px solid rgba(95, 114, 82, .24);
       border-radius: 8px;
       background: #fffdf8;
@@ -155,19 +192,22 @@
       font-weight: 700;
     }
     @media (max-width: 760px) {
-      .scene-flow { grid-template-columns: 1fr; }
-      .scene-arrow { transform: rotate(90deg); padding: 2px 0; }
-      .relation-grid,
-      .term-grid { grid-template-columns: 1fr; }
+      .scene-flow,
+      .change-grid,
+      .process-strip,
+      .term-grid,
       .learning-flow { grid-template-columns: 1fr; }
-      .learning-flow span { min-height: auto; }
+      .scene-flow > .flow-arrow,
+      .change-grid > .flow-arrow { transform: rotate(90deg); padding: 2px 0; }
       .page-lead,
-      .scene-card,
-      .relation-card,
-      .term-card,
-      .learning-box,
+      .scene-panel,
+      .change-card,
       .decision-step,
-      .decision-result { padding: 16px; }
+      .decision-result,
+      .term-card,
+      .learning-box { padding: 16px; }
+      .process-strip span,
+      .learning-flow span { min-height: auto; }
     }
   </style>
 </head>
@@ -184,111 +224,123 @@
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
         <div class="topic-heading-meta"><span class="question-badge">問5</span><span class="term-label">知的財産</span></div>
-        <h1>同じシステムでも、守りたいものは一つではない</h1>
-        <p class="page-description">作られたものの中で、何を保護しようとしているのか。出来事から順番に確認し、関係する制度にたどり着きます。</p>
+        <h1>新しいビジネスの仕組みは、どこから「技術」になるのか</h1>
+        <p class="page-description">新しい仕組みを考えたことと、情報技術を使って具体的に実現したことの違いを、出来事から順番に見ていきます。</p>
       </div>
     </section>
 
     <div class="container page-flow">
       <div>
-        <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>同じシステムでも、守りたいものは一つではない</span></nav>
+        <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>新しいビジネスの仕組みは、どこから「技術」になるのか</span></nav>
         <a class="back-link" href="../">学習要点一覧へ戻る</a>
       </div>
 
       <div class="topic-layout">
         <article class="detail-flow">
           <div class="page-lead">
-            <p>企業が新しい広告の仕組みを考え、コンピュータシステムとして実現しました。</p>
-            <p>知的財産として保護しようとするとき、最初に確認するのは法律の名前ではありません。<strong>作られたものの中で、何を保護しようとしているのか</strong>を見ます。</p>
+            <p>企業が、新しい広告の仕組みを考えました。</p>
+            <p>その仕組みは、考えただけで終わらず、コンピュータシステムとして実現されています。</p>
+            <p>ここでは、<strong>「新しい仕組みを考えた」ことと、「情報技術を使って具体的に実現した」ことの違い</strong>を順番に確認します。</p>
           </div>
 
           <section class="detail-section step-section" id="scene">
             <h2><span class="step-number">1</span><span>まず、何が起きているか見る</span></h2>
             <span class="section-label">出来事</span>
-            <p>ある企業が、インターネットを使った新しい広告の仕組みを考えました。その仕組みは、考えただけで終わらず、コンピュータシステムとして実現されています。</p>
-            <div class="scene-card">
+            <p>ある企業が、新しい広告の仕組みを考えました。その後、その仕組みを、コンピュータを使って実際に動くシステムとして実現しました。</p>
+            <div class="scene-panel">
               <div class="scene-flow" aria-label="出来事の流れ">
-                <div class="scene-node">新しい広告の仕組みを考えた</div>
-                <div class="scene-arrow" aria-hidden="true">→</div>
+                <div class="scene-node">新しいビジネスの仕組みを考えた</div>
+                <div class="flow-arrow" aria-hidden="true">→</div>
                 <div class="scene-node">コンピュータシステムとして実現した</div>
               </div>
             </div>
-            <p>この段階では、どの知的財産制度が関係するかは決めません。まず、何が作られ、どのような形で実現されているかを確認します。</p>
+            <p>ここではまだ、法律や制度の名前は考えません。まず、<strong>「考えた」段階から「実際に動く仕組み」に変わっている</strong>という事実を確認します。</p>
           </section>
 
-          <section class="detail-section step-section" id="objects">
-            <h2><span class="step-number">2</span><span>作られたものの、どこを見るのか</span></h2>
+          <section class="detail-section step-section" id="change">
+            <h2><span class="step-number">2</span><span>何が変わったのかを見る</span></h2>
             <span class="section-label">関係するもの</span>
-            <p>一つのコンピュータシステムの中にも、性質の異なるものが含まれています。知的財産について考えるときは、その中のどの部分を保護しようとしているのかを確認します。</p>
-            <div class="relation-grid">
-              <div class="relation-card"><h3>見た目</h3><p>画面などの外観やデザイン。</p></div>
-              <div class="relation-card"><h3>表現</h3><p>画面に表示される文章や画像、プログラムとして書かれた内容。</p></div>
-              <div class="relation-card"><h3>形・構造</h3><p>機器など、物としての形や構造。</p></div>
-              <div class="relation-card"><h3>仕組み</h3><p>コンピュータによって実現される処理や働きの仕組み。</p></div>
+            <p>この出来事では、人や立場を整理するより、仕組みの状態がどう変わったのかを見ることが重要です。</p>
+            <div class="change-grid">
+              <div class="change-card">
+                <h3>考えだけの段階</h3>
+                <p>「このような方法で広告を出したらよい」という、ビジネス上の考え方があります。</p>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="change-card">
+                <h3>情報技術で実現された段階</h3>
+                <p>その考えを、コンピュータが実際に処理する仕組みにします。</p>
+                <div class="process-strip" aria-label="コンピュータで実現する流れ">
+                  <span>情報を受け取る</span>
+                  <span>処理する</span>
+                  <span>結果を出す</span>
+                </div>
+              </div>
             </div>
-            <p>同じ「コンピュータシステム」であっても、保護しようとしている部分は一つとは限りません。</p>
+            <p>ここで、<strong>ビジネス上の考え方</strong>から、<strong>情報技術を使って働く具体的な仕組み</strong>へ変わります。</p>
           </section>
 
           <section class="detail-section step-section" id="clues">
             <h2><span class="step-number">3</span><span>判断に必要な手掛かりを順番に確認する</span></h2>
             <span class="section-label">判断の流れ</span>
-            <p>今回の出来事では、次の順番で確認すると、何を保護しようとしているのかが見えてきます。</p>
+            <p>今回の出来事では、次の順番で確認します。</p>
             <div class="decision-flow">
               <div class="decision-step">
                 <p class="decision-kicker">確認 1</p>
-                <h3>何を新しく考えたのか</h3>
-                <p>新しく考えられたのは、企業広告に使う仕組みです。</p>
-                <span class="decision-answer">仕組み</span>
+                <h3>何を考えたのか</h3>
+                <p>新しく考えたのは、広告に関するビジネスの仕組みです。</p>
+                <span class="decision-answer">ビジネスの仕組み</span>
               </div>
-              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="flow-arrow decision-arrow" aria-hidden="true">↓</div>
               <div class="decision-step">
                 <p class="decision-kicker">確認 2</p>
-                <h3>その仕組みは、どのような形になったのか</h3>
-                <p>考えた仕組みは、コンピュータを使って実際に働くシステムとして実現されています。</p>
+                <h3>その仕組みは、どうなったのか</h3>
+                <p>その仕組みは、コンピュータシステムとして実現されています。</p>
                 <span class="decision-answer">コンピュータシステムとして実現</span>
               </div>
-              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="flow-arrow decision-arrow" aria-hidden="true">↓</div>
               <div class="decision-step">
                 <p class="decision-kicker">確認 3</p>
-                <h3>その中の何を保護しようとしているのか</h3>
-                <p>今回、判断の対象になっているのは、画面の見た目や文章そのものではなく、コンピュータを使って実現された仕組みです。</p>
-                <span class="decision-answer">技術として実現された仕組み</span>
+                <h3>コンピュータは何をしているのか</h3>
+                <p>情報を受け取り、処理し、結果を出すという具体的な働きがあります。</p>
+                <span class="decision-answer">情報技術を使った具体的な処理</span>
               </div>
-              <div class="decision-arrow" aria-hidden="true">↓</div>
-              <div class="decision-result">保護したい対象の性質から、関係する知的財産制度を判断する</div>
+              <div class="flow-arrow decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-result">ビジネス上の考え方が、情報技術を使った具体的な仕組みとして実現されている</div>
             </div>
-            <p>知的財産を考えるときは、「何を作ったか」だけでなく、<strong>その中の何を保護しようとしているのか</strong>を見ることが判断の手掛かりになります。</p>
+            <p>判断するときは、どんなビジネスなのかだけでなく、<strong>その仕組みが情報技術によってどのように実現されているのか</strong>を確認します。</p>
           </section>
 
           <section class="detail-section step-section" id="terms">
             <h2><span class="step-number">4</span><span>ここまで確認した内容に名前を付ける</span></h2>
             <span class="section-label">用語・概念</span>
-            <p>ここまで確認してきたのは、考えた仕組みが、コンピュータを使った技術的な仕組みとして実現されているという関係です。</p>
+            <p>ビジネスの仕組みが、情報技術を使った具体的な仕組みとして実現されると、技術的なものとして扱われる可能性が生まれます。</p>
             <div class="term-grid">
               <div class="term-card">
                 <h3>発明</h3>
-                <p>技術として実現された仕組みなど、特許制度による保護の対象となり得るもの。</p>
+                <p>技術的な仕組みとして具体化されたものに関係する概念です。</p>
               </div>
               <div class="term-card">
                 <h3>特許制度</h3>
-                <p>発明を権利として保護するための制度。</p>
+                <p>発明を権利として保護するための制度です。</p>
               </div>
             </div>
-            <p>ここで初めて制度名を付けます。名称から先に制度を当てるのではなく、何を作り、どう実現し、その何を保護するのかという事実からたどります。</p>
+            <div class="term-note">「ビジネスモデル特許」という言葉は、ここまでの関係を理解した後で補助的に捉えます。このページでは、用語そのものを出発点にはしません。</div>
           </section>
 
-          <section class="detail-section step-section" id="summary">
+          <section class="detail-section step-section" id="learning">
             <h2><span class="step-number">5</span><span>この出来事から残せる学習要点を整理する</span></h2>
             <span class="section-label">学習要点</span>
             <div class="learning-box">
-              <p>一つの製品やサービス、コンピュータシステムの中には、異なる性質をもつものが含まれています。そのため、知的財産について判断するときは、法律名を先に当てはめず、保護しようとしている対象を順番に確認します。</p>
-              <div class="learning-flow" aria-label="学習要点の判断順序">
-                <span>何が作られたか</span>
-                <span>その中の何を保護したいか</span>
-                <span>その対象にはどのような性質があるか</span>
-                <span>その性質を保護する制度は何か</span>
+              <p><strong>「何を考えたか」だけでなく、「どう実現したか」を見る。</strong></p>
+              <p>新しい商売の方法やサービスの仕組みについて考えるときは、どんなアイデアかだけを見るのではなく、その仕組みが情報技術によってどのように実現されているかを確認します。</p>
+              <p>ビジネス上の考え方として存在している段階と、コンピュータが情報を受け取り、処理し、結果を出す具体的な仕組みとして実現されている段階では、扱うものの性質が変わります。</p>
+              <div class="learning-flow" aria-label="学習要点の確認順序">
+                <span>何を考えたか</span>
+                <span>どのように実現したか</span>
+                <span>情報技術を使った具体的な仕組みになっているか</span>
               </div>
-              <p class="learning-point">「何を作ったか」だけでなく、「その何を守ろうとしているのか」を見ることが、知的財産を判断する基本になります。</p>
+              <p class="learning-point">この順番で事実を確認することが、ビジネスに関係する仕組みと知的財産を考えるときの判断材料になります。</p>
             </div>
           </section>
 
@@ -296,16 +348,16 @@
             <h2>関連する要点</h2>
             <p>関連する学習要点は、今後追加していきます。</p>
             <div class="tag-list">
-              <span class="tag">知的財産権</span>
-              <span class="tag">特許</span>
+              <span class="tag">知的財産</span>
               <span class="tag">発明</span>
+              <span class="tag">特許</span>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問5</p>
-            <p>このページは、上記の公開問題を出発点に、判断に必要な事実・条件と、別の場面にも使える学習要点を整理したものです。問題文・選択肢本文・正解は掲載していません。</p>
+            <p>このページは、上記の公開問題を出発点に、問題を判断するために必要な事実と、そこから残せる学習要点を整理したものです。問題文・選択肢本文・正解は掲載していません。</p>
           </section>
         </article>
       </div>
