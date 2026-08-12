@@ -3,43 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会社の仕事に、自分のスマートフォンを使う | ITネッコ</title>
-  <meta name="description" content="従業員が自分で所有する端末を会社の業務に使う場面から、端末の所有者と利用目的、企業側の管理やリスクを整理します。">
-  <meta property="og:title" content="会社の仕事に、自分のスマートフォンを使う | ITネッコ">
-  <meta property="og:description" content="従業員が自分で所有する端末を会社の業務に使う場面から、端末の所有者と利用目的、企業側の管理やリスクを整理します。">
+  <title>会社の仕事に、自分の端末を使う | ITネッコ</title>
+  <meta name="description" content="従業員が自分で所有する端末を会社の業務に使う出来事から、端末の所有者、利用目的、組織との関係を順に確認し、BYODという利用形態を整理します。">
+  <meta property="og:title" content="会社の仕事に、自分の端末を使う | ITネッコ">
+  <meta property="og:description" content="従業員が自分で所有する端末を会社の業務に使う出来事から、端末の所有者、利用目的、組織との関係を順に確認し、BYODという利用形態を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .learning-phase {
-      margin: 2rem 0 1rem;
+      margin: 2.2rem 0 1rem;
       padding: 0.9rem 1.1rem;
       border-radius: 14px;
       background: #f3efe7;
       border: 1px solid #ded6c7;
     }
     .learning-phase:first-of-type { margin-top: 0; }
-    .learning-phase__label { margin: 0 0 0.25rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #776e62; }
+    .learning-phase__label {
+      margin: 0 0 0.25rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #776e62;
+    }
     .learning-phase h2 { margin: 0; font-size: 1.2rem; }
     .learning-phase p:last-child { margin-bottom: 0; }
-    .lesson-summary {
-      padding: 1.1rem 1.2rem;
+
+    .event-card,
+    .concept-card,
+    .lesson-card {
+      margin: 1.2rem 0;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 16px;
+      background: #fff;
+    }
+    .event-card { background: #fbfaf7; }
+    .concept-card { background: #f7f3ec; }
+    .lesson-card {
       border-left: 4px solid #8a755d;
       background: #faf7f2;
-      border-radius: 0 12px 12px 0;
     }
-    .lesson-summary p { margin: 0 0 0.8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
-    .viewpoint-map,
-    .supplement-box {
+    .event-card > :first-child,
+    .concept-card > :first-child,
+    .lesson-card > :first-child { margin-top: 0; }
+    .event-card > :last-child,
+    .concept-card > :last-child,
+    .lesson-card > :last-child { margin-bottom: 0; }
+
+    .actor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
       margin: 1.2rem 0;
-      padding: 1rem 1.1rem;
+    }
+    .actor-card {
+      padding: 1rem 1.05rem;
       border: 1px solid var(--line, #d9d3c8);
       border-radius: 14px;
       background: #fff;
     }
-    .viewpoint-map > p,
-    .supplement-box > p { margin-top: 0; }
-    .viewpoint-map ul,
-    .supplement-box ul { margin-bottom: 0; }
+    .actor-card h3 { margin: 0 0 0.45rem; font-size: 1rem; }
+    .actor-card p { margin: 0; }
+
+    .reasoning-flow {
+      margin: 1.4rem 0;
+      display: grid;
+      gap: 0;
+    }
+    .reasoning-step {
+      position: relative;
+      padding: 1.05rem 1.15rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .reasoning-step + .reasoning-step { margin-top: 2rem; }
+    .reasoning-step + .reasoning-step::before {
+      content: "↓";
+      position: absolute;
+      top: -1.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      color: #8a755d;
+    }
+    .reasoning-step__label {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #776e62;
+    }
+    .reasoning-step h3 { margin: 0 0 0.45rem; font-size: 1.05rem; }
+    .reasoning-step p { margin: 0; }
+
+    .relation-line {
+      margin: 1.2rem 0 0;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: #f7f3ec;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.9;
+    }
+    .relation-line span { display: block; }
+
+    .term-name {
+      margin: 1rem 0;
+      padding: 1.15rem;
+      border-radius: 14px;
+      background: #f3efe7;
+      text-align: center;
+    }
+    .term-name strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.45rem;
+      letter-spacing: 0.04em;
+    }
+    .term-name span { color: #5f574e; }
+
+    .takeaway-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .takeaway-item {
+      padding: 0.9rem 0.8rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 12px;
+      background: #fff;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .actor-grid,
+      .takeaway-flow { grid-template-columns: 1fr; }
+      .event-card,
+      .concept-card,
+      .lesson-card,
+      .reasoning-step { padding: 1rem; }
+      .takeaway-flow { gap: 0.55rem; }
+      .takeaway-item { text-align: left; }
+    }
   </style>
 </head>
 <body>
@@ -54,8 +161,8 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム戦略・IT活用</p>
-        <h1>会社の仕事に、自分のスマートフォンを使う</h1>
-        <p class="page-description">従業員が自分で所有する端末を会社の業務に使う場面から、端末の所有者と利用目的、企業側の管理やリスクを整理します。</p>
+        <h1>会社の仕事に、自分の端末を使う</h1>
+        <p class="page-description">会社の仕事で使う端末は、会社が用意するものとは限りません。従業員が自分で所有している端末を仕事にも使っているとき、その端末を誰が所有し、何のために使っているのかを順に確認します。</p>
       </div>
     </section>
 
@@ -67,154 +174,128 @@
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 1</p>
             <h2>まず、何が起きているか見てみよう</h2>
-            <p>会社が用意した端末ではなく、従業員自身が持っている端末を仕事に使う場面を考える。</p>
+            <p>会社の仕事に使われている端末について、まず出来事そのものを確認します。</p>
           </div>
 
           <section class="detail-section" id="situation">
-            <h2>自分のスマートフォンで、会社のメールを確認する</h2>
-            <p>ある会社では、外出先でも業務を行えるように、一定の条件を満たした従業員のスマートフォンから、会社のメールや業務システムを利用できるようにしている。</p>
-            <p>端末は会社から支給されたものではなく、従業員が自分で購入し、普段の生活でも使っている私物である。</p>
-            <p>会社は利用できる端末や業務の範囲を決め、画面ロックや認証などのルールも定めている。</p>
-            <p>会社の仕事をしている点では、会社支給の端末を使う場合と変わらない。しかし、使っている端末の持ち主は会社ではない。</p>
-            <p><strong>この働き方では、何が通常の業務端末の利用と異なるのだろうか。</strong></p>
+            <h2>自分の端末を、会社の仕事にも使っている</h2>
+            <div class="event-card">
+              <p>ある会社では、従業員が自分で所有しているスマートフォンなどの端末を、会社の許可を得て業務にも利用しています。</p>
+              <p>端末は従業員自身のものです。一方、その端末から扱うのは、会社のメールや業務システムなど、会社の仕事に関するものです。</p>
+            </div>
+            <div class="lesson-card">
+              <p><strong>まず拾う事実</strong></p>
+              <p>従業員が所有している端末を、会社の業務に利用している。</p>
+            </div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 2</p>
-            <h2>登場人物・関係するものを整理しよう</h2>
-            <p>端末を所有する人と、業務を行わせる企業が同じではないことに注目する。</p>
+            <h2>関係する人・もの・立場を整理しよう</h2>
+            <p>端末を所有する人と、その端末を使う業務との関係を分けて見ます。</p>
           </div>
 
           <section class="detail-section" id="actors">
             <h2>この出来事に関わるもの</h2>
-            <div class="comparison-table-wrap">
-              <table class="comparison-table">
-                <thead><tr><th>関係するもの</th><th>この出来事との関わり</th></tr></thead>
-                <tbody>
-                  <tr><td>従業員</td><td>自分で所有するスマートフォンなどの端末を、会社の業務にも利用する人</td></tr>
-                  <tr><td>企業</td><td>従業員に業務を行わせ、業務情報をどのように扱うかを定める組織</td></tr>
-                  <tr><td>情報システム・管理部門</td><td>利用できる端末や認証方法、アクセス範囲、紛失時の対応などを整備する側</td></tr>
-                  <tr><td>私物端末</td><td>従業員が所有し、私生活と業務の両方で使われる可能性がある機器</td></tr>
-                  <tr><td>業務情報</td><td>メール、文書、顧客情報など、業務のために扱われる情報</td></tr>
-                </tbody>
-              </table>
+            <div class="actor-grid">
+              <div class="actor-card">
+                <h3>従業員</h3>
+                <p>自分の端末を所有し、その端末を使う人。</p>
+              </div>
+              <div class="actor-card">
+                <h3>会社</h3>
+                <p>従業員に業務を行わせ、私物端末の業務利用を認める組織。</p>
+              </div>
+              <div class="actor-card">
+                <h3>個人所有の端末</h3>
+                <p>従業員の所有物でありながら、会社の業務にも使われる機器。</p>
+              </div>
+              <div class="actor-card">
+                <h3>会社の業務</h3>
+                <p>端末を利用する目的。</p>
+              </div>
             </div>
-            <p>端末そのものは従業員の所有物であっても、その端末から企業の業務情報を扱うことになる。</p>
+            <div class="lesson-card">
+              <p><strong>この出来事では、端末の所有者は従業員、業務の主体は会社です。</strong></p>
+              <p>この二つの関係が重なっていることが、次の判断につながります。</p>
+            </div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 3</p>
-            <h2>手掛かりを集めよう</h2>
-            <p>誰の端末なのか、何のために使っているのかを分けて確認する。</p>
+            <h2>判断に必要な手掛かりを順番に確認しよう</h2>
+            <p>所有者、利用目的、組織との関係を上から順に確認します。</p>
           </div>
 
           <section class="detail-section" id="clues">
-            <h2>この場面を特徴付けているものは何か</h2>
-            <ul>
-              <li>スマートフォンは、会社が支給したものではなく従業員自身の所有物である</li>
-              <li>その端末を、個人的な用途だけでなく会社の業務にも使っている</li>
-              <li>会社は、業務利用する範囲やセキュリティ上のルールを定めている</li>
-              <li>同じ端末の中に、私的な利用と業務上の利用が存在する可能性がある</li>
-            </ul>
-            <div class="lesson-summary">
-              <p><strong>中心にあるのは、スマートフォンの機能ではない。</strong></p>
-              <p><strong>「誰が所有する端末を」「何のために使っているか」という組合せが、この場面を特徴付けている。</strong></p>
+            <h2>見る順番は三つ</h2>
+            <div class="reasoning-flow" aria-label="判断の流れ">
+              <div class="reasoning-step">
+                <p class="reasoning-step__label">確認 1</p>
+                <h3>その端末は誰のものか</h3>
+                <p><strong>従業員本人が所有している端末です。</strong></p>
+              </div>
+              <div class="reasoning-step">
+                <p class="reasoning-step__label">確認 2</p>
+                <h3>その端末を何に使っているか</h3>
+                <p><strong>会社の業務に利用しています。</strong></p>
+              </div>
+              <div class="reasoning-step">
+                <p class="reasoning-step__label">確認 3</p>
+                <h3>会社との関係はどうなっているか</h3>
+                <p><strong>会社が、従業員の私物端末を業務に利用することを認めています。</strong></p>
+              </div>
+            </div>
+
+            <h2>ここまでで分かる関係</h2>
+            <div class="relation-line">
+              <span>従業員が所有する端末</span>
+              <span>↓</span>
+              <span>会社が業務利用を認める</span>
+              <span>↓</span>
+              <span>会社の業務に利用する</span>
             </div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 4</p>
-            <h2>この出来事は、何について考える話なのか</h2>
-            <p>仕事の内容をどう改善するかではなく、業務に使うIT機器の利用形態を捉える。</p>
+            <h2>ここまで確認した関係に名前を付けよう</h2>
+            <p>先に関係を確認した上で、その利用形態を表す用語を整理します。</p>
           </div>
 
-          <section class="detail-section" id="framework">
-            <h2>仕事のやり方ではなく、端末をどう用意して使うか</h2>
-            <p>定型作業を自動化するのであれば、業務をどのような仕組みで処理するかという話になる。</p>
-            <p>業務の流れそのものを改善したり、抜本的に作り直したりするのであれば、業務プロセスの設計という話になる。</p>
-            <p>ここで起きているのは、そのどちらでもない。</p>
-            <p><strong>業務で使う端末を誰が所有し、その端末をどのような目的で利用するかという、IT機器の利用形態についての話である。</strong></p>
+          <section class="detail-section" id="concept">
+            <h2>個人所有の端末を、組織の業務に使う</h2>
+            <div class="concept-card">
+              <p>個人が所有している端末を、組織が認めた上で、その組織の業務に利用する形があります。</p>
+              <div class="term-name">
+                <strong>BYOD</strong>
+                <span>Bring Your Own Device</span>
+              </div>
+              <p>BYODという言葉を判断するときの中心は、<strong>誰が所有する端末を、誰の業務に使っているのか</strong>という関係です。</p>
+              <p>スマートフォン、タブレット、ノートPCなど端末の種類が変わっても、この関係は同じです。</p>
+            </div>
           </section>
 
           <div class="learning-phase">
             <p class="learning-phase__label">STEP 5</p>
-            <h2>異なる観点から見てみよう</h2>
-            <p>「ITを仕事に使う」という出来事でも、何を変えているのかによって話の種類が異なる。</p>
+            <h2>この出来事から残せる学習要点を整理しよう</h2>
+            <p>問題固有の場面から離れ、別の場面でも使える判断の形として残します。</p>
           </div>
-
-          <section class="detail-section" id="viewpoints">
-            <h2>変わっているものを見分ける</h2>
-            <div class="viewpoint-map">
-              <p><strong>IT活用を見るときの異なる観点</strong></p>
-              <ul>
-                <li><strong>端末の利用形態を見る</strong>：誰が所有する機器を、どの目的で利用するのか</li>
-                <li><strong>作業方法を見る</strong>：人が行っていた定型作業を、ITによって自動化するのか</li>
-                <li><strong>業務の流れを見る</strong>：業務プロセスを分析して改善するのか、あるいは抜本的に設計し直すのか</li>
-              </ul>
-            </div>
-            <p>どれも企業のIT活用に関係するが、見ている対象は同じではない。</p>
-            <p>端末の所有者が変わる話と、仕事そのものの進め方を変える話を分けることで、似た説明が並んでも整理しやすくなる。</p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 6</p>
-            <h2>この出来事をどう捉えるか考えよう</h2>
-            <p>集めた事実を、端末の所有者と利用目的という観点で照らし合わせる。</p>
-          </div>
-
-          <section class="detail-section" id="interpretation">
-            <h2>私物の端末を、業務にも利用する</h2>
-            <p>今回のスマートフォンは、従業員自身が所有している。</p>
-            <p>そして、その端末を会社のメール確認や業務システムの利用など、企業の業務にも使っている。</p>
-            <div class="lesson-summary">
-              <p><strong>個人が私物として所有するPCやスマートフォンなどの端末を、業務に利用する形態をBYODという。</strong></p>
-              <p>BYODは、Bring Your Own Device の略である。</p>
-            </div>
-            <p>BYODという言葉の中心は、私物端末を業務に利用するという利用形態にある。</p>
-            <p>実際の企業運用では、業務情報を扱うため、どの端末を認めるか、どの情報へアクセスできるか、紛失時にどう対応するかなどの管理ルールも必要になる。</p>
-          </section>
 
           <section class="detail-section" id="lesson">
-            <h2>この学習要点で整理したこと</h2>
-            <div class="lesson-summary">
-              <p>ITを業務に使う場面では、何が変わっているのかを確認する。</p>
-              <p>端末の利用形態についての話であれば、まず端末を誰が所有しているのか、何のために使っているのかを分けて見る。</p>
-              <p>個人所有の端末を業務に利用する形態がBYODであり、業務そのものを自動化したり、業務プロセスを改善したりする考え方とは見る対象が異なる。</p>
-              <p><strong>用語だけを覚えるのではなく、「端末」「作業方法」「業務の流れ」のどこについて述べているのかを先に整理することが、別の表現でも判断する手掛かりになる。</strong></p>
+            <h2>業務で使う端末は、「所有者」と「利用目的」を分けて見る</h2>
+            <div class="lesson-card">
+              <p>業務で使われている端末について考えるときは、誰がその端末を所有し、何のために利用しているのかを分けて確認します。</p>
+              <p>従業員自身が所有する端末を、組織が認めた上で組織の業務に利用する形がBYODです。</p>
             </div>
-          </section>
 
-          <section class="detail-section" id="supplement">
-            <h2>補足　私物端末を業務に使うと、何を管理する必要があるのか</h2>
-            <p>私物端末を利用すると、企業がすべての端末を購入して支給する場合とは、費用や管理の分担が変わる。</p>
-            <div class="supplement-box">
-              <p><strong>利便性や費用の面</strong></p>
-              <ul>
-                <li>従業員は、普段から使い慣れた端末を利用できる</li>
-                <li>企業側では、端末の購入や支給に掛かる費用を抑えられる場合がある</li>
-              </ul>
+            <div class="takeaway-flow" aria-label="学習要点の判断順序">
+              <div class="takeaway-item">端末の所有者</div>
+              <div class="takeaway-item">利用目的</div>
+              <div class="takeaway-item">組織との関係</div>
             </div>
-            <div class="supplement-box">
-              <p><strong>管理やリスクの面</strong></p>
-              <ul>
-                <li>端末の紛失・盗難によって業務情報が漏えいする可能性がある</li>
-                <li>私的なアプリや利用環境を通じて、マルウェア感染などのリスクが生じる</li>
-                <li>会社が把握していない端末が業務に使われると、セキュリティ対策を統一しにくい</li>
-                <li>退職や端末変更の際に、業務情報をどこまで削除するかという問題が生じる</li>
-                <li>私物であるため、企業による端末管理と従業員の私的利用との境界も考える必要がある</li>
-              </ul>
-            </div>
-            <p>そのため、BYODを採用する場合は、利用できる端末、認証方法、保存できる情報、アクセス範囲、紛失時や退職時の対応などをあらかじめ定めて運用することが重要になる。</p>
-          </section>
 
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">BYOD</span>
-              <span class="tag">IT活用</span>
-              <span class="tag">端末管理</span>
-            </div>
+            <p>この順番で確認すれば、端末の種類や具体的な業務内容が変わっても、同じ関係を捉えることができます。</p>
           </section>
 
           <section class="detail-section" id="reference">
