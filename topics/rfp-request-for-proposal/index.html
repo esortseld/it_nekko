@@ -3,9 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>発注前にベンダへ何を伝えるべきか | ITネッコ</title>
-  <meta name="description" content="RFPについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="発注前にベンダへ何を伝えるべきか | ITネッコ"><meta property="og:description" content="システム調達で、目的、要件、条件をベンダに示し、提案を依頼する文書の役割を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>この文書は、誰から誰へ、何を伝える？ | ITネッコ</title>
+  <meta name="description" content="システム開発に関する文書について、作る側・受け取る側・伝える内容を順番に確認します。">
+  <meta property="og:title" content="この文書は、誰から誰へ、何を伝える？ | ITネッコ">
+  <meta property="og:description" content="作成主体・相手・伝える内容を順番に確認し、文書の役割を判断します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
+    .relation-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:1rem;align-items:stretch;margin:1rem 0}
+    .relation-card{padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .relation-card strong{display:block;margin-bottom:.45rem}.relation-card p{margin:0}
+    .relation-arrow{display:grid;place-items:center;font-weight:700;color:var(--color-accent);font-size:1.2rem}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .6rem;font-size:1.1rem}.term-card p{margin:0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.relation-grid{grid-template-columns:1fr;gap:.8rem}.relation-arrow{min-height:1.4rem}.relation-arrow::before{content:"↓"}.relation-arrow{font-size:0;color:transparent}.relation-arrow::before{font-size:1.1rem;color:var(--color-accent)}.case-lead,.relation-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,117 +43,102 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム企画・調達</p>
-        <div class="topic-heading-meta"><span class="question-badge">問20</span><span class="term-label">RFP</span></div><h1>発注前にベンダへ何を伝えるべきか</h1>
-        <p class="page-description">システム調達で、目的、要件、条件をベンダに示し、提案を依頼する文書の役割を整理します。</p>
+        <h1>この文書は、誰から誰へ、何を伝える？</h1>
+        <p class="page-description">システム開発に関する文書について、作る側・受け取る側・伝える内容を順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>発注前にベンダへ何を伝えるべきか</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>文書の作成主体・相手・内容を見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              企業が新しいシステムを導入するとき、どのベンダに依頼するかを決めるために、複数の候補企業から提案を受けることがあります。
-            </p>
-            <p>
-              その際、発注側は、必要な機能、前提条件、予算、納期、運用条件などを整理し、ベンダが提案を作れるように提示します。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>システム開発に向けて、文書を作る場面</h2>
+            <div class="case-lead">
+              <p>新しい情報システムを開発するために、関係する相手へ条件を示す文書を用意している。</p>
+              <p>ここで判断に必要なのは、<strong>誰が作り、誰に示し、何を伝えるための文書なのか</strong>である。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              RFPとは、Request For Proposal の略で、提案依頼書のことです。
-            </p>
-            <p>
-              試験では、「発注側が、システム化の要求や条件を示し、ベンダに提案を求める文書」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>文書をやり取りする立場を整理する</h2>
+          </div>
+          <section class="detail-section" id="relation">
+            <h2>発注者側から、ITベンダーへ</h2>
+            <div class="relation-grid">
+              <div class="relation-card"><strong>発注者側</strong><p>開発する情報システムについて、条件を整理して示す側。</p></div>
+              <div class="relation-arrow" aria-hidden="true">→</div>
+              <div class="relation-card"><strong>ITベンダー</strong><p>示された条件を受け取り、提案を行う相手。</p></div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>RFPの構造を確認する</span></h2>
-            <p>
-              RFPは、ベンダに自由に提案してもらうための文書ではありますが、発注側の要求や制約を明確に示すことが重要です。
-            </p>
-            <ul>
-              <li>発注側：システム化の目的、要求、条件を整理して提示する。</li>
-              <li>ベンダ：RFPに基づいて、実現方法、費用、スケジュールなどを提案する。</li>
-              <li>比較：複数の提案を同じ前提で比較しやすくする。</li>
-              <li>調達：提案内容をもとに、依頼先や契約内容の検討につなげる。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>作成主体・相手・伝える内容を、一つずつ確認する。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>誰が作る？</h3>
+                <p><strong>発注者側</strong>が作成する。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>誰に示す？</h3>
+                <p><strong>ITベンダー</strong>に示す。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>何を示す？</h3>
+                <p><strong>開発すべき情報システムの調達条件など</strong>を示す。</p>
+              </div>
+            </div>
+            <div class="decision-conclusion"><p><strong>発注者側が、ITベンダーに、開発すべき情報システムの調達条件などを示すための文書</strong>だと分かる。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              RFPかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>発注側が作成する文書である。</li>
-              <li>システム化の要求や条件を示している。</li>
-              <li>ベンダに提案を求める目的で使う。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した文書に名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>この役割をもつ文書の名前</h2>
+            <div class="term-card">
+              <h3>RFP（Request for Proposal／提案依頼書）</h3>
+              <p>ここまで確認した、発注者側がITベンダーへ情報システムの調達条件などを示すための文書には、RFPという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい文書を分ける</span></h2>
-            <ul>
-              <li>RFP：発注側が要求や条件を示し、ベンダに提案を求める文書。</li>
-              <li>提案書：ベンダ側が、実現方法や費用などを発注側へ提示する文書。</li>
-              <li>設計書：システムの構造、処理、画面、データなどを具体化した文書。</li>
-              <li>契約書：発注側と受注側の合意内容を定める文書。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>RFPは、Request For Proposal の略で、提案依頼書である。</li>
-              <li>発注側が、要求や条件をベンダに示す。</li>
-              <li>ベンダは、RFPに基づいて提案書を作成する。</li>
-              <li>試験では、「誰が作るか」と「何を求めるか」を見分ける。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：RFPは比較の土台になる</h2>
-            <p>
-              RFPがないまま各ベンダに提案を求めると、前提条件がそろわず、費用や機能を比較しにくくなります。
-            </p>
-            <p>
-              RFPで要求や条件をそろえて示すことで、各ベンダの提案を同じ基準で比較しやすくなります。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">RFP</span>
-              <span class="tag">提案依頼書</span>
-              <span class="tag">システム企画</span>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>文書の役割は、「誰が・誰に・何を伝えるか」で見る</h2>
+            <div class="lesson-summary">
+              <p>業務文書の名称を判断するときは、名前を先に思い出そうとしない。</p>
+              <p><strong>誰が作るのか、誰に渡すのか、何を伝えるための文書なのか</strong>を分けて確認する。</p>
+              <p><strong>作成主体・相手・伝える内容の関係を見ると、文書の役割を事実からたどれる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問20</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
