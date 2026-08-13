@@ -3,9 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サイバー攻撃への備えを社会全体で考える法律 | ITネッコ</title>
-  <meta name="description" content="サイバーセキュリティ基本法について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="サイバー攻撃への備えを社会全体で考える法律 | ITネッコ"><meta property="og:description" content="国、自治体、重要社会基盤事業者などが連携し、サイバーセキュリティを推進する基本的な法律を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>この法律は、何を直接取り締まるためのもの？ | ITネッコ</title>
+  <meta name="description" content="サイバーセキュリティに関する法律について、個別の行為を直接規制するのか、それとも施策全体の基本的な枠組みを定めるのかを順番に確認します。">
+  <meta property="og:title" content="この法律は、何を直接取り締まるためのもの？ | ITネッコ">
+  <meta property="og:description" content="個別規制か、施策全体の基本枠組みか。法律の役割を判断の流れから整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
+    .state-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;margin:1rem 0}
+    .state-card{padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .state-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .state-card strong{display:block;margin-bottom:.45rem}.state-card p{margin:0}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .6rem;font-size:1.1rem}.term-card p{margin:0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.state-grid{grid-template-columns:1fr}.case-lead,.state-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,117 +43,101 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務・セキュリティ</p>
-        <div class="topic-heading-meta"><span class="question-badge">問21</span><span class="term-label">サイバーセキュリティ基本法</span></div><h1>サイバー攻撃への備えを社会全体で考える法律</h1>
-        <p class="page-description">国、自治体、重要社会基盤事業者などが連携し、サイバーセキュリティを推進する基本的な法律を整理します。</p>
+        <h1>この法律は、何を直接取り締まるためのもの？</h1>
+        <p class="page-description">サイバーセキュリティに関する法律について、個別の行為を直接規制するのか、それとも施策全体の基本的な枠組みを定めるのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>サイバー攻撃への備えを社会全体で考える法律</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>法律が定めるレベルを見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              インターネットや情報システムは、企業活動、行政サービス、生活基盤に広く使われています。
-            </p>
-            <p>
-              そのため、不正アクセス、サイバー攻撃、情報漏えいなどへの対策は、個別の企業だけでなく、国や地方公共団体を含めた社会全体の課題になります。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>サイバーセキュリティに関する法律の役割を見分ける</h2>
+            <div class="case-lead">
+              <p>サイバーセキュリティに関する法律について、その法律がどのような役割を持つのかを判断する場面である。</p>
+              <p>ここで見るのは、<strong>特定の行為を直接禁止・処罰する法律なのか、それとも施策全体の基本的な枠組みを定める法律なのか</strong>である。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              サイバーセキュリティ基本法とは、サイバーセキュリティに関する施策の基本理念や、国、地方公共団体などの責務を定める法律です。
-            </p>
-            <p>
-              試験では、「サイバーセキュリティ施策を総合的・効果的に推進するための基本的な法律」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>法律が定めるレベルを整理する</h2>
+          </div>
+          <section class="detail-section" id="states">
+            <h2>個別の行為を直接規制するのか、施策全体の枠組みを定めるのか</h2>
+            <div class="state-grid">
+              <div class="state-card"><strong>個別の行為を直接規制する</strong><p>特定の行為について、禁止や罰則などを直接定める。</p></div>
+              <div class="state-card state-card--key"><strong>施策全体の基本枠組みを定める</strong><p>基本理念や関係主体の責務などを定め、分野全体の施策を進める土台を作る。</p></div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>法律の構造を確認する</span></h2>
-            <p>
-              サイバーセキュリティ基本法は、個別の攻撃行為だけを罰する法律ではなく、社会全体でサイバーセキュリティを進めるための基本的な枠組みを示します。
-            </p>
-            <ul>
-              <li>基本理念：サイバーセキュリティを確保するための基本的な考え方。</li>
-              <li>責務：国、地方公共団体、重要社会基盤事業者などが果たすべき役割。</li>
-              <li>施策：サイバー攻撃への対応、人材育成、国際連携などの取組。</li>
-              <li>目的：安全で信頼できる情報通信ネットワークの利用を支えること。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>法律が何を直接規制しているかではなく、どのレベルの枠組みを定めているかを見る。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>サイバーセキュリティ施策の基本理念を定めている</h3>
+                <p>まず、個別行為の禁止ではなく、施策全体を進めるための基本的な考え方を置いている。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>国・地方公共団体の責務などを明らかにしている</h3>
+                <p>誰が施策を担うのか、その役割を法律の中で明確にしている。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>施策を総合的・効果的に進めるための基本事項を定めている</h3>
+                <p>個別の違反行為だけを扱うのではなく、サイバーセキュリティ施策全体を進める枠組みになっている。</p>
+              </div>
+            </div>
+            <div class="decision-conclusion"><p><strong>個別の行為を直接取り締まる法律ではなく、サイバーセキュリティ施策全体の基本理念・責務・基本事項を定める法律</strong>だと分かる。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              サイバーセキュリティ基本法かどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>対象がサイバーセキュリティ全般である。</li>
-              <li>国や地方公共団体などの責務を定めている。</li>
-              <li>施策を総合的・効果的に推進することを目的としている。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した法律に名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>この役割を持つ法律の名前</h2>
+            <div class="term-card">
+              <h3>サイバーセキュリティ基本法</h3>
+              <p>ここまで確認した、サイバーセキュリティ施策について基本理念を定め、国・地方公共団体の責務などを明らかにし、施策を総合的・効果的に進めるための基本事項を定める法律には、サイバーセキュリティ基本法という名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい法律・基準を分ける</span></h2>
-            <ul>
-              <li>不正アクセス禁止法：不正アクセス行為などを禁止する法律。</li>
-              <li>情報セキュリティ管理基準：組織の情報セキュリティ管理のための基準。</li>
-              <li>不正競争防止法：営業秘密の保護や不正競争行為の防止などに関する法律。</li>
-              <li>サイバーセキュリティ基本法：サイバーセキュリティ施策の基本理念や責務を定める法律。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>サイバーセキュリティ基本法は、サイバーセキュリティ施策の基本法である。</li>
-              <li>基本理念や、国・地方公共団体などの責務を定める。</li>
-              <li>個別の不正アクセス行為だけを扱う法律ではない。</li>
-              <li>試験では、「基本理念」「責務」「総合的な施策推進」を手掛かりにする。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：基本法として見る</h2>
-            <p>
-              「基本法」と付く法律は、個別の手続や罰則だけではなく、その分野の基本理念や関係者の役割を定める性格があります。
-            </p>
-            <p>
-              サイバーセキュリティ基本法も、サイバーセキュリティを社会全体で推進するための基本的な方向性を示す法律として整理します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">サイバーセキュリティ基本法</span>
-              <span class="tag">情報セキュリティ</span>
-              <span class="tag">法務</span>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>法律名だけでなく、「何を直接規制するか／どのレベルの枠組みか」を見る</h2>
+            <div class="lesson-summary">
+              <p>法律の役割を判断するときは、対象分野の名前だけで判断しない。</p>
+              <p><strong>特定の行為を直接禁止・処罰する法律なのか、分野全体の基本理念・責務・施策の枠組みを定める法律なのか</strong>を確認する。</p>
+              <p><strong>法律が定めているレベルを見ると、その法律の役割を事実からたどれる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問21</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
