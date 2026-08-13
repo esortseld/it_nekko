@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   cleanup:
-    if: github.event.head_commit.message == 'Add temporary R8 reference cleanup workflow'
+    if: github.event.head_commit.message == 'Trigger temporary R8 cleanup'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re, subprocess, sys
+          import re, subprocess
 
           INDEX = Path('past-questions/r08/index.html')
           PDF = 'https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf'
@@ -39,8 +39,6 @@ jobs:
           slugs = list(dict.fromkeys(slug for _, slug in pairs))
           assert len(slugs) == 52, f'Expected 52 unique topic targets, got {len(slugs)}'
 
-          changed = []
-          audit = []
           hero_re = re.compile(r'(<section class="page-hero">.*?<h1>.*?</h1>)\s*<p class="page-description">.*?</p>', re.S)
           ref_re = re.compile(r'(<section class="detail-section"><h2>参照した公開問題</h2>)(.*?)(</section>)', re.S)
           p_re = re.compile(r'<p(?:\s[^>]*)?>.*?</p>', re.S)
@@ -48,12 +46,13 @@ jobs:
           def text_only(html):
               return re.sub(r'<[^>]+>', '', html).strip()
 
+          changed = []
+          already_ok = []
           for slug in slugs:
               path = Path('topics') / slug / 'index.html'
               assert path.exists(), f'Missing topic file: {path}'
               before = path.read_text(encoding='utf-8')
-              after, nhero = hero_re.subn(r'\1', before, count=1)
-              assert nhero == 1, f'{path}: title-adjacent page-description not found exactly once'
+              after, _ = hero_re.subn(r'\1', before, count=1)
 
               def fix_ref(m):
                   prefix, body, suffix = m.groups()
@@ -61,14 +60,16 @@ jobs:
                   r8_idxs = [i for i, pm in enumerate(ps) if re.search(r'令和8年度\s*ITパスポート試験\s*公開問題\s*問', text_only(pm.group(0)))]
                   assert r8_idxs, f'{path}: R8 question paragraph not found in reference section'
                   last = r8_idxs[-1]
+                  # If the correct official link already immediately follows the R8 reference block, leave it untouched.
+                  if last + 1 < len(ps):
+                      nxt = ps[last + 1]
+                      if PDF in nxt.group(0) and 'IPA公式 公開問題（PDF）' in text_only(nxt.group(0)):
+                          return prefix + body + suffix
                   candidate = None
                   for i in range(last + 1, len(ps)):
                       txt = text_only(ps[i].group(0))
                       if re.search(r'令和\d+年度\s*ITパスポート試験\s*公開問題\s*問', txt):
                           continue
-                      if 'IPA公式 公開問題（PDF）' in txt:
-                          candidate = i
-                          break
                       candidate = i
                       break
                   if candidate is not None:
@@ -79,31 +80,37 @@ jobs:
                       new_body = body[:pm.end()] + LINK + body[pm.end():]
                   return prefix + new_body + suffix
 
-              after2, nref = ref_re.subn(fix_ref, after, count=1)
+              after, nref = ref_re.subn(fix_ref, after, count=1)
               assert nref == 1, f'{path}: reference section not found exactly once'
-              after = after2
-              assert after != before, f'{path}: no change produced'
-              # Required postconditions.
-              hero = re.search(r'<section class="page-hero">.*?</section>', after, re.S).group(0)
-              assert 'page-description' not in hero, f'{path}: hero description remains'
-              ref = ref_re.search(after).group(0)
-              assert '令和8年度 ITパスポート試験 公開問題 問' in ref, f'{path}: R8 question number missing'
+
+              hero_m = re.search(r'<section class="page-hero">.*?</section>', after, re.S)
+              assert hero_m and 'page-description' not in hero_m.group(0), f'{path}: hero description remains'
+              ref_m = ref_re.search(after)
+              assert ref_m, f'{path}: reference section missing after edit'
+              ref = ref_m.group(0)
+              assert re.search(r'令和8年度\s*ITパスポート試験\s*公開問題\s*問', text_only(ref)), f'{path}: R8 question number missing'
               assert PDF in ref and 'IPA公式 公開問題（PDF）' in ref, f'{path}: official PDF link missing'
 
-              path.write_text(after, encoding='utf-8')
-              changed.append(str(path))
-              audit.append((slug, nhero, nref))
+              if after != before:
+                  path.write_text(after, encoding='utf-8')
+                  changed.append(str(path))
+              else:
+                  already_ok.append(str(path))
 
-          # Scope gate: only the 52 unique target topic files may change besides this temporary workflow.
           status = subprocess.check_output(['git','status','--porcelain'], text=True).splitlines()
-          modified = {line[3:] for line in status if line and not line.endswith('.github/workflows/r08-reference-cleanup.yml')}
-          expected = {f'topics/{s}/index.html' for s in slugs}
-          assert modified == expected, f'Unexpected changed paths. extra={modified-expected}, missing={expected-modified}'
+          modified = {line[3:] for line in status if line and line[3:] != '.tmp-r08-trigger'}
+          expected_scope = {f'topics/{s}/index.html' for s in slugs}
+          unexpected = modified - expected_scope
+          assert not unexpected, f'Unexpected changed paths: {unexpected}'
 
-          print(f'R8 entries: {len(pairs)}')
-          print(f'Unique topic files: {len(slugs)}')
+          print(f'R8 entries checked: {len(pairs)}')
+          print(f'Unique topic files checked: {len(slugs)}')
           print(f'Changed topic files: {len(changed)}')
-          print('Duplicate mappings:', [(q,s) for q,s in pairs if sum(1 for _,x in pairs if x==s)>1])
+          print(f'Already compliant topic files: {len(already_ok)}')
+          print('Changed files:')
+          for p in changed: print(p)
+          print('Already compliant files:')
+          for p in already_ok: print(p)
           PY
       - name: Commit scoped topic changes
         shell: bash
@@ -111,5 +118,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add topics/*/index.html
-          git commit -m "Apply R8 topic reference cleanup"
-          git push origin HEAD:batch-r08-reference-cleanup
+          if ! git diff --cached --quiet; then
+            git commit -m "Apply R8 topic reference cleanup"
+            git push origin HEAD:batch-r08-reference-cleanup
+          fi
