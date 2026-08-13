@@ -3,22 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIで作った音楽は、そのまま公開してよいのか | ITネッコ</title>
-  <meta name="description" content="生成AIで作った音楽について、既存著作物との関係と利用方法を順にたどり、著作権上の判断材料を整理します。">
-  <meta property="og:title" content="AIで作った音楽は、そのまま公開してよいのか | ITネッコ">
-  <meta property="og:description" content="生成AIで作った音楽について、既存著作物との関係と利用方法を順にたどり、著作権上の判断材料を整理します。">
+  <title>生成AIで似た音楽ができた。何を確認すればよい？ | ITネッコ</title>
+  <meta name="description" content="生成AIで既存の楽曲に似た音楽ができた場面で、生成までの経緯と生成後の使い方を分けて確認する考え方を整理します。">
+  <meta property="og:title" content="生成AIで似た音楽ができた。何を確認すればよい？ | ITネッコ">
+  <meta property="og:description" content="生成AIで既存の楽曲に似た音楽ができた場面で、生成までの経緯と生成後の使い方を分けて確認する考え方を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .case-lead {
-      margin: 1rem 0 1.5rem;
-      padding: 1.2rem 1.3rem;
-      border-radius: 16px;
-      background: #faf7f2;
-      border: 1px solid #ded6c7;
-    }
-    .case-lead p { margin: 0 0 .75rem; }
-    .case-lead p:last-child { margin-bottom: 0; }
-
     .step-heading {
       margin: 2.2rem 0 .9rem;
       padding: .85rem 1rem;
@@ -34,36 +24,53 @@
       color: #776e62;
     }
     .step-heading h2 { margin: 0; font-size: 1.2rem; }
-    .step-heading p:last-child { margin-bottom: 0; }
 
-    .actor-grid {
+    .case-lead {
+      margin: 1rem 0 1.5rem;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .case-lead p { margin: 0 0 .7rem; }
+    .case-lead p:last-child { margin-bottom: 0; }
+
+    .phase-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .9rem;
+      gap: 1rem;
       margin: 1rem 0;
     }
-    .actor-card {
-      padding: 1rem;
+    .phase-card {
+      padding: 1.05rem 1.1rem;
       border: 1px solid var(--line, #d9d3c8);
       border-radius: 14px;
       background: #fff;
     }
-    .actor-card strong { display: block; margin-bottom: .35rem; }
-    .actor-card p { margin: 0; }
+    .phase-card__label {
+      display: inline-block;
+      margin-bottom: .45rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: #776e62;
+    }
+    .phase-card h3 { margin: 0 0 .45rem; font-size: 1.08rem; }
+    .phase-card p { margin: 0; }
 
     .decision-flow {
       display: grid;
-      gap: .75rem;
+      gap: .95rem;
       margin: 1.2rem 0;
     }
     .decision-card {
       position: relative;
-      padding: 1rem 1.1rem;
+      padding: 1.05rem 1.15rem;
       border: 1px solid var(--line, #d9d3c8);
       border-radius: 14px;
       background: #fff;
     }
-    .decision-card + .decision-card { margin-top: .55rem; }
+    .decision-card + .decision-card { margin-top: .5rem; }
     .decision-card + .decision-card::before {
       content: "↓";
       position: absolute;
@@ -83,25 +90,6 @@
     .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
     .decision-card p { margin: .55rem 0 0; }
 
-    .clue-box {
-      margin: 1rem 0;
-      padding: 1rem 1.1rem;
-      border-radius: 14px;
-      background: #faf7f2;
-    }
-    .clue-box p { margin: 0 0 .55rem; }
-    .clue-box p:last-child { margin-bottom: 0; }
-
-    .lesson-summary {
-      margin: 1.1rem 0;
-      padding: 1.15rem 1.2rem;
-      border-left: 4px solid #8a755d;
-      background: #faf7f2;
-      border-radius: 0 12px 12px 0;
-    }
-    .lesson-summary p { margin: 0 0 .8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
-
     .term-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -117,9 +105,21 @@
     .term-card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
     .term-card p { margin: 0; }
 
+    .lesson-summary {
+      margin: 1.1rem 0;
+      padding: 1.15rem 1.2rem;
+      border-left: 4px solid #8a755d;
+      background: #faf7f2;
+      border-radius: 0 12px 12px 0;
+    }
+    .lesson-summary p { margin: 0 0 .8rem; }
+    .lesson-summary p:last-child { margin-bottom: 0; }
+
     @media (max-width: 720px) {
-      .actor-grid,
+      .phase-grid,
       .term-list { grid-template-columns: 1fr; }
+      .step-heading { margin-top: 1.8rem; }
+      .decision-card { padding: 1rem; }
     }
   </style>
 </head>
@@ -135,8 +135,7 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
-        <h1>AIで作った音楽は、そのまま公開してよいのか</h1>
-        <p class="page-description">生成AIで作ったものと既存の著作物の関係を、出来事の中から順にたどって考えます。</p>
+        <h1>生成AIで似た音楽ができた。何を確認すればよい？</h1>
       </div>
     </section>
 
@@ -147,136 +146,98 @@
 
           <div class="step-heading">
             <p class="step-heading__label">STEP 1</p>
-            <h2>まず、何が起きているか見てみよう</h2>
+            <h2>まず、何が起きているか見る</h2>
           </div>
 
           <section class="detail-section" id="situation">
-            <h2>生成AIで作った音楽を公開しようとしている</h2>
+            <h2>既存の楽曲に似た音楽が生成された</h2>
             <div class="case-lead">
-              <p>ある人が、好きなアーティストの楽曲を意識しながら、生成AIを使って音楽を作った。</p>
-              <p>できあがった音楽には、その楽曲を思い浮かべるような部分がある。</p>
-              <p>その人は、生成した音楽をインターネット上で公開し、第三者が聴ける状態にしようとしている。</p>
+              <p>生成AIで音楽を作ったところ、既存の楽曲に似た音楽ができた。</p>
+              <p>ただし、同じ「似た音楽ができた」という結果でも、作るまでの経緯や、できた後に何をするかは同じとは限らない。</p>
             </div>
-            <p>この出来事では、生成した方法、既存の楽曲との関係、できあがった音楽の内容、その後の使い方という複数の事実が関わっている。</p>
+            <p>この場面では、似ているという結果だけを見るのではなく、判断に関係する出来事を分けて見る必要がある。</p>
           </section>
 
           <div class="step-heading">
             <p class="step-heading__label">STEP 2</p>
-            <h2>関係するものを整理しよう</h2>
+            <h2>二つの場面に分けて整理する</h2>
           </div>
 
-          <section class="detail-section" id="actors">
-            <h2>誰と何が関わっているのか</h2>
-            <div class="actor-grid">
-              <div class="actor-card">
-                <strong>既存の楽曲</strong>
-                <p>生成した音楽との関係を確認する対象になる。</p>
+          <section class="detail-section" id="phases">
+            <h2>「作るまで」と「作ったあと」を混ぜない</h2>
+            <div class="phase-grid">
+              <div class="phase-card">
+                <span class="phase-card__label">生成まで</span>
+                <h3>どのような経緯でできたか</h3>
+                <p>既存の楽曲を意識していたのか、どのような指示や材料から生成したのかなど、生成までのつながりを見る。</p>
               </div>
-              <div class="actor-card">
-                <strong>既存楽曲の著作者・著作権者</strong>
-                <p>その楽曲の創作的な表現について権利を持つ。</p>
-              </div>
-              <div class="actor-card">
-                <strong>生成AIの利用者</strong>
-                <p>生成AIに指示を出し、生成物の使い方を決める。</p>
-              </div>
-              <div class="actor-card">
-                <strong>生成された音楽</strong>
-                <p>既存楽曲との関係と、その後の利用方法を確認する対象になる。</p>
+              <div class="phase-card">
+                <span class="phase-card__label">生成後</span>
+                <h3>できたものをどう扱うか</h3>
+                <p>手元で使うのか、外へ出すのかなど、生成した後に行うことを見る。</p>
               </div>
             </div>
           </section>
 
           <div class="step-heading">
             <p class="step-heading__label">STEP 3</p>
-            <h2>手掛かりを順番に確認しよう</h2>
-            <p>この出来事を判断するために必要な確認を、順にたどる。</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
           </div>
 
           <section class="detail-section" id="decision-flow">
-            <h2>確認するのは、この4つ</h2>
+            <h2>似ていることだけで判断を終えない</h2>
             <div class="decision-flow">
               <div class="decision-card">
-                <span class="decision-card__number">01</span><h3>既存の著作物をもとにして作ったといえるか</h3>
-                <p>特定の楽曲を知っていたか、どのような指示で生成したか、生成までの経緯に既存作品とのつながりがあるかを確認する。</p>
+                <span class="decision-card__number">01</span><h3>まず、生成までの経緯を見る</h3>
+                <p>同じように似て見える生成物でも、既存作品を意識して作った場合と、意識せずに結果として似た場合では、確認する事情が異なる。</p>
               </div>
               <div class="decision-card">
-                <span class="decision-card__number">02</span><h3>既存著作物の創作的な表現と類似しているか</h3>
-                <p>既存作品の具体的な表現と、生成物に共通する部分があるかを確認する。</p>
+                <span class="decision-card__number">02</span><h3>次に、生成後の行為を見る</h3>
+                <p>生成した時点の事情とは分けて、その生成物をその後どのように扱うのかを確認する。</p>
               </div>
               <div class="decision-card">
-                <span class="decision-card__number">03</span><h3>生成したものをどのように利用するのか</h3>
-                <p>自分で利用するのか、インターネットで公開するのか、配布するのかなど、生成後の使い方を確認する。</p>
-              </div>
-              <div class="decision-card">
-                <span class="decision-card__number">04</span><h3>その利用が、許諾を得ずに認められる範囲に当たるか</h3>
-                <p>私的使用など、著作権者の許諾を得ずに利用できる場合に当たるかを確認する。</p>
+                <span class="decision-card__number">03</span><h3>二つの場面をそろえてから扱いを考える</h3>
+                <p>「どう作ったか」と「作った後に何をするか」を分けて整理すると、どの事実を確認して判断すべきかが見えやすくなる。</p>
               </div>
             </div>
           </section>
 
           <div class="step-heading">
             <p class="step-heading__label">STEP 4</p>
-            <h2>手掛かりに名前を付けよう</h2>
-            <p>ここまで確認してきた内容は、著作権ではそれぞれ次のように整理される。</p>
+            <h2>ここまで確認した内容に名前を付ける</h2>
           </div>
 
           <section class="detail-section" id="terms">
-            <h2>既存著作物との関係と、生成後の利用</h2>
+            <h2>生成・利用の二つの段階</h2>
             <div class="term-list">
               <div class="term-card">
                 <h3>依拠性</h3>
-                <p>既存著作物をもとにして作られたといえる関係があるかを見る。</p>
+                <p>生成物と既存著作物の関係を考えるとき、既存著作物をもとにしたといえるつながりがあるかを見る考え方。</p>
               </div>
               <div class="term-card">
-                <h3>類似性</h3>
-                <p>既存著作物の創作的な表現と共通する部分があるかを見る。</p>
-              </div>
-              <div class="term-card">
-                <h3>利用方法</h3>
-                <p>生成物を個人的に使うのか、公開・配布するのかなど、実際の使い方を見る。</p>
-              </div>
-              <div class="term-card">
-                <h3>権利制限規定</h3>
-                <p>私的使用など、一定の条件で著作権者の許諾を得ずに利用できる場合を定めている。</p>
+                <h3>利用行為</h3>
+                <p>生成した後、その生成物をどのように扱うのかという別の確認対象。</p>
               </div>
             </div>
-            <div class="clue-box">
-              <p><strong>判断の流れ</strong></p>
-              <p>依拠性 → 類似性 → 利用方法 → 許諾を得ずに利用できる範囲か、という順に確認すると、何を調べる必要があるのか整理しやすくなる。</p>
-            </div>
+            <p>著作権では、生成したときの事情と、その後の利用時の事情を分けて検討する場面がある。</p>
           </section>
 
           <div class="step-heading">
             <p class="step-heading__label">STEP 5</p>
-            <h2>この出来事から残せる学習要点</h2>
+            <h2>この内容から残せる学習要点</h2>
           </div>
 
           <section class="detail-section" id="lesson">
-            <h2>生成AIと既存著作物の関係を考えるとき</h2>
+            <h2>結果が同じに見えても、判断材料は一つではない</h2>
             <div class="lesson-summary">
-              <p>生成AIで作ったものと既存著作物との関係を考えるときは、まず、<strong>既存著作物をもとにして作られたか</strong>を確認する。</p>
-              <p>次に、<strong>既存著作物の創作的な表現と生成物が類似しているか</strong>を確認する。</p>
-              <p>さらに、<strong>生成物をどのように利用するのか</strong>を確認し、その利用が<strong>著作権者の許諾を得ずに認められる範囲に当たるか</strong>を確認する。</p>
-              <p><strong>依拠性、類似性、利用方法、権利制限規定を順に確認することが、生成AIによる生成物と既存著作物の関係を整理する手掛かりになる。</strong></p>
+              <p>生成AIで作ったものが既存作品に似ている場面では、<strong>似ているという結果だけで判断しない</strong>。</p>
+              <p><strong>どのような経緯で生成したか</strong>と、<strong>生成した後に何をするか</strong>を別々に確認する。</p>
+              <p>問題文では、この二つの場面のどの事実が変わっているかを拾うと、判断に必要な材料を整理しやすい。</p>
             </div>
           </section>
 
-          <section class="detail-section" id="supplement-similarity">
-            <h2>補足　類似性で確認するもの</h2>
-            <p>著作権で保護されるのは、作品に表された創作的な表現である。</p>
-            <p>類似性を考えるときは、既存著作物の具体的な表現と生成物を比べ、共通する部分を確認する。</p>
-          </section>
-
-          <section class="detail-section" id="supplement-rights">
-            <h2>補足　生成物そのものの著作権は別の論点</h2>
-            <p>生成AIで作ったもの自体が著作物として保護されるかという問題と、生成AIで作ったものが既存著作物の著作権とどのような関係にあるかという問題は、それぞれ別に整理する。</p>
-            <p>このページでは、既存著作物との関係を扱っている。</p>
-          </section>
-
           <section class="detail-section" id="sources">
-            <h2>補足　生成AIと著作権の考え方</h2>
-            <p>文化庁は、AI生成物の生成・利用段階について、既存著作物との類似性・依拠性や、権利制限規定の適用などを確認して判断する考え方を整理している。</p>
+            <h2>参考資料</h2>
             <p><a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank" rel="noopener noreferrer">文化庁「AIと著作権について」</a></p>
           </section>
 
@@ -294,7 +255,7 @@
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問1</p>
-            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。<a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">令和8年度 ITパスポート試験 公開問題（IPA公式・PDF）</a></p>
+            <p>このページは、上記の公開問題を起点に、問題を判断するときの見方を学習要点として整理したものです。問題文・選択肢本文・正解は掲載していません。<a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">令和8年度 ITパスポート試験 公開問題（IPA公式・PDF）</a></p>
           </section>
         </article>
       </div>
