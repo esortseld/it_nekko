@@ -3,130 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アイデアを広げる途中で、絞り込んでいい？ | ITネッコ</title>
-  <meta name="description" content="会議でアイデアを出している途中に、実現可能性で絞ったり選別したりするのか、他人の案を材料に発想を広げるのかを順にたどります。">
-  <meta property="og:title" content="アイデアを広げる途中で、絞り込んでいい？ | ITネッコ">
-  <meta property="og:description" content="アイデア生成中に、発想を増やす動きと早い絞り込みをどう見分けるかを整理します。">
+  <title>会議の途中で、広げるのか絞るのか | ITネッコ</title>
+  <meta name="description" content="会議中の行動を、個別ルールの暗記ではなく、今が可能性を広げる局面か、候補を絞る局面かという見方から整理します。">
+  <meta property="og:title" content="会議の途中で、広げるのか絞るのか | ITネッコ">
+  <meta property="og:description" content="会議の現在地と、行動が可能性を広げる方向か絞る方向かを照らし合わせる見方を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .case-lead {
-      margin: 1rem 0 1.5rem;
-      padding: 1.2rem 1.3rem;
-      border-radius: 16px;
-      background: #faf7f2;
-      border: 1px solid #ded6c7;
-    }
-    .case-lead p { margin: 0 0 .75rem; }
-    .case-lead p:last-child { margin-bottom: 0; }
-
-    .step-heading {
-      margin: 2.2rem 0 .9rem;
-      padding: .85rem 1rem;
-      border-left: 5px solid #8a755d;
-      background: #f3efe7;
-      border-radius: 0 12px 12px 0;
-    }
-    .step-heading__label {
-      margin: 0 0 .2rem;
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: #776e62;
-    }
-    .step-heading h2 { margin: 0; font-size: 1.2rem; }
-    .step-heading p:last-child { margin-bottom: 0; }
-
-    .phase-flow {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-      gap: .8rem;
-      align-items: center;
-      margin: 1rem 0;
-    }
-    .phase-card {
-      padding: 1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .phase-card--current {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
-    .phase-card strong { display: block; margin-bottom: .35rem; }
-    .phase-card p { margin: 0; }
-    .phase-arrow {
-      font-weight: 700;
-      color: #8a755d;
-      font-size: 1.2rem;
-    }
-
-    .decision-flow {
-      display: grid;
-      gap: .75rem;
-      margin: 1.2rem 0;
-    }
-    .decision-card {
-      position: relative;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .decision-card + .decision-card { margin-top: .55rem; }
-    .decision-card + .decision-card::before {
-      content: "↓";
-      position: absolute;
-      top: -1.45rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-weight: 700;
-      color: #8a755d;
-    }
-    .decision-card__number {
-      display: inline-block;
-      margin-right: .45rem;
-      font-size: .78rem;
-      font-weight: 700;
-      color: #776e62;
-    }
-    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
-    .decision-card p { margin: .55rem 0 0; }
-    .decision-card--key {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
-
-    .term-card {
-      margin: 1rem 0;
-      padding: 1.15rem 1.2rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
-    .term-card p { margin: 0; }
-
-    .lesson-summary {
-      margin: 1.1rem 0;
-      padding: 1.15rem 1.2rem;
-      border-left: 4px solid #8a755d;
-      background: #faf7f2;
-      border-radius: 0 12px 12px 0;
-    }
-    .lesson-summary p { margin: 0 0 .8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 720px) {
-      .phase-flow { grid-template-columns: 1fr; }
-      .phase-arrow { text-align: center; transform: rotate(90deg); }
-      .case-lead,
-      .decision-card,
-      .term-card,
-      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
-    }
+    .page-hero h1,.page-description{overflow-wrap:anywhere}
+    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
+    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .case-lead p,.lesson-summary p{margin:0}
+    .phase-map{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.9rem;align-items:stretch;margin:1.25rem 0}
+    .phase-block{min-width:0;padding:1.15rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .phase-block--expand{border:2px solid var(--color-accent);background:var(--color-soft-green)}
+    .phase-block strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark);font-size:1.06rem}
+    .phase-block p{margin:0}
+    .phase-arrow{display:grid;place-items:center;font-size:1.35rem;font-weight:700;color:var(--color-accent)}
+    .phase-purpose{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:1rem;align-items:center;margin:1.15rem 0;padding:1.1rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .phase-purpose__label{font-weight:700;color:var(--color-accent-dark);text-align:center}
+    .phase-purpose__body p{margin:0}
+    .direction-axis{margin:1.25rem 0;padding:1.15rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .axis-line{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.8rem;align-items:center}
+    .axis-side{min-width:0;padding:1rem;border-radius:14px;text-align:center}
+    .axis-side--expand{background:var(--color-soft-green)}
+    .axis-side--narrow{background:var(--color-soft)}
+    .axis-side strong{display:block;color:var(--color-accent-dark)}
+    .axis-side span{display:block;margin-top:.3rem;color:var(--color-muted);font-size:.9rem}
+    .axis-center{display:grid;place-items:center;min-width:5.4rem;min-height:5.4rem;padding:.65rem;border:2px solid var(--color-accent);border-radius:50%;background:var(--color-surface);font-weight:700;color:var(--color-accent-dark);text-align:center}
+    .axis-caption{margin:.9rem 0 0;text-align:center;color:var(--color-muted)}
+    .check-sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.15rem 0}
+    .check-item{position:relative;min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .check-item strong{display:block;margin-bottom:.35rem;color:var(--color-accent-dark)}
+    .check-item p{margin:0}
+    .check-item+.check-item::before{content:"→";position:absolute;left:-.63rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--color-accent)}
+    .boundary-note{margin:1rem 0;padding:1rem 1.1rem;border:1px dashed rgba(95,114,82,.45);border-radius:12px;background:rgba(255,253,248,.72)}
+    .boundary-note p{margin:0}
+    .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
+    .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
+    .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
+    @media(max-width:720px){.phase-map,.phase-purpose,.axis-line,.check-sequence{grid-template-columns:1fr}.phase-arrow{transform:rotate(90deg)}.axis-center{margin:0 auto}.check-item+.check-item{margin-top:.45rem}.check-item+.check-item::before{content:"↓";left:50%;top:-1.05rem;transform:translateX(-50%)}.case-lead,.lesson-summary,.phase-block,.direction-axis{padding-left:1rem;padding-right:1rem}}
   </style>
 </head>
 <body>
@@ -141,107 +58,76 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動</p>
-        <h1>アイデアを広げる途中で、絞り込んでいい？</h1>
-        <p class="page-description">会議でアイデアを出しているとき、どの進め方が発想を広げ、どの進め方が早い絞り込みになるのかを順番に見ていきます。</p>
+        <h1>会議の途中で、広げるのか絞るのか</h1>
+        <p class="page-description">会議中の行動を個別のルールとして覚える前に、まず「今は可能性を増やす局面か、候補を決める局面か」を見る。行動の良し悪しは、その現在地によって変わる。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>アイデアを広げる途中で絞り込むか</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>会議の途中で、広げるのか絞るのか</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 1</p>
-            <h2>まず、何が起きているか見る</h2>
-          </div>
-
-          <section class="detail-section" id="situation">
-            <h2>会議で、できるだけ多くのアイデアを出そうとしている</h2>
-            <div class="case-lead">
-              <p>複数のメンバーが、一つのテーマについてアイデアを出している。</p>
-              <p>その途中で、実現できそうな案だけに絞る進め方、出た案を選びながら進める方法、ほかの人の案を材料にして新しい案へ広げる方法が考えられている。</p>
-            </div>
-            <p>ここで確認するのは、<strong>アイデアを出している途中に、何をしてよいのか</strong>という進め方である。</p>
-          </section>
-
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 2</p>
-            <h2>今の段階と、その後の段階を分けて考える</h2>
-          </div>
-
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、会議全体の流れを二つに分ける</h2></div>
           <section class="detail-section" id="phases">
-            <h2>今は「案を増やす途中」</h2>
-            <div class="phase-flow">
-              <div class="phase-card phase-card--current">
-                <strong>今：アイデアを出す</strong>
-                <p>思いついた案を増やし、ほかの人の案からも発想を広げる。</p>
-              </div>
+            <h2>案を増やす局面と、案を決める局面は目的が違う</h2>
+            <div class="case-lead">
+              <p>会議では、最初から最後まで同じ考え方をするとは限らない。まず可能性を広げる時間があり、その後で候補を比べ、絞っていく時間がある。どちらも必要だが、同時に行うと目的がぶつかる。</p>
+            </div>
+            <div class="phase-map" aria-label="発散から収束への会議の流れ">
+              <div class="phase-block phase-block--expand"><strong>発散</strong><p>まだ決め切らず、候補となる可能性の幅を確保する局面。</p></div>
               <div class="phase-arrow" aria-hidden="true">→</div>
-              <div class="phase-card">
-                <strong>その後：案を評価・選択する</strong>
-                <p>出そろった案について、実現性や採用する案を検討する。</p>
-              </div>
+              <div class="phase-block"><strong>収束</strong><p>出てきた候補を比較し、評価し、決める方向へ進む局面。</p></div>
             </div>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 3</p>
-            <h2>判断に必要な手掛かりを順番に確認する</h2>
-            <p>その進め方が、今の段階で案を増やすのか、途中で絞るのかを見る。</p>
-          </div>
-
-          <section class="detail-section" id="decision-flow">
-            <h2>確認するのは、この三つ</h2>
-            <div class="decision-flow">
-              <div class="decision-card">
-                <span class="decision-card__number">01</span><h3>まず、今はアイデアを出している途中だと確認する</h3>
-                <p>まだ案を評価して採用する段階ではなく、まず選択肢を増やしている。</p>
-              </div>
-              <div class="decision-card decision-card--key">
-                <span class="decision-card__number">02</span><h3>実現可能性で限定したり、出た案を選び始めると、途中で案が絞られる</h3>
-                <p>実現できそうな案だけを求めたり、テーマに合う案をその場で選んだりすると、アイデアを増やしている途中で評価・選別が入る。</p>
-              </div>
-              <div class="decision-card decision-card--key">
-                <span class="decision-card__number">03</span><h3>ほかの人の案を材料にすると、新しい案へ発展させられる</h3>
-                <p>すでに出たアイデアに便乗して別の案を出すことは、選択肢を減らさず、発想をさらに広げる動きになる。</p>
-              </div>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>今いる局面の目的を先に置く</h2></div>
+          <section class="detail-section" id="purpose">
+            <h2>アイデアを生み出している途中なら、見るのは「幅」</h2>
+            <div class="phase-purpose">
+              <div class="phase-purpose__label">現在地<br>＝ 発散の局面</div>
+              <div class="phase-purpose__body"><p>この局面では、まだ最終案を決めることより、考えられる方向を十分に出しておくことが先になる。したがって、行動を見るときも「それは候補の幅を保つのか、それとも早く狭め始めるのか」を確認する。</p></div>
             </div>
-            <p>したがって、アイデアを出している途中では、<strong>実現性による絞り込みや案の選別を先に行わず、ほかの人の案も材料にして発想を増やす</strong>という進め方になる。</p>
+            <p>ここで重要なのは、ある行動が一般的に正しいかではない。<strong>今の局面の目的に合っているか</strong>を見ることである。</p>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 4</p>
-            <h2>ここまで確認した進め方に名前を付ける</h2>
-          </div>
-
-          <section class="detail-section" id="term">
-            <h2>アイデアを増やす段階と、評価する段階を分ける</h2>
-            <div class="term-card">
-              <h3>ブレーンストーミング</h3>
-              <p>ここまで見てきたように、アイデアを出す途中では早く絞り込まず、ほかの人の案からも発想を広げながら案を増やしていく進め方には、ブレーンストーミングという名前が付く。</p>
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>行動が、どちら向きに働くかを見る</h2></div>
+          <section class="detail-section" id="direction">
+            <h2>候補ごとに「広げる／絞る」の向きを確かめる</h2>
+            <div class="direction-axis" aria-label="行動の向きを見る比較軸">
+              <div class="axis-line">
+                <div class="axis-side axis-side--expand"><strong>可能性を広げる方向</strong><span>新しい方向を残す・増やす</span></div>
+                <div class="axis-center">問題中の<br>行動</div>
+                <div class="axis-side axis-side--narrow"><strong>可能性を絞る方向</strong><span>評価・制約によって候補を狭める</span></div>
+              </div>
+              <p class="axis-caption">行動の名前ではなく、「その結果、候補の幅がどう変わるか」で置く。</p>
             </div>
+            <div class="check-sequence" aria-label="候補を見る順序">
+              <div class="check-item"><strong>01　現在地</strong><p>いま発散と収束のどちらの局面か。</p></div>
+              <div class="check-item"><strong>02　行動の向き</strong><p>その行動で、可能性の幅は広がるか狭まるか。</p></div>
+              <div class="check-item"><strong>03　照合</strong><p>現在の局面の目的と、その行動の向きが合っているか。</p></div>
+            </div>
+            <div class="boundary-note"><p><strong>公開問題では、各記述をこの比較軸へ自分で置く。</strong> ページ側で候補ごとの判定までは行わない。</p></div>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 5</p>
-            <h2>この出来事から残せる学習要点</h2>
-          </div>
-
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>この問題から残す見方</h2></div>
           <section class="detail-section" id="lesson">
-            <h2>案を増やす段階と、案を絞る段階を混ぜない</h2>
+            <h2>会議手法は、局面と行動の向きをセットで見る</h2>
             <div class="lesson-summary">
-              <p>新しい案を広げたい場面では、まず<strong>今がアイデアを増やす段階なのか、評価・選択する段階なのか</strong>を確認する。</p>
-              <p>アイデアを増やしている途中で実現可能性による限定や選別を始めると、まだ出ていない案まで狭めやすい。一方、ほかの人の案を材料にすることは、発想を増やす方向に働く。</p>
-              <p><strong>可能性を広げる段階では案を増やすことを優先し、評価や選択はその後に分ける。</strong></p>
+              <p>ブレーンストーミングのような会議手法を考えるとき、個々のルールを先に暗記するより、まずその場が「可能性を広げる局面」なのか「候補を絞る局面」なのかを置く。そのうえで、問題中の行動がどちら向きに働くかを見る。</p>
             </div>
+            <ul class="lesson-points">
+              <li>行動そのものではなく、まず会議の現在地を見る。</li>
+              <li>可能性を広げる動きと、評価・制約によって絞る動きを区別する。</li>
+              <li>現在の局面の目的と、行動の向きを照らし合わせて判断する。</li>
+            </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問10</p>
-            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答そのものではなく、会議の局面と行動の向きを見分ける判断方法を学習要点として整理したものです。</p>
           </section>
 
         </article>
@@ -249,10 +135,6 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
