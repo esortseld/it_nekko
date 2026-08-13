@@ -3,262 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>将来が分からないとき、どの結果を見て戦略を選ぶのか | ITネッコ</title>
-  <meta name="description" content="将来の状況によって結果が変わる場面で、戦略ごとの最小の結果を確認し、比較して選ぶ判断の流れを整理します。">
-  <meta property="og:title" content="将来が分からないとき、どの結果を見て戦略を選ぶのか | ITネッコ">
-  <meta property="og:description" content="戦略・将来の状況・結果の関係から、どの値を確認し、何と何を比べるのかを順番に整理します。">
+  <title>戦略を選ぶ値と、選んだ後に見る値は同じ？ | ITネッコ</title>
+  <meta name="description" content="複数の戦略と将来の状況がある場面で、戦略を選ぶための値と、選択後に指定された状況の結果を分けて確認する考え方を整理します。">
+  <meta property="og:title" content="戦略を選ぶ値と、選んだ後に見る値は同じ？ | ITネッコ">
+  <meta property="og:description" content="複数の戦略と将来の状況がある場面で、戦略を選ぶための値と、選択後に指定された状況の結果を分けて確認する考え方を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .learning-phase {
-      margin: 2rem 0 1rem;
-      padding: 0.9rem 1.1rem;
-      border: 1px solid #ded6c7;
-      border-radius: 14px;
+    .step-heading {
+      margin: 2.2rem 0 .9rem;
+      padding: .85rem 1rem;
+      border-left: 5px solid #8a755d;
       background: #f3efe7;
-    }
-
-    .learning-phase:first-of-type {
-      margin-top: 0;
-    }
-
-    .learning-phase__label {
-      margin: 0 0 0.25rem;
-      color: #776e62;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    .learning-phase h2 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-
-    .learning-phase p:last-child {
-      margin-bottom: 0;
-    }
-
-    .scene-card,
-    .concept-card,
-    .lesson-card {
-      margin-top: 1.1rem;
-      padding: 1.15rem 1.2rem;
-      border-radius: 14px;
-    }
-
-    .scene-card {
-      border: 1px solid #ddd5c7;
-      background: #fffaf3;
-    }
-
-    .concept-card {
-      border: 1px solid rgba(95, 114, 82, 0.28);
-      background: var(--color-soft-green);
-    }
-
-    .lesson-card {
-      border-left: 4px solid #8a755d;
-      background: #faf7f2;
       border-radius: 0 12px 12px 0;
     }
+    .step-heading__label {
+      margin: 0 0 .2rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #776e62;
+    }
+    .step-heading h2 { margin: 0; font-size: 1.2rem; }
 
+    .scene-card,
+    .lesson-summary {
+      margin: 1rem 0 1.4rem;
+      padding: 1.15rem 1.2rem;
+    }
+    .scene-card {
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 16px;
+      background: #faf7f2;
+    }
+    .lesson-summary {
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
     .scene-card p,
-    .concept-card p,
-    .lesson-card p {
-      margin: 0 0 0.8rem;
-    }
-
+    .lesson-summary p { margin: 0 0 .75rem; }
     .scene-card p:last-child,
-    .concept-card p:last-child,
-    .lesson-card p:last-child {
-      margin-bottom: 0;
-    }
+    .lesson-summary p:last-child { margin-bottom: 0; }
 
-    .relation-grid {
+    .role-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 1.2rem;
+      gap: .8rem;
+      margin: 1.1rem 0;
     }
-
-    .relation-card {
-      min-width: 0;
+    .role-card {
       padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
       background: #fff;
     }
-
-    .relation-card__label {
-      margin: 0 0 0.35rem;
-      color: var(--color-accent-dark);
-      font-size: 0.9rem;
+    .role-card span {
+      display: block;
+      margin-bottom: .35rem;
+      font-size: .76rem;
       font-weight: 700;
+      letter-spacing: .06em;
+      color: #776e62;
     }
-
-    .relation-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .relation-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1.2rem;
-      padding: 0.9rem 1rem;
-      border: 1px dashed rgba(95, 114, 82, 0.35);
-      border-radius: 12px;
-      background: rgba(238, 242, 234, 0.45);
-      color: var(--color-accent-dark);
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .relation-line__arrow {
-      color: var(--color-muted);
-      font-weight: 400;
-    }
+    .role-card h3 { margin: 0 0 .4rem; font-size: 1.04rem; }
+    .role-card p { margin: 0; }
 
     .decision-flow {
       display: grid;
-      gap: 12px;
-      margin-top: 1.2rem;
-      counter-reset: decision-step;
+      gap: .95rem;
+      margin: 1.2rem 0;
     }
-
-    .decision-step {
+    .decision-card {
       position: relative;
-      padding: 1rem 1.1rem 1rem 3.7rem;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
+      padding: 1.05rem 1.15rem;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
       background: #fff;
     }
-
-    .decision-step::before {
-      counter-increment: decision-step;
-      content: counter(decision-step);
+    .decision-card + .decision-card { margin-top: .5rem; }
+    .decision-card + .decision-card::before {
+      content: "↓";
       position: absolute;
-      top: 1rem;
-      left: 1rem;
-      display: grid;
-      width: 2rem;
-      height: 2rem;
-      place-items: center;
-      border-radius: 999px;
-      background: var(--color-accent);
-      color: #fffdf8;
-      font-size: 0.84rem;
+      top: -1.45rem;
+      left: 50%;
+      transform: translateX(-50%);
       font-weight: 700;
+      color: #8a755d;
     }
-
-    .decision-step h3 {
-      margin: 0 0 0.35rem;
-      color: var(--color-accent-dark);
-      font-size: 1.03rem;
-    }
-
-    .decision-step p {
-      margin: 0;
-    }
-
-    .decision-arrow {
-      color: var(--color-accent);
-      font-size: 1.2rem;
+    .decision-card__number {
+      display: inline-block;
+      margin-right: .45rem;
+      font-size: .78rem;
       font-weight: 700;
-      line-height: 1;
-      text-align: center;
+      color: #776e62;
     }
+    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
+    .decision-card p { margin: .55rem 0 0; }
 
-    .split-check {
+    .two-stage {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 1.2rem;
+      gap: .9rem;
+      margin: 1.1rem 0;
     }
-
-    .split-check > div {
-      min-width: 0;
+    .stage-card {
       padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
+      border: 1px solid var(--line, #d9d3c8);
+      border-radius: 14px;
       background: #fff;
     }
+    .stage-card strong { display: block; margin-bottom: .4rem; }
+    .stage-card p { margin: 0; }
 
-    .split-check h3 {
-      margin-bottom: 0.4rem;
-      color: var(--color-accent-dark);
-      font-size: 1rem;
+    .concept-note {
+      margin: 1rem 0;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: #f3efe7;
     }
-
-    .split-check p {
-      margin: 0;
-    }
-
-    .term-structure {
-      display: grid;
-      gap: 8px;
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid rgba(95, 114, 82, 0.24);
-      border-radius: 12px;
-      background: rgba(255, 253, 248, 0.72);
-      text-align: center;
-    }
-
-    .term-structure strong {
-      color: var(--color-accent-dark);
-    }
-
-    .lesson-flow {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      align-items: center;
-      margin-top: 1rem;
-      color: var(--color-accent-dark);
-      font-weight: 700;
-    }
-
-    .lesson-flow span {
-      padding: 0.35rem 0.6rem;
-      border: 1px solid rgba(95, 114, 82, 0.24);
-      border-radius: 999px;
-      background: rgba(238, 242, 234, 0.72);
-    }
-
-    .lesson-flow b {
-      color: var(--color-muted);
-      font-weight: 400;
-    }
+    .concept-note p { margin: 0 0 .65rem; }
+    .concept-note p:last-child { margin-bottom: 0; }
 
     @media (max-width: 720px) {
-      .relation-grid,
-      .split-check {
-        grid-template-columns: 1fr;
-      }
-
-      .relation-line,
-      .lesson-flow {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .relation-line__arrow,
-      .lesson-flow b {
-        transform: rotate(90deg);
-        align-self: center;
-      }
-
-      .decision-step {
-        padding: 3.5rem 1rem 1rem;
-      }
-
-      .decision-step::before {
-        top: 0.9rem;
-        left: 1rem;
-      }
+      .role-grid,
+      .two-stage { grid-template-columns: 1fr; }
+      .step-heading { margin-top: 1.8rem; }
+      .decision-card { padding: 1rem; }
     }
   </style>
 </head>
@@ -273,179 +143,134 @@
   <main>
     <section class="page-hero">
       <div class="container hero-inner">
-        <p class="site-kicker">ストラテジ系 / 経営戦略</p>
-        <h1>将来が分からないとき、どの結果を見て戦略を選ぶのか</h1>
-        <p class="page-description">複数の戦略があり、将来の状況によって結果が変わる。そんな場面で、どの事実を拾い、何を比べれば戦略を選べるのかを順番に整理します。</p>
+        <p class="site-kicker">ストラテジ系 / 企業活動</p>
+        <h1>戦略を選ぶ値と、選んだ後に見る値は同じ？</h1>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>将来が分からないとき、どの結果を見て戦略を選ぶのか</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
-
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 1</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
             <h2>まず、何が起きているか見る</h2>
-            <p>将来の状況が決まっていない中で、複数の戦略から一つを選ぶ場面を確認する。</p>
           </div>
 
-          <section class="detail-section" id="scene">
-            <h2>同じ戦略でも、将来の状況によって結果が変わる</h2>
+          <section class="detail-section" id="situation">
+            <h2>戦略を選んだあと、さらに特定の状況での結果を聞かれている</h2>
             <div class="scene-card">
-              <p>ある会社が、複数の投資戦略から一つを選ぼうとしている。</p>
-              <p>一方、将来の市況にも複数の可能性があり、どの状況になるかは戦略を選ぶ時点では決まっていない。</p>
-              <p>そのため、一つの戦略でも、市況によって得られる利益は変わる。</p>
+              <p>複数の戦略があり、それぞれ将来の状況によって結果が変わる。</p>
+              <p>まず一定の基準で戦略を一つ選び、そのうえで、指定された状況になったときの結果を確認する場面である。</p>
             </div>
-            <div class="relation-line" aria-label="戦略と状況と結果の関係">
-              <span>戦略を選ぶ</span>
-              <span class="relation-line__arrow">→</span>
-              <span>将来の状況が起きる</span>
-              <span class="relation-line__arrow">→</span>
-              <span>組合せによって結果が決まる</span>
-            </div>
-            <p><strong>まず確認するのは、「どの戦略を選んだとき、どの状況で、どの結果になるのか」という組合せである。</strong></p>
+            <p>ここでは、<strong>戦略を決める計算</strong>と<strong>決めた後の結果を読む作業</strong>を同じものとして扱わないことが重要になる。</p>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 2</p>
-            <h2>関係するものを整理する</h2>
-            <p>会社が選べるもの、選ぶ時点では決められないもの、その組合せから生じるものを分ける。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>判断前に、三つのものを整理する</h2>
           </div>
 
           <section class="detail-section" id="relations">
-            <h2>判断に関係しているのは三つ</h2>
-            <div class="relation-grid">
-              <div class="relation-card">
-                <p class="relation-card__label">戦略</p>
-                <p>会社が複数の案から選ぶことのできる行動。</p>
+            <h2>選べるもの・起きるもの・その組合せで決まるもの</h2>
+            <div class="role-grid">
+              <div class="role-card">
+                <span>01</span>
+                <h3>戦略</h3>
+                <p>複数の案から自分で選ぶ対象。</p>
               </div>
-              <div class="relation-card">
-                <p class="relation-card__label">将来の状況</p>
-                <p>戦略を選ぶ時点では決まっていない条件。</p>
+              <div class="role-card">
+                <span>02</span>
+                <h3>将来の状況</h3>
+                <p>戦略を選ぶ時点では自分で決められない条件。</p>
               </div>
-              <div class="relation-card">
-                <p class="relation-card__label">結果</p>
-                <p>選んだ戦略と、実際に起きた状況の組合せによって変わるもの。</p>
+              <div class="role-card">
+                <span>03</span>
+                <h3>結果</h3>
+                <p>選んだ戦略と、起きた状況の組合せで決まる値。</p>
               </div>
-            </div>
-            <div class="lesson-card">
-              <p><strong>会社が選べるのは戦略であり、将来の状況そのものではない。</strong></p>
-              <p>そこで、将来の状況が一つに決まっていなくても戦略を選べるように、どの結果を基準にするかを定める必要がある。</p>
             </div>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 3</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
             <h2>判断に必要な手掛かりを順番に確認する</h2>
-            <p>ここからは、戦略を選ぶために何を見るのかを上から順にたどる。</p>
           </div>
 
           <section class="detail-section" id="decision-flow">
-            <h2>どの値を取り出し、何と何を比べるのか</h2>
+            <h2>一度選んでから、もう一度表を見る</h2>
             <div class="decision-flow">
-              <div class="decision-step">
-                <h3>それぞれの戦略で、起こり得る結果を確認する</h3>
-                <p>一つの戦略について、将来の状況ごとにどのような結果になるかを見る。</p>
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>戦略ごとに、基準に使う値を取り出す</h3>
+                <p>問題文で示された選択基準に従い、それぞれの戦略から比較に使う値を一つずつ取り出す。</p>
               </div>
-              <div class="decision-arrow" aria-hidden="true">↓</div>
-              <div class="decision-step">
-                <h3>戦略ごとに、最も小さい結果を一つ取り出す</h3>
-                <p>その戦略を選んだときに起こり得る結果の中から、最小の結果を確認する。</p>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>取り出した値を比べて、戦略を一つ決める</h3>
+                <p>この段階で決めるのは「どの戦略を採るか」であり、まだ最終的に聞かれている結果を答える段階ではない。</p>
               </div>
-              <div class="decision-arrow" aria-hidden="true">↓</div>
-              <div class="decision-step">
-                <h3>取り出した最小の結果どうしを比べる</h3>
-                <p>比較するのは、すべての結果ではなく、それぞれの戦略から一つずつ取り出した最小の結果である。</p>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>問題が指定している将来の状況を確認する</h3>
+                <p>戦略を決めたあと、どの状況での結果を求められているのかを読み直す。</p>
               </div>
-              <div class="decision-arrow" aria-hidden="true">↓</div>
-              <div class="decision-step">
-                <h3>最小の結果が最も大きい戦略を選ぶ</h3>
-                <p>最も厳しい状況になった場合でも、結果がより大きく残る戦略を選ぶ。</p>
+              <div class="decision-card">
+                <span class="decision-card__number">04</span><h3>選んだ戦略と指定された状況が交わる値を見る</h3>
+                <p>最後に表へ戻り、選択済みの戦略と指定された状況の組合せから結果を読む。</p>
               </div>
             </div>
 
-            <div class="lesson-card">
-              <p><strong>判断の基準は、「各戦略で最も小さい結果を確認し、その最小結果の中で最も大きいものを持つ戦略を選ぶ」である。</strong></p>
+            <div class="two-stage">
+              <div class="stage-card">
+                <strong>前半：戦略を選ぶ</strong>
+                <p>問題文で示された基準を使って、複数の戦略から一つを決める。</p>
+              </div>
+              <div class="stage-card">
+                <strong>後半：結果を読む</strong>
+                <p>決めた戦略について、問題が指定した状況の結果を確認する。</p>
+              </div>
             </div>
           </section>
 
-          <section class="detail-section" id="after-choice">
-            <h2>戦略を選ぶ判断と、その後の結果を分ける</h2>
-            <p>戦略を決めるときに使う値と、戦略を選んだあとに特定の状況で得られる結果は、確認する段階が異なる。</p>
-            <div class="split-check">
-              <div>
-                <h3>戦略を選ぶとき</h3>
-                <p>各戦略の最小の結果を取り出し、最小結果どうしを比べる。</p>
-              </div>
-              <div>
-                <h3>選んだ後の結果を見るとき</h3>
-                <p>選んだ戦略と、実際に起きた状況の組合せから結果を確認する。</p>
-              </div>
-            </div>
-            <p><strong>「戦略を決めるために見る値」と「選んだ戦略で特定の状況になったときの結果」を分けて考える。</strong></p>
-          </section>
-
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 4</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
             <h2>ここまで確認した考え方に名前を付ける</h2>
-            <p>先に判断の仕組みを確認し、その仕組みに付いている用語をここで結び付ける。</p>
           </div>
 
           <section class="detail-section" id="concept">
-            <h2>最小の結果を比べ、その中で最も大きいものを選ぶ</h2>
-            <div class="concept-card">
-              <p>各戦略で起こり得る結果の<strong>最小値</strong>を確認し、その最小値どうしを比べて、<strong>最も大きいものを持つ戦略</strong>を選ぶ。</p>
-              <p>この意思決定の方法を、<strong>マクシミン戦略</strong>という。</p>
+            <h2>最も厳しい結果を基準にして戦略を比べる考え方</h2>
+            <div class="concept-note">
+              <p>各戦略について起こり得る結果のうち<strong>最小の結果</strong>を取り出し、その最小結果どうしを比べる考え方を<strong>マクシミン戦略</strong>という。</p>
+              <p>ただし、マクシミン戦略で使った最小値が、そのまま問題の最終回答になるとは限らない。戦略を決めたあとに、指定された状況の結果を別に確認する。</p>
             </div>
-            <div class="term-structure">
-              <div><strong>minimum</strong>：各戦略の最小値を確認する</div>
-              <div>↓</div>
-              <div><strong>maximum</strong>：その最小値の中から最大のものを選ぶ</div>
-            </div>
-            <p>用語だけを覚えるのではなく、<strong>どの値を取り出し、何と何を比べる考え方なのか</strong>を結び付けて理解する。</p>
           </section>
 
-          <div class="learning-phase">
-            <p class="learning-phase__label">STEP 5</p>
-            <h2>この出来事から残せる学習要点を整理する</h2>
-            <p>投資や市況という今回の設定から離れ、別の場面でも使える判断の形として残す。</p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この内容から残せる学習要点</h2>
           </div>
 
           <section class="detail-section" id="lesson">
-            <h2>不確実な状況では、何を基準に選ぶかを確認する</h2>
-            <div class="lesson-card">
-              <p>将来どの状況になるか分からず、選択肢によって結果が変わる場合には、まず<strong>意思決定の基準</strong>を確認する。</p>
-              <p>マクシミン戦略では、それぞれの選択肢について最小の結果を確認し、その最小結果どうしを比べ、最も大きい結果を持つ選択肢を採る。</p>
-              <div class="lesson-flow" aria-label="学習要点の判断の流れ">
-                <span>選択肢ごとの結果を確認</span>
-                <b>→</b>
-                <span>最小結果を取り出す</span>
-                <b>→</b>
-                <span>最小結果どうしを比較</span>
-                <b>→</b>
-                <span>最も大きいものを持つ選択肢を採る</span>
-              </div>
-              <p><strong>さらに、選択肢を決めるために使う値と、選択後に特定の状況で得られる結果は別に確認する。</strong></p>
+            <h2>「選ぶための値」と「答える値」を分ける</h2>
+            <div class="lesson-summary">
+              <p>表を使う意思決定問題では、最初に<strong>何を決めるための計算なのか</strong>を確認する。</p>
+              <p>戦略を決めるために使った値と、その戦略を選んだあと特定の状況で得られる値は、役割が異なる。</p>
+              <p><strong>基準で戦略を選ぶ → 指定された状況を確認する → 表の交点から結果を読む</strong>という順序を分けて考える。</p>
             </div>
           </section>
 
           <section class="detail-section" id="related">
             <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
             <div class="tag-list">
-              <span class="tag">マクシミン戦略</span>
               <span class="tag">意思決定</span>
-              <span class="tag">経営戦略</span>
+              <span class="tag">マクシミン戦略</span>
+              <span class="tag">企業活動</span>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問3</p>
-            <p>このページは、上記の公開問題を起点に、そこから残せる判断材料と学習要点を整理したものです。問題文・選択肢・正解は掲載していません。</p>
+            <p>このページは、上記の公開問題を起点に、問題を判断するときの見方を学習要点として整理したものです。問題文・表の数値・選択肢・正解は掲載していません。</p>
           </section>
         </article>
       </div>
