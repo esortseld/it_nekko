@@ -3,9 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>調達から販売までを一つの流れで管理する | ITネッコ</title>
-  <meta name="description" content="SCMについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="調達から販売までを一つの流れで管理する | ITネッコ"><meta property="og:description" content="原材料の調達、生産、物流、販売までの供給の流れを全体最適で管理する考え方を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>購買・製造・販売。別々に良くすれば、それで全体も良くなる？ | ITネッコ</title>
+  <meta name="description" content="資材を仕入れて、作って、売るまでの流れについて、どこまでを一つの管理対象として見ているのかを順番に確認します。">
+  <meta property="og:title" content="購買・製造・販売。別々に良くすれば、それで全体も良くなる？ | ITネッコ">
+  <meta property="og:description" content="購買・製造・販売のつながりと、プロセス全体を最適化する判断の流れを整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .page-hero h1,.page-description{overflow-wrap:anywhere}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .chain-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.7rem;margin:1rem 0}
+    .chain-card{min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface);text-align:center}.chain-arrow{font-weight:700;color:var(--color-accent)}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .7rem;font-size:1.1rem}.term-card p{margin:.5rem 0 0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.chain-flow{grid-template-columns:1fr}.chain-arrow{text-align:center;transform:rotate(90deg)}.case-lead,.chain-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -18,120 +41,78 @@
   <main>
     <section class="page-hero">
       <div class="container hero-inner">
-        <p class="site-kicker">ストラテジ系 / システム戦略・業務システム</p>
-        <div class="topic-heading-meta"><span class="question-badge">問33</span><span class="term-label">SCM</span></div><h1>調達から販売までを一つの流れで管理する</h1>
-        <p class="page-description">原材料の調達、生産、物流、販売までの供給の流れを全体最適で管理する考え方を整理します。</p>
+        <p class="site-kicker">ストラテジ系 / 経営戦略</p>
+        <h1>購買・製造・販売。別々に良くすれば、それで全体も良くなる？</h1>
+        <p class="page-description">資材を仕入れて、作って、売るまでの流れについて、どこまでを一つの管理対象として見ているのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>調達から販売までを一つの流れで管理する</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>購買・製造・販売。別々に良くすれば、それで全体も良くなる？</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              商品やサービスは、原材料の調達、生産、在庫、物流、販売など、複数の工程を通って顧客に届きます。
-            </p>
-            <p>
-              どこか一部だけを最適化しても、在庫過多、欠品、納期遅延、コスト増加が起きることがあります。そこで、供給の流れ全体を一つの連鎖として管理します。
-            </p>
-          </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              SCMとは、Supply Chain Management の略で、調達から生産、販売、消費者までの供給の流れを全体最適で管理する考え方です。
-            </p>
-            <p>
-              試験では、「供給の連鎖を管理する」「在庫や物流を含めて全体を最適化する」と押さえます。
-            </p>
-          </section>
-
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>SCMの構造を確認する</span></h2>
-            <p>
-              SCMでは、企業内の一部門だけでなく、取引先や顧客まで含めた流れを見ます。
-            </p>
-            <ul>
-              <li>調達：原材料や部品を仕入れる。</li>
-              <li>生産：製品を作る。</li>
-              <li>物流・在庫：必要な場所へ、必要な量を届ける。</li>
-              <li>販売・消費者：需要を把握し、供給計画へ反映する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              SCMかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>調達、生産、販売、物流などの流れを扱っている。</li>
-              <li>個別部門ではなく、供給の流れ全体を管理している。</li>
-              <li>在庫削減、納期短縮、需要変動への対応などを目的としている。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい業務システムを分ける</span></h2>
-            <ul>
-              <li>SCM：調達から販売までの供給の流れを管理する。</li>
-              <li>CRM：顧客情報を管理し、顧客との関係を強化する。</li>
-              <li>POS：販売時点の情報を収集・管理する。</li>
-              <li>SFA：営業活動を支援・管理する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>SCMは、Supply Chain Management の略である。</li>
-              <li>調達、生産、物流、販売、消費者までの流れを管理する。</li>
-              <li>部分最適ではなく、供給の流れ全体の最適化を目指す。</li>
-              <li>試験では、CRM、POS、SFAとの違いを整理する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：サプライチェーンは供給のつながり</h2>
-            <p>
-              サプライチェーンは、原材料や部品が製品となり、販売を通じて消費者へ届くまでの一連のつながりです。
-            </p>
-            <p>
-              SCMでは、このつながり全体を見て、需要に合わせた生産や在庫、物流を調整します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <div class="related-list">
-              <a href="../lean-production-muda/">リーン生産方式のムダとは何か</a>
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、何が起きているか見る</h2></div>
+          <section class="detail-section" id="situation">
+            <h2>購買・製造・販売という複数の業務がつながっている</h2>
+            <div class="case-lead">
+              <p>資材を仕入れる購買、製品を作る製造、顧客へ売る販売がある。</p>
+              <p>それぞれ別の業務だが、供給者から消費者までの一連の流れとして前後につながっている。</p>
+              <p>ここで確認するのは、<strong>どこまでを一つの管理対象として見ているか</strong>である。</p>
             </div>
-            <div class="tag-list">
-              <span class="tag">SCM</span>
-              <span class="tag">サプライチェーン</span>
-              <span class="tag">業務システム</span>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>購買・製造・販売のつながりを整理する</h2></div>
+          <section class="detail-section" id="chain">
+            <div class="chain-flow">
+              <div class="chain-card"><strong>購買</strong><p>資材を調達する</p></div>
+              <div class="chain-arrow">→</div>
+              <div class="chain-card"><strong>製造</strong><p>製品を作る</p></div>
+              <div class="chain-arrow">→</div>
+              <div class="chain-card"><strong>販売</strong><p>顧客へ販売する</p></div>
+            </div>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>判断に必要な手掛かりを順番に確認する</h2></div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card"><span class="decision-card__number">01</span><h3>複数の業務がある</h3><p>購買・製造・販売という別々の工程が存在する。</p></div>
+              <div class="decision-card"><span class="decision-card__number">02</span><h3>それらが一連の流れとしてつながっている</h3><p>供給者から消費者まで、前後の工程が続いている。</p></div>
+              <div class="decision-card"><span class="decision-card__number">03</span><h3>管理する範囲を確認する</h3><p>一つの工程だけを見るのか、つながった流れ全体を見るのかを確認する。</p></div>
+              <div class="decision-card decision-card--key"><span class="decision-card__number">04</span><h3>資材調達から顧客への販売までをまとめて管理する</h3><p>管理対象が、購買・製造・販売をまたいだ一連のプロセス全体に広がっている。</p></div>
+              <div class="decision-card"><span class="decision-card__number">05</span><h3>在庫などの無駄を、工程ごとではなく全体で減らす</h3><p>一部だけを良くするのではなく、つながった業務全体で無駄を減らそうとしている。</p></div>
+              <div class="decision-card decision-card--key"><span class="decision-card__number">06</span><h3>プロセス全体を最適化する仕組みだと分かる</h3><p>判断の対象は、個別工程の効率化ではなく、供給の流れ全体の最適化である。</p></div>
+            </div>
+            <div class="decision-conclusion"><p><strong>判断の中心は、供給者から消費者までの一連の業務をまとめて管理し、全体最適を図っていること</strong>にある。</p></div>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>ここまで確認した管理の仕組みに名前を付ける</h2></div>
+          <section class="detail-section" id="term">
+            <div class="term-card"><h3>SCM（サプライチェーンマネジメント）</h3><p>購買・製造・販売など、供給者から消費者までを結ぶ一連の業務をまとめて管理し、プロセス全体を最適化する仕組みをSCMと呼ぶ。</p></div>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 5</p><h2>この出来事から残せる学習要点</h2></div>
+          <section class="detail-section" id="lesson">
+            <h2>複数工程では、工程間のつながりと全体最適を見る</h2>
+            <div class="lesson-summary">
+              <p>一つの工程だけが効率化されても、前後の工程を含む全体が良くなるとは限らない。</p>
+              <p><strong>複数の工程がつながる業務では、「どこまでを一つの流れとして管理しているか」と「全体として何を最適化しているか」を確認する。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問33</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
