@@ -3,9 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ソフトを所有せずサービスとして使う仕組み | ITネッコ</title>
-  <meta name="description" content="ASPについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="ソフトを所有せずサービスとして使う仕組み | ITネッコ"><meta property="og:description" content="アプリケーションを自社で所有・運用せず、ネットワーク経由でサービスとして利用する形を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>このアプリは、どこにあって、どう届く？ | ITネッコ</title>
+  <meta name="description" content="利用者が使うアプリケーションがどこに置かれ、どの経路で提供されているのかを順番にたどります。">
+  <meta property="og:title" content="このアプリは、どこにあって、どう届く？ | ITネッコ">
+  <meta property="og:description" content="提供対象・置き場所・提供経路を順番に確認し、サービス形態の仕組みを判断します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
+    .relation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;margin:1rem 0}
+    .relation-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .relation-card:not(:last-child)::after{content:"→";position:absolute;right:-1.05rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--color-accent)}
+    .relation-card strong{display:block;margin-bottom:.45rem}.relation-card p{margin:0}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}
+    .decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .6rem;font-size:1.1rem}.term-card p{margin:0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.relation-grid{grid-template-columns:1fr;gap:1.8rem}.relation-card:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.55rem;transform:translateX(-50%)}.case-lead,.relation-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,117 +44,102 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム戦略・ITサービス</p>
-        <div class="topic-heading-meta"><span class="question-badge">問19</span><span class="term-label">ASP</span></div><h1>ソフトを所有せずサービスとして使う仕組み</h1>
-        <p class="page-description">アプリケーションを自社で所有・運用せず、ネットワーク経由でサービスとして利用する形を整理します。</p>
+        <h1>このアプリは、どこにあって、どう届く？</h1>
+        <p class="page-description">利用者が使うアプリケーションがどこに置かれ、どの経路で提供されているのかを順番にたどります。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>ソフトを所有せずサービスとして使う仕組み</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>アプリの置き場所と提供経路を見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              会社で業務システムを使うとき、自社のPCやサーバにアプリケーションを導入して管理する方法があります。
-            </p>
-            <p>
-              一方で、サービス提供事業者が用意したアプリケーションを、利用者がインターネット経由で使う方法もあります。自社でソフトウェアを所有・管理する負担を減らせる点が特徴です。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>利用者へアプリケーションを提供している</h2>
+            <div class="case-lead">
+              <p>ある事業者が、利用者にアプリケーションソフトウェアを提供している。</p>
+              <p>ここで判断に必要なのは、<strong>何を提供し、それがどこにあり、どの経路で利用者へ届くのか</strong>である。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              ASPとは、Application Service Provider の略で、アプリケーションソフトウェアをインターネット経由で提供する事業者やサービス形態を指します。
-            </p>
-            <p>
-              試験では、「アプリケーションを提供事業者側で用意し、利用者がネットワーク経由で使うサービス」と押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>アプリケーションと利用者の間を整理する</h2>
+          </div>
+          <section class="detail-section" id="relation">
+            <h2>サーバ上のアプリケーションから、利用者まで</h2>
+            <div class="relation-grid">
+              <div class="relation-card"><strong>サーバ上</strong><p>アプリケーションソフトウェアが置かれている。</p></div>
+              <div class="relation-card"><strong>インターネット</strong><p>アプリケーションを利用者へ届ける経路になる。</p></div>
+              <div class="relation-card"><strong>利用者</strong><p>インターネット経由で提供されたアプリケーションを利用する。</p></div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>ASPの構造を確認する</span></h2>
-            <p>
-              ASPでは、アプリケーションそのものは提供事業者側で管理され、利用者は必要な機能をネットワーク経由で利用します。
-            </p>
-            <ul>
-              <li>提供事業者：アプリケーションやサーバ環境を用意する。</li>
-              <li>利用者：ブラウザや専用画面などからサービスを利用する。</li>
-              <li>ネットワーク：インターネットなどを通じてアプリケーションへ接続する。</li>
-              <li>利用形態：自社でソフトウェアを導入・運用せず、サービスとして使う。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>提供対象・置き場所・提供経路を、一つずつ確認する。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この三つ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>何を提供している？</h3>
+                <p>提供されているのは、<strong>アプリケーションソフトウェア</strong>である。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>そのアプリケーションは、どこにある？</h3>
+                <p>利用者側ではなく、<strong>サーバ上にインストールされている</strong>。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>利用者へ、どう届けている？</h3>
+                <p><strong>インターネット経由で利用者へ提供している</strong>。</p>
+              </div>
+            </div>
+            <div class="decision-conclusion"><p><strong>サーバ上のアプリケーションソフトウェアを、インターネット経由で利用者へ提供する仕組み</strong>だと分かる。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              ASPかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>対象がアプリケーションソフトウェアである。</li>
-              <li>提供事業者側でアプリケーションを管理している。</li>
-              <li>利用者がインターネット経由でその機能を使っている。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した仕組みに名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>この提供の仕組みに付く名前</h2>
+            <div class="term-card">
+              <h3>ASP（Application Service Provider）</h3>
+              <p>ここまで確認した、サーバ上のアプリケーションソフトウェアをインターネット経由で利用者へ提供する事業者、またはそのサービス形態には、ASPという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい用語を分ける</span></h2>
-            <ul>
-              <li>ASP：アプリケーションソフトウェアをインターネット経由で提供するサービス。</li>
-              <li>ISP：インターネット接続サービスを提供する事業者。</li>
-              <li>アウトソーシング：業務やシステム運用などを外部委託すること。</li>
-              <li>データウェアハウス：分析のためにデータを蓄積する仕組み。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>ASPは、Application Service Provider の略である。</li>
-              <li>アプリケーションをインターネット経由で利用するサービス形態である。</li>
-              <li>アプリケーションは提供事業者側で用意・管理される。</li>
-              <li>試験では、インターネット接続サービスや外部委託と区別する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：ソフトを持つのではなく使う</h2>
-            <p>
-              ASPでは、利用者がアプリケーションを自社で導入して保有するのではなく、提供されている機能をサービスとして利用します。
-            </p>
-            <p>
-              そのため、利用者側の導入作業や運用管理の負担を減らしやすい一方で、提供事業者やネットワークへの依存も考える必要があります。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">ASP</span>
-              <span class="tag">ITサービス</span>
-              <span class="tag">システム戦略</span>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>サービス形態は、「何を・どこから・どう届けるか」で見る</h2>
+            <div class="lesson-summary">
+              <p>サービスの名称を判断するときは、名前を先に思い出そうとしない。</p>
+              <p><strong>何が提供されているか、どこに置かれているか、どの経路で利用者へ届くか</strong>を分けて確認する。</p>
+              <p><strong>提供対象・置き場所・提供経路の組合せを見ると、サービスの仕組みを事実からたどれる。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問19</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
