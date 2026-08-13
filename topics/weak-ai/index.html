@@ -3,9 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>特定の目的に特化したAIを見分ける | ITネッコ</title>
-  <meta name="description" content="弱いAIについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="特定の目的に特化したAIを見分ける | ITネッコ"><meta property="og:description" content="特定の作業や目的に特化して能力を発揮するAIを、汎用的な知能と区別して整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>結果を出せるなら、「理解して考えている」ことになる？ | ITネッコ</title>
+  <meta name="description" content="AIが判断結果を示していることと、人間のように質問の意味を理解して考えていることが同じなのかを順番に確認します。">
+  <meta property="og:title" content="結果を出せるなら、『理解して考えている』ことになる？ | ITネッコ">
+  <meta property="og:description" content="AIの出力能力と、意味を理解して考えていることを分けて確認します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .state-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.9rem;margin:1rem 0}
+    .state-card{min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .state-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .state-card strong{display:block;margin-bottom:.55rem}.state-card p{margin:.45rem 0 0}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .7rem;font-size:1.1rem}.term-card p{margin:.5rem 0 0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.state-grid{grid-template-columns:1fr}.case-lead,.state-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,120 +43,73 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / AI活用</p>
-        <div class="topic-heading-meta"><span class="question-badge">問27</span><span class="term-label">弱いAI</span></div><h1>特定の目的に特化したAIを見分ける</h1>
-        <p class="page-description">特定の作業や目的に特化して能力を発揮するAIを、汎用的な知能と区別して整理します。</p>
+        <h1>結果を出せるなら、「理解して考えている」ことになる？</h1>
+        <p class="page-description">AIが判断結果を示している場面で、そのことと、人間のように質問の意味を理解して考えていることが同じなのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>特定の目的に特化したAIを見分ける</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>結果と理解を分けて見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              AIには、画像を分類する、音声を認識する、文章を生成する、商品の推薦をするなど、特定の目的に合わせて使われるものがあります。
-            </p>
-            <p>
-              これらは高い性能を示すことがありますが、人間のように意味を理解し、幅広い状況に自律的に対応しているとは限りません。
-            </p>
-          </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              弱いAIとは、特定の目的や作業に特化して処理を行い、判断結果を示すAIです。
-            </p>
-            <p>
-              試験では、「人間のように意味を理解しているわけではないが、特定の課題では有用な結果を出すAI」と押さえます。
-            </p>
-          </section>
-
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>弱いAIの構造を確認する</span></h2>
-            <p>
-              弱いAIは、目的や範囲が限定されたAIです。人間の知能全体を再現するのではなく、決められた課題に対して処理を行います。
-            </p>
-            <ul>
-              <li>対象範囲：画像認識、音声認識、翻訳、推薦など特定の作業。</li>
-              <li>処理内容：学習データやルールに基づいて結果を出す。</li>
-              <li>限界：人間のように意味や意図を広く理解しているわけではない。</li>
-              <li>特徴：目的が限定されている分、実用化されやすい。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              弱いAIかどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>特定の目的や作業に限定されている。</li>
-              <li>入力に対して処理や判断結果を示している。</li>
-              <li>人間のような汎用的な理解や自律的思考を前提としていない。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすいAIの考え方を分ける</span></h2>
-            <ul>
-              <li>弱いAI：特定の作業に特化して処理を行うAI。</li>
-              <li>強いAI：人間のように意味を理解し、幅広く思考できるAIとして説明される考え方。</li>
-              <li>汎用AI：特定分野に限らず、広い課題に対応するAIとして説明される考え方。</li>
-              <li>自律的に何でも判断できるAI：弱いAIの説明としては不適切である。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>弱いAIは、特定の目的や作業に特化したAIである。</li>
-              <li>画像認識、翻訳、推薦など、限定された課題で使われる。</li>
-              <li>人間のように意味を理解しているとは限らない。</li>
-              <li>試験では、強いAIや汎用AIとの違いを整理する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：実用化されているAIの多くは弱いAI</h2>
-            <p>
-              現在使われているAIの多くは、特定の目的に合わせて設計されています。
-            </p>
-            <p>
-              高い精度で結果を出す場合でも、それは決められた範囲の課題に対する処理であり、人間と同じような理解や意識をもつという意味ではありません。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <div class="related-list">
-              <a href="../responsible-ai-use/">AI利活用で注意すること</a>
-              <a href="../annotation-supervised-learning/">アノテーションとは何か</a>
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、何が起きているか見る</h2></div>
+          <section class="detail-section" id="situation">
+            <h2>AIが、ある課題について判断結果を示している</h2>
+            <div class="case-lead">
+              <p>AIに質問や課題を与えると、判断の結果が返ってくる。</p>
+              <p>ここで確認したいのは、<strong>結果を出せることと、人間のように質問の意味を理解して考えていることが同じなのか</strong>という点である。</p>
             </div>
-            <div class="tag-list">
-              <span class="tag">弱いAI</span>
-              <span class="tag">AI活用</span>
-              <span class="tag">人工知能</span>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>二つのことを分けて整理する</h2></div>
+          <section class="detail-section" id="states">
+            <h2>「結果を出す」と「意味を理解して考える」は別に確認する</h2>
+            <div class="state-grid">
+              <div class="state-card"><strong>結果を出せる</strong><p>ある課題について、AIが判断結果を示している。</p></div>
+              <div class="state-card state-card--key"><strong>意味を理解して考えているか</strong><p>人間のように質問そのものの意味を理解し、考えているかは別の確認事項である。</p></div>
+            </div>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>判断に必要な手掛かりを順番に確認する</h2></div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card"><span class="decision-card__number">01</span><h3>まず、判断結果を示せることを確認する</h3><p>AIは、与えられた課題について結果を返している。</p></div>
+              <div class="decision-card"><span class="decision-card__number">02</span><h3>次に、意味を理解して考えているかを見る</h3><p>結果が出ていることだけでは、人間のような意味理解や思考があるとは決まらない。</p></div>
+              <div class="decision-card decision-card--key"><span class="decision-card__number">03</span><h3>人間のように意味を理解して考えているわけではない</h3><p>今回の決定的な条件はここにある。</p></div>
+              <div class="decision-card"><span class="decision-card__number">04</span><h3>それでも、特定の課題について判断結果は示せる</h3><p>ここまでで、結果を出す能力と、人間のような意味理解・思考は同じではないと分かる。</p></div>
+            </div>
+            <div class="decision-conclusion"><p><strong>「結果を出せる」ことと「意味を理解して考えている」ことを分けて見る</strong>のが判断の中心になる。</p></div>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>ここまで確認したAIのあり方に名前を付ける</h2></div>
+          <section class="detail-section" id="term">
+            <h2>この関係に付く名前</h2>
+            <div class="term-card"><h3>弱いAI</h3><p>人間のように質問の意味を理解して考えているわけではないが、特定の課題について判断結果を示すことができるAIのあり方を、ここでは「弱いAI」と呼ぶ。</p></div>
+          </section>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 5</p><h2>この出来事から残せる学習要点</h2></div>
+          <section class="detail-section" id="lesson">
+            <h2>「何ができるか」と「どう理解しているか」を分けて見る</h2>
+            <div class="lesson-summary">
+              <p>外から見て適切な結果が出ていても、それだけで人間と同じように意味を理解し、考えているとは限らない。</p>
+              <p><strong>システムを判断するときは、出せる結果と、その背後にある理解・思考のあり方を分けて確認する。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問27</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
