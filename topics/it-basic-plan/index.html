@@ -3,36 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>同じITの話でも、いつ決めることかで分ける | ITネッコ</title>
-  <meta name="description" content="ITに関する事項を、項目名ではなく『いま何を決める段階か』と『どこまで具体的か』から考えるための判断の流れを整理します。">
-  <meta property="og:title" content="同じITの話でも、いつ決めることかで分ける | ITネッコ">
-  <meta property="og:description" content="ITに関する事項を、決める時点と情報の具体さから分類するための見方を整理します。">
+  <title>ITの話は、全体のどの高さで決めるのか | ITネッコ</title>
+  <meta name="description" content="ITに関する事項を、用語の暗記ではなく、組織の方針から個別の具体化・運用までの全体構造のどこで決める情報かという見方で整理します。">
+  <meta property="og:title" content="ITの話は、全体のどの高さで決めるのか | ITネッコ">
+  <meta property="og:description" content="ITに関する事項を、全体構造のどの高さで決める情報かという見方で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .page-hero h1,.page-description{overflow-wrap:anywhere}
-    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
     .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
     .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
     .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
     .case-lead p,.lesson-summary p{margin:0}
-    .stage-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0}
-    .stage-card{position:relative;min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
-    .stage-card strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark)}
-    .stage-card p{margin:0}
-    .stage-card+.stage-card::before{content:"→";position:absolute;left:-.62rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--color-accent)}
-    .decision-flow{display:grid;gap:.7rem;margin:1.2rem 0}
-    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
-    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
-    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
-    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
-    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
-    .boundary-note{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .hierarchy-map{display:grid;gap:.38rem;max-width:760px;margin:1.2rem auto}
+    .hierarchy-level{position:relative;min-width:0;padding:.9rem 1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface);text-align:center}
+    .hierarchy-level strong{display:block;color:var(--color-accent-dark);overflow-wrap:anywhere}
+    .hierarchy-level span{display:block;margin-top:.25rem;color:var(--color-muted);font-size:.9rem;overflow-wrap:anywhere}
+    .hierarchy-level--focus{border:2px solid var(--color-accent);background:var(--color-soft-green);box-shadow:var(--shadow-card)}
+    .hierarchy-arrow{text-align:center;color:var(--color-accent);font-weight:700;line-height:1}
+    .position-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1rem;margin:1.1rem 0}
+    .position-card{min-width:0;padding:1.05rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .position-card h3{margin:0 0 .45rem;font-size:1.02rem;color:var(--color-accent-dark)}
+    .position-card p{margin:0}
+    .position-card--key{border-color:var(--color-accent);background:var(--color-soft-green)}
+    .layer-ruler{display:grid;gap:.7rem;margin:1.15rem 0}
+    .ruler-row{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:1rem;align-items:start;padding:1rem 1.05rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .ruler-row strong{color:var(--color-accent-dark)}
+    .ruler-row p{margin:0}
+    .decision-questions{display:grid;gap:.7rem;margin:1.1rem 0}
+    .decision-question{position:relative;padding:.95rem 1rem .95rem 3rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:rgba(238,242,234,.55)}
+    .decision-question::before{position:absolute;left:1rem;top:.94rem;font-weight:700;color:var(--color-accent);content:attr(data-no)}
+    .decision-question p{margin:0}
+    .boundary-note{margin:1rem 0;padding:1rem 1.1rem;border:1px dashed rgba(95,114,82,.45);border-radius:12px;background:rgba(255,253,248,.72)}
     .boundary-note p{margin:0}
-    .position-line{display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap;margin:1rem 0;padding:1.05rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface);font-weight:700;color:var(--color-accent-dark)}
-    .position-line span[aria-hidden="true"]{color:var(--color-accent)}
-    .self-check{margin-top:1rem;padding:.95rem 1rem;border:1px dashed rgba(95,114,82,.45);border-radius:12px;background:rgba(238,242,234,.45)}
-    .self-check p{margin:0}
-    @media(max-width:720px){.stage-track{grid-template-columns:1fr}.stage-card+.stage-card::before{content:"↓";left:50%;top:-.7rem;transform:translateX(-50%)}.case-lead,.lesson-summary,.decision-card{padding-left:1rem;padding-right:1rem}.position-line{flex-direction:column}.position-line span[aria-hidden="true"]{transform:rotate(90deg)}}
+    .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
+    .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
+    .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
+    @media(max-width:720px){.case-lead,.lesson-summary,.position-card{padding-left:1rem;padding-right:1rem}.position-panel{grid-template-columns:1fr}.ruler-row{grid-template-columns:1fr;gap:.3rem}.hierarchy-level{padding:.85rem .8rem}.decision-question{padding-right:.85rem}}
   </style>
 </head>
 <body>
@@ -47,68 +54,79 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム戦略</p>
-        <h1>同じITの話でも、いつ決めることかで分ける</h1>
-        <p class="page-description">ITに関する事項がいくつも並ぶと、どれも計画に必要そうに見える。そんなときは、項目名から考えず、「いま何を決める段階か」と「その内容はどこまで具体的か」を順番に見る。</p>
+        <h1>ITの話は、全体のどの高さで決めるのか</h1>
+        <p class="page-description">ITに関する事項がいくつも並ぶと、どれも同じ計画に入りそうに見える。そんなときは、項目名から考える前に、組織の方向から実際の運用までの全体を置き、「その情報はどの高さで決めるものか」を見る。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>同じITの話でも、いつ決めることかで分ける</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>ITの話は、全体のどの高さで決めるのか</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、何が起きているか見る</h2></div>
-          <section class="detail-section" id="situation">
-            <h2>ITをどう使っていくか、上位の計画を立てようとしている</h2>
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、全体の地図を置く</h2></div>
+          <section class="detail-section" id="whole-map">
+            <h2>IT基本計画だけを切り出して見ない</h2>
             <div class="case-lead">
-              <p>組織が、ITをどう使っていくかについて上位の計画を立てようとしている。ここで見るのは、ITに関係する情報なら何でも同じ時点で決めるわけではない、ということだ。</p>
+              <p>最初に置くのは、IT基本計画ではない。その上には組織や事業の方向、それを受けたITの戦略があり、その下には個別の具体化や実現、さらに実際の運用・管理が続く。まず、この上下関係を一枚の地図として見る。</p>
+            </div>
+            <div class="hierarchy-map" aria-label="組織の方向から運用までの階層">
+              <div class="hierarchy-level"><strong>組織・事業の目的と方向</strong><span>何を実現したい組織なのか</span></div>
+              <div class="hierarchy-arrow" aria-hidden="true">↓</div>
+              <div class="hierarchy-level"><strong>ITをどう活かすかの戦略</strong><span>組織の方向をITの使い方へつなぐ</span></div>
+              <div class="hierarchy-arrow" aria-hidden="true">↓</div>
+              <div class="hierarchy-level hierarchy-level--focus"><strong>IT基本計画</strong><span>上位の戦略を受け、具体的な実現へつなぐ位置</span></div>
+              <div class="hierarchy-arrow" aria-hidden="true">↓</div>
+              <div class="hierarchy-level"><strong>個別の具体化・実現</strong><span>対象を絞り、必要な内容を詳しく決めていく</span></div>
+              <div class="hierarchy-arrow" aria-hidden="true">↓</div>
+              <div class="hierarchy-level"><strong>運用・管理</strong><span>実際に動かし続けるための扱いを決める</span></div>
             </div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>まず「いま何を決める段階か」を置く</h2></div>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>IT基本計画の「高さ」を見る</h2></div>
           <section class="detail-section" id="position">
-            <h2>段階が変わると、扱う情報の具体さも変わる</h2>
-            <div class="stage-track" aria-label="計画から運用までの位置関係">
-              <div class="stage-card"><strong>方向や前提を決めるところ</strong><p>この先の検討の土台になる情報を扱う。</p></div>
-              <div class="stage-card"><strong>内容を具体化していくところ</strong><p>実現する内容を、より具体的にしていく。</p></div>
-              <div class="stage-card"><strong>実際に動かした後を管理するところ</strong><p>稼働後に必要になる扱いや手順を考える。</p></div>
+            <h2>最上位でも、最も細かい段階でもない</h2>
+            <div class="position-panel">
+              <div class="position-card"><h3>上から受け取るもの</h3><p>組織がどこへ向かうのか、ITを何のために使うのかという、より大きな方向が先にある。</p></div>
+              <div class="position-card position-card--key"><h3>下へ渡していくもの</h3><p>その方向を受けて、後続の個別検討や実現がばらばらにならないよう、共通する考え方を具体化していく。</p></div>
             </div>
-            <p>まず現在地を置いてから、候補となる事項を見る。</p>
+            <p>つまり見るべきなのは、「ITに関係する内容か」ではなく、<strong>上位の戦略と下位の具体化の間に置く情報か</strong>という位置関係になる。</p>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>候補の「具体さ」を確かめる</h2></div>
-          <section class="detail-section" id="decision-flow">
-            <h2>項目名ではなく、この順番で見る</h2>
-            <div class="decision-flow">
-              <div class="decision-card"><span class="decision-card__number">01</span><h3>現在地を確認する</h3><p>いま、何を決めようとしている段階なのかを先に置く。</p></div>
-              <div class="decision-card"><span class="decision-card__number">02</span><h3>候補事項が何を決める情報かを見る</h3><p>その項目が扱っている内容そのものを確認する。</p></div>
-              <div class="decision-card decision-card--key"><span class="decision-card__number">03</span><h3>決める時点と、情報の具体さを照らし合わせる</h3><p>方向・前提の粒度なのか、さらに具体化した内容なのか、実際に動かした後の手順なのかを確かめる。</p></div>
-              <div class="decision-card"><span class="decision-card__number">04</span><h3>いまの段階で扱う内容かを判定する</h3><p>ここまでの物差しを使って、候補ごとに自分で判断する。</p></div>
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>候補事項を、どの高さの情報かで見る</h2></div>
+          <section class="detail-section" id="ruler">
+            <h2>内容の具体さと、必要になる時点を物差しにする</h2>
+            <div class="layer-ruler">
+              <div class="ruler-row"><strong>全体に近い情報</strong><p>組織全体や複数の取組に共通し、この先の検討の方向をそろえるために使う。</p></div>
+              <div class="ruler-row"><strong>個別化した情報</strong><p>特定の業務やシステムを前提に、実現する内容をより具体的に決めていく。</p></div>
+              <div class="ruler-row"><strong>実行後の情報</strong><p>実際に動き始めてから必要になる、日々の扱い方や対応の仕方を決める。</p></div>
             </div>
-            <div class="boundary-note"><p><strong>判断を分けるのは、「ITに関係するか」ではなく、「いつ決める情報か」と「どこまで具体的か」。</strong></p></div>
+            <div class="decision-questions" aria-label="候補事項を見る順序">
+              <div class="decision-question" data-no="01"><p>その事項は、個別のシステムを決める前から必要な、全体側の情報か。</p></div>
+              <div class="decision-question" data-no="02"><p>特定の業務・システムを前提にしないと決められないほど、内容が具体化されていないか。</p></div>
+              <div class="decision-question" data-no="03"><p>実際に動かした後の出来事や日常的な管理を前提にしていないか。</p></div>
+            </div>
+            <div class="boundary-note"><p><strong>ここでは候補を正誤で覚えない。</strong> それぞれをこの全体図のどこに置く情報なのか、自分で確かめる。</p></div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>判断した位置関係を整理する</h2></div>
-          <section class="detail-section" id="relationship">
-            <h2>前後関係は「計画 → 具体化 → 運用」</h2>
-            <div class="position-line"><span>計画</span><span aria-hidden="true">→</span><span>具体化</span><span aria-hidden="true">→</span><span>運用</span></div>
-            <p>同じITに関する事項でも、どこで決める内容かは同じではない。この位置関係を置いてから、各項目を見ていく。</p>
-            <div class="self-check"><p>公開問題では、各候補がこの流れのどこに置かれる内容なのかを、自分で確かめる。</p></div>
-          </section>
-
-          <div class="step-heading"><p class="step-heading__label">STEP 5</p><h2>この出来事から残せる学習要点</h2></div>
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>この問題から残す見方</h2></div>
           <section class="detail-section" id="lesson">
-            <h2>項目を分類するときは「時点 × 具体さ」で見る</h2>
+            <h2>用語の箱ではなく、上下の位置関係で考える</h2>
             <div class="lesson-summary">
-              <p>IT関連の項目を分類するときは、「ITに関係するか」だけでは足りない。まず何を決める段階かを置き、その段階で扱う情報の具体さと候補事項の具体さを照合する。分類の物差しを作ったら、最後の判定は各項目に対して行う。</p>
+              <p>計画・要件・運用の言葉が混ざる問題では、対象となる概念だけを覚えようとしない。まず、その概念の上に何があり、下に何が続くのかを置く。そのうえで、候補事項の具体さと必要になる時点を比べる。</p>
             </div>
+            <ul class="lesson-points">
+              <li>対象概念を、全体構造の中の位置として捉える。</li>
+              <li>候補事項が、上位の方向・中間の計画・個別の具体化・運用のどこに近いかを見る。</li>
+              <li>名前がITらしいかではなく、決める高さと具体さが合うかで判断する。</li>
+            </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問34</p>
-            <p>このページは、上記の公開問題を起点に、正答そのものではなく、各項目を判断するときに使う見方と順序を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答そのものではなく、各事項を判断するときに使う全体構造と見方を学習要点として整理したものです。</p>
           </section>
 
         </article>
