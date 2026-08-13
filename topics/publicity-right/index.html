@@ -3,139 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>この写真は、誰の人気で売れている？ | ITネッコ</title>
-  <meta name="description" content="人気のある人物が写った写真を販売する場面で、誰が写っているか、その人物の人気が販売物の価値として使われているかを順に確認します。">
-  <meta property="og:title" content="この写真は、誰の人気で売れている？ | ITネッコ">
-  <meta property="og:description" content="人物の人気・知名度が、写真を販売するための価値として利用されているかを判断する流れを整理します。">
+  <title>権利名の前に、誰の何が使われたかを見る | ITネッコ</title>
+  <meta name="description" content="権利に関する場面を、権利名からではなく、誰の権利か、何が利用されたか、どう使われたかという三つの軸から整理します。">
+  <meta property="og:title" content="権利名の前に、誰の何が使われたかを見る | ITネッコ">
+  <meta property="og:description" content="権利問題を、権利者・守る対象・利用のされ方という三軸で照合する見方を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .case-lead {
-      margin: 1rem 0 1.5rem;
-      padding: 1.2rem 1.3rem;
-      border: 1px solid #ded6c7;
-      border-radius: 16px;
-      background: #faf7f2;
-    }
-    .case-lead p { margin: 0 0 .75rem; }
-    .case-lead p:last-child { margin-bottom: 0; }
+    .page-hero h1,.page-description{overflow-wrap:anywhere}
+    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
+    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .case-lead p,.lesson-summary p{margin:0}
 
-    .step-heading {
-      margin: 2.2rem 0 .9rem;
-      padding: .85rem 1rem;
-      border-left: 5px solid #8a755d;
-      border-radius: 0 12px 12px 0;
-      background: #f3efe7;
-    }
-    .step-heading__label {
-      margin: 0 0 .2rem;
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: #776e62;
-    }
-    .step-heading h2 { margin: 0; font-size: 1.2rem; }
-    .step-heading p:last-child { margin-bottom: 0; }
+    .triad-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.25rem 0}
+    .triad-card{min-width:0;padding:1.1rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .triad-card__label{display:block;margin-bottom:.35rem;font-size:.76rem;font-weight:700;letter-spacing:.08em;color:var(--color-accent)}
+    .triad-card strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark);font-size:1.05rem}
+    .triad-card p{margin:0}
+    .triad-card--who{border-top:4px solid var(--color-accent)}
+    .triad-card--what{border-top:4px solid var(--color-brown)}
+    .triad-card--how{border-top:4px solid #8a877f}
 
-    .relation-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .9rem;
-      margin: 1rem 0;
-    }
-    .relation-card {
-      position: relative;
-      padding: 1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .relation-card strong { display: block; margin-bottom: .35rem; }
-    .relation-card p { margin: 0; }
-    .relation-card + .relation-card::before {
-      content: "→";
-      position: absolute;
-      left: -.72rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: 700;
-      color: #8a755d;
-    }
-    .relation-card--key {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
+    .focus-panel{margin:1.2rem 0;padding:1.1rem 1.2rem;border:1px solid var(--color-border);border-radius:16px;background:linear-gradient(135deg,var(--color-surface),var(--color-soft-green))}
+    .focus-panel strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark)}
+    .focus-panel p{margin:0}
 
-    .decision-flow {
-      display: grid;
-      gap: .75rem;
-      margin: 1.2rem 0;
-    }
-    .decision-card {
-      position: relative;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .decision-card + .decision-card { margin-top: .55rem; }
-    .decision-card + .decision-card::before {
-      content: "↓";
-      position: absolute;
-      top: -1.45rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-weight: 700;
-      color: #8a755d;
-    }
-    .decision-card__number {
-      display: inline-block;
-      margin-right: .45rem;
-      font-size: .78rem;
-      font-weight: 700;
-      color: #776e62;
-    }
-    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
-    .decision-card p { margin: .55rem 0 0; }
-    .decision-card--key {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
+    .subject-spectrum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin:1.15rem 0}
+    .subject-chip{min-width:0;padding:.9rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface);text-align:center}
+    .subject-chip strong{display:block;color:var(--color-accent-dark)}
+    .subject-chip span{display:block;margin-top:.25rem;color:var(--color-muted);font-size:.86rem}
 
-    .term-card {
-      margin: 1rem 0;
-      padding: 1.15rem 1.2rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
-    .term-card p { margin: 0; }
+    .use-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.15rem 0}
+    .use-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .use-card strong{display:block;margin-bottom:.35rem;color:var(--color-accent-dark)}
+    .use-card p{margin:0}
 
-    .lesson-summary {
-      margin: 1.1rem 0;
-      padding: 1.15rem 1.2rem;
-      border-left: 4px solid #8a755d;
-      border-radius: 0 12px 12px 0;
-      background: #faf7f2;
-    }
-    .lesson-summary p { margin: 0 0 .8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
+    .match-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1.2rem 0;padding:1rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-soft-green)}
+    .match-item{position:relative;min-width:0;padding:.85rem .9rem .85rem 2.25rem;border-radius:12px;background:var(--color-surface)}
+    .match-item::before{position:absolute;left:.8rem;top:.82rem;content:"✓";font-weight:700;color:var(--color-accent)}
+    .match-item strong{display:block;color:var(--color-accent-dark)}
+    .match-item span{display:block;margin-top:.2rem;color:var(--color-muted);font-size:.88rem}
 
-    @media (max-width: 720px) {
-      .relation-grid { grid-template-columns: 1fr; }
-      .relation-card + .relation-card::before {
-        content: "↓";
-        left: 50%;
-        top: -.78rem;
-        transform: translateX(-50%);
-      }
-      .case-lead,
-      .decision-card,
-      .term-card,
-      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
-    }
+    .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
+    .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
+    .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
+
+    @media(max-width:820px){.subject-spectrum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.triad-map,.use-row,.match-strip,.subject-spectrum{grid-template-columns:1fr}.case-lead,.lesson-summary,.focus-panel,.triad-card,.use-card{padding-left:1rem;padding-right:1rem}}
   </style>
 </head>
 <body>
@@ -150,110 +65,77 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
-        <h1>この写真は、誰の人気で売れている？</h1>
-        <p class="page-description">人気のある人物が写った写真を販売する場面で、写真の価値がどこから生まれているのかを順番にたどります。</p>
+        <h1>権利名の前に、誰の何が使われたかを見る</h1>
+        <p class="page-description">写真・商品・人物が一つの場面に出てくると、目立つ物だけを見て権利名を選びやすい。先に「誰の権利か」「何が利用されたか」「どう使われたか」を分けて考える。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>人物の人気が販売物の価値になる場面</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>誰の何が使われたかを見る</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 1</p>
-            <h2>まず、何が起きているか見る</h2>
-          </div>
-
-          <section class="detail-section" id="situation">
-            <h2>人気のある選手を撮影し、その写真を販売している</h2>
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、「誰の権利か」を固定する</h2></div>
+          <section class="detail-section" id="who">
+            <h2>同じ出来事でも、立場が違えば問題になる権利も変わる</h2>
             <div class="case-lead">
-              <p>ファンが集まる場で、人気のある選手がサインをしている姿を撮影した。</p>
-              <p>その写真をプリントし、販売物としてフリーマーケットで売っている。</p>
+              <p>一つの場面には、作る人、撮る人、売る人、写る人、商品を提供する人など、複数の立場が同時に現れることがある。権利問題では、行為そのものを見る前に、まず「誰が持つ権利を尋ねているのか」を固定する。</p>
             </div>
-            <p>ここで確認するのは、写真があることだけではなく、<strong>その写真を販売する価値が何によって生まれているか</strong>である。</p>
-          </section>
-
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 2</p>
-            <h2>人物・写真・販売のつながりを整理する</h2>
-          </div>
-
-          <section class="detail-section" id="relations">
-            <h2>写真の中の人物が、販売物の価値につながっている</h2>
-            <div class="relation-grid">
-              <div class="relation-card">
-                <strong>人気のある選手</strong>
-                <p>多くの人が関心を持つ人物が写っている。</p>
-              </div>
-              <div class="relation-card relation-card--key">
-                <strong>その選手が写った写真</strong>
-                <p>人物を見たい、持ちたいという関心が写真の価値につながる。</p>
-              </div>
-              <div class="relation-card">
-                <strong>写真を販売する</strong>
-                <p>その価値を利用して、写真そのものを販売物にしている。</p>
-              </div>
+            <div class="focus-panel">
+              <strong>最初の確認</strong>
+              <p>問題文の中で、権利を持つ主体として示されているのは誰か。ここを決めずに権利名を見ると、別の立場の権利を選びやすい。</p>
             </div>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 3</p>
-            <h2>判断に必要な手掛かりを順番に確認する</h2>
-            <p>誰が写っているか、その人物の人気が販売に使われているかをたどる。</p>
-          </div>
-
-          <section class="detail-section" id="decision-flow">
-            <h2>確認するのは、この三つのつながり</h2>
-            <div class="decision-flow">
-              <div class="decision-card">
-                <span class="decision-card__number">01</span><h3>写真に写っているのは、人気のある人物</h3>
-                <p>写真の被写体は、ファンが集まるほど関心を持たれている選手である。</p>
-              </div>
-              <div class="decision-card">
-                <span class="decision-card__number">02</span><h3>その人物が写った写真を、販売物にしている</h3>
-                <p>撮影しただけで終わらず、プリントした写真をフリーマーケットで販売している。</p>
-              </div>
-              <div class="decision-card decision-card--key">
-                <span class="decision-card__number">03</span><h3>人物の人気・知名度が、販売物の価値として利用されている</h3>
-                <p>購入する人が関心を持つ理由は、写真用紙そのものではなく、人気のある選手が写っていることにある。人物が人を引き付ける力が、販売につながっている。</p>
-              </div>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>次に、「何が利用されたか」を見る</h2></div>
+          <section class="detail-section" id="what">
+            <h2>目に見える物と、権利が守る対象は同じとは限らない</h2>
+            <p>写真が出てきたから写真の権利、商品が出てきたから商品の権利、と即断しない。権利が守る対象には種類があるため、その場面で実際に利用されているものを切り分ける。</p>
+            <div class="subject-spectrum" aria-label="守られる対象を見分けるための観点">
+              <div class="subject-chip"><strong>表現</strong><span>創作された内容か</span></div>
+              <div class="subject-chip"><strong>しるし</strong><span>商品やサービスを見分ける表示か</span></div>
+              <div class="subject-chip"><strong>外観</strong><span>物の形や見た目か</span></div>
+              <div class="subject-chip"><strong>人に結び付くもの</strong><span>人物そのものに由来する利益か</span></div>
             </div>
-            <p>つまり、<strong>特定の人物が持つ人気・知名度による価値を、その人物が写ったものの販売に利用している</strong>という関係ができている。</p>
+            <p>ここではまだ権利名を決めない。まず、どの種類の対象について問題になっているかを見極める。</p>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 4</p>
-            <h2>ここまで確認した関係に名前を付ける</h2>
-          </div>
-
-          <section class="detail-section" id="term">
-            <h2>人物が人を引き付ける力にも、経済的な価値がある</h2>
-            <div class="term-card">
-              <h3>パブリシティ権</h3>
-              <p>ここまで見てきたように、著名な人物の氏名や肖像などが持つ、人を商品などに引き付ける力から生じる経済的価値を本人が利用する利益には、パブリシティ権という名前が付く。</p>
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>「どう使われたか」を重ねる</h2></div>
+          <section class="detail-section" id="how">
+            <h2>対象だけでなく、利用のされ方まで確認する</h2>
+            <div class="use-row">
+              <div class="use-card"><strong>見せる・表示する</strong><p>その対象を人の目に触れる形で使っているか。</p></div>
+              <div class="use-card"><strong>複製・加工する</strong><p>コピーしたり、形を変えたりして使っているか。</p></div>
+              <div class="use-card"><strong>販売・宣伝に使う</strong><p>商品や集客など、経済的な利用へつなげているか。</p></div>
             </div>
+            <p>同じ対象でも、利用のされ方によって問題になる権利関係は変わり得る。だから「何があるか」だけでなく、「何のために、どう使ったか」まで見る。</p>
+
+            <div class="match-strip" aria-label="権利候補を照合するときの三軸">
+              <div class="match-item"><strong>WHO</strong><span>誰が持つ権利か</span></div>
+              <div class="match-item"><strong>WHAT</strong><span>何を守る権利か</span></div>
+              <div class="match-item"><strong>HOW</strong><span>どんな利用が問題か</span></div>
+            </div>
+            <p>公開問題では、各候補についてこの三つがそろっているかを自分で照合する。</p>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 5</p>
-            <h2>この出来事から残せる学習要点</h2>
-          </div>
-
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>この問題から残す見方</h2></div>
           <section class="detail-section" id="lesson">
-            <h2>「何を売っているか」だけでなく、「何が売れる力になっているか」を見る</h2>
+            <h2>「何をしたか」だけで権利を決めない</h2>
             <div class="lesson-summary">
-              <p>人物が写ったものを販売・宣伝に使う場面では、まず<strong>その人物自身の人気や知名度が、商品や販売物の価値になっているか</strong>を確認する。</p>
-              <p>次に、その価値が実際に販売や集客のために利用されているかを見る。</p>
-              <p><strong>人物そのものが人を引き付ける力を持ち、その力を経済的な利用につなげていることが、判断の手掛かりになる。</strong></p>
+              <p><strong>誰の／何を／どう使った</strong>の三点をそろえてから、候補となる権利の対象と照合する。</p>
             </div>
+            <ul class="lesson-points">
+              <li>最初に、問題文が「誰の権利」を尋ねているか固定する。</li>
+              <li>次に、目に見える物ではなく、実際に何が利用されているかを見る。</li>
+              <li>最後に、表示・複製・販売など利用のされ方を重ね、三軸が合う候補かを確かめる。</li>
+            </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問11</p>
-            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答や選択肢ごとの解説ではなく、権利問題で確認する順序を学習要点として整理したものです。</p>
           </section>
 
         </article>
