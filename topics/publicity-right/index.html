@@ -3,54 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>権利名の前に、誰の何が使われたかを見る | ITネッコ</title>
-  <meta name="description" content="権利に関する場面を、権利名からではなく、誰の権利か、何が利用されたか、どう使われたかという三つの軸から整理します。">
-  <meta property="og:title" content="権利名の前に、誰の何が使われたかを見る | ITネッコ">
-  <meta property="og:description" content="権利問題を、権利者・守る対象・利用のされ方という三軸で照合する見方を整理します。">
+  <title>権利問題は、目立つ物ではなく「誰の何が使われたか」から考える | ITネッコ</title>
+  <meta name="description" content="写真・人物・服装・販売が同時に出てくる権利問題を、誰の権利か、何が利用されたか、その価値がどこから生じるかという順序で整理します。">
+  <meta property="og:title" content="権利問題は、目立つ物ではなく「誰の何が使われたか」から考える | ITネッコ">
+  <meta property="og:description" content="複数の権利が思い浮かぶ場面で、権利者・利用対象・価値の源を順番に確認する判断方法を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .page-hero h1,.page-description{overflow-wrap:anywhere}
-    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
-    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
-    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
-    .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
-    .case-lead p,.lesson-summary p{margin:0}
+    .learning-phase{margin:2rem 0 1rem;padding:.9rem 1.1rem;border:1px solid #ded6c7;border-radius:14px;background:#f3efe7}
+    .learning-phase:first-of-type{margin-top:0}
+    .learning-phase__label{margin:0 0 .25rem;color:#776e62;font-size:.78rem;font-weight:700;letter-spacing:.08em}
+    .learning-phase h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .learning-phase p:last-child{margin-bottom:0}
 
-    .triad-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.25rem 0}
-    .triad-card{min-width:0;padding:1.1rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
-    .triad-card__label{display:block;margin-bottom:.35rem;font-size:.76rem;font-weight:700;letter-spacing:.08em;color:var(--color-accent)}
-    .triad-card strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark);font-size:1.05rem}
-    .triad-card p{margin:0}
-    .triad-card--who{border-top:4px solid var(--color-accent)}
-    .triad-card--what{border-top:4px solid var(--color-brown)}
-    .triad-card--how{border-top:4px solid #8a877f}
+    .scene-card,.lesson-card,.concept-card{margin-top:1.1rem;padding:1.15rem 1.2rem;border-radius:14px}
+    .scene-card{border:1px solid #ddd5c7;background:#fffaf3}
+    .concept-card{border:1px solid rgba(95,114,82,.28);background:var(--color-soft-green)}
+    .lesson-card{border-left:4px solid #8a755d;border-radius:0 12px 12px 0;background:#faf7f2}
+    .scene-card p,.lesson-card p,.concept-card p{margin:0 0 .8rem}
+    .scene-card p:last-child,.lesson-card p:last-child,.concept-card p:last-child{margin-bottom:0}
 
-    .focus-panel{margin:1.2rem 0;padding:1.1rem 1.2rem;border:1px solid var(--color-border);border-radius:16px;background:linear-gradient(135deg,var(--color-surface),var(--color-soft-green))}
-    .focus-panel strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark)}
-    .focus-panel p{margin:0}
+    .overlap-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:1.2rem}
+    .overlap-item{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:#fff;text-align:center}
+    .overlap-item strong{display:block;color:var(--color-accent-dark)}
+    .overlap-item span{display:block;margin-top:.3rem;color:var(--color-muted);font-size:.88rem}
 
-    .subject-spectrum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin:1.15rem 0}
-    .subject-chip{min-width:0;padding:.9rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface);text-align:center}
-    .subject-chip strong{display:block;color:var(--color-accent-dark)}
-    .subject-chip span{display:block;margin-top:.25rem;color:var(--color-muted);font-size:.86rem}
+    .three-axis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:1.2rem}
+    .axis-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}
+    .axis-card__label{margin:0 0 .35rem;color:var(--color-accent-dark);font-size:.9rem;font-weight:700}
+    .axis-card p:last-child{margin-bottom:0}
+    .axis-line{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;justify-content:center;margin-top:1.2rem;padding:.9rem 1rem;border:1px dashed rgba(95,114,82,.35);border-radius:12px;background:rgba(238,242,234,.45);color:var(--color-accent-dark);font-weight:700;text-align:center}
+    .axis-line b{color:var(--color-muted);font-weight:400}
 
-    .use-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.15rem 0}
-    .use-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
-    .use-card strong{display:block;margin-bottom:.35rem;color:var(--color-accent-dark)}
-    .use-card p{margin:0}
+    .decision-flow{display:grid;gap:12px;margin-top:1.2rem;counter-reset:decision-step}
+    .decision-step{position:relative;padding:1rem 1.1rem 1rem 3.7rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}
+    .decision-step::before{counter-increment:decision-step;content:counter(decision-step);position:absolute;top:1rem;left:1rem;display:grid;width:2rem;height:2rem;place-items:center;border-radius:999px;background:var(--color-accent);color:#fffdf8;font-size:.84rem;font-weight:700}
+    .decision-step h3{margin:0 0 .35rem;color:var(--color-accent-dark);font-size:1.03rem}
+    .decision-step p{margin:0}
+    .decision-arrow{color:var(--color-accent);font-size:1.2rem;font-weight:700;line-height:1;text-align:center}
 
-    .match-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1.2rem 0;padding:1rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-soft-green)}
-    .match-item{position:relative;min-width:0;padding:.85rem .9rem .85rem 2.25rem;border-radius:12px;background:var(--color-surface)}
-    .match-item::before{position:absolute;left:.8rem;top:.82rem;content:"✓";font-weight:700;color:var(--color-accent)}
-    .match-item strong{display:block;color:var(--color-accent-dark)}
-    .match-item span{display:block;margin-top:.2rem;color:var(--color-muted);font-size:.88rem}
+    .replace-test{margin-top:1.2rem;padding:1.15rem;border:2px solid var(--color-accent);border-radius:16px;background:var(--color-soft-green)}
+    .replace-test__question{margin:0 0 .8rem;color:var(--color-accent-dark);font-size:1.08rem;font-weight:700;text-align:center}
+    .replace-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.8rem;align-items:center}
+    .replace-side{min-width:0;padding:1rem;border-radius:12px;background:#fff}
+    .replace-side strong{display:block;margin-bottom:.35rem;color:var(--color-accent-dark)}
+    .replace-side p{margin:0}
+    .replace-arrow{font-weight:700;color:var(--color-accent);text-align:center}
+
+    .concept-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+    .concept-item{min-width:0;padding:.95rem;border:1px solid rgba(95,114,82,.24);border-radius:12px;background:rgba(255,253,248,.8)}
+    .concept-item strong{display:block;color:var(--color-accent-dark)}
+    .concept-item span{display:block;margin-top:.25rem;color:var(--color-muted);font-size:.86rem}
 
     .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
     .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
     .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
 
-    @media(max-width:820px){.subject-spectrum{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:720px){.triad-map,.use-row,.match-strip,.subject-spectrum{grid-template-columns:1fr}.case-lead,.lesson-summary,.focus-panel,.triad-card,.use-card{padding-left:1rem;padding-right:1rem}}
+    @media(max-width:820px){.overlap-map,.concept-map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.three-axis,.overlap-map,.concept-map,.replace-grid{grid-template-columns:1fr}.axis-line{align-items:stretch;flex-direction:column}.axis-line b,.replace-arrow{transform:rotate(90deg);align-self:center}.decision-step{padding:3.5rem 1rem 1rem}.decision-step::before{top:.9rem;left:1rem}.scene-card,.lesson-card,.concept-card,.replace-test{padding-left:1rem;padding-right:1rem}}
   </style>
 </head>
 <body>
@@ -65,77 +75,146 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 法務</p>
-        <h1>権利名の前に、誰の何が使われたかを見る</h1>
-        <p class="page-description">写真・商品・人物が一つの場面に出てくると、目立つ物だけを見て権利名を選びやすい。先に「誰の権利か」「何が利用されたか」「どう使われたか」を分けて考える。</p>
+        <h1>権利問題は、目立つ物ではなく「誰の何が使われたか」から考える</h1>
+        <p class="page-description">写真、人物、服装、販売。ひとつの場面に複数の要素があると、見えた物から権利名を連想しやすい。先に権利者と利用対象を切り分け、その利用価値がどこから生じているのかを順番に確認する。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>誰の何が使われたかを見る</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>誰の何が使われたかから考える</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、「誰の権利か」を固定する</h2></div>
-          <section class="detail-section" id="who">
-            <h2>同じ出来事でも、立場が違えば問題になる権利も変わる</h2>
-            <div class="case-lead">
-              <p>一つの場面には、作る人、撮る人、売る人、写る人、商品を提供する人など、複数の立場が同時に現れることがある。権利問題では、行為そのものを見る前に、まず「誰が持つ権利を尋ねているのか」を固定する。</p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>まず、ひとつの出来事に複数の権利候補が重なっていることを見る</h2>
+            <p>何が写っているか、何をしたかだけで権利名を決めず、まず場面を構成する要素を分ける。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>写真があるから「写真の権利」とは限らない</h2>
+            <div class="scene-card">
+              <p>人物を撮影し、その写真を何らかの形で利用する場面では、写真そのもの、写っている人物、身に着けている物、販売という行為など、複数の要素が同時に現れる。</p>
+              <p>権利問題で最初に必要なのは、目立つ要素へ飛び付くことではなく、<strong>何についての権利が問われているのかを切り分けること</strong>である。</p>
             </div>
-            <div class="focus-panel">
-              <strong>最初の確認</strong>
-              <p>問題文の中で、権利を持つ主体として示されているのは誰か。ここを決めずに権利名を見ると、別の立場の権利を選びやすい。</p>
+            <div class="overlap-map" aria-label="一つの場面に重なる要素">
+              <div class="overlap-item"><strong>写真</strong><span>撮影された表現</span></div>
+              <div class="overlap-item"><strong>人物</strong><span>写っている本人</span></div>
+              <div class="overlap-item"><strong>外観・表示</strong><span>服装や目印など</span></div>
+              <div class="overlap-item"><strong>利用行為</strong><span>複製・販売など</span></div>
             </div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>次に、「何が利用されたか」を見る</h2></div>
-          <section class="detail-section" id="what">
-            <h2>目に見える物と、権利が守る対象は同じとは限らない</h2>
-            <p>写真が出てきたから写真の権利、商品が出てきたから商品の権利、と即断しない。権利が守る対象には種類があるため、その場面で実際に利用されているものを切り分ける。</p>
-            <div class="subject-spectrum" aria-label="守られる対象を見分けるための観点">
-              <div class="subject-chip"><strong>表現</strong><span>創作された内容か</span></div>
-              <div class="subject-chip"><strong>しるし</strong><span>商品やサービスを見分ける表示か</span></div>
-              <div class="subject-chip"><strong>外観</strong><span>物の形や見た目か</span></div>
-              <div class="subject-chip"><strong>人に結び付くもの</strong><span>人物そのものに由来する利益か</span></div>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>判断前に「権利者・利用対象・価値の源」を分ける</h2>
+            <p>権利名を考える前に、候補を照合するための三つの軸を固定する。</p>
+          </div>
+
+          <section class="detail-section" id="axes">
+            <h2>同じ出来事でも、三つの軸は別々に見る</h2>
+            <div class="three-axis">
+              <div class="axis-card">
+                <p class="axis-card__label">① 権利者</p>
+                <p>問題文は、誰が持つ権利について尋ねているのか。</p>
+              </div>
+              <div class="axis-card">
+                <p class="axis-card__label">② 利用対象</p>
+                <p>写真という表現、商品を識別する表示、物のデザイン、人物に結び付く要素など、何が利用されているのか。</p>
+              </div>
+              <div class="axis-card">
+                <p class="axis-card__label">③ 価値の源</p>
+                <p>その利用に意味や価値を持たせているのは、作品性なのか、表示なのか、形なのか、それとも人物との結び付きなのか。</p>
+              </div>
             </div>
-            <p>ここではまだ権利名を決めない。まず、どの種類の対象について問題になっているかを見極める。</p>
+            <div class="axis-line" aria-label="判断前に整理する三つの軸">
+              <span>誰の権利か</span><b>→</b><span>何が使われたか</span><b>→</b><span>なぜ価値が生じるか</span>
+            </div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>「どう使われたか」を重ねる</h2></div>
-          <section class="detail-section" id="how">
-            <h2>対象だけでなく、利用のされ方まで確認する</h2>
-            <div class="use-row">
-              <div class="use-card"><strong>見せる・表示する</strong><p>その対象を人の目に触れる形で使っているか。</p></div>
-              <div class="use-card"><strong>複製・加工する</strong><p>コピーしたり、形を変えたりして使っているか。</p></div>
-              <div class="use-card"><strong>販売・宣伝に使う</strong><p>商品や集客など、経済的な利用へつなげているか。</p></div>
-            </div>
-            <p>同じ対象でも、利用のされ方によって問題になる権利関係は変わり得る。だから「何があるか」だけでなく、「何のために、どう使ったか」まで見る。</p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>この問題では、権利名を一つずつ暗記して照合するより、「価値がどこに結び付いているか」を切り分ける。</p>
+          </div>
 
-            <div class="match-strip" aria-label="権利候補を照合するときの三軸">
-              <div class="match-item"><strong>WHO</strong><span>誰が持つ権利か</span></div>
-              <div class="match-item"><strong>WHAT</strong><span>何を守る権利か</span></div>
-              <div class="match-item"><strong>HOW</strong><span>どんな利用が問題か</span></div>
+          <section class="detail-section" id="decision-flow">
+            <h2>人物を別人に置き換えたら、同じ価値が残るか</h2>
+            <div class="decision-flow">
+              <div class="decision-step">
+                <h3>最初に、誰の権利が問われているか固定する</h3>
+                <p>撮影した人、販売した人、写っている人などを混ぜず、問題文が権利者として指定している立場だけを見る。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>次に、その人について何が利用されているかを見る</h3>
+                <p>写真という媒体そのものではなく、問題となっている利用対象がどこにあるのかを切り分ける。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>その価値が「その人物であること」に依存しているか確認する</h3>
+                <p>人物を別の人へ置き換えたとき、利用する側にとって同じ意味や価値が残るのかを考える。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>最後に、候補となる権利が守る対象と照合する</h3>
+                <p>候補の名称ではなく、その権利が「誰の」「何を」守る仕組みなのかを確認し、ここまで整理した事実と合うかを自分で判断する。</p>
+              </div>
             </div>
-            <p>公開問題では、各候補についてこの三つがそろっているかを自分で照合する。</p>
+
+            <div class="replace-test">
+              <p class="replace-test__question">置き換えテスト：人物だけを別人に変えたらどうなる？</p>
+              <div class="replace-grid">
+                <div class="replace-side"><strong>価値がほぼ変わらない</strong><p>人物そのものより、作品・表示・形など別の対象が中心かもしれない。</p></div>
+                <div class="replace-arrow" aria-hidden="true">↔</div>
+                <div class="replace-side"><strong>利用する意味が大きく変わる</strong><p>その人物との結び付き自体が重要な判断材料になる。</p></div>
+              </div>
+            </div>
+            <div class="lesson-card">
+              <p><strong>公開問題では、各選択肢をこの順序で自分で照合する。</strong></p>
+              <p>このページでは、どの選択肢が一致するかまでは示さない。</p>
+            </div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>この問題から残す見方</h2></div>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>ここまで確認した対象に、権利分野の名前を付ける</h2>
+            <p>権利名そのものから始めず、「何を守る話か」を先に整理してから名称を見る。</p>
+          </div>
+
+          <section class="detail-section" id="concepts">
+            <h2>権利は、守る対象が違う</h2>
+            <div class="concept-card">
+              <div class="concept-map" aria-label="権利を考えるときの対象の違い">
+                <div class="concept-item"><strong>創作された表現</strong><span>作品としての表現を扱う領域</span></div>
+                <div class="concept-item"><strong>商品・サービスの表示</strong><span>出所を見分ける目印を扱う領域</span></div>
+                <div class="concept-item"><strong>物のデザイン</strong><span>物品などの形・模様等を扱う領域</span></div>
+                <div class="concept-item"><strong>人物に結び付く利益</strong><span>氏名・肖像など人物との結び付きを扱う領域</span></div>
+              </div>
+            </div>
+            <p>これらは同じ「権利」の話でも、守ろうとしている対象が異なる。問題では名称だけを比べず、STEP2・3で整理した対象と対応させる。</p>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>この内容から残せる学習要点を整理する</h2>
+          </div>
+
           <section class="detail-section" id="lesson">
-            <h2>「何をしたか」だけで権利を決めない</h2>
-            <div class="lesson-summary">
-              <p><strong>誰の／何を／どう使った</strong>の三点をそろえてから、候補となる権利の対象と照合する。</p>
-            </div>
+            <h2>権利問題は「目に見える物」から決めない</h2>
             <ul class="lesson-points">
-              <li>最初に、問題文が「誰の権利」を尋ねているか固定する。</li>
-              <li>次に、目に見える物ではなく、実際に何が利用されているかを見る。</li>
-              <li>最後に、表示・複製・販売など利用のされ方を重ね、三軸が合う候補かを確かめる。</li>
+              <li>最初に、誰が持つ権利について問われているかを固定する。</li>
+              <li>写真・商品・人物など、場面にある物と「権利が守る対象」を分けて考える。</li>
+              <li>迷ったら、対象を置き換えたときに利用価値がどう変わるかを見る。</li>
+              <li>最後に、候補となる権利が守る対象と照合する。</li>
             </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問11</p>
-            <p>このページは、上記の公開問題を起点に、正答や選択肢ごとの解説ではなく、権利問題で確認する順序を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答や選択肢ごとの解説ではなく、複数の権利が思い浮かぶ場面で何を見て区別するかを学習要点として整理したものです。</p>
           </section>
 
         </article>
@@ -143,10 +222,6 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
