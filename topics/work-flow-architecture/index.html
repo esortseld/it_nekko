@@ -3,123 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>業務を見直したい。仕事の流れをどう見せる？ | ITネッコ</title>
-  <meta name="description" content="業務プロセスの課題を探すために流れ図を作る場面で、何を見えるようにする必要があるのかを順番にたどります。">
-  <meta property="og:title" content="業務を見直したい。仕事の流れをどう見せる？ | ITネッコ">
-  <meta property="og:description" content="業務プロセスを流れ図で可視化するとき、処理の順序やつながりを追える記述が必要になる判断の流れを整理します。">
+  <title>図の名前より先に、何を見えるようにしたいか決める | ITネッコ</title>
+  <meta name="description" content="図や記述様式を選ぶとき、名称からではなく、何を対象に、どんな関係を、どんな形で見せたいかという三つの軸から整理します。">
+  <meta property="og:title" content="図の名前より先に、何を見えるようにしたいか決める | ITネッコ">
+  <meta property="og:description" content="対象・見たい関係・表現形式をそろえて、用途に合う記述様式を考える見方を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .case-lead {
-      margin: 1rem 0 1.5rem;
-      padding: 1.2rem 1.3rem;
-      border: 1px solid #ded6c7;
-      border-radius: 16px;
-      background: #faf7f2;
-    }
-    .case-lead p { margin: 0 0 .75rem; }
-    .case-lead p:last-child { margin-bottom: 0; }
+    .page-hero h1,.page-description{overflow-wrap:anywhere}
+    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
+    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .case-lead p,.lesson-summary p{margin:0}
 
-    .step-heading {
-      margin: 2.2rem 0 .9rem;
-      padding: .85rem 1rem;
-      border-left: 5px solid #8a755d;
-      border-radius: 0 12px 12px 0;
-      background: #f3efe7;
-    }
-    .step-heading__label {
-      margin: 0 0 .2rem;
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: #776e62;
-    }
-    .step-heading h2 { margin: 0; font-size: 1.2rem; }
-    .step-heading p:last-child { margin-bottom: 0; }
+    .purpose-rail{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.65rem;align-items:stretch;margin:1.3rem 0}
+    .rail-card{min-width:0;padding:1.05rem;border:1px solid var(--color-border);border-radius:15px;background:var(--color-surface)}
+    .rail-card--start{background:var(--color-soft-green);border:2px solid var(--color-accent)}
+    .rail-card__label{display:block;margin-bottom:.3rem;font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--color-accent)}
+    .rail-card strong{display:block;margin-bottom:.35rem;color:var(--color-accent-dark);font-size:1.02rem}
+    .rail-card p{margin:0}
+    .rail-arrow{display:grid;place-items:center;color:var(--color-accent);font-weight:700;font-size:1.2rem}
 
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .9rem;
-      margin: 1rem 0;
-    }
-    .focus-card {
-      padding: 1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .focus-card--key {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
-    .focus-card strong { display: block; margin-bottom: .35rem; }
-    .focus-card p { margin: 0; }
+    .split-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.2rem 0}
+    .split-card{min-width:0;padding:1.1rem;border:1px solid var(--color-border);border-radius:15px;background:var(--color-surface)}
+    .split-card strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark)}
+    .split-card p{margin:0}
+    .split-card--target{border-top:4px solid var(--color-accent)}
+    .split-card--relation{border-top:4px solid var(--color-brown)}
 
-    .decision-flow {
-      display: grid;
-      gap: .75rem;
-      margin: 1.2rem 0;
-    }
-    .decision-card {
-      position: relative;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .decision-card + .decision-card { margin-top: .55rem; }
-    .decision-card + .decision-card::before {
-      content: "↓";
-      position: absolute;
-      top: -1.45rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-weight: 700;
-      color: #8a755d;
-    }
-    .decision-card__number {
-      display: inline-block;
-      margin-right: .45rem;
-      font-size: .78rem;
-      font-weight: 700;
-      color: #776e62;
-    }
-    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
-    .decision-card p { margin: .55rem 0 0; }
-    .decision-card--key {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
+    .form-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin:1.2rem 0}
+    .form-card{min-width:0;padding:.95rem;border:1px solid var(--color-border);border-radius:13px;background:var(--color-surface);text-align:center}
+    .form-card strong{display:block;color:var(--color-accent-dark)}
+    .form-card span{display:block;margin-top:.3rem;color:var(--color-muted);font-size:.88rem}
 
-    .term-card {
-      margin: 1rem 0;
-      padding: 1.15rem 1.2rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .term-card h3 { margin: 0 0 .6rem; font-size: 1.1rem; }
-    .term-card p { margin: 0; }
+    .match-panel{margin:1.2rem 0;padding:1.1rem;border:1px solid var(--color-border);border-radius:16px;background:linear-gradient(135deg,var(--color-surface),var(--color-soft-green))}
+    .match-panel h3{margin:0 0 .8rem;font-size:1.05rem}
+    .match-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+    .match-item{position:relative;min-width:0;padding:.85rem .9rem .85rem 2.25rem;border-radius:12px;background:var(--color-surface)}
+    .match-item::before{position:absolute;left:.8rem;top:.82rem;content:"✓";font-weight:700;color:var(--color-accent)}
+    .match-item strong{display:block;color:var(--color-accent-dark)}
+    .match-item span{display:block;margin-top:.2rem;color:var(--color-muted);font-size:.88rem}
+    .match-panel p{margin:.85rem 0 0}
 
-    .lesson-summary {
-      margin: 1.1rem 0;
-      padding: 1.15rem 1.2rem;
-      border-left: 4px solid #8a755d;
-      border-radius: 0 12px 12px 0;
-      background: #faf7f2;
-    }
-    .lesson-summary p { margin: 0 0 .8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
+    .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
+    .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
+    .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
 
-    @media (max-width: 720px) {
-      .focus-grid { grid-template-columns: 1fr; }
-      .case-lead,
-      .decision-card,
-      .term-card,
-      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
-    }
+    @media(max-width:900px){.purpose-rail{grid-template-columns:1fr}.rail-arrow{transform:rotate(90deg)}.form-map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.split-grid,.form-map,.match-strip{grid-template-columns:1fr}.case-lead,.lesson-summary,.rail-card,.split-card,.match-panel{padding-left:1rem;padding-right:1rem}}
   </style>
 </head>
 <body>
@@ -133,107 +64,92 @@
   <main>
     <section class="page-hero">
       <div class="container hero-inner">
-        <p class="site-kicker">ストラテジ系 / 企業活動・業務分析</p>
-        <h1>業務を見直したい。仕事の流れをどう見せる？</h1>
-        <p class="page-description">業務プロセスの課題を探すために流れ図を作る場面で、何を見えるようにする必要があるのかを順番にたどります。</p>
+        <p class="site-kicker">ストラテジ系 / システム戦略・業務プロセス</p>
+        <h1>図の名前より先に、何を見えるようにしたいか決める</h1>
+        <p class="page-description">図や記述様式がいくつも並ぶと、名前の暗記問題に見えやすい。先に「何を対象にするか」「どんな関係を見たいか」「どんな形で表したいか」の三つに分ける。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>業務プロセスを流れ図で見せる</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>用途から記述様式を選ぶ</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 1</p>
-            <h2>まず、何が起きているか見る</h2>
-          </div>
-
-          <section class="detail-section" id="situation">
-            <h2>業務プロセスの課題を見つけ、見直したい</h2>
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、図を使う目的を一文にする</h2></div>
+          <section class="detail-section" id="purpose">
+            <h2>図法名を見る前に、「何を確認したいのか」を置く</h2>
             <div class="case-lead">
-              <p>会社が、自社の業務プロセスにどこか問題がないかを確認しようとしている。</p>
-              <p>そのために、業務プロセスを目で追える形にして、見直しに使おうとしている。</p>
+              <p>同じ「可視化」でも、仕事の進み方を見たい場合、データ同士の関係を見たい場合、機能の構造を整理したい場合では、必要な図の形は変わる。</p>
             </div>
-            <p>ここで最初に確認するのは、<strong>何を見えるようにしたいのか</strong>である。</p>
+            <p>最初にするのは、候補の名前を思い出すことではない。<strong>この図を使って、何を確認・分析したいのか</strong>を短く言えるようにする。</p>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 2</p>
-            <h2>見たい対象と、見せ方を整理する</h2>
-          </div>
-
-          <section class="detail-section" id="focus">
-            <h2>見たいのは「業務プロセス」、使うのは「流れ図」</h2>
-            <div class="focus-grid">
-              <div class="focus-card">
-                <strong>見たい対象</strong>
-                <p>業務プロセスが、どのようにつながって進んでいるか。</p>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>見たいものを「対象」と「関係」に分ける</h2></div>
+          <section class="detail-section" id="target-relation">
+            <h2>「何を見るか」と「何を読み取りたいか」は別にする</h2>
+            <div class="split-grid">
+              <div class="split-card split-card--target">
+                <strong>TARGET｜対象</strong>
+                <p>図の主役は何か。業務、データ、機能など、まず可視化する対象を置く。</p>
               </div>
-              <div class="focus-card focus-card--key">
-                <strong>見せ方</strong>
-                <p>流れ図にして、処理の順序やつながりを目で追えるようにする。</p>
+              <div class="split-card split-card--relation">
+                <strong>RELATION｜見たい関係</strong>
+                <p>その対象について、順序・つながり・対応・構造など、何を読み取りたいのかを決める。</p>
               </div>
             </div>
+            <p>対象が同じでも、見たい関係が違えば適した表現は変わる。だから「何の図か」だけで選ばない。</p>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 3</p>
-            <h2>判断に必要な手掛かりを順番に確認する</h2>
-            <p>何を見直したいのかと、どの形で可視化するのかを順に確認する。</p>
-          </div>
-
-          <section class="detail-section" id="decision-flow">
-            <h2>確認するのは、この三つ</h2>
-            <div class="decision-flow">
-              <div class="decision-card">
-                <span class="decision-card__number">01</span><h3>見直したい対象は、業務プロセス</h3>
-                <p>課題を抽出するために、現在の業務がどのように進んでいるかを確認したい。</p>
-              </div>
-              <div class="decision-card decision-card--key">
-                <span class="decision-card__number">02</span><h3>その業務プロセスを、流れ図で可視化する</h3>
-                <p>文章や一覧ではなく、処理がどの順番でつながっているかを流れとして見えるようにする。</p>
-              </div>
-              <div class="decision-card">
-                <span class="decision-card__number">03</span><h3>必要なのは、業務処理の順序やつながりを追える記述様式</h3>
-                <p>流れ図を見れば、業務処理がどこからどこへ進むのかをたどれる形で表現できる必要がある。</p>
-              </div>
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>その関係に合う「図の形」を考える</h2></div>
+          <section class="detail-section" id="form">
+            <h2>表現形式は、見せたい関係から決まる</h2>
+            <div class="form-map" aria-label="見せたい関係に応じた表現形式の違い">
+              <div class="form-card"><strong>流れ</strong><span>前後や順序を追う</span></div>
+              <div class="form-card"><strong>関係</strong><span>対象同士を結んで見る</span></div>
+              <div class="form-card"><strong>対応</strong><span>行と列などで組合せを見る</span></div>
+              <div class="form-card"><strong>構造</strong><span>まとまりや分解を整理する</span></div>
             </div>
-            <p>つまり、<strong>業務プロセスを見直すために、その処理の順序やつながりを流れとして可視化できる記述様式</strong>が必要になる。</p>
+            <p>ここで見るのは特定の図法名ではなく、<strong>どんな読み方をする図が必要なのか</strong>という形の違いである。</p>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 4</p>
-            <h2>ここまで確認した記述様式に名前を付ける</h2>
-          </div>
-
-          <section class="detail-section" id="term">
-            <h2>業務の流れを記述する</h2>
-            <div class="term-card">
-              <h3>WFA（Work Flow Architecture）</h3>
-              <p>ここまで見てきたように、業務プロセスの処理やそのつながりを流れ図として表し、業務の進み方を可視化するための記述様式には、WFAという名前が付く。</p>
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>三つをそろえて候補を照合する</h2></div>
+          <section class="detail-section" id="matching">
+            <h2>用途と記述様式が同じ方向を向いているかを見る</h2>
+            <div class="purpose-rail" aria-label="用途から記述様式を照合する順序">
+              <div class="rail-card rail-card--start"><span class="rail-card__label">START</span><strong>目的</strong><p>何を確認・見直したいのか。</p></div>
+              <div class="rail-arrow" aria-hidden="true">→</div>
+              <div class="rail-card"><span class="rail-card__label">TARGET</span><strong>対象</strong><p>何を主役として可視化するか。</p></div>
+              <div class="rail-arrow" aria-hidden="true">→</div>
+              <div class="rail-card"><span class="rail-card__label">RELATION</span><strong>関係</strong><p>その対象の何を読み取りたいか。</p></div>
+              <div class="rail-arrow" aria-hidden="true">→</div>
+              <div class="rail-card"><span class="rail-card__label">FORM</span><strong>表現形式</strong><p>どんな形なら、その関係を見せられるか。</p></div>
             </div>
-          </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 5</p>
-            <h2>この出来事から残せる学習要点</h2>
-          </div>
+            <div class="match-panel">
+              <h3>公開問題へ戻ったら、この三点だけを候補と照合する</h3>
+              <div class="match-strip">
+                <div class="match-item"><strong>TARGET</strong><span>対象が合っているか</span></div>
+                <div class="match-item"><strong>RELATION</strong><span>見たい関係が合っているか</span></div>
+                <div class="match-item"><strong>FORM</strong><span>表現の形が合っているか</span></div>
+              </div>
+              <p>各候補の名称を先に覚えるのではなく、その記述様式が何を表すためのものかを自分で確かめて照合する。</p>
+            </div>
 
-          <section class="detail-section" id="lesson">
-            <h2>図法名より先に、「何を見えるようにしたいか」を確認する</h2>
             <div class="lesson-summary">
-              <p>業務を可視化するときは、まず<strong>何を見直すための図なのか</strong>を確認する。</p>
-              <p>今回のように、業務プロセスの課題を探すために流れ図を使うなら、必要なのは<strong>業務処理の順序やつながりを目で追えること</strong>である。</p>
-              <p><strong>表現方法を選ぶときは、名前から考えるのではなく、「何を、どの関係で見えるようにしたいか」から必要な記述方法を判断する。</strong></p>
+              <p><strong>図法を選ぶ問題では、「何を／どんな関係で／どんな形にしたいか」をそろえてから名前を見る。</strong></p>
             </div>
+            <ul class="lesson-points">
+              <li>まず可視化の目的を一文にする。</li>
+              <li>次に、対象と見たい関係を分ける。</li>
+              <li>最後に、その関係を表せる図の形かを候補ごとに照合する。</li>
+            </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問12</p>
-            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答や選択肢ごとの解説ではなく、用途から記述様式を選ぶときの見方を学習要点として整理したものです。</p>
           </section>
 
         </article>
