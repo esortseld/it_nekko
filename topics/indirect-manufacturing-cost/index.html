@@ -3,128 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>この費用は、どの製品のために掛かったかたどれる？ | ITネッコ</title>
-  <meta name="description" content="製造に関する費用について、作業の対象を確認し、特定の製品まで直接たどれるかどうかから費用の扱いを判断する流れを整理します。">
-  <meta property="og:title" content="この費用は、どの製品のために掛かったかたどれる？ | ITネッコ">
-  <meta property="og:description" content="製造に関する費用を、作業の対象と特定製品への結び付きから判断する流れを整理します。">
+  <title>費用を、製品までたどって考える | ITネッコ</title>
+  <meta name="description" content="製造で発生した費用を、費用名ではなく、原価を負担させる対象まで直接追跡できるかという関係から整理します。">
+  <meta property="og:title" content="費用を、製品までたどって考える | ITネッコ">
+  <meta property="og:description" content="製造費用を、対象への追跡可能性という見方で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .case-lead {
-      margin: 1rem 0 1.5rem;
-      padding: 1.2rem 1.3rem;
-      border-radius: 16px;
-      background: #faf7f2;
-      border: 1px solid #ded6c7;
-    }
-    .case-lead p { margin: 0 0 .75rem; }
-    .case-lead p:last-child { margin-bottom: 0; }
-
-    .step-heading {
-      margin: 2.2rem 0 .9rem;
-      padding: .85rem 1rem;
-      border-left: 5px solid #8a755d;
-      background: #f3efe7;
-      border-radius: 0 12px 12px 0;
-    }
-    .step-heading__label {
-      margin: 0 0 .2rem;
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: #776e62;
-    }
-    .step-heading h2 { margin: 0; font-size: 1.2rem; }
-    .step-heading p:last-child { margin-bottom: 0; }
-
-    .target-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .9rem;
-      margin: 1rem 0;
-    }
-    .target-card {
-      padding: 1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .target-card strong { display: block; margin-bottom: .35rem; }
-    .target-card p { margin: 0; }
-    .target-card--shared {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
-
-    .decision-flow {
-      display: grid;
-      gap: .75rem;
-      margin: 1.2rem 0;
-    }
-    .decision-card {
-      position: relative;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .decision-card + .decision-card { margin-top: .55rem; }
-    .decision-card + .decision-card::before {
-      content: "↓";
-      position: absolute;
-      top: -1.45rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-weight: 700;
-      color: #8a755d;
-    }
-    .decision-card__number {
-      display: inline-block;
-      margin-right: .45rem;
-      font-size: .78rem;
-      font-weight: 700;
-      color: #776e62;
-    }
-    .decision-card h3 { display: inline; margin: 0; font-size: 1.05rem; }
-    .decision-card p { margin: .55rem 0 0; }
-    .decision-card--key {
-      border-width: 2px;
-      border-color: #8a755d;
-      background: #faf7f2;
-    }
-
-    .term-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .9rem;
-      margin: 1rem 0;
-    }
-    .term-card {
-      padding: 1rem;
-      border: 1px solid var(--line, #d9d3c8);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .term-card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
-    .term-card p { margin: 0; }
-
-    .lesson-summary {
-      margin: 1.1rem 0;
-      padding: 1.15rem 1.2rem;
-      border-left: 4px solid #8a755d;
-      background: #faf7f2;
-      border-radius: 0 12px 12px 0;
-    }
-    .lesson-summary p { margin: 0 0 .8rem; }
-    .lesson-summary p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 720px) {
-      .target-grid,
-      .term-grid { grid-template-columns: 1fr; }
-      .case-lead,
-      .decision-card,
-      .lesson-summary { padding-left: 1rem; padding-right: 1rem; }
-    }
+    .page-hero h1,.page-description{overflow-wrap:anywhere}
+    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
+    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .case-lead p,.lesson-summary p{margin:0}
+    .trace-map{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.8rem;align-items:center;margin:1.2rem 0}
+    .trace-node{min-width:0;padding:1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface);text-align:center}
+    .trace-node strong{display:block;color:var(--color-accent-dark);overflow-wrap:anywhere}
+    .trace-node span{display:block;margin-top:.3rem;color:var(--color-muted);font-size:.9rem;overflow-wrap:anywhere}
+    .trace-arrow{font-weight:700;color:var(--color-accent);text-align:center}
+    .branch-map{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.15rem 0}
+    .branch-card{min-width:0;padding:1.05rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .branch-card h3{margin:0 0 .45rem;font-size:1.05rem;color:var(--color-accent-dark)}
+    .branch-card p{margin:0}
+    .branch-card--key{border:2px solid var(--color-accent);background:var(--color-soft-green)}
+    .branch-label{display:inline-block;margin-bottom:.45rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.05em}
+    .decision-flow{display:grid;gap:.7rem;margin:1.15rem 0}
+    .decision-card{position:relative;padding:1rem 1.05rem 1rem 3rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:rgba(238,242,234,.55)}
+    .decision-card::before{position:absolute;left:1rem;top:.98rem;font-weight:700;color:var(--color-accent);content:attr(data-no)}
+    .decision-card p{margin:0}
+    .term-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    .term-card{padding:1rem 1.05rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .4rem;font-size:1.05rem;color:var(--color-accent-dark)}
+    .term-card p{margin:0}
+    .boundary-note{margin:1rem 0;padding:1rem 1.1rem;border:1px dashed rgba(95,114,82,.45);border-radius:12px;background:rgba(255,253,248,.72)}
+    .boundary-note p{margin:0}
+    .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
+    .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
+    .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
+    @media(max-width:720px){.trace-map{grid-template-columns:1fr}.trace-arrow{transform:rotate(90deg)}.branch-map,.term-grid{grid-template-columns:1fr}.case-lead,.lesson-summary,.branch-card,.term-card{padding-left:1rem;padding-right:1rem}.decision-card{padding-right:.85rem}}
   </style>
 </head>
 <body>
@@ -139,117 +54,69 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 会計・財務</p>
-        <h1>この費用は、どの製品のために掛かったかたどれる？</h1>
-        <p class="page-description">製造に関する費用を、費用の名前ではなく「何を対象にした作業か」から順番に見ていきます。</p>
+        <h1>費用を、製品までたどって考える</h1>
+        <p class="page-description">製造に関する費用を分類するとき、費用の名前だけでは判断できない。まず「その費用を、原価を負担させたい製品まで直接たどれるか」という関係を見る。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>製造費用を対象との結び付きから見る</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>費用を、製品までたどって考える</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 1</p>
-            <h2>まず、何が起きているか見る</h2>
-          </div>
-
-          <section class="detail-section" id="situation">
-            <h2>製品を作るために、いくつかの費用が発生している</h2>
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、費用と「負担させる対象」の関係を見る</h2></div>
+          <section class="detail-section" id="trace-start">
+            <h2>費用名から始めず、行き先から考える</h2>
             <div class="case-lead">
-              <p>完成した製品を検査するために、人が作業している。</p>
-              <p>工場の電気供給設備を保守するためにも、人が作業している。</p>
-              <p>製品の加工の一部を外部へ依頼し、その加工費も発生している。</p>
+              <p>製造では、材料、人の作業、外部への支払い、設備の維持など、さまざまな理由で費用が発生する。ここで先に確認するのは、その費用の種類ではなく、最終的にどの製品の原価として負担させるのかという関係である。</p>
             </div>
-            <p>どれも製造に関係する費用だが、同じ扱いになるとは限らない。まず、それぞれの費用が<strong>何を対象にして発生しているか</strong>を見る。</p>
-          </section>
-
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 2</p>
-            <h2>費用が向いている対象を整理する</h2>
-          </div>
-
-          <section class="detail-section" id="targets">
-            <h2>作業の先にあるのは、製品か、工場の共通設備か</h2>
-            <div class="target-grid">
-              <div class="target-card">
-                <strong>完成した製品の検査</strong>
-                <p>検査する対象となる製品がある。</p>
-              </div>
-              <div class="target-card target-card--shared">
-                <strong>電気供給設備の保守</strong>
-                <p>特定の製品ではなく、工場で共用する設備を維持する作業である。</p>
-              </div>
-              <div class="target-card">
-                <strong>製品の外注加工</strong>
-                <p>加工の対象となる製品がある。</p>
-              </div>
+            <div class="trace-map" aria-label="費用と原価を負担させる対象の関係">
+              <div class="trace-node"><strong>発生した費用</strong><span>何に対して支払ったか</span></div>
+              <div class="trace-arrow" aria-hidden="true">→</div>
+              <div class="trace-node"><strong>原価を負担させる製品</strong><span>どの対象のための費用か</span></div>
             </div>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 3</p>
-            <h2>判断に必要な手掛かりを順番に確認する</h2>
-            <p>費用から、どの製品のために掛かったのかを直接たどれるか確認する。</p>
-          </div>
-
-          <section class="detail-section" id="decision-flow">
-            <h2>確認するのは、費用と製品の結び付き</h2>
-            <div class="decision-flow">
-              <div class="decision-card">
-                <span class="decision-card__number">01</span><h3>まず、費用が発生した作業の対象を見る</h3>
-                <p>製品そのものを検査・加工する作業なのか、工場で共用する設備を維持する作業なのかを確認する。</p>
-              </div>
-              <div class="decision-card">
-                <span class="decision-card__number">02</span><h3>その対象を、特定の製品まで直接たどれるか確認する</h3>
-                <p>検査する製品や加工する製品が特定できれば、その費用をその製品へ直接対応付けられる。</p>
-              </div>
-              <div class="decision-card decision-card--key">
-                <span class="decision-card__number">03</span><h3>工場の共通設備に向いた作業は、特定の製品へ直接たどれない</h3>
-                <p>電気供給設備の保守は、工場全体で共用する設備を維持する作業である。どれか一つの製品だけのために掛かった費用として直接対応付けることができない。</p>
-              </div>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>その費用を、製品まで直接追跡できるか</h2></div>
+          <section class="detail-section" id="branch">
+            <h2>分かれ目は「直接たどれるか」</h2>
+            <div class="decision-flow" aria-label="判断する順序">
+              <div class="decision-card" data-no="01"><p>まず、原価を負担させたい製品を一つの対象として置く。</p></div>
+              <div class="decision-card" data-no="02"><p>発生した費用を、その製品のために発生したものとして直接対応付けられるかを見る。</p></div>
+              <div class="decision-card" data-no="03"><p>直接対応付けられない場合は、複数の対象にまたがるため、何らかの基準で割り当てる必要がある費用かを見る。</p></div>
             </div>
-            <p>判断を分けているのは、労務費か外注費かという費用名ではなく、<strong>その費用を特定の製品へ直接対応付けられるか</strong>という関係である。</p>
+            <div class="branch-map">
+              <div class="branch-card"><span class="branch-label">直接たどれる</span><h3>一つの対象へそのまま結び付く</h3><p>どの製品のために発生した費用かを、個別に追跡できる状態。</p></div>
+              <div class="branch-card branch-card--key"><span class="branch-label">直接たどれない</span><h3>複数の対象にまたがる</h3><p>一つの製品だけには直接対応付けられず、一定の基準で負担を分ける必要がある状態。</p></div>
+            </div>
+            <div class="boundary-note"><p><strong>公開問題では、各費用がどちら側に置かれるかを自分で判断する。</strong> 費用名だけで決めず、製品までの追跡関係を見る。</p></div>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 4</p>
-            <h2>ここまで確認した違いに名前を付ける</h2>
-          </div>
-
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>ここまでの違いに名前を付ける</h2></div>
           <section class="detail-section" id="terms">
-            <h2>特定製品へ直接たどれるかで、費用の扱いが分かれる</h2>
+            <h2>追跡できるかどうかで、費用の扱いが分かれる</h2>
             <div class="term-grid">
-              <div class="term-card">
-                <h3>直接費</h3>
-                <p>特定の製品へ直接対応付けられる費用。</p>
-              </div>
-              <div class="term-card">
-                <h3>間接費</h3>
-                <p>製造に関係していても、特定の製品へ直接対応付けられない費用。</p>
-              </div>
+              <div class="term-card"><h3>直接費</h3><p>特定の製品へ直接対応付けて把握できる費用。</p></div>
+              <div class="term-card"><h3>間接費</h3><p>特定の製品へ直接対応付けられず、一定の基準で各対象へ負担させる費用。</p></div>
             </div>
           </section>
 
-          <div class="step-heading">
-            <p class="step-heading__label">STEP 5</p>
-            <h2>この出来事から残せる学習要点</h2>
-          </div>
-
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>この問題から残す見方</h2></div>
           <section class="detail-section" id="lesson">
-            <h2>費用名ではなく、「何に結び付く費用か」を見る</h2>
-            <div class="lesson-summary">
-              <p>製造に関する費用を整理するときは、まず<strong>その費用がどの作業・対象に対して発生したか</strong>を確認する。</p>
-              <p>次に、その対象を<strong>特定の製品まで直接たどれるか</strong>を見る。製品まで直接たどれる費用と、工場全体で共用する設備などに向いた費用では扱いが分かれる。</p>
-              <p><strong>同じ労務費でも、作業の対象が製品なのか共通設備なのかで、製品との結び付きは変わる。費用の名称ではなく、費用と対象の関係から判断する。</strong></p>
-            </div>
+            <h2>「何費か」より先に「どこまでたどれるか」を見る</h2>
+            <div class="lesson-summary"><p>製造費用を分類するときは、労務費・外注費などの名称だけを見ない。費用が発生した対象と、原価を負担させる製品との間を直接たどれるかを確認する。直接たどれないなら、複数の対象へ割り当てる費用かを考える。</p></div>
+            <ul class="lesson-points">
+              <li>最初に、原価を負担させる対象を置く。</li>
+              <li>費用からその対象へ直接たどれるかを見る。</li>
+              <li>直接たどれない場合は、複数対象への割当てが必要かを見る。</li>
+            </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問9</p>
-            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答そのものではなく、製造費用を判断するときに使う対象との追跡関係を学習要点として整理したものです。</p>
           </section>
 
         </article>
@@ -257,10 +124,6 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
