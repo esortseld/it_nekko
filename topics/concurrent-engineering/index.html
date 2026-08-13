@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border,#e3ddd2);border-radius:16px;background:#faf7f2}.case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
-    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid #8a755d;border-radius:0 12px 12px 0;background:#f3efe7}.step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;letter-spacing:.08em;color:#776e62}.step-heading h2{margin:0;font-size:1.2rem}.step-heading p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid #8a755d;border-radius:0 12px 12px 0;background:#f3efe7}.step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;letter-spacing:.08em;color:#776e62}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
     .state-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;margin:1rem 0}.state-card{padding:1rem 1.1rem;border:1px solid var(--color-border,#e3ddd2);border-radius:14px;background:#fff}.state-card--key{border-width:2px;border-color:#8a755d;background:#faf7f2}.state-card strong{display:block;margin-bottom:.45rem}.state-card p{margin:0}
     .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}.decision-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border,#e3ddd2);border-radius:14px;background:#fff}.decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:#8a755d}.decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:#776e62}.decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}.decision-card--key{border-width:2px;border-color:#8a755d;background:#faf7f2}
     .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border,#e3ddd2);border-radius:14px;background:#fff}.term-card h3{margin:0 0 .6rem;font-size:1.1rem}.term-card p{margin:0}.lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid #8a755d;border-radius:0 12px 12px 0;background:#faf7f2}.lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
@@ -27,10 +27,8 @@
       <div class="topic-layout"><article class="detail-flow">
         <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、何が起きているか見る</h2></div>
         <section class="detail-section" id="situation"><h2>製品開発には、いくつかの工程がある</h2><div class="case-lead"><p>製品を完成させるまでには、複数の工程を進める必要がある。</p><p>全体が終わるまでの時間は、それぞれの工程をどのような順番で進めるかによって変わる。</p></div><p>ここで見るのは、<strong>各工程を一つずつ待って進める必要があるのか、それとも重ねて進められるのか</strong>である。</p></section>
-
         <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>工程の進め方を整理する</h2></div>
         <section class="detail-section" id="states"><h2>順番に進める状態から、重ねて進める状態へ</h2><div class="state-grid"><div class="state-card"><strong>一つずつ順番に進める</strong><p>前の工程が終わるまで、次の工程は待つ。工程の間に待ち時間が生じる。</p></div><div class="state-card state-card--key"><strong>進められる工程を重ねて進める</strong><p>前の工程がすべて終わるのを待たず、可能な工程を並行して進める。</p></div></div></section>
-
         <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>判断に必要な手掛かりを順番に確認する</h2><p>工程の進め方が変わると、全体が終わるまでの時間がどう変わるかを見る。</p></div>
         <section class="detail-section" id="decision-flow"><h2>確認するのは、この流れ</h2><div class="decision-flow">
           <div class="decision-card"><span class="decision-card__number">01</span><h3>工程を一つずつ進めると、次の工程に待ち時間が生じる</h3><p>前の工程が終わるまで次へ進めない時間が、全体の所要時間に含まれる。</p></div>
@@ -38,13 +36,10 @@
           <div class="decision-card"><span class="decision-card__number">03</span><h3>工程間の待ち時間が減る</h3><p>複数工程が同じ時間帯に進むため、全工程を順番につなげた場合より待つ時間が少なくなる。</p></div>
           <div class="decision-card"><span class="decision-card__number">04</span><h3>開発全体が終わるまでの時間が短くなる</h3><p>その結果、製品開発に必要な期間や納期を短くできる。</p></div>
         </div><p>つまり、<strong>複数工程を並行して進めることで工程間の待ち時間を減らし、開発全体の所要時間を短縮する</strong>という関係である。</p></section>
-
         <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>ここまで確認した進め方に名前を付ける</h2></div>
         <section class="detail-section" id="term"><h2>複数工程を並行して進める開発の進め方</h2><div class="term-card"><h3>コンカレントエンジニアリング</h3><p>ここまで確認した、製品開発の複数工程を並行して進め、開発期間や納期の短縮につなげる進め方には、コンカレントエンジニアリングという名前が付く。</p></div></section>
-
         <div class="step-heading"><p class="step-heading__label">STEP 5</p><h2>この出来事から残せる学習要点</h2></div>
         <section class="detail-section" id="lesson"><h2>全体時間は、「同時に進められるか」でも変わる</h2><div class="lesson-summary"><p>複数の作業で全体の所要時間を考えるときは、各作業に掛かる時間だけを見ない。</p><p><strong>前の作業を待つ必要があるか、複数の作業を同時に進められるか</strong>を確認する。</p><p><strong>進められる作業を並行化すると、待ち時間を減らし、全体が終わるまでの時間を短くできる。</strong></p></div></section>
-
         <section class="detail-section" id="reference"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問18</p><p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p></section>
       </article></div>
     </div>
