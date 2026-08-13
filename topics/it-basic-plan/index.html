@@ -3,9 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>システム導入前に決めるべきことを見分ける | ITネッコ</title>
-  <meta name="description" content="IT基本計画について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="システム導入前に決めるべきことを見分ける | ITネッコ"><meta property="og:description" content="経営方針に沿って、システム化の目的、範囲、優先順位、投資計画などを決める段階を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>ITをどう使うか決める前に、誰と何を確認する？ | ITネッコ</title>
+  <meta name="description" content="IT活用の計画を立てる場面で、まず誰が関わり、組織が現在と将来に何を必要としているのかを順番に確認します。">
+  <meta property="og:title" content="ITをどう使うか決める前に、誰と何を確認する？ | ITネッコ">
+  <meta property="og:description" content="IT活用に関わるステークホルダと、組織の現在・将来のニーズを順番に確認します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .page-hero h1,.page-description{overflow-wrap:anywhere}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
+    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .state-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;margin:1rem 0}
+    .state-card{min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .state-card strong{display:block;margin-bottom:.55rem}.state-card p{margin:.45rem 0 0}
+    .state-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .7rem;font-size:1.1rem}.term-card p{margin:.5rem 0 0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.state-grid{grid-template-columns:1fr}.case-lead,.state-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -18,95 +44,69 @@
   <main>
     <section class="page-hero">
       <div class="container hero-inner">
-        <p class="site-kicker">ストラテジ系 / システム企画</p>
-        <div class="topic-heading-meta"><span class="question-badge">問34</span><span class="term-label">IT基本計画</span></div><h1>システム導入前に決めるべきことを見分ける</h1>
-        <p class="page-description">経営方針に沿って、システム化の目的、範囲、優先順位、投資計画などを決める段階を整理します。</p>
+        <p class="site-kicker">ストラテジ系 / システム戦略</p>
+        <h1>ITをどう使うか決める前に、誰と何を確認する？</h1>
+        <p class="page-description">IT活用の計画を立てる場面で、まず誰が関わり、組織が現在と将来に何を必要としているのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>システム導入前に決めるべきことを見分ける</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>ITをどう使うか決める前に、誰と何を確認する？</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>新しいITシステムを導入するときは、いきなり設計や運用手順を決めるのではなく、まず何のためにシステム化するのかを明確にします。</p>
-            <p>利用者、関係部門、経営上の目的、業務上の要求を整理し、どの要求を優先するかを決めることが基本計画の中心になります。</p>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、何が起きているか見る</h2></div>
+          <section class="detail-section" id="situation">
+            <h2>IT活用の計画を立てようとしている</h2>
+            <div class="case-lead">
+              <p>組織が、ITシステムをこれからどう活用していくか計画しようとしている。</p>
+              <p>ここでいきなり具体的な手順を決めるのではなく、<strong>まず誰が関わり、組織が今後何を必要としているのか</strong>を確認する。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>IT基本計画では、システムの利用に関係する利害関係者、現在および将来の組織ニーズ、利用者との合意に基づく業務要求と優先順位を明確にします。</p>
-            <p>試験では、「構想・企画段階で決めること」と「運用開始後に管理すること」を分けて判断します。</p>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>計画の前提になる二つを整理する</h2></div>
+          <section class="detail-section" id="states">
+            <div class="state-grid">
+              <div class="state-card state-card--key"><strong>利活用に関わるステークホルダ</strong><p>ITシステムの利活用に関わる人や組織を明確にする。</p></div>
+              <div class="state-card state-card--key"><strong>組織の現在・将来のニーズ</strong><p>今必要なことだけでなく、将来必要になることも確認する。</p></div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>IT基本計画の構造を確認する</span></h2>
-            <p>IT基本計画は、システム化の方向性を定めるための計画です。</p>
-            <ul>
-              <li>関係者：システムを利用する部門、利用者、影響を受ける利害関係者を整理する。</li>
-              <li>組織ニーズ：現在の課題と将来の業務・経営上の必要性を確認する。</li>
-              <li>業務要求：システムで実現したい業務上の要求を明確にする。</li>
-              <li>優先順位：すべてを同時に実現できない場合に、何を優先するかを決める。</li>
-            </ul>
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>判断に必要な手掛かりを順番に確認する</h2></div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card"><span class="decision-card__number">01</span><h3>ITをどう使うか計画しようとしている</h3><p>IT活用の方向を考える段階にいる。</p></div>
+              <div class="decision-card"><span class="decision-card__number">02</span><h3>誰がその利活用に関わるのかを見る</h3><p>計画の影響を受ける人や組織を確認する。</p></div>
+              <div class="decision-card decision-card--key"><span class="decision-card__number">03</span><h3>利活用に関わるステークホルダを明確にする</h3><p>計画が誰に関係するのかをはっきりさせる。</p></div>
+              <div class="decision-card"><span class="decision-card__number">04</span><h3>組織が今何を必要としているかを見る</h3><p>現在のニーズを確認する。</p></div>
+              <div class="decision-card decision-card--key"><span class="decision-card__number">05</span><h3>将来必要になることも含めて確認する</h3><p>現在だけでなく、将来的なニーズへの対応も見る。</p></div>
+              <div class="decision-card"><span class="decision-card__number">06</span><h3>関係者と現在・将来のニーズを基に、IT活用の方向を定める</h3><p>誰に関係し、何が必要なのかを押さえた上で計画の方向を決める。</p></div>
+            </div>
+            <div class="decision-conclusion"><p><strong>判断の中心は、「利活用に関わるステークホルダ」と「組織の現在・将来のニーズ」を明確にすること</strong>にある。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>IT基本計画に含める内容かどうかは、次の観点で判断します。</p>
-            <ul>
-              <li>システム化の目的や方向性に関わる内容か。</li>
-              <li>利用者や利害関係者との合意形成に関わる内容か。</li>
-              <li>現在と将来の組織ニーズを踏まえた内容か。</li>
-              <li>業務要求やその優先順位を決める内容か。</li>
-            </ul>
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>ここまで確認した計画に名前を付ける</h2></div>
+          <section class="detail-section" id="term">
+            <div class="term-card"><h3>IT基本計画</h3><p>ITシステムの利活用に関わるステークホルダと、組織の現在・将来のニーズへの対応を明確にし、IT活用の方向を定める計画を、ここではIT基本計画として確認する。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>運用管理の内容と分ける</span></h2>
-            <ul>
-              <li>IT基本計画：関係者、組織ニーズ、業務要求、優先順位を整理する。</li>
-              <li>インシデント管理：障害や事故が発生した後の対応手順を管理する。</li>
-              <li>設計作業：具体的なシステム構造や画面、データを設計する。</li>
-              <li>運用手順：稼働後の監視、障害対応、日常運用の手順を決める。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>IT基本計画は、システム化の構想・企画段階で作る。</li>
-              <li>関係者や利害関係者を明確にする。</li>
-              <li>現在と将来の組織ニーズを整理する。</li>
-              <li>業務要求と優先順位を明確にする。</li>
-              <li>インシデント管理などの運用手順とは区別する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：作る前に何を実現するかを決める</h2>
-            <p>IT基本計画は、システムを具体的に作り始める前の土台です。</p>
-            <p>どの関係者の、どの業務要求を、どの優先順位で実現するのかを明確にすることで、その後の要件定義や設計が進めやすくなります。</p>
-          </section>
-
-          <section class="detail-section" id="systemization-concept">
-            <h2>補足：システム化構想で集める情報</h2>
-            <p>企画プロセスでシステム化構想を立てるときは、いきなりRFPを作るのではなく、まず事業目標、業務上の課題、関係部門の要求、現在の業務手順、既存システムの状況などを整理します。</p>
-            <p>試験では、ベンダへ提案を求める文書そのものではなく、システム化の目的や対象範囲を決めるために必要な情報を集める段階として判断します。</p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <div class="related-list"><a href="../rfp-request-for-proposal/">発注前にベンダへ何を伝えるべきか</a></div>
-            <div class="tag-list"><span class="tag">IT基本計画</span><span class="tag">システム企画</span><span class="tag">業務要求</span></div>
+          <div class="step-heading"><p class="step-heading__label">STEP 5</p><h2>この出来事から残せる学習要点</h2></div>
+          <section class="detail-section" id="lesson">
+            <h2>計画では、詳細へ進む前に「誰に関係し、今後何が必要か」を明確にする</h2>
+            <div class="lesson-summary">
+              <p>具体的な手順や個別の実施内容を決める前に、計画が誰に関係するのかを確認する。</p>
+              <p><strong>そのうえで、現在のニーズと将来のニーズを確認し、計画の向きを定める。</strong></p>
+            </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問34</p>
-            <p>令和7年度 ITパスポート試験 公開問題 問20</p>
-            <p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
