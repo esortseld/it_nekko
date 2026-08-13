@@ -3,9 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会社の安全性を数字で見るときの基本 | ITネッコ</title>
-  <meta name="description" content="自己資本比率について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="会社の安全性を数字で見るときの基本 | ITネッコ"><meta property="og:description" content="総資本に占める自己資本の割合から、財務の安全性を見る基本指標を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>この比率、貸借対照表のどことどこを見る？ | ITネッコ</title>
+  <meta name="description" content="自己資本が全体のどれだけを占めるかを見るために、貸借対照表のどの数字を『部分』と『全体』として使うのかを順番に確認します。">
+  <meta property="og:title" content="この比率、貸借対照表のどことどこを見る？ | ITネッコ">
+  <meta property="og:description" content="貸借対照表の構造から、比率計算に使う『部分』と『全体』を順番に特定します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
+    .balance-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.9rem;margin:1rem 0}
+    .balance-card{min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .balance-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .balance-card strong{display:block;margin-bottom:.55rem}.balance-card p{margin:.45rem 0 0}
+    .balance-row{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--color-border)}.balance-row:last-child{border-bottom:0}.balance-row span:last-child{font-weight:700;white-space:nowrap}
+    .balance-equal{margin:.9rem 0;padding:.85rem 1rem;text-align:center;border-radius:12px;background:var(--color-soft-green);font-weight:700}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .formula-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .formula-card h3{margin:0 0 .7rem;font-size:1.1rem}.formula-card p{margin:.5rem 0 0}.formula{margin:.85rem 0;padding:.9rem 1rem;text-align:center;border-radius:12px;background:var(--color-soft-green);font-weight:700;overflow-wrap:anywhere}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.balance-grid{grid-template-columns:1fr}.case-lead,.balance-card,.decision-card,.formula-card,.lesson-summary{padding-left:1rem;padding-right:1rem}.balance-row{gap:.7rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,119 +45,119 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 会計・財務</p>
-        <div class="topic-heading-meta"><span class="question-badge">問26</span><span class="term-label">自己資本比率</span></div><h1>会社の安全性を数字で見るときの基本</h1>
-        <p class="page-description">総資本に占める自己資本の割合から、財務の安全性を見る基本指標を整理します。</p>
+        <h1>この比率、貸借対照表のどことどこを見る？</h1>
+        <p class="page-description">自己資本が全体のどれだけを占めるかを見るために、貸借対照表のどの数字を「部分」と「全体」として使うのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>会社の安全性を数字で見るときの基本</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>比率の部分と全体を見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              会社の安全性を確認するとき、借入金などの他人資本にどれだけ依存しているか、自己資本をどれだけ持っているかを見ます。
-            </p>
-            <p>
-              自己資本比率は、会社の総資本のうち、返済不要の自己資本がどれくらいあるかを表す指標です。
-            </p>
-          </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              自己資本比率は、自己資本を総資本で割って求めます。
-            </p>
-            <p>
-              計算式は、<strong>自己資本比率 ＝ 自己資本 ÷ 総資本 × 100</strong> です。
-            </p>
-          </section>
-
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>貸借対照表の構造を確認する</span></h2>
-            <p>
-              貸借対照表では、左側に資産、右側に負債と純資産が示されます。
-            </p>
-            <ul>
-              <li>資産：会社が持っている財産や権利。</li>
-              <li>負債：借入金など、将来返済が必要なもの。</li>
-              <li>純資産：返済不要の資本。自己資本として扱う。</li>
-              <li>総資本：負債と純資産の合計。資産合計と一致する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>計算手順を整理する</span></h2>
-            <p>
-              自己資本比率を求めるときは、次の順で考えます。
-            </p>
-            <ul>
-              <li>純資産の金額を確認する。</li>
-              <li>資産合計、または負債と純資産の合計を確認する。</li>
-              <li>純資産 ÷ 総資本 × 100 を計算する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい点を分ける</span></h2>
-            <ul>
-              <li>自己資本は、原則として純資産を使う。</li>
-              <li>総資本は、資産合計または負債と純資産の合計である。</li>
-              <li>負債だけを分母にしない。</li>
-              <li>流動資産や固定資産の一部だけで計算しない。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>自己資本比率は、会社の安全性を見る指標である。</li>
-              <li>計算式は、自己資本 ÷ 総資本 × 100 である。</li>
-              <li>自己資本は純資産、総資本は資産合計と考える。</li>
-              <li>試験では、貸借対照表から必要な金額を読み取る。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：数字の読み取り例</h2>
-            <p>
-              資産合計が1,000、純資産が300であれば、自己資本比率は 300 ÷ 1,000 × 100 で30％です。
-            </p>
-            <p>
-              流動資産や固定資産に分かれていても、自己資本比率では資産合計を総資本として使います。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <div class="related-list">
-              <a href="../indirect-manufacturing-cost/">間接費とは何か</a>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>貸借対照表から、ある比率を求めようとしている</h2>
+            <div class="case-lead">
+              <p>会社の貸借対照表があり、自己資本が全体のどれだけを占めるかを確かめようとしている。</p>
+              <p>ここで最初に必要なのは、計算を始めることではなく、<strong>表のどの数字が「部分」で、どの範囲が「全体」なのか</strong>を見つけることである。</p>
             </div>
-            <div class="tag-list">
-              <span class="tag">自己資本比率</span>
-              <span class="tag">貸借対照表</span>
-              <span class="tag">会計・財務</span>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>貸借対照表の左右と、純資産の位置を整理する</h2>
+          </div>
+          <section class="detail-section" id="balance-structure">
+            <h2>左の資産合計と、右の負債＋純資産は同じ総額になる</h2>
+            <div class="balance-grid">
+              <div class="balance-card">
+                <strong>資産の部</strong>
+                <div class="balance-row"><span>流動資産</span><span>730</span></div>
+                <div class="balance-row"><span>固定資産</span><span>270</span></div>
+                <p>左側全体が、会社が使っている資金の総額を表す。</p>
+              </div>
+              <div class="balance-card balance-card--key">
+                <strong>負債・純資産の部</strong>
+                <div class="balance-row"><span>流動負債</span><span>200</span></div>
+                <div class="balance-row"><span>固定負債</span><span>500</span></div>
+                <div class="balance-row"><span>純資産</span><span>300</span></div>
+                <p>右側では、純資産が全体の一部分として置かれている。</p>
+              </div>
+            </div>
+            <div class="balance-equal">資産合計 ＝ 負債 ＋ 純資産</div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>比率の「部分」と「全体」を、表の構造から一つずつ決める。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>何が「部分」になるかを見る</h3>
+                <p>自己資本として見るのは、貸借対照表の右側にある純資産である。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>何が「全体」になるかを見る</h3>
+                <p>全体として見るのは、貸借対照表全体の合計額である。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">03</span><h3>左右は同じ総額なので、全体はどちら側からでも確認できる</h3>
+                <p>資産合計でも、「負債＋純資産」の合計でも、同じ全体額になる。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">04</span><h3>純資産を、全体に対する割合として見る</h3>
+                <p>ここまでで、「純資産という部分 ÷ 貸借対照表全体」という関係ができる。</p>
+              </div>
+            </div>
+            <div class="decision-conclusion"><p><strong>比率を出す前に、純資産を「部分」、貸借対照表の合計額を「全体」として対応付ける</strong>ことが判断の中心になる。</p></div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した比率に名前と式を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>部分と全体の関係を式にすると</h2>
+            <div class="formula-card">
+              <h3>自己資本比率</h3>
+              <p>ここまで確認した「自己資本が、企業の資金全体のどれだけを占めるか」という比率には、自己資本比率という名前が付く。</p>
+              <div class="formula">自己資本比率 ＝ 自己資本（純資産） ÷ 総資本 × 100</div>
+              <p>総資本は、資産合計、または負債＋純資産の合計として確認できる。</p>
+            </div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>比率計算は、式より先に「部分」と「全体」を表から特定する</h2>
+            <div class="lesson-summary">
+              <p>比率の式を覚えていても、表のどの数字を使うかが分からなければ計算できない。</p>
+              <p><strong>まず「何が部分か」「何が全体か」を決め、その二つが表のどこにあるか</strong>を確認する。</p>
+              <p><strong>表の構造と分子・分母を対応付けてから、最後に式へ進む。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問26</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
