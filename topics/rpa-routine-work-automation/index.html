@@ -1,2 +1,148 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>人の定型作業をソフトウェアに任せる仕組み | ITネッコ</title><meta name="description" content="RPAについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。"><link rel="stylesheet" href="../../assets/style.css"></head><body><header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header><main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / システム戦略・業務改善</p><div class="topic-heading-meta"><span class="question-badge">問22</span><span class="term-label">RPA</span></div><h1>人の定型作業をソフトウェアに任せる仕組み</h1><p class="page-description">画面操作や転記などの定型的な事務作業を、ソフトウェアロボットで自動化する考え方を整理します。</p></div></section><div class="container page-flow"><nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>RPA</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow"><section class="detail-section step-section"><h2><span class="step-number">1</span><span>結論を先に押さえる</span></h2><p>RPAとは、Robotic Process Automation の略で、定型的な業務をソフトウェアロボットによって自動化することです。</p></section><section class="detail-section step-section"><h2><span class="step-number">2</span><span>対象業務を見分ける</span></h2><ul><li>対象は、入力、転記、照合、集計、帳票作成などの定型的な事務作業。</li><li>工場の機械ロボットではなく、PC上の操作を自動実行するソフトウェア。</li><li>例外対応、判断、交渉、企画などはそのまま置き換えにくい。</li><li>BPO、EUC、FAとは目的や対象が異なる。</li></ul></section><section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問22</p><p>令和7年度 ITパスポート試験 公開問題 問24</p><p>このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。問題文・選択肢本文は掲載していません。</p></section></article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>この定型作業、人が続ける？ ソフトウェアに任せる？ | ITネッコ</title>
+  <meta name="description" content="伝票入力のように繰り返し行う事務作業について、人がしていた操作が何に置き換わるのかを順番に確認します。">
+  <meta property="og:title" content="この定型作業、人が続ける？ ソフトウェアに任せる？ | ITネッコ">
+  <meta property="og:description" content="定型事務で、人の操作をソフトウェアロボットへ代替する流れから自動化の仕組みを判断します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
+    .state-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;margin:1rem 0}
+    .state-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .state-card strong{display:block;margin-bottom:.45rem}.state-card p{margin:0}
+    .state-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .state-grid .state-card:first-child::after{content:"→";position:absolute;right:-1.05rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .6rem;font-size:1.1rem}.term-card p{margin:0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.state-grid{grid-template-columns:1fr;gap:1.8rem}.state-grid .state-card:first-child::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.55rem;transform:translateX(-50%)}.case-lead,.state-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">ITネッコ</a>
+      <nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <p class="site-kicker">ストラテジ系 / システム戦略・業務改善</p>
+        <h1>この定型作業、人が続ける？ ソフトウェアに任せる？</h1>
+        <p class="page-description">伝票入力のように繰り返し行う事務作業について、人がしていた操作が何に置き換わるのかを順番に確認します。</p>
+      </div>
+    </section>
+
+    <div class="container page-flow">
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>定型作業の実行主体を見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <div class="topic-layout">
+        <article class="detail-flow">
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>定型的な事務作業を繰り返している</h2>
+            <div class="case-lead">
+              <p>伝票入力のように、決まった手順で繰り返す事務作業がある。</p>
+              <p>ここで判断に必要なのは、<strong>その作業を誰が行っていて、何に置き換えようとしているのか</strong>である。</p>
+            </div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>作業を実行するものが、どう変わるか整理する</h2>
+          </div>
+          <section class="detail-section" id="states">
+            <h2>人が操作する状態から、ソフトウェアロボットが操作する状態へ</h2>
+            <div class="state-grid">
+              <div class="state-card"><strong>これまで</strong><p>人が、決まった手順の事務作業を繰り返し実行している。</p></div>
+              <div class="state-card state-card--key"><strong>置き換えた後</strong><p>ソフトウェアロボットが、人に代わって同じ操作を実行する。</p></div>
+            </div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>どの作業を、何に置き換えているのかを順番に見る。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>対象は、定型的な事務作業</h3>
+                <p>決まった手順で繰り返す、伝票入力などの事務作業である。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">02</span><h3>人の操作を、ソフトウェアロボットへ代替する</h3>
+                <p>人が行っていた操作を、ソフトウェアロボットが代わって実行する。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>同じ操作を繰り返し実行できる</h3>
+                <p>定型化された手順を、ソフトウェアが繰り返して実行する状態になる。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">04</span><h3>事務作業の自動化・効率化につながる</h3>
+                <p>人が繰り返していた定型操作を代替することで、作業を自動化・効率化できる。</p>
+              </div>
+            </div>
+            <div class="decision-conclusion"><p><strong>定型的な事務作業について、人がしていた操作をソフトウェアロボットへ置き換えて自動化する仕組み</strong>だと分かる。</p></div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した仕組みに名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>この自動化の仕組みに付く名前</h2>
+            <div class="term-card">
+              <h3>RPA（Robotic Process Automation）</h3>
+              <p>ここまで確認した、定型的な事務作業をソフトウェアロボットに代替させ、自動化・効率化する仕組みには、RPAという名前が付く。</p>
+            </div>
+          </section>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>自動化は、「どの作業を、何に置き換えたか」で見る</h2>
+            <div class="lesson-summary">
+              <p>業務自動化の名称を判断するときは、「自動化した」という言葉だけで判断しない。</p>
+              <p><strong>どの作業を対象にしているか、誰がしていた作業を、何が代わって実行するようになったのか</strong>を確認する。</p>
+              <p><strong>人がしていたどの操作が、何に置き換わったのかを見ると、自動化の仕組みを事実からたどれる。</strong></p>
+            </div>
+          </section>
+
+          <section class="detail-section" id="reference">
+            <h2>参照した公開問題</h2>
+            <p>令和8年度 ITパスポート試験 公開問題 問22</p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
