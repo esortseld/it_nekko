@@ -23,3 +23,5 @@ ITパスポート試験で問われる知識を、過去問をきっかけに学
 ## 公開
 
 GitHub Pages で `main` ブランチのルートから公開します。
+
+<!-- r8-link-label-trigger -->
