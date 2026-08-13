@@ -3,47 +3,319 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会議の途中で、広げるのか絞るのか | ITネッコ</title>
-  <meta name="description" content="会議中の行動を、個別ルールの暗記ではなく、今が可能性を広げる局面か、候補を絞る局面かという見方から整理します。">
-  <meta property="og:title" content="会議の途中で、広げるのか絞るのか | ITネッコ">
-  <meta property="og:description" content="会議の現在地と、行動が可能性を広げる方向か絞る方向かを照らし合わせる見方を整理します。">
+  <title>会議では、案を出す仕事と選ぶ仕事を分けて考える | ITネッコ</title>
+  <meta name="description" content="会議中の行動を個別ルールとして覚えるのではなく、案を生み出す局面と、案を評価・整理する局面のどちらに属する行動かという見方から整理します。">
+  <meta property="og:title" content="会議では、案を出す仕事と選ぶ仕事を分けて考える | ITネッコ">
+  <meta property="og:description" content="会議の進め方を、アイデア生成と評価・整理という異なる仕事に分け、問題中の行動がどちらに属するかを見る方法を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .page-hero h1,.page-description{overflow-wrap:anywhere}
-    .step-heading{margin:2.3rem 0 1rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
-    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}
-    .step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
-    .case-lead,.lesson-summary{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
-    .case-lead p,.lesson-summary p{margin:0}
-    .phase-map{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.9rem;align-items:stretch;margin:1.25rem 0}
-    .phase-block{min-width:0;padding:1.15rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
-    .phase-block--expand{border:2px solid var(--color-accent);background:var(--color-soft-green)}
-    .phase-block strong{display:block;margin-bottom:.4rem;color:var(--color-accent-dark);font-size:1.06rem}
-    .phase-block p{margin:0}
-    .phase-arrow{display:grid;place-items:center;font-size:1.35rem;font-weight:700;color:var(--color-accent)}
-    .phase-purpose{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:1rem;align-items:center;margin:1.15rem 0;padding:1.1rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
-    .phase-purpose__label{font-weight:700;color:var(--color-accent-dark);text-align:center}
-    .phase-purpose__body p{margin:0}
-    .direction-axis{margin:1.25rem 0;padding:1.15rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
-    .axis-line{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.8rem;align-items:center}
-    .axis-side{min-width:0;padding:1rem;border-radius:14px;text-align:center}
-    .axis-side--expand{background:var(--color-soft-green)}
-    .axis-side--narrow{background:var(--color-soft)}
-    .axis-side strong{display:block;color:var(--color-accent-dark)}
-    .axis-side span{display:block;margin-top:.3rem;color:var(--color-muted);font-size:.9rem}
-    .axis-center{display:grid;place-items:center;min-width:5.4rem;min-height:5.4rem;padding:.65rem;border:2px solid var(--color-accent);border-radius:50%;background:var(--color-surface);font-weight:700;color:var(--color-accent-dark);text-align:center}
-    .axis-caption{margin:.9rem 0 0;text-align:center;color:var(--color-muted)}
-    .check-sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.15rem 0}
-    .check-item{position:relative;min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
-    .check-item strong{display:block;margin-bottom:.35rem;color:var(--color-accent-dark)}
-    .check-item p{margin:0}
-    .check-item+.check-item::before{content:"→";position:absolute;left:-.63rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--color-accent)}
-    .boundary-note{margin:1rem 0;padding:1rem 1.1rem;border:1px dashed rgba(95,114,82,.45);border-radius:12px;background:rgba(255,253,248,.72)}
-    .boundary-note p{margin:0}
-    .lesson-points{display:grid;gap:.65rem;margin:1rem 0 0;padding:0;list-style:none}
-    .lesson-points li{position:relative;padding:.8rem .95rem .8rem 2.45rem;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
-    .lesson-points li::before{position:absolute;left:.9rem;top:.78rem;color:var(--color-accent);font-weight:700;content:"→"}
-    @media(max-width:720px){.phase-map,.phase-purpose,.axis-line,.check-sequence{grid-template-columns:1fr}.phase-arrow{transform:rotate(90deg)}.axis-center{margin:0 auto}.check-item+.check-item{margin-top:.45rem}.check-item+.check-item::before{content:"↓";left:50%;top:-1.05rem;transform:translateX(-50%)}.case-lead,.lesson-summary,.phase-block,.direction-axis{padding-left:1rem;padding-right:1rem}}
+    .page-hero h1,
+    .page-description {
+      overflow-wrap: anywhere;
+    }
+
+    .learning-phase {
+      margin: 2rem 0 1rem;
+      padding: .9rem 1.1rem;
+      border: 1px solid #ded6c7;
+      border-radius: 14px;
+      background: #f3efe7;
+    }
+
+    .learning-phase:first-of-type {
+      margin-top: 0;
+    }
+
+    .learning-phase__label {
+      margin: 0 0 .25rem;
+      color: #776e62;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .learning-phase h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      overflow-wrap: anywhere;
+    }
+
+    .learning-phase p:last-child {
+      margin-bottom: 0;
+    }
+
+    .scene-card,
+    .lesson-card,
+    .concept-card {
+      margin-top: 1.1rem;
+      padding: 1.15rem 1.2rem;
+      border-radius: 14px;
+    }
+
+    .scene-card {
+      border: 1px solid #ddd5c7;
+      background: #fffaf3;
+    }
+
+    .concept-card {
+      border: 1px solid rgba(95,114,82,.28);
+      background: var(--color-soft-green);
+    }
+
+    .lesson-card {
+      border-left: 4px solid #8a755d;
+      border-radius: 0 12px 12px 0;
+      background: #faf7f2;
+    }
+
+    .scene-card p,
+    .lesson-card p,
+    .concept-card p {
+      margin: 0 0 .8rem;
+    }
+
+    .scene-card p:last-child,
+    .lesson-card p:last-child,
+    .concept-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .meeting-flow {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 1.2rem;
+    }
+
+    .meeting-stage {
+      min-width: 0;
+      padding: 1rem 1.05rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .meeting-stage__label {
+      margin: 0 0 .35rem;
+      color: var(--color-accent-dark);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .meeting-stage h3 {
+      margin: 0 0 .45rem;
+      font-size: 1.05rem;
+      color: var(--color-accent-dark);
+    }
+
+    .meeting-stage p {
+      margin: 0;
+    }
+
+    .meeting-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--color-accent);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .role-table {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 14px;
+      margin-top: 1.2rem;
+    }
+
+    .role-card {
+      min-width: 0;
+      padding: 1rem 1.05rem;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .role-card h3 {
+      margin: 0 0 .45rem;
+      color: var(--color-accent-dark);
+      font-size: 1.03rem;
+    }
+
+    .role-card p {
+      margin: 0;
+    }
+
+    .role-card__question {
+      display: block;
+      margin-top: .65rem;
+      padding-top: .65rem;
+      border-top: 1px dashed rgba(95,114,82,.3);
+      color: var(--color-muted);
+      font-size: .92rem;
+    }
+
+    .decision-lane {
+      display: grid;
+      gap: 10px;
+      margin-top: 1.2rem;
+      counter-reset: judge-step;
+    }
+
+    .decision-step {
+      position: relative;
+      padding: 1rem 1.05rem 1rem 3.8rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .decision-step::before {
+      counter-increment: judge-step;
+      content: counter(judge-step);
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: #fffdf8;
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .decision-step h3 {
+      margin: 0 0 .35rem;
+      color: var(--color-accent-dark);
+      font-size: 1.03rem;
+    }
+
+    .decision-step p {
+      margin: 0;
+    }
+
+    .decision-arrow {
+      color: var(--color-accent);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .phase-scale {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+      gap: .7rem;
+      align-items: center;
+      margin-top: 1.2rem;
+      padding: 1rem;
+      border: 1px dashed rgba(95,114,82,.35);
+      border-radius: 12px;
+      background: rgba(238,242,234,.42);
+    }
+
+    .phase-scale__side {
+      min-width: 0;
+      padding: .85rem;
+      border-radius: 10px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .phase-scale__side strong {
+      display: block;
+      color: var(--color-accent-dark);
+    }
+
+    .phase-scale__side span {
+      display: block;
+      margin-top: .25rem;
+      color: var(--color-muted);
+      font-size: .9rem;
+    }
+
+    .phase-scale__center {
+      color: var(--color-muted);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .term-structure {
+      display: grid;
+      gap: 8px;
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(95,114,82,.24);
+      border-radius: 12px;
+      background: rgba(255,253,248,.72);
+      text-align: center;
+    }
+
+    .term-structure strong {
+      color: var(--color-accent-dark);
+    }
+
+    .lesson-points {
+      display: grid;
+      gap: .65rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .lesson-points li {
+      position: relative;
+      padding: .8rem .95rem .8rem 2.45rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-surface);
+    }
+
+    .lesson-points li::before {
+      position: absolute;
+      left: .9rem;
+      top: .78rem;
+      color: var(--color-accent);
+      font-weight: 700;
+      content: "→";
+    }
+
+    @media (max-width: 720px) {
+      .meeting-flow,
+      .role-table,
+      .phase-scale {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-arrow {
+        transform: rotate(90deg);
+      }
+
+      .phase-scale__center {
+        transform: rotate(90deg);
+      }
+
+      .decision-step {
+        padding: 3.5rem 1rem 1rem;
+      }
+
+      .decision-step::before {
+        top: .9rem;
+        left: 1rem;
+      }
+
+      .scene-card,
+      .lesson-card,
+      .concept-card,
+      .meeting-stage,
+      .role-card {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -58,76 +330,144 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動</p>
-        <h1>会議の途中で、広げるのか絞るのか</h1>
-        <p class="page-description">会議中の行動を個別のルールとして覚える前に、まず「今は可能性を増やす局面か、候補を決める局面か」を見る。行動の良し悪しは、その現在地によって変わる。</p>
+        <h1>会議では、案を出す仕事と選ぶ仕事を分けて考える</h1>
+        <p class="page-description">会議の進め方を判断するとき、行動を一つずつ暗記する前に、その行動が「候補を生み出す仕事」と「候補を評価・整理する仕事」のどちらに属しているかを見る。似た会議行動でも、置かれる局面によって役割は変わる。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>会議の途中で、広げるのか絞るのか</span></nav>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>会議では、案を出す仕事と選ぶ仕事を分けて考える</span></nav>
       <a class="back-link" href="../">学習要点一覧へ戻る</a>
+
       <div class="topic-layout">
         <article class="detail-flow">
 
-          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、会議全体の流れを二つに分ける</h2></div>
-          <section class="detail-section" id="phases">
-            <h2>案を増やす局面と、案を決める局面は目的が違う</h2>
-            <div class="case-lead">
-              <p>会議では、最初から最後まで同じ考え方をするとは限らない。まず可能性を広げる時間があり、その後で候補を比べ、絞っていく時間がある。どちらも必要だが、同時に行うと目的がぶつかる。</p>
-            </div>
-            <div class="phase-map" aria-label="発散から収束への会議の流れ">
-              <div class="phase-block phase-block--expand"><strong>発散</strong><p>まだ決め切らず、候補となる可能性の幅を確保する局面。</p></div>
-              <div class="phase-arrow" aria-hidden="true">→</div>
-              <div class="phase-block"><strong>収束</strong><p>出てきた候補を比較し、評価し、決める方向へ進む局面。</p></div>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+            <p>会議の途中で行われる複数の行動について、その進め方が会議手法の目的に合うかを判断する場面を確認する。</p>
+          </div>
+
+          <section class="detail-section" id="scene">
+            <h2>会議には、同じ時間に混ぜると働きがぶつかる仕事がある</h2>
+            <div class="scene-card">
+              <p>会議では、候補となる考えを増やすこともあれば、出てきた候補を比べて整理することもある。</p>
+              <p>どちらも会議には必要だが、目的は同じではない。そこで、問題中の行動が一般に良いか悪いかではなく、<strong>その行動はいま何の仕事をしているのか</strong>を見分ける。</p>
             </div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>今いる局面の目的を先に置く</h2></div>
-          <section class="detail-section" id="purpose">
-            <h2>アイデアを生み出している途中なら、見るのは「幅」</h2>
-            <div class="phase-purpose">
-              <div class="phase-purpose__label">現在地<br>＝ 発散の局面</div>
-              <div class="phase-purpose__body"><p>この局面では、まだ最終案を決めることより、考えられる方向を十分に出しておくことが先になる。したがって、行動を見るときも「それは候補の幅を保つのか、それとも早く狭め始めるのか」を確認する。</p></div>
-            </div>
-            <p>ここで重要なのは、ある行動が一般的に正しいかではない。<strong>今の局面の目的に合っているか</strong>を見ることである。</p>
-          </section>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 2</p>
+            <h2>関係する局面と役割を整理する</h2>
+            <p>判断前に、候補を生み出す仕事と、候補を評価・整理する仕事を別の局面として置く。</p>
+          </div>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>行動が、どちら向きに働くかを見る</h2></div>
-          <section class="detail-section" id="direction">
-            <h2>候補ごとに「広げる／絞る」の向きを確かめる</h2>
-            <div class="direction-axis" aria-label="行動の向きを見る比較軸">
-              <div class="axis-line">
-                <div class="axis-side axis-side--expand"><strong>可能性を広げる方向</strong><span>新しい方向を残す・増やす</span></div>
-                <div class="axis-center">問題中の<br>行動</div>
-                <div class="axis-side axis-side--narrow"><strong>可能性を絞る方向</strong><span>評価・制約によって候補を狭める</span></div>
+          <section class="detail-section" id="roles">
+            <h2>「出す」と「選ぶ」は、会議の中では別の仕事</h2>
+            <div class="meeting-flow" aria-label="会議の中で異なる二つの仕事">
+              <div class="meeting-stage">
+                <p class="meeting-stage__label">仕事 A</p>
+                <h3>候補を生み出す</h3>
+                <p>まだ最終判断をせず、考えられる方向を出して材料を増やす。</p>
               </div>
-              <p class="axis-caption">行動の名前ではなく、「その結果、候補の幅がどう変わるか」で置く。</p>
+              <div class="meeting-arrow" aria-hidden="true">→</div>
+              <div class="meeting-stage">
+                <p class="meeting-stage__label">仕事 B</p>
+                <h3>候補を評価・整理する</h3>
+                <p>出てきた材料を比べ、条件に照らし、残すものを整理する。</p>
+              </div>
             </div>
-            <div class="check-sequence" aria-label="候補を見る順序">
-              <div class="check-item"><strong>01　現在地</strong><p>いま発散と収束のどちらの局面か。</p></div>
-              <div class="check-item"><strong>02　行動の向き</strong><p>その行動で、可能性の幅は広がるか狭まるか。</p></div>
-              <div class="check-item"><strong>03　照合</strong><p>現在の局面の目的と、その行動の向きが合っているか。</p></div>
+            <div class="role-table">
+              <div class="role-card">
+                <h3>候補を生み出す側で見ること</h3>
+                <p>その行動によって、考える材料や方向が増えるのか、それとも出す前に範囲が狭くなるのかを見る。</p>
+                <span class="role-card__question">確認する問い：この行動は、候補を生み出すための仕事か。</span>
+              </div>
+              <div class="role-card">
+                <h3>評価・整理する側で見ること</h3>
+                <p>その行動が、出てきた候補を条件に照らしたり、比較したり、残すものを決めたりする仕事かを見る。</p>
+                <span class="role-card__question">確認する問い：この行動は、候補を選ぶための仕事か。</span>
+              </div>
             </div>
-            <div class="boundary-note"><p><strong>公開問題では、各記述をこの比較軸へ自分で置く。</strong> ページ側で候補ごとの判定までは行わない。</p></div>
           </section>
 
-          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>この問題から残す見方</h2></div>
-          <section class="detail-section" id="lesson">
-            <h2>会議手法は、局面と行動の向きをセットで見る</h2>
-            <div class="lesson-summary">
-              <p>ブレーンストーミングのような会議手法を考えるとき、個々のルールを先に暗記するより、まずその場が「可能性を広げる局面」なのか「候補を絞る局面」なのかを置く。そのうえで、問題中の行動がどちら向きに働くかを見る。</p>
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>問題中の行動を、その言い回しではなく「何をしている行動か」に置き換えて考える。</p>
+          </div>
+
+          <section class="detail-section" id="decision-flow">
+            <h2>一つずつ、どの局面の仕事かを確かめる</h2>
+            <div class="decision-lane">
+              <div class="decision-step">
+                <h3>行動の結果、何が起きるかを見る</h3>
+                <p>候補が増えるのか、候補に条件を付けるのか、候補同士を比べるのか。文章の表面ではなく、実際の働きに言い換える。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>「生み出す仕事」と「評価する仕事」のどちらかに置く</h3>
+                <p>その行動が、新しい材料を出す側なのか、すでに出た材料を絞る側なのかを確認する。</p>
+              </div>
+              <div class="decision-arrow" aria-hidden="true">↓</div>
+              <div class="decision-step">
+                <h3>会議手法が担当する局面と照らし合わせる</h3>
+                <p>最後に、その会議手法がどの局面で何をするためのものかを確認し、問題中の行動との関係を自分で判断する。</p>
+              </div>
             </div>
+
+            <div class="phase-scale" aria-label="行動を置く二つの方向">
+              <div class="phase-scale__side"><strong>材料を増やす側</strong><span>候補を生み出す仕事</span></div>
+              <div class="phase-scale__center">← 行動を置く →</div>
+              <div class="phase-scale__side"><strong>材料を絞る側</strong><span>候補を評価・整理する仕事</span></div>
+            </div>
+
+            <div class="lesson-card">
+              <p><strong>公開問題では、各記述をこの二つの仕事のどちらに置けるかを自分で判断する。</strong></p>
+              <p>ページ側では、問題中の個々の記述を分類したり、どの記述が適切かを示したりしない。</p>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 4</p>
+            <h2>ここまで確認した内容に名前を付ける</h2>
+            <p>会議の中で異なる二つの働きを、一般的な概念名として整理する。</p>
+          </div>
+
+          <section class="detail-section" id="terms">
+            <h2>候補を広げる局面と、候補をまとめる局面</h2>
+            <div class="concept-card">
+              <div class="term-structure">
+                <span>考えの幅を広げる</span>
+                <strong>発散</strong>
+                <span>↓</span>
+                <span>出てきた考えを整理する</span>
+                <strong>収束</strong>
+              </div>
+              <p>会議手法の名前を覚えるときも、ルールだけを切り離さず、まず「発散と収束のどちらの局面を主に扱う手法なのか」という位置づけで見る。</p>
+              <p><strong>ブレーンストーミング</strong>についても、問題中の各行動を先に正誤判定するのではなく、この全体構造のどこに置かれる手法かを確認してから判断する。</p>
+            </div>
+          </section>
+
+          <div class="learning-phase">
+            <p class="learning-phase__label">STEP 5</p>
+            <h2>この内容から残せる学習要点を整理する</h2>
+            <p>会議手法の問題で再利用できる判断方法だけを残す。</p>
+          </div>
+
+          <section class="detail-section" id="lesson">
+            <h2>会議のルールより先に、局面と仕事を見る</h2>
             <ul class="lesson-points">
-              <li>行動そのものではなく、まず会議の現在地を見る。</li>
-              <li>可能性を広げる動きと、評価・制約によって絞る動きを区別する。</li>
-              <li>現在の局面の目的と、行動の向きを照らし合わせて判断する。</li>
+              <li>会議中の行動は、まず「候補を生み出す仕事」と「候補を評価・整理する仕事」に分けて見る。</li>
+              <li>行動の言い回しではなく、その結果として候補が増えるのか絞られるのかを見る。</li>
+              <li>最後に、対象となる会議手法がどの局面を担当するものかと照らし合わせる。</li>
             </ul>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問10</p>
-            <p>このページは、上記の公開問題を起点に、正答そのものではなく、会議の局面と行動の向きを見分ける判断方法を学習要点として整理したものです。</p>
+            <p>このページは、上記の公開問題を起点に、正答そのものではなく、会議の中で異なる仕事を分けて判断する方法を学習要点として整理したものです。</p>
           </section>
 
         </article>
