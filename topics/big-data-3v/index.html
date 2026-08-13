@@ -3,9 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>大量データを特徴づける3つの視点 | ITネッコ</title>
-  <meta name="description" content="ビッグデータの3Vについて、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="大量データを特徴づける3つの視点 | ITネッコ"><meta property="og:description" content="Volume、Velocity、Varietyの3つの視点から、ビッグデータの特徴を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>大きい、速い、いろいろある。この三つは何を表している？ | ITネッコ</title>
+  <meta name="description" content="情報資産に示された『大容量・頻繁な更新・多種多様』を、一つずつどんな性質なのかに置き換えて確認します。">
+  <meta property="og:title" content="大きい、速い、いろいろある。この三つは何を表している？ | ITネッコ">
+  <meta property="og:description" content="大容量・頻繁な更新・多種多様を、量・速さ・種類の多さへ一つずつ対応付けて判断します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}.step-heading p:last-child{margin-bottom:0}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem;margin:1rem 0}
+    .feature-card{min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .feature-card strong{display:block;margin-bottom:.45rem}.feature-card p{margin:0}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .6rem;font-size:1.1rem}.term-card p{margin:0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.feature-grid{grid-template-columns:1fr}.case-lead,.feature-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,116 +42,106 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / システム戦略・データ活用</p>
-        <div class="topic-heading-meta"><span class="question-badge">問25</span><span class="term-label">ビッグデータの3V</span></div><h1>大量データを特徴づける3つの視点</h1>
-        <p class="page-description">Volume、Velocity、Varietyの3つの視点から、ビッグデータの特徴を整理します。</p>
+        <h1>大きい、速い、いろいろある。この三つは何を表している？</h1>
+        <p class="page-description">情報資産に示された「大容量・頻繁な更新・多種多様」を、一つずつどんな性質なのかに置き換えて確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>大量データを特徴づける3つの視点</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>三つの特徴の意味を見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              ビッグデータは、単にデータの量が多いというだけではありません。SNSの投稿、センサー情報、購買履歴、位置情報、画像、動画など、さまざまな種類のデータが継続的に発生します。
-            </p>
-            <p>
-              そのため、ビッグデータの特徴は、量の多さだけでなく、種類の多さや発生・処理の速さも含めて捉えます。
-            </p>
+
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 1</p>
+            <h2>まず、何が起きているか見る</h2>
+          </div>
+          <section class="detail-section" id="situation">
+            <h2>情報資産に、三つの特徴が示されている</h2>
+            <div class="case-lead">
+              <p>ある情報資産について、「大容量」「頻繁な更新」「多種多様」という三つの特徴が示されている。</p>
+              <p>ここで判断に必要なのは、<strong>この三つがそれぞれ何の性質を表しているのか</strong>を一つずつ確認することである。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              ビッグデータの3Vとは、Volume、Variety、Velocity の三つの特徴を表す考え方です。
-            </p>
-            <p>
-              試験では、「量が多い」「種類が多い」「発生や処理が速い」の三つをビッグデータの特徴として押さえます。
-            </p>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 2</p>
+            <h2>示されている三つの特徴を整理する</h2>
+          </div>
+          <section class="detail-section" id="features">
+            <h2>まずは、問題に出ている言葉をそのまま分ける</h2>
+            <div class="feature-grid">
+              <div class="feature-card"><strong>大容量</strong><p>データの大きさに関する特徴。</p></div>
+              <div class="feature-card"><strong>頻繁な更新</strong><p>データが変化・発生する速さに関する特徴。</p></div>
+              <div class="feature-card"><strong>多種多様</strong><p>データの種類の多さに関する特徴。</p></div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>3Vの構造を確認する</span></h2>
-            <p>
-              3Vは、ビッグデータを説明するときの代表的な三つの観点です。
-            </p>
-            <ul>
-              <li>Volume：データ量が非常に大きいこと。</li>
-              <li>Variety：構造化データ、文章、画像、音声、動画など、データの種類が多様であること。</li>
-              <li>Velocity：データの発生や収集、処理の速度が速いこと。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 3</p>
+            <h2>判断に必要な手掛かりを順番に確認する</h2>
+            <p>三つの特徴を、一つずつ意味に置き換えていく。</p>
+          </div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card">
+                <span class="decision-card__number">01</span><h3>「大容量」は、量の大きさを表している</h3>
+                <p>まず、扱うデータの量が大きいという性質を拾う。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">02</span><h3>「頻繁な更新」は、速さを表している</h3>
+                <p>次に、データが更新・発生する速さという性質を拾う。</p>
+              </div>
+              <div class="decision-card">
+                <span class="decision-card__number">03</span><h3>「多種多様」は、種類の多さを表している</h3>
+                <p>さらに、データの種類が多様であるという性質を拾う。</p>
+              </div>
+              <div class="decision-card decision-card--key">
+                <span class="decision-card__number">04</span><h3>三つは、それぞれ異なる性質をまとめた一組になっている</h3>
+                <p>量・速さ・種類の多さという三つの特徴を、ひとまとまりとして捉える。</p>
+              </div>
+            </div>
+            <div class="decision-conclusion"><p><strong>大容量・頻繁な更新・多種多様は、「量・速さ・種類の多さ」という三つの性質を表すまとまり</strong>だと分かる。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              ビッグデータの3Vかどうかは、次の三つを見ます。
-            </p>
-            <ul>
-              <li>大量のデータを扱っているか。</li>
-              <li>多様な形式や種類のデータを扱っているか。</li>
-              <li>短時間で発生・収集・処理されるデータを扱っているか。</li>
-            </ul>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 4</p>
+            <h2>ここまで確認した三要素のまとまりに名前を付ける</h2>
+          </div>
+          <section class="detail-section" id="term">
+            <h2>この三つの性質に付く名前</h2>
+            <div class="term-card">
+              <h3>3V（Volume・Velocity・Variety）</h3>
+              <p>ここまで確認した、量・速さ・種類の多さという三つの特徴のまとまりには、3Vという名前が付く。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい組合せを分ける</span></h2>
-            <ul>
-              <li>3V：Volume、Variety、Velocity。ビッグデータの特徴を表す。</li>
-              <li>3C：Customer、Competitor、Company。マーケティング分析の観点。</li>
-              <li>3D：一般にビッグデータの基本特徴を表す用語ではない。</li>
-              <li>3G：通信方式の世代などで使われる表現であり、ビッグデータの3Vではない。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>ビッグデータの3Vは、Volume、Variety、Velocityである。</li>
-              <li>Volumeは、データ量が大きいこと。</li>
-              <li>Varietyは、データの種類が多様であること。</li>
-              <li>Velocityは、データの発生や処理が速いこと。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：三つを日本語で覚える</h2>
-            <p>
-              3Vは英語の頭文字で覚えるよりも、まず「量・多様性・速度」と日本語で整理すると理解しやすくなります。
-            </p>
-            <p>
-              試験では、Volumeだけに引っ張られず、VarietyとVelocityも含めて三つをセットで判断します。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">ビッグデータ</span>
-              <span class="tag">3V</span>
-              <span class="tag">データ活用</span>
+          <div class="step-heading">
+            <p class="step-heading__label">STEP 5</p>
+            <h2>この出来事から残せる学習要点</h2>
+          </div>
+          <section class="detail-section" id="lesson">
+            <h2>略称は、構成する特徴を意味に分けてからたどる</h2>
+            <div class="lesson-summary">
+              <p>複数の特徴をまとめた名称を判断するときは、略称を先に思い出そうとしない。</p>
+              <p><strong>与えられた特徴を一つずつ意味に置き換え、それぞれが何の性質を表しているのか</strong>を確認する。</p>
+              <p><strong>特徴の意味を対応付けてから、そのまとまりに付く名称へ進む。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問25</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
