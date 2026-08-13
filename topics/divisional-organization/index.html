@@ -3,9 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>製品や地域ごとに責任を分ける組織形態 | ITネッコ</title>
-  <meta name="description" content="事業部制組織について、ITパスポート現実の場面と結び付けて考える概念を学習要点として整理します。">
-  <meta property="og:title" content="製品や地域ごとに責任を分ける組織形態 | ITネッコ"><meta property="og:description" content="製品、地域、顧客などの単位で事業部を分け、それぞれに責任と権限を持たせる組織を整理します。"><link rel="stylesheet" href="../../assets/style.css">
+  <title>同じ「購買」なのに、事業ごとに別々にある。組織はどう分かれている？ | ITネッコ</title>
+  <meta name="description" content="X事業とY事業がそれぞれ購買を担当する組織を持っている場面から、同じ機能がどの単位に所属しているのかを順番に確認します。">
+  <meta property="og:title" content="同じ『購買』なのに、事業ごとに別々にある。組織はどう分かれている？ | ITネッコ">
+  <meta property="og:description" content="同じ購買機能が事業ごとに置かれていることから、組織のまとまり方を判断します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .case-lead{margin:1rem 0 1.5rem;padding:1.2rem 1.3rem;border:1px solid var(--color-border);border-radius:16px;background:var(--color-surface)}
+    .case-lead p{margin:0 0 .75rem}.case-lead p:last-child{margin-bottom:0}
+    .step-heading{margin:2.2rem 0 .9rem;padding:.85rem 1rem;border-left:5px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .step-heading__label{margin:0 0 .2rem;font-size:.76rem;font-weight:700;color:var(--color-accent);letter-spacing:.08em}.step-heading h2{margin:0;font-size:1.2rem;overflow-wrap:anywhere}
+    .business-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;margin:1rem 0}
+    .business-card{min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .business-card strong{display:block;margin-bottom:.6rem;font-size:1.02rem}.function-chip{display:inline-block;padding:.45rem .7rem;border:2px solid var(--color-accent);border-radius:999px;background:var(--color-soft-green);font-weight:700}.business-card p{margin:.65rem 0 0}
+    .decision-flow{display:grid;gap:.75rem;margin:1.2rem 0}
+    .decision-card{position:relative;min-width:0;padding:1rem 1.1rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .decision-card+.decision-card{margin-top:.55rem}.decision-card+.decision-card::before{content:"↓";position:absolute;top:-1.45rem;left:50%;transform:translateX(-50%);font-weight:700;color:var(--color-accent)}
+    .decision-card__number{display:inline-block;margin-right:.45rem;font-size:.78rem;font-weight:700;color:var(--color-accent)}
+    .decision-card h3{display:inline;margin:0;font-size:1.05rem;overflow-wrap:anywhere}.decision-card p{margin:.55rem 0 0}
+    .decision-card--key{border-width:2px;border-color:var(--color-accent);background:var(--color-soft-green)}
+    .decision-conclusion{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--color-accent);background:var(--color-soft-green);border-radius:0 12px 12px 0}.decision-conclusion p{margin:0}
+    .term-card{margin:1rem 0;padding:1.15rem 1.2rem;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface)}
+    .term-card h3{margin:0 0 .7rem;font-size:1.1rem}.term-card p{margin:.5rem 0 0}
+    .lesson-summary{margin:1.1rem 0;padding:1.15rem 1.2rem;border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;background:var(--color-soft-green)}
+    .lesson-summary p{margin:0 0 .8rem}.lesson-summary p:last-child{margin-bottom:0}
+    @media(max-width:720px){.business-grid{grid-template-columns:1fr}.case-lead,.business-card,.decision-card,.term-card,.lesson-summary{padding-left:1rem;padding-right:1rem}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -19,117 +42,74 @@
     <section class="page-hero">
       <div class="container hero-inner">
         <p class="site-kicker">ストラテジ系 / 企業活動・組織形態</p>
-        <div class="topic-heading-meta"><span class="question-badge">問30</span><span class="term-label">事業部制組織</span></div><h1>製品や地域ごとに責任を分ける組織形態</h1>
-        <p class="page-description">製品、地域、顧客などの単位で事業部を分け、それぞれに責任と権限を持たせる組織を整理します。</p>
+        <h1>同じ「購買」なのに、事業ごとに別々にある。組織はどう分かれている？</h1>
+        <p class="page-description">X事業とY事業がそれぞれ購買を担当する組織を持っている場面から、同じ機能がどの単位に所属しているのかを順番に確認します。</p>
       </div>
     </section>
 
     <div class="container page-flow">
-      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>製品や地域ごとに責任を分ける組織形態</span></nav><a class="back-link" href="../">学習要点一覧へ戻る</a>
+      <nav class="breadcrumb" aria-label="パンくず"><a href="../../">トップ</a><span> / </span><a href="../">学習要点</a><span> / </span><span>同じ機能がどの単位に所属するかを見る</span></nav>
+      <a class="back-link" href="../">学習要点一覧へ戻る</a>
       <div class="topic-layout">
         <article class="detail-flow">
-          <section class="detail-section step-section" id="scene">
-            <h2><span class="step-number">1</span><span>場面をつかむ</span></h2>
-            <p>
-              会社が複数の製品や事業を扱うようになると、すべてを一つの部門構成で管理するよりも、事業ごとに責任を持たせた方が運営しやすくなることがあります。
-            </p>
-            <p>
-              事業部制組織では、製品別、事業別、地域別などの単位で組織を分け、それぞれの事業部が必要な機能を持って活動します。
-            </p>
+
+          <div class="step-heading"><p class="step-heading__label">STEP 1</p><h2>まず、何が起きているか見る</h2></div>
+          <section class="detail-section" id="situation">
+            <h2>X事業とY事業に、それぞれ購買を担当する組織がある</h2>
+            <div class="case-lead">
+              <p>会社の中で、X事業とY事業が別々に活動している。</p>
+              <p>X事業の購買はX事業の部門が担当し、Y事業の購買はY事業の部門が担当している。</p>
+              <p>ここで見るのは、<strong>同じ「購買」という機能が、会社のどの単位に置かれているのか</strong>である。</p>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="conclusion">
-            <h2><span class="step-number">2</span><span>結論を先に押さえる</span></h2>
-            <p>
-              事業部制組織とは、製品、事業、地域などの単位で組織を分け、各事業部が販売、製造、購買などの機能を持つ組織形態です。
-            </p>
-            <p>
-              試験では、「事業ごとに分かれ、それぞれの事業部が必要な機能を持つ」と押さえます。
-            </p>
+          <div class="step-heading"><p class="step-heading__label">STEP 2</p><h2>同じ機能がどこにあるか整理する</h2></div>
+          <section class="detail-section" id="states">
+            <h2>購買は、全社で一つではなく事業ごとにある</h2>
+            <div class="business-grid">
+              <div class="business-card"><strong>X事業</strong><span class="function-chip">購買</span><p>X事業の購買を、X事業を実施する部門の組織が担当する。</p></div>
+              <div class="business-card"><strong>Y事業</strong><span class="function-chip">購買</span><p>Y事業の購買を、Y事業を実施する部門の組織が担当する。</p></div>
+            </div>
           </section>
 
-          <section class="detail-section step-section" id="structure">
-            <h2><span class="step-number">3</span><span>事業部制組織の構造を確認する</span></h2>
-            <p>
-              事業部制組織では、会社全体を機能だけで分けるのではなく、事業単位で分けます。
-            </p>
-            <ul>
-              <li>分け方：製品別、事業別、地域別など。</li>
-              <li>各事業部：その事業に必要な購買、製造、販売などの機能を持つ。</li>
-              <li>責任：事業部ごとに業績や成果を把握しやすい。</li>
-              <li>特徴：市場や顧客に近い単位で意思決定しやすい。</li>
-            </ul>
+          <div class="step-heading"><p class="step-heading__label">STEP 3</p><h2>判断に必要な手掛かりを順番に確認する</h2></div>
+          <section class="detail-section" id="decision-flow">
+            <h2>確認するのは、この流れ</h2>
+            <div class="decision-flow">
+              <div class="decision-card"><span class="decision-card__number">01</span><h3>同じ機能を見る</h3><p>X事業にもY事業にも、「購買」という同じ機能がある。</p></div>
+              <div class="decision-card"><span class="decision-card__number">02</span><h3>その機能が全社で一つに集約されているか確認する</h3><p>購買を担当する一つの全社共通組織が、両方の事業をまとめて担当しているわけではない。</p></div>
+              <div class="decision-card decision-card--key"><span class="decision-card__number">03</span><h3>同じ購買機能が、事業ごとに別々に置かれている</h3><p>X事業はX事業の購買組織、Y事業はY事業の購買組織を持っている。</p></div>
+              <div class="decision-card"><span class="decision-card__number">04</span><h3>各事業が、自分の活動に必要な機能を持つ構造だと分かる</h3><p>組織のまとまりが、機能そのものではなく事業単位で作られている。</p></div>
+            </div>
+            <div class="decision-conclusion"><p><strong>判断の中心は、同じ機能が会社全体で一つに集められず、事業ごとに置かれていること</strong>にある。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="checkpoints">
-            <h2><span class="step-number">4</span><span>理解の基軸</span></h2>
-            <p>
-              事業部制組織かどうかは、次の三つの観点で判断します。
-            </p>
-            <ul>
-              <li>組織が事業や製品などの単位で分かれている。</li>
-              <li>各事業部が、その事業に必要な機能を持っている。</li>
-              <li>事業部ごとに責任や業績を見やすい構造になっている。</li>
-            </ul>
+          <div class="step-heading"><p class="step-heading__label">STEP 4</p><h2>ここまで確認した組織のまとまり方に名前を付ける</h2></div>
+          <section class="detail-section" id="term">
+            <h2>この組織のまとまり方に付く名前</h2>
+            <div class="term-card"><h3>事業部制組織</h3><p>事業ごとに組織をまとめ、それぞれの事業が活動に必要な機能を持つ構造を、事業部制組織と呼ぶ。</p></div>
           </section>
 
-          <section class="detail-section step-section" id="mistakes">
-            <h2><span class="step-number">5</span><span>間違えやすい組織形態を分ける</span></h2>
-            <ul>
-              <li>事業部制組織：事業や製品などの単位で分け、各事業部が必要な機能を持つ。</li>
-              <li>職能別組織：購買、製造、販売、人事など、機能ごとに分ける。</li>
-              <li>マトリックス組織：職能別組織と事業別組織など、二つの軸を組み合わせる。</li>
-              <li>プロジェクト組織：特定の目的や案件のために一時的に編成する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section step-section" id="summary">
-            <h2><span class="step-number">6</span><span>まとめで定着させる</span></h2>
-            <ul class="summary-list">
-              <li>事業部制組織は、事業や製品などの単位で組織を分ける。</li>
-              <li>各事業部は、その事業に必要な機能を持つ。</li>
-              <li>事業部ごとに責任や業績を把握しやすい。</li>
-              <li>試験では、職能別組織、マトリックス組織、プロジェクト組織と区別する。</li>
-            </ul>
-          </section>
-
-          <section class="detail-section" id="supplement">
-            <h2>補足：何を軸に分けているかを見る</h2>
-            <p>
-              組織形態の問題では、部門名だけで判断せず、何を軸に組織を分けているかを見ます。
-            </p>
-            <p>
-              事業部制組織では、事業や製品ごとに必要な機能がまとまっている点が判断の中心になります。
-            </p>
-          </section>
-
-          <section class="detail-section" id="related">
-            <h2>関連する要点</h2>
-            <p>関連する学習要点は、今後追加していきます。</p>
-            <div class="tag-list">
-              <span class="tag">事業部制組織</span>
-              <span class="tag">組織形態</span>
-              <span class="tag">企業活動</span>
+          <div class="step-heading"><p class="step-heading__label">STEP 5</p><h2>この出来事から残せる学習要点</h2></div>
+          <section class="detail-section" id="lesson">
+            <h2>組織構造は、同じ機能がどの単位に所属しているかを見る</h2>
+            <div class="lesson-summary">
+              <p>「購買」「人事」「販売」といった部署名だけでは、組織全体のまとまり方は分からない。</p>
+              <p><strong>同じ機能が会社全体で一つに集約されているのか、それとも事業などの単位ごとに置かれているのかを確認する。</strong></p>
             </div>
           </section>
 
           <section class="detail-section" id="reference">
             <h2>参照した公開問題</h2>
             <p>令和8年度 ITパスポート試験 公開問題 問30</p>
-            <p>
-              このページは、上記の公開問題を起点に、問われている知識を学習要点として整理したものです。
-              問題文・選択肢本文は掲載していません。
-            </p>
+            <p>このページは、上記の公開問題を起点に、問題の正解や選択肢ではなく、判断に使う事実とその順序を学習要点として整理したものです。</p>
           </section>
+
         </article>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>ITネッコ / のらネコ学習室</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
