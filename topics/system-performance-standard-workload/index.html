@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>システムの性能を、実際に標準処理を動かして測るには | ITネッコ</title>
+<meta name="description" content="システム性能を評価するとき、標準的な処理を評価用プログラムとして対象システム上で実行し、実測する考え方を整理します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.q62-step{margin:2rem 0 .8rem;padding:.8rem 1rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:0 12px 12px 0}.q62-step small{display:block;font-weight:700;color:#776e62;letter-spacing:.08em}.q62-step h2{margin:.15rem 0 0;font-size:1.18rem}.q62-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0}.q62-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q62-card h3{margin:0 0 .4rem;font-size:1.02rem}.q62-card p{margin:.2rem 0}.q62-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;align-items:center;margin:1rem 0}.q62-arrow{text-align:center;color:#8a755d;font-weight:700}.q62-focus{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid #8a755d;border-radius:0 12px 12px 0;background:#faf7f2}.q62-focus p{margin:.35rem 0}.q62-study{display:grid;gap:.7rem;margin:1rem 0}.q62-study>div{padding:.95rem 1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q62-study strong{display:block;margin-bottom:.25rem}@media(max-width:720px){.q62-grid,.q62-flow{grid-template-columns:1fr}.q62-arrow{transform:rotate(90deg)}.q62-step{margin-top:1.6rem}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / システム構成要素</p><h1>システムの性能を、実際に標準処理を動かして測るには</h1></div></section>
+<div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
+<div class="q62-step"><small>STEP 1</small><h2>システムの性能を、実際の動作から評価したい</h2></div>
+<section class="detail-section"><h2>処理性能を比べるための測り方を考える</h2><p>システムの性能を評価するときには、処理がどれくらい速く進むかなどを、同じ基準で測れるようにする必要があります。</p><div class="q62-focus"><p><strong>今、確かめたいこと</strong></p><p>評価対象のシステム上で、決められた処理を実際に動かして性能を測る方法はどのようなものか。</p></div><p>そのためにまず、<strong>どんな処理を使って測るのか</strong>を見ます。</p></section>
+<div class="q62-step"><small>STEP 2</small><h2>評価のために、標準的な処理をあらかじめ決める</h2></div>
+<section class="detail-section"><h2>同じ処理を使えるようにする</h2><div class="q62-grid"><div class="q62-card"><h3>評価用の処理</h3><p>標準的な処理を設定し、評価用プログラムとして用意する。</p></div><div class="q62-card"><h3>評価したいもの</h3><p>その処理を行ったときのシステムの性能。</p></div></div><p>処理の基準が決まったので、次は<strong>そのプログラムをどこで動かすのか</strong>を確認します。</p></section>
+<div class="q62-step"><small>STEP 3</small><h2>評価対象のシステム上で、評価用プログラムを実際に実行する</h2></div>
+<section class="detail-section"><h2>決定的なのは、対象システムでの実行結果を使うこと</h2><div class="q62-flow"><div class="q62-card"><h3>標準処理を設定</h3><p>評価用プログラムを用意する。</p></div><div class="q62-arrow" aria-hidden="true">→</div><div class="q62-card"><h3>対象システムで実行</h3><p>評価したいシステム上で実際に動かす。</p></div><div class="q62-arrow" aria-hidden="true">→</div><div class="q62-card"><h3>性能を測る</h3><p>実行した結果から性能を評価する。</p></div></div><div class="q62-focus"><p><strong>判断を分ける条件</strong></p><p>標準的な処理を設定し、それを実行する評価用プログラムを、評価対象のシステム上で実際に実行して性能を評価する。</p></div><p>この測り方まで確認してから、名称を結び付けます。</p></section>
+<div class="q62-step"><small>STEP 4</small><h2>この性能評価方法に名前が付く</h2></div>
+<section class="detail-section"><h2>ベンチマークテスト</h2><p>標準的な処理を評価用プログラムとして用意し、評価対象のシステム上で実際に実行して性能を測る方法を<strong>ベンチマークテスト</strong>と呼びます。</p><div class="q62-focus"><p><strong>今回の関係</strong></p><p>「標準処理」「評価用プログラム」「評価対象システム上で実際に実行」という事実を一続きで捉えることが中心です。</p></div></section>
+<div class="q62-step"><small>STEP 5</small><h2>性能評価は、「何をどこでどう測るか」で読む</h2></div>
+<section class="detail-section"><h2>学習要点</h2><div class="q62-study"><div><strong>1　測定に使う処理を見る</strong>標準的な処理が設定されているかを見る。</div><div><strong>2　実行する場所を見る</strong>評価対象そのもののシステム上で動かすかを見る。</div><div><strong>3　評価の根拠を見る</strong>評価用プログラムを実際に実行した結果から性能を測るかを見る。</div></div><div class="q62-focus"><p><strong>判断の中心</strong></p><p>性能評価の名称から入るのではなく、「標準処理を対象システムで実行して測る」という流れを先に確認します。</p></div></section>
+<section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問62</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">IPA公式 令和8年度 ITパスポート試験 公開問題</a></p><div class="tag-list"><span class="tag">性能評価</span><span class="tag">ベンチマークテスト</span><span class="tag">システム評価</span></div></section>
+</article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<!-- v8 generated: R08 Q62 -->
