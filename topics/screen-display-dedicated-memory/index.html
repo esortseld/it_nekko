@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PCの画面表示に使うデータは、どこに保持しておくのか | ITネッコ</title>
+<meta name="description" content="PCの画面表示に必要なデータを保持する専用メモリについて、何のためのデータか、どの処理で使うかという役割から整理します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.q61-step{margin:2rem 0 .8rem;padding:.8rem 1rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:0 12px 12px 0}.q61-step small{display:block;font-weight:700;color:#776e62;letter-spacing:.08em}.q61-step h2{margin:.15rem 0 0;font-size:1.18rem}.q61-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0}.q61-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q61-card h3{margin:0 0 .4rem;font-size:1.02rem}.q61-card p{margin:.2rem 0}.q61-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;align-items:center;margin:1rem 0}.q61-arrow{text-align:center;color:#8a755d;font-weight:700}.q61-focus{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid #8a755d;border-radius:0 12px 12px 0;background:#faf7f2}.q61-focus p{margin:.35rem 0}.q61-study{display:grid;gap:.7rem;margin:1rem 0}.q61-study>div{padding:.95rem 1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q61-study strong{display:block;margin-bottom:.25rem}@media(max-width:720px){.q61-grid,.q61-flow{grid-template-columns:1fr}.q61-arrow{transform:rotate(90deg)}.q61-step{margin-top:1.6rem}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / コンピュータ構成要素</p><h1>PCの画面表示に使うデータは、どこに保持しておくのか</h1></div></section>
+<div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
+<div class="q61-step"><small>STEP 1</small><h2>画面に映すには、表示する内容のデータをどこかに保持しておく必要がある</h2></div>
+<section class="detail-section"><h2>PCが画面へ画像を出す場面</h2><p>PCの画面には、文字や画像、ウィンドウなどが表示されます。画面へ出すためには、表示に必要なデータを保持し、描画の処理から参照できる状態にしておく必要があります。</p><div class="q61-focus"><p><strong>今、確かめたいこと</strong></p><p>画面表示に必要なデータを保持するために用意された専用のメモリは何か。</p></div><p>そのためにまず、<strong>何のためのデータを保持するメモリなのか</strong>を確認します。</p></section>
+<div class="q61-step"><small>STEP 2</small><h2>保持するのは、PC全体のデータではなく画面表示に使うデータ</h2></div>
+<section class="detail-section"><h2>用途を画面表示に絞って考える</h2><div class="q61-grid"><div class="q61-card"><h3>保持するもの</h3><p>画面に表示するための画像などのデータ。</p></div><div class="q61-card"><h3>使う場面</h3><p>描画処理で参照し、画面へ表示するとき。</p></div></div><p>用途が分かったので、次は<strong>その用途のために専用に設けられたメモリかどうか</strong>を見ます。</p></section>
+<div class="q61-step"><small>STEP 3</small><h2>決定的なのは、「画面表示専用」であること</h2></div>
+<section class="detail-section"><h2>用途と役割を一本につなぐ</h2><div class="q61-flow"><div class="q61-card"><h3>表示したい内容</h3><p>画像などの表示データがある。</p></div><div class="q61-arrow" aria-hidden="true">→</div><div class="q61-card"><h3>専用メモリに保持</h3><p>画面表示のためにデータを置いておく。</p></div><div class="q61-arrow" aria-hidden="true">→</div><div class="q61-card"><h3>画面へ表示</h3><p>描画処理がデータを使う。</p></div></div><div class="q61-focus"><p><strong>判断を分ける条件</strong></p><p>PCの画面表示に必要なデータを保持するための、画面表示専用メモリである。</p></div><p>この役割まで確認してから、名称を結び付けます。</p></section>
+<div class="q61-step"><small>STEP 4</small><h2>この専用メモリに名前が付く</h2></div>
+<section class="detail-section"><h2>VRAM</h2><p>画面表示に必要なデータを保持するために使われる画面表示専用メモリを<strong>VRAM（Video RAM）</strong>と呼びます。</p><div class="q61-focus"><p><strong>今回の関係</strong></p><p>「画面へ表示するためのデータを保持する」という用途が、VRAMを見分ける中心です。</p></div></section>
+<div class="q61-step"><small>STEP 5</small><h2>メモリは、名称より「何を保持し、何に使うか」で見る</h2></div>
+<section class="detail-section"><h2>学習要点</h2><div class="q61-study"><div><strong>1　保持するデータを見る</strong>画面表示に必要なデータかを確認する。</div><div><strong>2　使われる処理を見る</strong>画面へ表示するための描画で使うデータかを確認する。</div><div><strong>3　専用の用途かを見る</strong>画面表示のために用意された専用メモリなら、その役割をVRAMと結び付ける。</div></div><div class="q61-focus"><p><strong>判断の中心</strong></p><p>「何のためのデータを保持するメモリか」を先に確認すると、名称を役割と結び付けて理解できます。</p></div></section>
+<section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問61</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">IPA公式 令和8年度 ITパスポート試験 公開問題</a></p><div class="tag-list"><span class="tag">メモリ</span><span class="tag">VRAM</span><span class="tag">画面表示</span></div></section>
+</article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<!-- v8 generated: R08 Q61 -->
