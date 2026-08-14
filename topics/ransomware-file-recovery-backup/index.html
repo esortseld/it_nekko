@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ファイルを使えなくされても、元のデータへ戻せるようにするには | ITネッコ</title>
+<meta name="description" content="ランサムウェアでPC内のファイルが使えなくなる被害に備え、被害後に元のデータへ戻せるようにする考え方を整理します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.q63-step{margin:2rem 0 .8rem;padding:.8rem 1rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:0 12px 12px 0}.q63-step small{display:block;font-weight:700;color:#776e62;letter-spacing:.08em}.q63-step h2{margin:.15rem 0 0;font-size:1.18rem}.q63-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0}.q63-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q63-card h3{margin:0 0 .4rem;font-size:1.02rem}.q63-card p{margin:.2rem 0}.q63-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;align-items:center;margin:1rem 0}.q63-arrow{text-align:center;color:#8a755d;font-weight:700}.q63-focus{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid #8a755d;border-radius:0 12px 12px 0;background:#faf7f2}.q63-focus p{margin:.35rem 0}.q63-study{display:grid;gap:.7rem;margin:1rem 0}.q63-study>div{padding:.95rem 1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q63-study strong{display:block;margin-bottom:.25rem}@media(max-width:720px){.q63-grid,.q63-flow{grid-template-columns:1fr}.q63-arrow{transform:rotate(90deg)}.q63-step{margin-top:1.6rem}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / セキュリティ</p><h1>ファイルを使えなくされても、元のデータへ戻せるようにするには</h1></div></section>
+<div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
+<div class="q63-step"><small>STEP 1</small><h2>PCに保存したファイルが、突然使えない状態になることがある</h2></div>
+<section class="detail-section"><h2>被害が起きた後に、何を取り戻せるかを考える</h2><p>ランサムウェアによる被害では、PCに保存されているファイルが使えない状態になることがあります。ここで重要なのは、攻撃そのものの説明ではなく、ファイルが使えなくなった後の被害をどう小さくするかです。</p><div class="q63-focus"><p><strong>今、確かめたいこと</strong></p><p>PC内のファイルが使えなくなっても、必要なデータを再び利用できるようにするには、事前に何を用意しておけばよいか。</p></div><p>そのためにまず、<strong>被害後に失うものが「利用できるデータ」であること</strong>を確認します。</p></section>
+<div class="q63-step"><small>STEP 2</small><h2>被害を小さくするには、使えなくなったファイルの代わりが必要になる</h2></div>
+<section class="detail-section"><h2>元のデータへ戻せる材料を残しておく</h2><div class="q63-grid"><div class="q63-card"><h3>被害後の状態</h3><p>PC内のファイルが使えず、必要なデータを利用できない。</p></div><div class="q63-card"><h3>必要になるもの</h3><p>元のデータを再び利用できる状態へ戻すためのコピー。</p></div></div><p>被害後に復旧するための材料が必要だと分かったので、次は<strong>そのコピーをいつ用意するのか</strong>を見ます。</p></section>
+<div class="q63-step"><small>STEP 3</small><h2>被害が起きる前にデータのコピーを保存しておく</h2></div>
+<section class="detail-section"><h2>決定的なのは、被害後に元のデータへ戻せること</h2><div class="q63-flow"><div class="q63-card"><h3>平常時</h3><p>利用できるデータがある。</p></div><div class="q63-arrow" aria-hidden="true">→</div><div class="q63-card"><h3>コピーを保存</h3><p>被害が起きる前に復旧用のデータを残しておく。</p></div><div class="q63-arrow" aria-hidden="true">→</div><div class="q63-card"><h3>被害後</h3><p>保存しておいたデータから利用可能な状態へ戻す。</p></div></div><div class="q63-focus"><p><strong>判断を分ける条件</strong></p><p>ランサムウェアによってPC内のファイルが使えなくなっても、事前に保存したデータから復旧できるようにしておく。</p></div><p>この役割まで確認してから、その対策の名称を結び付けます。</p></section>
+<div class="q63-step"><small>STEP 4</small><h2>この復旧の備えに名前が付く</h2></div>
+<section class="detail-section"><h2>データのバックアップ</h2><p>元のデータが使えなくなったときに復旧できるよう、あらかじめデータのコピーを保存しておくことを<strong>バックアップ</strong>と呼びます。</p><div class="q63-focus"><p><strong>今回の関係</strong></p><p>ランサムウェア被害を考えるときは、「感染させない方法」ではなく、ファイルが使えなくなった後にデータを取り戻せる手段として見ます。</p></div></section>
+<div class="q63-step"><small>STEP 5</small><h2>被害対策は、「何が失われ、何を復旧したいか」で見る</h2></div>
+<section class="detail-section"><h2>学習要点</h2><div class="q63-study"><div><strong>1　被害後の状態を見る</strong>PC内のファイルが利用できなくなる。</div><div><strong>2　取り戻したいものを見る</strong>必要なデータを再び利用できる状態に戻したい。</div><div><strong>3　そのために事前に残すものを見る</strong>復旧に使えるデータのコピーを保存しておく。</div></div><div class="q63-focus"><p><strong>判断の中心</strong></p><p>「ファイルが使えない → 別に保存したデータから戻す」という復旧の流れを先に確認すると、バックアップの役割を判断できます。</p></div></section>
+<section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問63</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">IPA公式 令和8年度 ITパスポート試験 公開問題</a></p><div class="tag-list"><span class="tag">ランサムウェア</span><span class="tag">バックアップ</span><span class="tag">復旧</span></div></section>
+</article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<!-- v8 generated: R08 Q63 -->
