@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>同じWebサイトを、PCでもスマートフォンでも見やすくするには | ITネッコ</title>
+<meta name="description" content="PCやスマートフォンなど画面サイズの異なる端末で、Webサイトのレイアウトを表示条件に応じて変化させる考え方を整理します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.q60-step{margin:2rem 0 .8rem;padding:.8rem 1rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:0 12px 12px 0}.q60-step small{display:block;font-weight:700;color:#776e62;letter-spacing:.08em}.q60-step h2{margin:.15rem 0 0;font-size:1.18rem}.q60-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0}.q60-card{min-width:0;padding:1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q60-card h3{margin:0 0 .4rem;font-size:1.02rem}.q60-card p{margin:.2rem 0}.q60-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;align-items:center;margin:1rem 0}.q60-arrow{text-align:center;color:#8a755d;font-weight:700}.q60-focus{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid #8a755d;border-radius:0 12px 12px 0;background:#faf7f2}.q60-focus p{margin:.35rem 0}.q60-study{display:grid;gap:.7rem;margin:1rem 0}.q60-study>div{padding:.95rem 1rem;border:1px solid var(--color-border);border-radius:12px;background:#fff}.q60-study strong{display:block;margin-bottom:.25rem}@media(max-width:720px){.q60-grid,.q60-flow{grid-template-columns:1fr}.q60-arrow{transform:rotate(90deg)}.q60-step{margin-top:1.6rem}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">過去問から探す</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / 情報デザイン</p><h1>同じWebサイトを、PCでもスマートフォンでも見やすくするには</h1></div></section>
+<div class="container page-flow"><a class="back-link" href="../">学習要点一覧へ戻る</a><div class="topic-layout"><article class="detail-flow">
+<div class="q60-step"><small>STEP 1</small><h2>同じWebサイトでも、見る端末によって使える画面の広さが違う</h2></div>
+<section class="detail-section"><h2>PCとスマートフォンでは、同じ配置が見やすいとは限らない</h2><p>一つのWebサイトを、PCやスマートフォンなど複数の端末から利用する場面があります。端末によって画面の幅や大きさが違うため、同じ配置のままでは文字や操作部分が見づらくなることがあります。</p><div class="q60-focus"><p><strong>今、確かめたいこと</strong></p><p>同じWebサイトを、画面サイズの異なる端末でも見やすく操作しやすくするには、表示をどのように変えればよいか。</p></div><p>そのためにまず、<strong>端末が変わったときに変化する条件が画面サイズであること</strong>を見ます。</p></section>
+<div class="q60-step"><small>STEP 2</small><h2>画面サイズが変われば、使える横幅や配置の余裕も変わる</h2></div>
+<section class="detail-section"><h2>表示条件に合わせて、レイアウト側を調整する必要がある</h2><div class="q60-grid"><div class="q60-card"><h3>広い画面</h3><p>横方向に複数の要素を並べても、読みやすさや操作性を保ちやすい。</p></div><div class="q60-card"><h3>狭い画面</h3><p>同じ並び方では窮屈になるため、要素の並びや幅を調整する必要がある。</p></div></div><p>ここで確認したいのは端末そのものではなく、<strong>表示に使える画面の条件が変わったとき、Webページの配置をどう変えるか</strong>です。そこで次に、条件と表示の変化を結び付けます。</p></section>
+<div class="q60-step"><small>STEP 3</small><h2>画面サイズを条件にして、Webサイトのレイアウトを変化させる</h2></div>
+<section class="detail-section"><h2>決定的なのは、「表示条件に応じて配置が変わる」こと</h2><div class="q60-flow"><div class="q60-card"><h3>表示する端末</h3><p>PC、スマートフォンなどがある。</p></div><div class="q60-arrow" aria-hidden="true">→</div><div class="q60-card"><h3>画面サイズを確認</h3><p>利用できる表示領域の広さが異なる。</p></div><div class="q60-arrow" aria-hidden="true">→</div><div class="q60-card"><h3>レイアウトを変える</h3><p>その画面で見やすく、操作しやすい配置へ調整する。</p></div></div><div class="q60-focus"><p><strong>判断を分ける条件</strong></p><p>PCやスマートフォンなど、表示する端末の画面サイズに応じてWebサイトの画面レイアウトが変化する。</p></div><p>この状態変化が分かれば、その設計方法に付けられた名称を結び付けられます。</p></section>
+<div class="q60-step"><small>STEP 4</small><h2>この表示の考え方には名前が付く</h2></div>
+<section class="detail-section"><h2>レスポンシブWebデザイン</h2><p>表示する端末の画面サイズなどに応じて、Webサイトのレイアウトを見やすく操作しやすい形へ変化させる設計方法を<strong>レスポンシブWebデザイン</strong>と呼びます。</p><div class="q60-focus"><p><strong>今回の関係</strong></p><p>端末が違うこと自体よりも、画面サイズという表示条件を受けてレイアウトが変化することが中心です。</p></div><p>WebではCSSのメディアクエリなどを使い、画面幅などの条件に応じて適用するスタイルを切り替えられます。</p></section>
+<div class="q60-step"><small>STEP 5</small><h2>端末名ではなく、「何を条件に何が変わるか」を見る</h2></div>
+<section class="detail-section"><h2>学習要点</h2><div class="q60-study"><div><strong>1　利用環境の違いを見る</strong>PCとスマートフォンでは、画面サイズなどの表示条件が異なる。</div><div><strong>2　その違いで何が困るかを見る</strong>同じ固定的な配置では、見やすさや操作しやすさを保てないことがある。</div><div><strong>3　条件に応じて何を変えるかを見る</strong>Webサイトの画面レイアウトを、表示領域に合わせて変化させる。</div></div><div class="q60-focus"><p><strong>判断の中心</strong></p><p>「画面サイズなどの表示条件 → レイアウトの変化」という関係を確認すると、レスポンシブWebデザインの意味を判断できます。</p></div></section>
+<section class="detail-section"><h2>参照した公開問題</h2><p>令和8年度 ITパスポート試験 公開問題 問60</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">IPA公式 令和8年度 ITパスポート試験 公開問題</a></p><div class="tag-list"><span class="tag">レスポンシブWebデザイン</span><span class="tag">Webデザイン</span><span class="tag">情報デザイン</span></div></section>
+</article></div></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<!-- v8 generated: R08 Q60 -->
