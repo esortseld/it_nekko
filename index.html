@@ -14,8 +14,7 @@
     .home-route-card h2 a:hover{text-decoration:underline}
     .quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
     .quick-link{display:block;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;text-decoration:none;color:inherit}
-    .quick-link strong{display:block;margin-bottom:.25rem}
-    .quick-link span{display:block;line-height:1.5}
+    .quick-link strong{display:block}
     .past-question-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .site-hero .hero-description{margin:.65rem 0 0;max-width:38rem;line-height:1.7}
     @media(max-width:720px){.quick-grid,.past-question-grid{grid-template-columns:1fr}}
@@ -56,14 +55,16 @@
         </div>
       </section>
 
-      <section aria-labelledby="fields-direct">
-        <div class="section-heading">
-          <div><h2 id="fields-direct">学習分野から学ぶ</h2></div>
-        </div>
-        <div class="quick-grid">
-          <a class="quick-link" href="fields/strategy/"><strong>ストラテジ系</strong><span>会社と仕事にITを生かす考え方</span></a>
-          <a class="quick-link" href="fields/management/"><strong>マネジメント系</strong><span>ITの開発と運用を進める考え方</span></a>
-          <a class="quick-link" href="fields/technology/"><strong>テクノロジ系</strong><span>ITを支える技術と仕組み</span></a>
+      <section>
+        <div class="home-route-grid">
+          <div class="home-route-card">
+            <h2><a href="fields/">学習分野から学ぶ</a></h2>
+            <div class="quick-grid">
+              <a class="quick-link" href="fields/strategy/"><strong>ストラテジ系</strong></a>
+              <a class="quick-link" href="fields/management/"><strong>マネジメント系</strong></a>
+              <a class="quick-link" href="fields/technology/"><strong>テクノロジ系</strong></a>
+            </div>
+          </div>
         </div>
       </section>
     </div>
