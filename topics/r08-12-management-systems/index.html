@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>経営管理システム | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目12「経営管理システム」に対応する問33を、管理対象とサプライチェーンの構造から整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .mgmt-map{--accent:#7f6f58;--soft:#f6f1e9}
+    .mgmt-map .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:var(--text-sub,#675f55);margin:0 0 1.1rem}
+    .mgmt-map .breadcrumbs a{color:inherit;text-decoration:none}
+    .mgmt-map .overview,.mgmt-map .scene-card{margin:0 0 1.1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .mgmt-map .overview h2,.mgmt-map .scene-card h2{margin:0 0 .8rem;font-size:1.15rem}
+    .mgmt-map .chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}
+    .mgmt-map .node,.mgmt-map .mini{padding:.9rem;border-radius:12px;background:var(--soft)}
+    .mgmt-map .node strong,.mgmt-map .mini strong{display:block;margin-bottom:.25rem}
+    .mgmt-map .arrow-note{margin:.75rem 0 0;padding:.8rem 1rem;border-left:4px solid var(--accent);background:#faf9f6;border-radius:0 12px 12px 0}
+    .mgmt-map .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+    .mgmt-map .mini strong{font-size:.82rem;color:var(--text-sub,#675f55)}
+    .mgmt-map .matrix{display:grid;grid-template-columns:minmax(9rem,.65fr) minmax(0,1.5fr) minmax(0,1.2fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
+    .mgmt-map .matrix div{padding:.72rem .8rem;background:#fff}
+    .mgmt-map .matrix .head{font-weight:700;background:var(--soft)}
+    .mgmt-map .judge{margin-top:.8rem;padding:.9rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
+    .mgmt-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .mgmt-map .refs p{margin:.35rem 0}
+    .mgmt-map .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .mgmt-map .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    @media(max-width:760px){.mgmt-map .chain,.mgmt-map .three,.mgmt-map .matrix{grid-template-columns:1fr}.mgmt-map .matrix .head:nth-child(2),.mgmt-map .matrix .head:nth-child(3){display:none}}
+  </style>
+</head>
+<body class="mgmt-map">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目12</p><h1>経営管理システム</h1></div></section>
+  <div class="container page-flow">
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目12 経営管理システム</span></div>
+    <article>
+      <section class="overview">
+        <h2>学習地図</h2>
+        <div class="chain" aria-label="サプライチェーンの流れ">
+          <div class="node"><strong>調達・購買</strong>必要な資材を仕入れる。</div>
+          <div class="node"><strong>製造</strong>資材から製品を作る。</div>
+          <div class="node"><strong>物流</strong>製品を必要な場所へ運ぶ。</div>
+          <div class="node"><strong>販売</strong>顧客へ提供する。</div>
+        </div>
+        <div class="arrow-note"><strong>SCM</strong>は、この前後につながる流れを一つの供給連鎖として捉え、全体を管理する。</div>
+      </section>
+
+      <section class="scene-card">
+        <h2>供給の流れ全体を管理する</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>調達・製造・物流・販売が別々に動くのではなく、前後につながって商品が顧客まで届く。</div>
+          <div class="mini"><strong>判断すること</strong>管理対象が、一つの部門や一時点ではなく、供給プロセス全体かどうか。</div>
+          <div class="mini"><strong>学習要点</strong>SCMは供給者から顧客までのサプライチェーン全体を管理し、部分最適ではなく全体最適を目指す。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>何を最適化するか</h2>
+        <div class="three">
+          <div class="mini"><strong>在庫</strong>工程間で情報を共有し、過剰在庫や欠品を抑える。</div>
+          <div class="mini"><strong>納期・リードタイム</strong>前後工程を連携させ、調達から販売までの流れを短くする。</div>
+          <div class="mini"><strong>情報</strong>需要・販売・在庫などを企業内外で共有し、供給連鎖全体の無駄を減らす。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>管理対象で周辺概念を分ける</h2>
+        <div class="matrix" aria-label="経営管理システム周辺概念の管理対象">
+          <div class="head">概念</div><div class="head">主な管理対象</div><div class="head">見る範囲</div>
+          <div><strong>SCM</strong></div><div>調達・製造・物流・販売をつなぐ供給連鎖</div><div>供給プロセス全体</div>
+          <div><strong>CRM</strong></div><div>顧客との関係</div><div>顧客との接点・関係</div>
+          <div><strong>POS</strong></div><div>商品が販売された時点の情報</div><div>販売時点</div>
+          <div><strong>SFA</strong></div><div>営業活動</div><div>営業担当者の活動</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge"><strong>何を管理しているか → どの範囲を見ているか → 一部の効率化か、つながる業務全体の最適化か</strong>の順に見る。調達から販売までを一つの連鎖として扱うなら、供給プロセス全体を管理する考え方である。</div>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和8年度　問33</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
+        <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
