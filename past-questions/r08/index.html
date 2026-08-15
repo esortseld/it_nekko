@@ -18,7 +18,12 @@
     .item-card--pending{background:#faf9f6}
     .jump-links{display:flex;flex-wrap:wrap;gap:.55rem;margin:0 0 1.4rem}
     .jump-links a{display:inline-block;padding:.55rem .8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;text-decoration:none;color:inherit;font-size:.9rem}
-    @media(max-width:720px){.item-card__top{align-items:flex-start}}
+    .q-mini-wrap{margin:1.2rem 0 2rem}
+    .q-mini-grid{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:.28rem}
+    .q-mini{display:flex;align-items:center;justify-content:center;min-height:1.75rem;padding:.18rem .1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:6px;background:#fff;color:inherit;text-decoration:none;font-size:.72rem;line-height:1}
+    .q-mini:hover{background:#f3efe7}
+    @media(max-width:900px){.q-mini-grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
+    @media(max-width:520px){.q-mini-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.item-card__top{align-items:flex-start}}
   </style>
 </head>
 <body>
@@ -34,18 +39,17 @@
   </div>
 </header>
 <main>
-  <section class="page-hero">
-    <div class="container hero-inner">
-      <p class="site-kicker">R08</p>
-      <h1>令和8年度公開問題</h1>
-    </div>
-  </section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">R08</p><h1>令和8年度公開問題</h1></div></section>
   <div class="container page-flow">
     <a class="back-link" href="../">公開問題一覧へ戻る</a>
+
+    <section class="q-mini-wrap" aria-labelledby="question-no-index">
+      <div class="section-heading"><div><h2 id="question-no-index">問番号から探す</h2></div></div>
+      <div class="q-mini-grid" id="question-mini-grid"></div>
+    </section>
+
     <nav class="jump-links" aria-label="分野へ移動">
-      <a href="#strategy">ストラテジ系</a>
-      <a href="#management">マネジメント系</a>
-      <a href="#technology">テクノロジ系</a>
+      <a href="#strategy">ストラテジ系</a><a href="#management">マネジメント系</a><a href="#technology">テクノロジ系</a>
     </nav>
 
     <section id="strategy">
@@ -118,5 +122,10 @@
   </div>
 </main>
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+<script>
+const paths=[null,
+'generative-ai-copyright','byod-personal-device-use','maximin-strategy','hackathon','patent-law-business-model','digital-transformation','value-engineering','iot-system','indirect-manufacturing-cost','brainstorming','publicity-right','work-flow-architecture','anonymously-processed-information','corporate-social-responsibility','chasm-innovation-adoption','annotation-supervised-learning','responsible-ai-use','concurrent-engineering','asp-application-service-provider','rfp-request-for-proposal','cybersecurity-basic-act','rpa-routine-work-automation','listing-advertising','corporate-governance','big-data-3v','equity-ratio-balance-sheet','weak-ai','escrow-service-online-transactions','contract-for-work-program-development','divisional-organization','lean-production-muda','niche-strategy','scm-supply-chain-management','it-basic-plan','it-governance-edm','r08-27-project-management','r08-27-project-management','waterfall-model','r08-27-project-management','internal-control','it-governance-edm','service-desk','agile-development','service-desk-automation-efficiency','r08-27-project-management','problem-management','system-audit-scope','service-management-system-improvement','r08-27-project-management','r08-27-project-management','system-audit-scope','requirements-definition-user-role','service-level-management','facility-management-hybrid-work','iot-device-initial-password-security','dbms-checkpoint','relational-database-foreign-key','ux-structured-scenario','wpa2-wireless-lan-encryption','responsive-web-layout','screen-display-dedicated-memory','system-performance-standard-workload','ransomware-file-recovery-backup','multiple-frequency-bands-high-speed-wireless','domain-name-ip-address-resolution','dialog-guided-operation','selection-sort-state-tracing','email-send-receive-protocol-roles','database-normalization-consistency-splitting','security-event-reporting-route','risk-based-authentication','relational-database-foreign-key','oss-modification-source-disclosure','binary-addition-carry-spreadsheet','email-bcc-recipient-visibility','lpwa-wide-area-low-power','server-room-access-confidentiality','temperature-to-electrical-signal','cybersecurity-management-leadership','biometric-far-frr-balance','bluetooth-low-energy','neural-network-error-weight-adjustment','malware-infection-vulnerability-patching','deductive-reasoning-general-to-specific','prime-number-boundary-loop-condition','differential-backup-restore-point','network-shared-storage','polygon-loop-turn-angle','security-cause-and-weakness','public-key-certificate-trust','hash-same-input-same-output','zero-trust-verify-every-access','isms-scope-before-risk-assessment','security-control-physical-human-technical','web-input-dangerous-string-neutralization','targeted-long-term-cyberattack','oss-modification-source-disclosure','ai-instruction-input-design','image-scanner-resolution-dpi','isms-scope-before-risk-assessment'];
+document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;return `<a class="q-mini" href="../../topics/${paths[n]}/">${n}</a>`}).join('');
+</script>
 </body>
 </html>
