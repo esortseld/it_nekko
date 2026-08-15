@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ITネッコ</title>
-  <meta name="description" content="ITパスポート試験の学習分野と公開問題から、対応する学習ページへ進むための入口です。">
+  <meta name="description" content="ITパスポート試験の過去問と学習分野から、対応する学習ページへ進むための入口です。">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    .home-route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .home-route-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     .home-route-card{display:block;padding:1.4rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff;text-decoration:none;color:inherit}
     .home-route-card h2{margin:.25rem 0 .5rem;font-size:1.35rem}
     .home-route-card p{margin:.25rem 0;color:var(--text-sub,#675f55)}
@@ -15,7 +15,7 @@
     .quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
     .quick-link{display:block;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;text-decoration:none;color:inherit}
     .quick-link strong{display:block;margin-bottom:.25rem}
-    @media(max-width:720px){.home-route-grid,.quick-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.quick-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -24,8 +24,7 @@
       <a class="brand" href="./" aria-label="ITネッコ トップへ">ITネッコ</a>
       <nav class="site-nav" aria-label="主要ページ">
         <a href="./">トップ</a>
-        <a href="fields/">学習分野</a>
-        <a href="past-questions/">公開問題</a>
+        <a href="past-questions/">過去問</a>
         <a href="about/">このサイトについて</a>
       </nav>
     </div>
@@ -40,23 +39,25 @@
     </section>
 
     <div class="container page-flow">
-      <section aria-labelledby="start-routes">
-        <div class="section-heading">
-          <div><h2 id="start-routes">入口を選ぶ</h2></div>
-        </div>
+      <section>
         <div class="home-route-grid">
-          <a class="home-route-card" href="fields/">
-            <span class="card-label">学習する</span>
-            <h2>学習分野から進む</h2>
-            <p>シラバスの体系から学習ページへ</p>
-            <span class="route-arrow">学習分野へ →</span>
-          </a>
           <a class="home-route-card" href="past-questions/">
             <span class="card-label">逆引きする</span>
-            <h2>公開問題から探す</h2>
+            <h2>過去問から探す</h2>
             <p>年度と問番号から対応する学習ページへ</p>
-            <span class="route-arrow">公開問題へ →</span>
+            <span class="route-arrow">過去問へ →</span>
           </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="questions-direct">
+        <div class="section-heading">
+          <div><h2 id="questions-direct">過去問</h2></div>
+          <a class="text-link" href="past-questions/">一覧へ</a>
+        </div>
+        <div class="quick-grid">
+          <a class="quick-link" href="past-questions/r08/"><strong>令和8年度</strong><span>問1〜100</span></a>
+          <a class="quick-link" href="past-questions/r07/"><strong>令和7年度</strong><span>過去問</span></a>
         </div>
       </section>
 
@@ -72,19 +73,19 @@
         </div>
       </section>
 
-      <section aria-labelledby="questions-direct">
-        <div class="section-heading">
-          <div><h2 id="questions-direct">公開問題</h2></div>
-          <a class="text-link" href="past-questions/">一覧へ</a>
-        </div>
-        <div class="quick-grid">
-          <a class="quick-link" href="past-questions/r08/"><strong>令和8年度</strong><span>問1〜100</span></a>
-          <a class="quick-link" href="past-questions/r07/"><strong>令和7年度</strong><span>公開問題</span></a>
-        </div>
-      </section>
-
       <section class="detail-section">
         <a class="text-link" href="about/">このサイトについて →</a>
+      </section>
+
+      <section>
+        <div class="home-route-grid">
+          <a class="home-route-card" href="fields/">
+            <span class="card-label">学習する</span>
+            <h2>学習分野から進む</h2>
+            <p>シラバスの体系から学習ページへ</p>
+            <span class="route-arrow">学習分野へ →</span>
+          </a>
+        </div>
       </section>
     </div>
   </main>
