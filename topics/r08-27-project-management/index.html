@@ -3,37 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>新しいシステム導入プロジェクトをどう進めるか | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題のうち、シラバス項目27「プロジェクトマネジメント」に対応する問36・37・39・45・49・50を、一つのシステム導入プロジェクトの流れとして整理します。">
+  <title>プロジェクトマネジメント | ITネッコ</title>
+  <meta name="description" content="シラバス項目27「プロジェクトマネジメント」を、新しいシステム導入の流れに沿って整理する学習ページです。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .r08-27 .scene{margin:1.2rem 0;padding:1.1rem 1.2rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
-    .r08-27 .scene strong{display:block;margin-bottom:.35rem}
-    .r08-27 .step{margin:2rem 0 .8rem;padding:.8rem 1rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:0 12px 12px 0}
-    .r08-27 .step small{display:block;font-weight:700;color:#776e62;letter-spacing:.08em}
-    .r08-27 .step h2{margin:.15rem 0 0;font-size:1.18rem}
-    .r08-27 .flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.55rem;margin:1rem 0}
-    .r08-27 .flow div{min-width:0;padding:.9rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
-    .r08-27 .flow strong{display:block;margin-bottom:.3rem}
-    .r08-27 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0}
-    .r08-27 .card,.r08-27 .key{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff}
-    .r08-27 .card h3{margin:0 0 .35rem}
-    .r08-27 .key{background:#faf7f2;border-left:4px solid #8a755d}
-    .r08-27 .axis{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:1px;margin:1rem 0;background:var(--color-border,#d9d3c8);border:1px solid var(--color-border,#d9d3c8);border-radius:14px;overflow:hidden}
-    .r08-27 .axis div{min-width:0;padding:.78rem .9rem;background:#fff}
-    .r08-27 .axis .head{font-weight:700;background:#f3efe7}
-    @media(max-width:980px){.r08-27 .flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    @media(max-width:720px){.r08-27 .flow,.r08-27 .grid,.r08-27 .axis{grid-template-columns:1fr}.r08-27 .step{margin-top:1.6rem}}
+    .item27{--pm:#4f6573;--pm-soft:#eef3f5;--pm-line:#cfd9de;--pm-deep:#324753}
+    .item27 .item-shell{display:grid;grid-template-columns:180px minmax(0,1fr);gap:2rem;align-items:start}
+    .item27 .side-map{position:sticky;top:1rem;border:1px solid var(--pm-line);border-radius:16px;background:#fff;padding:.85rem}
+    .item27 .side-map strong{display:block;margin-bottom:.65rem;font-size:.82rem;color:var(--pm-deep)}
+    .item27 .side-map a{display:block;padding:.48rem .55rem;border-radius:8px;color:inherit;text-decoration:none;font-size:.82rem;line-height:1.35}
+    .item27 .side-map a:hover{background:var(--pm-soft)}
+    .item27 .breadcrumb{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:0 0 1rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .item27 .breadcrumb a{color:inherit}
+    .item27 .overview{margin:0 0 2rem;padding:1.4rem;border-radius:22px;background:linear-gradient(135deg,#f5f8f9,#edf3f5);border:1px solid var(--pm-line)}
+    .item27 .overview-kicker{margin:0 0 .35rem;font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--pm-deep)}
+    .item27 .overview h2{margin:.1rem 0 .4rem;font-size:1.35rem}
+    .item27 .overview p{margin:.25rem 0 0}
+    .item27 .roadmap{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:.35rem;align-items:center;margin:1.2rem 0 .2rem}
+    .item27 .road-node{grid-column:span 1;min-width:0;padding:.85rem .55rem;border-radius:14px;background:#fff;border:1px solid var(--pm-line);text-align:center}
+    .item27 .road-node b{display:block;margin-bottom:.2rem;font-size:.75rem;color:var(--pm-deep)}
+    .item27 .road-node span{font-size:.83rem;line-height:1.35}
+    .item27 .road-arrow{text-align:center;color:var(--pm);font-size:1.1rem;font-weight:700}
+    .item27 .scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .item27 .scene-card{scroll-margin-top:1rem;min-width:0;border:1px solid var(--pm-line);border-radius:18px;background:#fff;overflow:hidden}
+    .item27 .scene-head{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 1.05rem;background:var(--pm-soft);border-bottom:1px solid var(--pm-line)}
+    .item27 .scene-no{display:flex;align-items:center;justify-content:center;flex:0 0 2.1rem;height:2.1rem;border-radius:50%;background:var(--pm);color:#fff;font-size:.82rem;font-weight:700}
+    .item27 .scene-head h2{margin:0;font-size:1.08rem;line-height:1.45}
+    .item27 .scene-body{padding:1rem 1.05rem}
+    .item27 .scene-body dl{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.55rem .8rem;margin:0}
+    .item27 .scene-body dt{font-size:.78rem;font-weight:700;color:var(--pm-deep)}
+    .item27 .scene-body dd{margin:0;line-height:1.55}
+    .item27 .term{font-weight:700}
+    .item27 .mini-compare{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.9rem}
+    .item27 .mini-compare div{padding:.7rem .75rem;border:1px solid var(--pm-line);border-radius:10px;background:#fafcfc;font-size:.84rem;line-height:1.45}
+    .item27 .wide-note{margin:1rem 0 0;padding:.8rem .9rem;border-left:4px solid var(--pm);background:#f7fafb;border-radius:0 10px 10px 0;font-size:.9rem}
+    .item27 .summary-map{margin:2rem 0;padding:1.2rem;border:1px solid var(--pm-line);border-radius:18px;background:#fff}
+    .item27 .summary-map h2{margin:0 0 .8rem;font-size:1.15rem}
+    .item27 .summary-table{display:grid;grid-template-columns:1.1fr 1.2fr 1fr;gap:1px;background:var(--pm-line);border:1px solid var(--pm-line);border-radius:12px;overflow:hidden}
+    .item27 .summary-table div{padding:.65rem .75rem;background:#fff;font-size:.86rem;line-height:1.45}
+    .item27 .summary-table .head{font-weight:700;background:var(--pm-soft);color:var(--pm-deep)}
+    .item27 .reference-box{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--pm-line)}
+    .item27 .reference-box h2{margin:0 0 .45rem;font-size:1rem}
+    .item27 .reference-box p{margin:.25rem 0}
+    .item27 .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .item27 .return-links a{display:inline-block;padding:.55rem .8rem;border:1px solid var(--pm-line);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.85rem}
+    @media(max-width:980px){
+      .item27 .item-shell{grid-template-columns:1fr;gap:1rem}
+      .item27 .side-map{position:static;display:flex;gap:.35rem;overflow-x:auto;padding:.55rem;white-space:nowrap}
+      .item27 .side-map strong{display:none}
+      .item27 .side-map a{flex:0 0 auto;border:1px solid var(--pm-line);background:#fff}
+    }
+    @media(max-width:760px){
+      .item27 .roadmap{grid-template-columns:1fr;gap:.35rem}
+      .item27 .road-arrow{transform:rotate(90deg)}
+      .item27 .scene-grid{grid-template-columns:1fr}
+      .item27 .scene-body dl{grid-template-columns:1fr;gap:.18rem}
+      .item27 .scene-body dd{margin-bottom:.55rem}
+      .item27 .summary-table{grid-template-columns:1fr 1fr}
+      .item27 .summary-table .head:nth-child(3){display:none}
+      .item27 .summary-table div:nth-child(3n){grid-column:1/-1;background:#fafcfc}
+    }
   </style>
 </head>
-<body class="r08-27">
+<body class="item27">
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="../../">ITネッコ</a>
     <nav class="site-nav" aria-label="主要ページ">
       <a href="../../">トップ</a>
       <a href="../../fields/">学習分野</a>
-      <a href="../../past-questions/">過去問から探す</a>
+      <a href="../../past-questions/">公開問題</a>
       <a href="../../about/">このサイトについて</a>
     </nav>
   </div>
@@ -42,131 +81,153 @@
 <main>
   <section class="page-hero">
     <div class="container hero-inner">
-      <p class="site-kicker">マネジメント系 / シラバス項目27 / プロジェクトマネジメント</p>
-      <h1>新しいシステム導入プロジェクトをどう進めるか</h1>
+      <p class="site-kicker">マネジメント系 / 項目27</p>
+      <h1>プロジェクトマネジメント</h1>
     </div>
   </section>
 
   <div class="container page-flow">
-    <div class="topic-layout">
-      <article class="detail-flow">
+    <div class="breadcrumb" aria-label="現在位置">
+      <a href="../../">トップ</a><span>›</span>
+      <a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span>
+      <span>項目27 プロジェクトマネジメント</span>
+    </div>
 
-        <section class="detail-section">
-          <h2>今回考えること</h2>
-          <div class="scene">
-            <strong>会社で、新しいシステムを導入することになった。</strong>
-            <p>プロジェクトを正式に始め、費用や作業を考え、人と日程を調整し、関係者と情報を共有しながら進めます。途中で予定外の依頼や問題が起きたときには、そのまま進めるのか、変更するのか、元の状態へ戻すのかも判断します。</p>
-          </div>
-          <div class="key">
-            <p>プロジェクトマネジメントでは、用語を別々に覚えるのではなく、<strong>「今はプロジェクトのどの段階で、何を管理しているのか」</strong>を見ると関係が分かります。</p>
-          </div>
-        </section>
+    <div class="item-shell">
+      <nav class="side-map" aria-label="このページの学習地図">
+        <strong>学習地図</strong>
+        <a href="#start">1　始める</a>
+        <a href="#estimate">2　見積もる</a>
+        <a href="#breakdown">3　作業を分ける</a>
+        <a href="#schedule">4　人と日程を組む</a>
+        <a href="#communicate">5　関係者と進める</a>
+        <a href="#change">6　変更に対応する</a>
+        <a href="#map">判断の地図</a>
+      </nav>
 
-        <div class="step"><small>STEP 1</small><h2>プロジェクトを正式に始める</h2></div>
-        <section class="detail-section">
-          <p>「新しいシステムを導入したい」という構想があっても、それだけでは正式なプロジェクトとは限りません。人や予算などの組織資源を使って進めるには、組織として開始を認める段階があります。</p>
-          <div class="key"><p><strong>プロジェクト憲章</strong>は、新規プロジェクトを正式に認可する文書です。プロジェクトマネージャが組織資源を使って活動を進める根拠になります。</p></div>
-          <div class="axis">
-            <div class="head">確認したいこと</div><div class="head">主に見るもの</div>
-            <div>正式に始めてよいか</div><div><strong>プロジェクト憲章</strong></div>
-            <div>誰が関係するか</div><div>ステークホルダ</div>
-            <div>どこまで行うか</div><div>スコープ</div>
-            <div>どんな危険があるか</div><div>リスク</div>
-          </div>
-        </section>
-
-        <div class="step"><small>STEP 2</small><h2>費用や期間を見積もる</h2></div>
-        <section class="detail-section">
-          <p>プロジェクトの初期では、まだ作業内容が細部まで決まっていないことがあります。その段階で短期間に概算が必要なら、過去の似たプロジェクトを比較材料にできます。</p>
-          <div class="key"><p><strong>類推見積り</strong>は、過去の類似プロジェクトの実績を根拠に、今回の費用や期間を概算する方法です。</p></div>
-          <div class="axis">
-            <div class="head">見積方法</div><div class="head">主な根拠</div>
-            <div>類推見積り</div><div>過去の類似プロジェクト</div>
-            <div>積上げ見積り</div><div>細かく分けた個々の作業</div>
-            <div>FP法</div><div>利用者から見た機能量</div>
-            <div>LOCによる見積り</div><div>ソースコードの行数</div>
+      <article>
+        <section class="overview">
+          <p class="overview-kicker">REAL-LIFE SCENE</p>
+          <h2>新しいシステムを導入する</h2>
+          <p>一つのプロジェクトが進む順番に、関係する知識を配置します。</p>
+          <div class="roadmap" aria-label="プロジェクトの流れ">
+            <div class="road-node"><b>01</b><span>始める</span></div><div class="road-arrow">→</div>
+            <div class="road-node"><b>02</b><span>見積もる</span></div><div class="road-arrow">→</div>
+            <div class="road-node"><b>03</b><span>作業を分ける</span></div><div class="road-arrow">→</div>
+            <div class="road-node"><b>04</b><span>人と日程を組む</span></div><div class="road-arrow">→</div>
+            <div class="road-node"><b>05</b><span>関係者と進める</span></div><div class="road-arrow">→</div>
+            <div class="road-node"><b>06</b><span>変更に対応する</span></div>
           </div>
         </section>
 
-        <div class="step"><small>STEP 3</small><h2>必要な仕事を分解する</h2></div>
-        <section class="detail-section">
-          <p>「システムを導入する」という大きな仕事のままでは、担当、見積り、進捗を管理できません。成果物を完成させるために必要な作業を、管理できる単位まで分けます。</p>
-          <div class="key"><p><strong>WBS（Work Breakdown Structure）</strong>は、成果物に必要な作業を階層的に分解して整理する構造です。</p></div>
-          <div class="grid">
-            <div class="card"><h3>WBSが見るもの</h3><p>何をする必要があるか。作業範囲を整理する。</p></div>
-            <div class="card"><h3>スケジュールが見るもの</h3><p>整理した作業を、いつ行うか。</p></div>
+        <section class="scene-grid" aria-label="学習する場面">
+          <article class="scene-card" id="start">
+            <div class="scene-head"><span class="scene-no">1</span><h2>プロジェクトを始める</h2></div>
+            <div class="scene-body">
+              <dl>
+                <dt>場面</dt><dd>新しいプロジェクトを正式に開始する。</dd>
+                <dt>判断すること</dt><dd>組織として開始を認めているか。</dd>
+                <dt>関係する知識</dt><dd><span class="term">プロジェクト憲章</span></dd>
+              </dl>
+              <div class="wide-note">プロジェクト憲章は、新規プロジェクトを正式に認可する文書。</div>
+            </div>
+          </article>
+
+          <article class="scene-card" id="estimate">
+            <div class="scene-head"><span class="scene-no">2</span><h2>費用や期間を見積もる</h2></div>
+            <div class="scene-body">
+              <dl>
+                <dt>場面</dt><dd>初期段階で概算が必要だが、詳細はまだ少ない。</dd>
+                <dt>判断すること</dt><dd>何を根拠に見積もるか。</dd>
+                <dt>関係する知識</dt><dd><span class="term">類推見積り</span></dd>
+              </dl>
+              <div class="mini-compare">
+                <div><strong>類推見積り</strong><br>過去の類似プロジェクト</div>
+                <div><strong>積上げ見積り</strong><br>細かく分けた作業</div>
+                <div><strong>FP法</strong><br>利用者から見た機能量</div>
+                <div><strong>LOC</strong><br>ソースコードの行数</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="scene-card" id="breakdown">
+            <div class="scene-head"><span class="scene-no">3</span><h2>必要な作業を分ける</h2></div>
+            <div class="scene-body">
+              <dl>
+                <dt>場面</dt><dd>大きな仕事を、そのままでは管理できない。</dd>
+                <dt>判断すること</dt><dd>成果物に必要な作業をどう整理するか。</dd>
+                <dt>関係する知識</dt><dd><span class="term">WBS</span></dd>
+              </dl>
+              <div class="mini-compare">
+                <div><strong>WBS</strong><br>何をするか</div>
+                <div><strong>スケジュール</strong><br>いつするか</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="scene-card" id="schedule">
+            <div class="scene-head"><span class="scene-no">4</span><h2>人と日程を組む</h2></div>
+            <div class="scene-body">
+              <dl>
+                <dt>場面</dt><dd>作業には前後関係があり、使える人員にも限りがある。</dd>
+                <dt>判断すること</dt><dd>開始条件と必要人数を同時に満たせるか。</dd>
+                <dt>関係する知識</dt><dd><span class="term">前後関係・要員制約・スケジュール管理</span></dd>
+              </dl>
+              <div class="wide-note">開始できる作業でも、必要な人員を確保できなければ同時には実施できない。</div>
+            </div>
+          </article>
+
+          <article class="scene-card" id="communicate">
+            <div class="scene-head"><span class="scene-no">5</span><h2>関係者と進める</h2></div>
+            <div class="scene-body">
+              <dl>
+                <dt>場面</dt><dd>会議で状況を確認し、次の行動へつなげる。</dd>
+                <dt>判断すること</dt><dd>何を決め、誰と共有するか。</dd>
+                <dt>関係する知識</dt><dd><span class="term">議題・参加者・時間管理・議事録・情報共有</span></dd>
+              </dl>
+              <div class="wide-note">会議は、必要な判断を行い、決定事項を次の行動へつなげる。</div>
+            </div>
+          </article>
+
+          <article class="scene-card" id="change">
+            <div class="scene-head"><span class="scene-no">6</span><h2>予定外の変更に対応する</h2></div>
+            <div class="scene-body">
+              <dl>
+                <dt>場面</dt><dd>契約外の追加依頼や、続行が難しい問題が起きる。</dd>
+                <dt>判断すること</dt><dd>範囲内か、変更が必要か、安全な状態へ戻すか。</dd>
+                <dt>関係する知識</dt><dd><span class="term">スコープ・変更管理・合意・切り戻し</span></dd>
+              </dl>
+              <div class="wide-note">予定外の依頼は、費用・納期・責任への影響を確認し、正式に合意して扱う。</div>
+            </div>
+          </article>
+        </section>
+
+        <section class="summary-map" id="map">
+          <h2>判断の地図</h2>
+          <div class="summary-table">
+            <div class="head">問題文で見える手掛かり</div><div class="head">今、管理していること</div><div class="head">関係する知識</div>
+            <div>正式に認可する</div><div>開始</div><div>プロジェクト憲章</div>
+            <div>初期・詳細が少ない・類似実績</div><div>見積り</div><div>類推見積り</div>
+            <div>成果物に必要な作業を階層化</div><div>作業範囲</div><div>WBS</div>
+            <div>先行作業・必要人数・並行作業</div><div>日程・資源</div><div>スケジュール管理</div>
+            <div>会議・決定事項・共有</div><div>コミュニケーション</div><div>議事録・情報共有</div>
+            <div>契約外・追加依頼・続行困難</div><div>スコープ・変更</div><div>変更管理・切り戻し</div>
           </div>
         </section>
 
-        <div class="step"><small>STEP 4</small><h2>人と日程を組む</h2></div>
-        <section class="detail-section">
-          <p>作業には前後関係があり、さらに使える人員にも限りがあります。開始できる作業であっても、必要な人員が足りなければ同時には実施できません。</p>
-          <div class="grid">
-            <div class="card"><h3>前後関係の制約</h3><p>先行作業が終わらないと、次の作業を始められない。</p></div>
-            <div class="card"><h3>要員の制約</h3><p>同時に実施する作業に必要な人数が、利用できる人数を超えてはいけない。</p></div>
-          </div>
-          <div class="key"><p>スケジュールを組むときは、<strong>「開始条件を満たしているか」＋「必要な資源を確保できるか」</strong>を重ねて考えます。</p></div>
-        </section>
-
-        <div class="step"><small>STEP 5</small><h2>関係者と情報を共有しながら進める</h2></div>
-        <section class="detail-section">
-          <p>計画を作っただけではプロジェクトは進みません。関係者が現在の状況、決定事項、課題、次の行動を共有する必要があります。</p>
-          <div class="flow">
-            <div><strong>会議前</strong><p>目的、議題、必要な参加者、時間を決める。</p></div>
-            <div><strong>会議中</strong><p>必要な事項を議論し、判断する。</p></div>
-            <div><strong>終了時</strong><p>決定事項、課題、担当、期限を確認する。</p></div>
-            <div><strong>会議後</strong><p>議事録として記録し、必要な関係者へ共有する。</p></div>
-            <div><strong>次の行動</strong><p>共有された内容を基に作業を進める。</p></div>
-            <div><strong>進捗確認</strong><p>必要に応じて状況を再確認する。</p></div>
-          </div>
-          <div class="key"><p>会議の目的は、話し合うこと自体ではなく、<strong>必要な判断を行い、その内容を次の行動へつなげること</strong>です。</p></div>
-        </section>
-
-        <div class="step"><small>STEP 6</small><h2>予定外の変更や問題に対応する</h2></div>
-        <section class="detail-section">
-          <p>作業中に「このPCにも追加で導入してほしい」と頼まれたり、導入を続けることが難しい問題が起きたりすることがあります。</p>
-          <div class="axis">
-            <div class="head">起きたこと</div><div class="head">確認すること</div>
-            <div>追加の作業を頼まれた</div><div>もともとの契約・スコープに含まれているか。</div>
-            <div>範囲外だった</div><div>費用、納期、責任への影響を確認し、正式に合意する。</div>
-            <div>作業を続けるのが難しい</div><div>関係者と対応を合意し、必要なら導入前の状態へ戻す。</div>
-          </div>
-          <div class="key"><p><strong>切り戻し</strong>は、導入作業で問題が起きたときに、安全な状態へ戻すための対応です。予定外の依頼や問題に対して、現場判断だけで範囲を広げたり、そのまま続行したりしないことが重要です。</p></div>
-        </section>
-
-        <div class="step"><small>STEP 7</small><h2>一つのプロジェクトとしてつなげる</h2></div>
-        <section class="detail-section">
-          <div class="flow">
-            <div><strong>正式に始める</strong><p>プロジェクト憲章</p></div>
-            <div><strong>見積もる</strong><p>類推見積りなど</p></div>
-            <div><strong>作業を整理する</strong><p>WBS</p></div>
-            <div><strong>人と日程を組む</strong><p>前後関係・要員制約</p></div>
-            <div><strong>共有して進める</strong><p>会議・議事録</p></div>
-            <div><strong>変更に対応する</strong><p>スコープ・合意・切り戻し</p></div>
-          </div>
-        </section>
-
-        <section class="detail-section">
-          <h2>今回の学習要点</h2>
-          <div class="key">
-            <p>プロジェクトマネジメントでは、個々の用語を別々に覚えるのではなく、<strong>今は「開始」「見積り」「作業整理」「日程・資源」「情報共有」「変更・問題対応」のどこにいるのか</strong>を確認します。</p>
-            <p>その段階で何を決め、何を管理するための仕組みや道具なのかを考えることが、判断の手掛かりになります。</p>
-          </div>
-        </section>
-
-        <section class="detail-section">
+        <section class="reference-box">
           <h2>参照した公開問題</h2>
           <p>令和8年度 ITパスポート試験 公開問題　問36、問37、問39、問45、問49、問50</p>
-          <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">IPA公式 令和8年度 ITパスポート試験 公開問題</a></p>
+          <div class="return-links">
+            <a href="../../past-questions/r08/">← 令和8年度公開問題へ戻る</a>
+            <a href="../../fields/management/">← マネジメント系へ戻る</a>
+          </div>
         </section>
-
       </article>
     </div>
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="container"><p>ITネッコ / のらネコ学習室</p></div>
-</footer>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
