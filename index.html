@@ -17,7 +17,19 @@
     .quick-link strong{display:block}
     .past-question-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .site-hero .hero-description{margin:.65rem 0 0;max-width:38rem;line-height:1.7}
-    @media(max-width:720px){.quick-grid,.past-question-grid{grid-template-columns:1fr}}
+
+    .field-list{display:grid;gap:.9rem}
+    .field-row{display:grid;grid-template-columns:minmax(180px,270px) 1fr;align-items:center;gap:1.2rem}
+    .field-name{display:block;padding:.8rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;font-weight:700;font-size:1.08rem}
+    .field-name:hover{text-decoration:underline}
+    .field-description{margin:0;line-height:1.65}
+
+    @media(max-width:720px){
+      .quick-grid,.past-question-grid{grid-template-columns:1fr}
+      .field-row{grid-template-columns:1fr;gap:.45rem}
+      .field-name{width:100%;box-sizing:border-box}
+      .field-description{padding:0 .15rem .2rem}
+    }
   </style>
 </head>
 <body>
@@ -59,10 +71,19 @@
         <div class="home-route-grid">
           <div class="home-route-card">
             <h2><a href="fields/">学習分野から学ぶ</a></h2>
-            <div class="quick-grid">
-              <a class="quick-link" href="fields/strategy/"><strong>ストラテジ系</strong></a>
-              <a class="quick-link" href="fields/management/"><strong>マネジメント系</strong></a>
-              <a class="quick-link" href="fields/technology/"><strong>テクノロジ系</strong></a>
+            <div class="field-list">
+              <div class="field-row">
+                <a class="field-name" href="fields/strategy/">ストラテジ系</a>
+                <p class="field-description">会社や仕事にITを生かす</p>
+              </div>
+              <div class="field-row">
+                <a class="field-name" href="fields/management/">マネジメント系</a>
+                <p class="field-description">ITの開発と運用を進める</p>
+              </div>
+              <div class="field-row">
+                <a class="field-name" href="fields/technology/">テクノロジ系</a>
+                <p class="field-description">ITを支える技術と仕組みを知る</p>
+              </div>
             </div>
           </div>
         </div>
