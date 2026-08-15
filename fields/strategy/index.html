@@ -6,11 +6,26 @@
   <title>ストラテジ系 | ITネッコ</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .item-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#faf9f6;color:inherit;text-decoration:none}
+    .syllabus-groups{display:grid;gap:1.5rem}
+    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72)}
+    .major-title{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
+    .middle-groups{display:grid;gap:1rem}
+    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .middle-title{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
+    .item-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem}
+    .item-card{display:block;min-width:0;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#faf9f6;color:inherit;text-decoration:none}
     .item-no{display:block;margin-bottom:.3rem;font-size:.82rem;font-weight:700;color:var(--text-sub,#675f55)}
     .item-card h2{margin:0;font-size:1rem;line-height:1.5}
     .year-links{display:flex;gap:.45rem;margin-top:.7rem}
     .year-links a{display:inline-block;padding:.35rem .6rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.8rem;font-weight:700}
+    @media (max-width:800px){
+      .item-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:560px){
+      .major-group{padding:.9rem}
+      .middle-group{padding:.8rem}
+      .item-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -36,31 +51,87 @@
   <div class="container page-flow">
     <a class="back-link" href="../">学習分野へ戻る</a>
 
-    <div class="card-grid">
-      <div class="item-card"><span class="item-no">項目1</span><h2>経営・組織論</h2></div>
-      <div class="item-card"><span class="item-no">項目2</span><h2>業務分析・データ利活用</h2><div class="year-links"><a href="../../topics/r08-02-business-analysis-data-utilization/">R8</a></div></div>
-      <div class="item-card"><span class="item-no">項目3</span><h2>会計・財務</h2></div>
-      <div class="item-card"><span class="item-no">項目4</span><h2>知的財産権</h2></div>
-      <div class="item-card"><span class="item-no">項目5</span><h2>セキュリティ関連法規</h2></div>
-      <div class="item-card"><span class="item-no">項目6</span><h2>労働関連・取引関連法規</h2></div>
-      <div class="item-card"><span class="item-no">項目7</span><h2>その他の法律・ガイドライン・情報倫理</h2></div>
-      <div class="item-card"><span class="item-no">項目8</span><h2>標準化関連</h2></div>
-      <div class="item-card"><span class="item-no">項目9</span><h2>経営戦略手法</h2></div>
-      <div class="item-card"><span class="item-no">項目10</span><h2>マーケティング</h2></div>
-      <div class="item-card"><span class="item-no">項目11</span><h2>ビジネス戦略と目標・評価</h2></div>
-      <div class="item-card"><span class="item-no">項目12</span><h2>経営管理システム</h2></div>
-      <div class="item-card"><span class="item-no">項目13</span><h2>技術開発戦略の立案・技術開発計画</h2></div>
-      <div class="item-card"><span class="item-no">項目14</span><h2>ビジネスシステム</h2></div>
-      <div class="item-card"><span class="item-no">項目15</span><h2>エンジニアリングシステム</h2></div>
-      <div class="item-card"><span class="item-no">項目16</span><h2>e-ビジネス</h2></div>
-      <div class="item-card"><span class="item-no">項目17</span><h2>IoTシステム・組込みシステム</h2></div>
-      <div class="item-card"><span class="item-no">項目18</span><h2>情報システム戦略</h2></div>
-      <div class="item-card"><span class="item-no">項目19</span><h2>業務プロセス</h2></div>
-      <div class="item-card"><span class="item-no">項目20</span><h2>ソリューションビジネス</h2></div>
-      <div class="item-card"><span class="item-no">項目21</span><h2>システム活用促進・評価</h2></div>
-      <div class="item-card"><span class="item-no">項目22</span><h2>システム化計画</h2></div>
-      <div class="item-card"><span class="item-no">項目23</span><h2>要件定義</h2></div>
-      <div class="item-card"><span class="item-no">項目24</span><h2>調達計画・実施</h2></div>
+    <div class="syllabus-groups">
+      <section class="major-group">
+        <h2 class="major-title">大分類1：企業と法務</h2>
+        <div class="middle-groups">
+          <section class="middle-group">
+            <h3 class="middle-title">中分類1：企業活動</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目1</span><h2>経営・組織論</h2></div>
+              <div class="item-card"><span class="item-no">項目2</span><h2>業務分析・データ利活用</h2><div class="year-links"><a href="../../topics/r08-02-business-analysis-data-utilization/">R8</a></div></div>
+              <div class="item-card"><span class="item-no">項目3</span><h2>会計・財務</h2></div>
+            </div>
+          </section>
+
+          <section class="middle-group">
+            <h3 class="middle-title">中分類2：法務</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目4</span><h2>知的財産権</h2></div>
+              <div class="item-card"><span class="item-no">項目5</span><h2>セキュリティ関連法規</h2></div>
+              <div class="item-card"><span class="item-no">項目6</span><h2>労働関連・取引関連法規</h2></div>
+              <div class="item-card"><span class="item-no">項目7</span><h2>その他の法律・ガイドライン・情報倫理</h2></div>
+              <div class="item-card"><span class="item-no">項目8</span><h2>標準化関連</h2></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="major-group">
+        <h2 class="major-title">大分類2：経営戦略</h2>
+        <div class="middle-groups">
+          <section class="middle-group">
+            <h3 class="middle-title">中分類3：経営戦略マネジメント</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目9</span><h2>経営戦略手法</h2></div>
+              <div class="item-card"><span class="item-no">項目10</span><h2>マーケティング</h2></div>
+              <div class="item-card"><span class="item-no">項目11</span><h2>ビジネス戦略と目標・評価</h2></div>
+              <div class="item-card"><span class="item-no">項目12</span><h2>経営管理システム</h2></div>
+            </div>
+          </section>
+
+          <section class="middle-group">
+            <h3 class="middle-title">中分類4：技術戦略マネジメント</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目13</span><h2>技術開発戦略の立案・技術開発計画</h2></div>
+            </div>
+          </section>
+
+          <section class="middle-group">
+            <h3 class="middle-title">中分類5：ビジネスインダストリ</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目14</span><h2>ビジネスシステム</h2></div>
+              <div class="item-card"><span class="item-no">項目15</span><h2>エンジニアリングシステム</h2></div>
+              <div class="item-card"><span class="item-no">項目16</span><h2>e-ビジネス</h2></div>
+              <div class="item-card"><span class="item-no">項目17</span><h2>IoTシステム・組込みシステム</h2></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="major-group">
+        <h2 class="major-title">大分類3：システム戦略</h2>
+        <div class="middle-groups">
+          <section class="middle-group">
+            <h3 class="middle-title">中分類6：システム戦略</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目18</span><h2>情報システム戦略</h2></div>
+              <div class="item-card"><span class="item-no">項目19</span><h2>業務プロセス</h2></div>
+              <div class="item-card"><span class="item-no">項目20</span><h2>ソリューションビジネス</h2></div>
+              <div class="item-card"><span class="item-no">項目21</span><h2>システム活用促進・評価</h2></div>
+            </div>
+          </section>
+
+          <section class="middle-group">
+            <h3 class="middle-title">中分類7：システム企画</h3>
+            <div class="item-grid">
+              <div class="item-card"><span class="item-no">項目22</span><h2>システム化計画</h2></div>
+              <div class="item-card"><span class="item-no">項目23</span><h2>要件定義</h2></div>
+              <div class="item-card"><span class="item-no">項目24</span><h2>調達計画・実施</h2></div>
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   </div>
 </main>
