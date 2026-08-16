@@ -30,3 +30,4 @@ jobs:
           git add -A
           git commit -m "Remove one-shot deferred card link fixer" || true
           git push origin main
+
