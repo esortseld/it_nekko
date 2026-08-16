@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>項目22 システム化計画 | ITネッコ</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .topic-page{--accent:#6f665b;--soft:#f6f2eb;--line:var(--color-border,#d9d3c8)}
+    .topic-page .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1.1rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .topic-page .breadcrumbs a{color:inherit;text-decoration:none}
+    .topic-page .box{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .topic-page .box h2{margin:0 0 .8rem;font-size:1.15rem}
+    .topic-page .map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+    .topic-page .map.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .topic-page .mini{min-width:0;padding:.9rem;border-radius:13px;background:var(--soft)}
+    .topic-page .mini strong{display:block;margin-bottom:.25rem}
+    .topic-page .compare{display:grid;grid-template-columns:minmax(9rem,.72fr) minmax(0,1.4fr);gap:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--line)}
+    .topic-page .compare div{padding:.72rem .8rem;background:#fff}
+    .topic-page .compare .head{font-weight:700;background:var(--soft)}
+    .topic-page .judge{padding:.95rem 1rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft)}
+    .topic-page .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+    .topic-page .refs p{margin:.35rem 0}
+    .topic-page .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .topic-page .return-links a{padding:.55rem .75rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    .topic-page code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    @media(max-width:720px){.topic-page .map,.topic-page .map.two,.topic-page .compare{grid-template-columns:1fr}.topic-page .compare .head:nth-child(2){display:none}.topic-page .return-links{display:grid;grid-template-columns:1fr}.topic-page .return-links a{text-align:center}}
+  </style>
+</head>
+<body class="topic-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+<section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目22</p><h1>項目22 システム化計画</h1></div></section>
+<div class="container page-flow">
+<div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/strategy/">ストラテジ系</a><span>›</span><span>項目22 システム化計画</span></div>
+<article>
+<section class="box"><h2>項目全体の学習地図</h2><div class="map"><div class="mini"><strong>対象業務を把握する</strong>何をシステム化するのか、現状と課題を整理する。</div><div class="mini"><strong>全体方針を決める</strong>情報システム戦略に沿って構想・基本方針を立てる。</div><div class="mini"><strong>実現性を見積もる</strong>開発順序、概算コスト、効果、体制、リスクを全体で見る。</div></div></section>
+<section class="box"><h2>企画段階で集める情報の粒度を見る</h2><div class="map"><div class="mini"><strong>場面</strong>企画プロセスでシステム化構想を立案するため、ベンダー企業など外部から情報を集める。</div><div class="mini"><strong>判断すること</strong>まだ個別開発や発注の詳細を決める段階なのか、それとも業務分野の技術動向を把握して構想を作る段階なのか。</div><div class="mini"><strong>決定的な条件</strong>「システム化構想の立案時」という時点。必要なのは、構想の方向を決めるための外部環境・技術動向の情報である。</div></div></section>
+<section class="box"><h2>計画と後続工程を分ける</h2><div class="compare"><div class="head">情報</div><div class="head">位置付け</div><div>業務分野の情報技術動向</div><div>システム化の方向・可能性を考える企画段階で使う。</div><div>開発コストの具体的見積り</div><div>対象や方式が具体化した後の見積り・調達判断に近い。</div><div>発注企業の役割</div><div>契約・開発体制を具体化する段階で確認する。</div><div>ベンダー技術者の資格</div><div>要員・調達先を具体的に評価する段階で扱う。</div></div></section>
+<section class="box"><h2>必要な用語・概念</h2><div class="compare"><div class="head">概念</div><div class="head">見ること</div><div>システム化構想</div><div>何を、なぜ、どの方向でシステム化するかの全体像。</div><div>システム化基本方針</div><div>構想を実現するための基本的な方針。</div><div>費用対効果</div><div>投入する費用と期待する効果の釣合い。</div><div>適用範囲</div><div>どこまでをシステム化対象とするか。</div></div></section>
+<section class="box"><h2>項目全体の判断の地図</h2><div class="judge"><strong>まず「今はどの段階か」を決める。</strong><br>企画段階なら全体像・方向・技術動向・概算を見る。対象や方式が固まってから、具体的な見積り、要員、契約、発注条件へ進む。</div></section>
+<section class="refs"><h2>参照した公開問題</h2><p>令和7年度　問20</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p><div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div></section>
+</article></div></main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body></html>
