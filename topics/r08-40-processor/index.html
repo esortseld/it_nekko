@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>項目40 プロセッサ | ITネッコ</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .topic-page{--accent:#6f665b;--soft:#f6f2eb;--line:var(--color-border,#d9d3c8)}
+    .topic-page .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1.1rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .topic-page .breadcrumbs a{color:inherit;text-decoration:none}
+    .topic-page .box{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .topic-page .box h2{margin:0 0 .8rem;font-size:1.15rem}
+    .topic-page .map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+    .topic-page .map.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .topic-page .mini{min-width:0;padding:.9rem;border-radius:13px;background:var(--soft)}
+    .topic-page .mini strong{display:block;margin-bottom:.25rem}
+    .topic-page .compare{display:grid;grid-template-columns:minmax(9rem,.72fr) minmax(0,1.4fr);gap:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--line)}
+    .topic-page .compare div{padding:.72rem .8rem;background:#fff}
+    .topic-page .compare .head{font-weight:700;background:var(--soft)}
+    .topic-page .judge{padding:.95rem 1rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft)}
+    .topic-page .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+    .topic-page .refs p{margin:.35rem 0}
+    .topic-page .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .topic-page .return-links a{padding:.55rem .75rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    .topic-page code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    @media(max-width:720px){.topic-page .map,.topic-page .map.two,.topic-page .compare{grid-template-columns:1fr}.topic-page .compare .head:nth-child(2){display:none}.topic-page .return-links{display:grid;grid-template-columns:1fr}.topic-page .return-links a{text-align:center}}
+  </style>
+</head>
+<body class="topic-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+<section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / 項目40</p><h1>項目40 プロセッサ</h1></div></section>
+<div class="container page-flow">
+<div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/technology/">テクノロジ系</a><span>›</span><span>項目40 プロセッサ</span></div>
+<article>
+<section class="box"><h2>項目全体の学習地図</h2><div class="map"><div class="mini"><strong>コンピュータの基本機能</strong>演算・制御・記憶・入力・出力が連携する。</div><div class="mini"><strong>CPU</strong>命令を順に処理し、コンピュータ全体の演算・制御を担う中心的なプロセッサ。</div><div class="mini"><strong>GPU</strong>多数の演算を並列に進めることに強く、画像処理など大量の同種計算を高速化する。</div></div></section>
+<section class="box"><h2>処理内容から向いているプロセッサを考える</h2><div class="map"><div class="mini"><strong>場面</strong>3次元画像の描画を高速化し、動画の表示を滑らかにする。</div><div class="mini"><strong>判断すること</strong>処理が、複雑な命令を順に処理する仕事か、大量の同種計算を同時並行で処理する仕事か。</div><div class="mini"><strong>決定的な条件</strong>画像の画素や頂点など、多数の要素へ似た計算を繰り返す。</div></div></section>
+<section class="box"><h2>CPUとGPUの役割を分ける</h2><div class="compare"><div class="head">プロセッサ</div><div class="head">得意な処理</div><div>CPU</div><div>OSやアプリケーションの命令を制御しながら幅広く処理する。逐次処理や分岐の多い処理にも向く。</div><div>GPU</div><div>画像描画など、同種の数値演算を大量に並列実行する処理に向く。</div><div>GPGPU</div><div>GPUの並列演算能力を、画像以外の汎用計算にも利用する考え方。</div></div></section>
+<section class="box"><h2>必要な用語・概念</h2><div class="compare"><div class="head">用語</div><div class="head">意味</div><div>CPU</div><div>中央処理装置。演算・制御の中心。</div><div>マルチコア</div><div>一つのプロセッサ内に複数の処理コアを持つ。</div><div>クロック周波数</div><div>処理タイミングの基準となる信号の周波数。性能はこれだけでは決まらない。</div><div>GPU</div><div>画像処理を中心に発達した並列計算向けプロセッサ。</div></div></section>
+<section class="box"><h2>項目全体の判断の地図</h2><div class="judge"><strong>機器名ではなく、処理の形を見る。</strong><br>制御や分岐を含む幅広い処理か、大量の同種計算を並列に処理するのかで、適したプロセッサの役割を判断する。</div></section>
+<section class="refs"><h2>参照した公開問題</h2><p>令和7年度　問67</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p><div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/technology/">テクノロジ系へ戻る</a></div></section>
+</article></div></main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body></html>
