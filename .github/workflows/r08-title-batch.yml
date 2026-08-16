@@ -1,0 +1,116 @@
+name: R08 title batch
+
+on:
+  push:
+    branches:
+      - r08-title-batch-20260816
+
+permissions:
+  contents: write
+
+jobs:
+  update-r08-titles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: r08-title-batch-20260816
+          fetch-depth: 0
+
+      - name: Update only title and h1 on indexed R08 item pages
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+
+          index_path = Path('past-questions/r08/index.html')
+          index = index_path.read_text(encoding='utf-8')
+
+          card_re = re.compile(
+              r'<a\s+id="item-(\d+)"[^>]*href="\.\./\.\./topics/(r08-[^"]+)/"[^>]*>.*?'
+              r'<span\s+class="item-no">項目(\d+)</span>.*?<h3>(.*?)</h3>',
+              re.S,
+          )
+          cards = []
+          for m in card_re.finditer(index):
+              id_no, slug, span_no, name = m.groups()
+              if id_no != span_no:
+                  raise SystemExit(f'index item number mismatch: id={id_no}, span={span_no}, slug={slug}')
+              name = re.sub(r'<[^>]+>', '', name).strip()
+              cards.append((int(id_no), slug, name))
+
+          if not cards:
+              raise SystemExit('No indexed R08 item pages found')
+
+          by_no = {}
+          by_slug = {}
+          for no, slug, name in cards:
+              if no in by_no and by_no[no] != (slug, name):
+                  raise SystemExit(f'duplicate item number points to different pages: {no}')
+              if slug in by_slug and by_slug[slug] != (no, name):
+                  raise SystemExit(f'duplicate page points to different items: {slug}')
+              by_no[no] = (slug, name)
+              by_slug[slug] = (no, name)
+
+          targets = sorted((no, slug, name) for no, (slug, name) in by_no.items())
+          print('TARGET_COUNT', len(targets))
+          print('TARGET_ITEMS', ','.join(str(no) for no, _, _ in targets))
+
+          changed = []
+          already = []
+
+          for no, slug, name in targets:
+              path = Path('topics') / slug / 'index.html'
+              if not path.exists():
+                  raise SystemExit(f'indexed target missing: {path}')
+              original = path.read_text(encoding='utf-8')
+
+              # Confirm the page itself identifies the same syllabus item.
+              evidence_patterns = [
+                  rf'項目{no}\s*{re.escape(name)}',
+                  rf'シラバス項目{no}「{re.escape(name)}」',
+              ]
+              if not any(re.search(p, original) for p in evidence_patterns):
+                  raise SystemExit(f'page/index item mismatch or no confirming evidence: item {no} {slug} {name}')
+
+              expected_title = f'令和8年度｜項目{no} {name} | ITネッコ'
+              expected_h1 = f'令和8年度｜項目{no} {name}'
+
+              title_matches = list(re.finditer(r'<title>(.*?)</title>', original, re.S))
+              h1_matches = list(re.finditer(r'<h1>(.*?)</h1>', original, re.S))
+              if len(title_matches) != 1 or len(h1_matches) != 1:
+                  raise SystemExit(f'unexpected title/h1 count: {path} title={len(title_matches)} h1={len(h1_matches)}')
+
+              current_title = title_matches[0].group(1)
+              current_h1 = h1_matches[0].group(1)
+              if current_title == expected_title and current_h1 == expected_h1:
+                  already.append(no)
+                  continue
+
+              updated = original
+              updated, n1 = re.subn(r'<title>.*?</title>', f'<title>{expected_title}</title>', updated, count=1, flags=re.S)
+              updated, n2 = re.subn(r'<h1>.*?</h1>', f'<h1>{expected_h1}</h1>', updated, count=1, flags=re.S)
+              if n1 != 1 or n2 != 1:
+                  raise SystemExit(f'failed replacement: {path}')
+
+              # Prove that reversing only the two intended replacements recreates the original exactly.
+              reverted = updated
+              reverted = reverted.replace(f'<title>{expected_title}</title>', f'<title>{current_title}</title>', 1)
+              reverted = reverted.replace(f'<h1>{expected_h1}</h1>', f'<h1>{current_h1}</h1>', 1)
+              if reverted != original:
+                  raise SystemExit(f'unexpected diff outside title/h1: {path}')
+
+              path.write_text(updated, encoding='utf-8')
+              changed.append(no)
+
+          print('CHANGED_ITEMS', ','.join(map(str, changed)))
+          print('ALREADY_ITEMS', ','.join(map(str, already)))
+
+          if changed:
+              subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+              subprocess.run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+              subprocess.run(['git', 'add', *[str(Path('topics') / slug / 'index.html') for no, slug, name in targets if no in changed]], check=True)
+              subprocess.run(['git', 'commit', '-m', 'Add R8 year and item number to indexed topic titles'], check=True)
+              subprocess.run(['git', 'push', 'origin', 'HEAD:r08-title-batch-20260816'], check=True)
