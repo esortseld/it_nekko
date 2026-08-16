@@ -1,76 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>項目2 業務分析・データ利活用 | ITネッコ</title>
-  <meta name="description" content="ITパスポート試験シラバス項目2「業務分析・データ利活用」に対応する問3・問10・問16・問25を、業務を考えデータを使って判断する流れとして整理します。">
-  <link rel="stylesheet" href="../../assets/style.css">
-  <style>
-    .item-map{--accent:#7f6f58;--soft:#f6f1e9}
-    .item-map .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:var(--text-sub,#675f55);margin:0 0 1.1rem}
-    .item-map .breadcrumbs a{color:inherit;text-decoration:none}
-    .item-map .map-layout{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:1.4rem;align-items:start}
-    .item-map .side-map{position:sticky;top:1rem;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
-    .item-map .side-map strong{display:block;margin-bottom:.65rem}
-    .item-map .side-map a{display:block;padding:.48rem .55rem;border-radius:8px;color:inherit;text-decoration:none;font-size:.88rem}
-    .item-map .side-map a:hover{background:var(--soft)}
-    .item-map .overview{margin:0 0 1.4rem;padding:1.2rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .item-map .overview h2{margin:0 0 .8rem;font-size:1.15rem}
-    .item-map .route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.55rem}
-    .item-map .route a{display:block;padding:.9rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:var(--soft);color:inherit;text-decoration:none;text-align:center}
-    .item-map .route b{display:block;margin-bottom:.2rem;font-size:.86rem}
-    .item-map .route span{font-size:.78rem;color:var(--text-sub,#675f55)}
-    .item-map .scene-card{scroll-margin-top:1rem;margin:0 0 1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .item-map .scene-top{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.8rem}
-    .item-map .num{display:flex;flex:0 0 2rem;width:2rem;height:2rem;align-items:center;justify-content:center;border-radius:999px;background:var(--accent);color:#fff;font-weight:700}
-    .item-map .scene-card h2{margin:0;font-size:1.15rem}
-    .item-map .scene-card .question{margin:.2rem 0 0;font-size:.84rem;color:var(--text-sub,#675f55)}
-    .item-map .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.65rem}
-    .item-map .mini{padding:.85rem;border-radius:12px;background:#faf9f6}
-    .item-map .mini strong{display:block;margin-bottom:.25rem;font-size:.82rem;color:var(--text-sub,#675f55)}
-    .item-map .compare{display:grid;grid-template-columns:minmax(8rem,.7fr) minmax(0,1fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
-    .item-map .compare div{padding:.68rem .75rem;background:#fff}
-    .item-map .compare .head{font-weight:700;background:var(--soft)}
-    .item-map .summary{margin-top:1.4rem;padding:1.1rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
-    .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .item-map .refs p{margin:.35rem 0;overflow-wrap:anywhere}
-    .item-map .return-links{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:.65rem;margin-top:1rem}
-    .item-map .return-links a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:44px;max-width:100%;padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem;line-height:1.35;text-align:center;white-space:normal;overflow-wrap:anywhere}
-    @media(max-width:900px){.item-map .map-layout{grid-template-columns:1fr}.item-map .side-map{position:static;display:flex;overflow-x:auto;gap:.3rem;padding:.55rem}.item-map .side-map strong{display:none}.item-map .side-map a{white-space:nowrap;border:1px solid var(--color-border,#d9d3c8);background:#fff}.item-map .route{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:640px){.item-map .three{grid-template-columns:1fr}.item-map .route{grid-template-columns:1fr 1fr}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .return-links{grid-template-columns:1fr}.item-map .return-links a{width:100%}}
-  
-    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
-    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
-    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
-    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
-    .integrated-scene dd{margin:0;line-height:1.55}
-    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
-  </style>
-</head>
-<body class="item-map">
-<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a>
-      <a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
-<main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目2</p><h1>項目2 業務分析・データ利活用</h1></div></section>
-  <div class="container page-flow">
-    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/strategy/">ストラテジ系</a><span>›</span><span>項目2 業務分析・データ利活用</span></div>
-    <div class="map-layout"><nav class="side-map" aria-label="この項目の学習地図"><strong>学習地図</strong><a href="#ideas">1　案を広げる</a><a href="#data">2　データの特徴を見る</a><a href="#prepare">3　学習用データを作る</a><a href="#decide">4　条件の中で判断する</a></nav>
-      <article>
-        <section class="overview"><h2>業務を考え、データを使って判断する</h2><div class="route" aria-label="学習の流れ"><a href="#ideas"><b>案を広げる</b><span>ブレーンストーミング</span></a><a href="#data"><b>データを見る</b><span>ビッグデータの3V</span></a><a href="#prepare"><b>データを整える</b><span>アノテーション</span></a><a href="#decide"><b>判断する</b><span>マクシミン戦略</span></a></div></section>
-        <section class="scene-card" id="ideas"><div class="scene-top"><span class="num">1</span><div><h2>まず、考えられる案を広げる</h2><p class="question">関係する知識：ブレーンストーミング</p></div></div><div class="three"><div class="mini"><strong>場面</strong>業務上の課題に対して、まず多くの案を出したい。</div><div class="mini"><strong>判断すること</strong>今は案を増やす段階か、評価して絞る段階か。</div><div class="mini"><strong>知識</strong>発散と評価を分け、批判せず自由に案を出す。</div></div></section>
-        <section class="scene-card" id="data"><div class="scene-top"><span class="num">2</span><div><h2>集まるデータがどんなものかを見る</h2><p class="question">関係する知識：ビッグデータの3V</p></div></div><div class="three"><div class="mini"><strong>場面</strong>業務から大量のデータが継続的に集まっている。</div><div class="mini"><strong>判断すること</strong>量・発生速度・種類のどの特徴を見ているか。</div><div class="mini"><strong>知識</strong>Volume＝量、Velocity＝速度、Variety＝多様性。</div></div></section>
-        <section class="scene-card" id="prepare"><div class="scene-top"><span class="num">3</span><div><h2>AIで使うなら、データに意味を付ける</h2><p class="question">関係する知識：アノテーション</p></div></div><div class="three"><div class="mini"><strong>場面</strong>集めた画像や文章を、教師あり学習に使いたい。</div><div class="mini"><strong>判断すること</strong>正解情報を付けるのか、形式や品質を変えるのか。</div><div class="mini"><strong>知識</strong>アノテーションは、入力データに正解ラベルを付ける。</div></div><div class="compare" aria-label="データ処理の違い"><div class="head">処理</div><div class="head">何をするか</div><div>アノテーション</div><div>意味・正解を付ける</div><div>エンコード</div><div>表現形式を変える</div><div>クレンジング</div><div>品質を整える</div><div>フィルタリング</div><div>条件で選別する</div></div></section>
-        <section class="scene-card" id="decide"><div class="scene-top"><span class="num">4</span><div><h2>条件が読めないときも、基準を決めて判断する</h2><p class="question">関係する知識：マクシミン戦略</p></div></div><div class="three"><div class="mini"><strong>場面</strong>複数の戦略があり、将来の状況は確定していない。</div><div class="mini"><strong>判断すること</strong>各戦略で最悪の場合の結果を比べる。</div><div class="mini"><strong>知識</strong>各戦略の最小値を取り、その中で最大のものを選ぶ。</div></div><div class="compare" aria-label="マクシミン戦略の判断順序"><div class="head">順序</div><div class="head">見るもの</div><div>1</div><div>戦略ごとに起こり得る結果を見る</div><div>2</div><div>各戦略の最小値を取る</div><div>3</div><div>最小値が最も大きい戦略を選ぶ</div></div></section>
-        <section class="summary"><strong>この項目の判断の地図</strong><p>案を出すのか、データの特徴を見るのか、学習用データを準備するのか、条件の中で意思決定するのか。まず<strong>「今、業務のどの場面で何をしようとしているか」</strong>を分けます。</p></section>
-        
-<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>分析前にデータの偏りを点検する</h2><dl><dt>場面</dt><dd>AIやデータ分析に使うデータを集めたが、元データに偏りや不備がある可能性がある。</dd><dt>判断すること</dt><dd>分析手法の前に、データの目的適合性・欠損・偏り・作成過程を確認できているか。</dd><dt>関係する知識</dt><dd>データ品質、バイアス、前処理、アノテーション</dd><dt>学習要点</dt><dd>分析結果の品質は、入力データの品質と収集・前処理の妥当性に大きく左右される。</dd></dl></article></section>
-<section class="refs"><h2>参照した公開問題</h2><p>令和7年度　問8</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p><p>令和8年度　問3・問10・問16・問25</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和8年度）</a></p><div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div></section>
-      </article>
-    </div>
-  </div>
-</main>
-<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
-</body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>項目2 業務分析・データ利活用 | ITネッコ</title><meta name="description" content="令和6・7・8年度の公開問題から、業務分析・データ利活用で理解すべき分析、データ品質、予測、意思決定の基礎を整理します。"><link rel="stylesheet" href="../../assets/style.css"><style>
+.item-map{--accent:#7f6f58;--soft:#f6f1e9}.overview,.scene-card{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}.overview h2,.scene-card h2{margin:0 0 .7rem;font-size:1.15rem}.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.summary{margin-top:1.2rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}.refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}.refs p{margin:.35rem 0}@media(max-width:700px){.study-grid{grid-template-columns:1fr}}
+</style></head>
+<body class="item-map"><header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../past-questions/r06/">前のページに戻る</a></nav></div></header>
+<main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目2</p><h1>項目2 業務分析・データ利活用</h1></div></section><div class="container page-flow"><article>
+<section class="overview"><h2>この項目で理解すること</h2><p>データを使う目的は、数字を集めることではなく、<strong>業務の状態を把握し、関係を見つけ、判断につなげること</strong>です。分析手法を選ぶ前に、何を知りたいのか、データは適切か、結果から何まで言えるのかを確認します。</p></section>
+<div class="study-grid">
+<section class="scene-card"><h2>業務を整理して原因や傾向を見る</h2><p>業務改善では、データや現場の情報を整理し、問題の大きい部分、原因候補、変数同士の関係を見ます。ブレーンストーミングはアイデアを広げる方法、デルファイ法は専門家への反復的な質問で意見を収束させる方法です。目的の違いを先に押さえます。</p></section>
+<section class="scene-card"><h2>相関・回帰は「関係」を数量化する</h2><p>相関は二つの変数が一緒に変化する程度を表し、回帰は一方の値から他方を予測する関係式を作ります。ただし、相関があっても因果関係があるとは限りません。予測値は観測データの範囲や条件に依存します。</p></section>
+<section class="scene-card"><h2>データ品質を整えてから使う</h2><p>分析では、目的に合うデータか、欠損や誤りがないか、収集方法に偏りがないかを確認します。機械学習でも、学習データの偏りや誤ったラベルは結果へ影響します。データの量だけでなく、代表性・正確性・出所が重要です。</p></section>
+<section class="scene-card"><h2>条件から意思決定する</h2><p>在庫や投資などでは、複数の条件を同時に扱います。安全在庫、使用量、現在庫などの関係を式に置き換えることもあれば、最悪の結果を比較して選ぶマキシミンのような意思決定もあります。まず「何を最大化・最小化したいか」を明確にします。</p></section>
+<section class="scene-card"><h2>ビッグデータとデータサイエンス</h2><p>ビッグデータは量だけでなく、多様性や発生・処理速度などの特徴で捉えます。データサイエンティストは、データを分析する技術だけでなく、業務や課題を理解し、分析結果を意思決定へつなげる役割を担います。</p></section>
+</div>
+<section class="summary"><strong>判断の軸</strong><p><strong>目的 → データ → 手法 → 解釈</strong>の順で考えます。手法名だけを覚えるのではなく、「アイデアを出す」「専門家の意見を集約する」「変数の関係を見る」「予測する」「条件下で選ぶ」のどれをしようとしているかを見分けます。</p></section>
+<section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問3・問10・問16・問25</p><p>令和7年度　問8</p><p>令和6年度　問9・問14・問24・問26</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p></section>
+</article></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
