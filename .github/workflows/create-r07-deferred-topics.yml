@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/create_r07_deferred_topics.py'
+      - '.github/workflows/create-r07-deferred-topics.yml'
 permissions:
   contents: write
 jobs:
