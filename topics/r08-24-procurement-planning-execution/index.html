@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>調達計画・実施 | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目24「調達計画・実施」に対応する問20を、調達の流れと文書の役割で整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .procurement-map{--accent:#6f665b;--soft:#f5f1ea}
+    .procurement-map .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:var(--text-sub,#675f55);margin:0 0 1.1rem}
+    .procurement-map .breadcrumbs a{color:inherit;text-decoration:none}
+    .procurement-map .overview,.procurement-map .scene-card{margin:0 0 1.1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .procurement-map .overview h2,.procurement-map .scene-card h2{margin:0 0 .8rem;font-size:1.15rem}
+    .procurement-map .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.55rem}
+    .procurement-map .step{position:relative;padding:.9rem;border-radius:14px;background:var(--soft);min-width:0}
+    .procurement-map .step strong{display:block;margin-bottom:.25rem}
+    .procurement-map .step:not(:last-child)::after{content:"→";position:absolute;right:-.48rem;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-sub,#675f55)}
+    .procurement-map .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+    .procurement-map .mini{padding:.85rem;border-radius:12px;background:#faf9f6}
+    .procurement-map .mini strong{display:block;margin-bottom:.25rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .procurement-map .compare{display:grid;grid-template-columns:minmax(9rem,.65fr) minmax(0,1.45fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
+    .procurement-map .compare div{padding:.72rem .8rem;background:#fff}
+    .procurement-map .compare .head{font-weight:700;background:var(--soft)}
+    .procurement-map .judge{margin-top:.8rem;padding:.95rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
+    .procurement-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .procurement-map .refs p{margin:.35rem 0}
+    .procurement-map .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .procurement-map .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    @media(max-width:900px){.procurement-map .flow{grid-template-columns:repeat(2,minmax(0,1fr))}.procurement-map .step::after{display:none}}
+    @media(max-width:720px){.procurement-map .flow,.procurement-map .three,.procurement-map .compare{grid-template-columns:1fr}.procurement-map .compare .head:nth-child(2){display:none}}
+  </style>
+</head>
+<body class="procurement-map">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目24</p><h1>調達計画・実施</h1></div></section>
+  <div class="container page-flow">
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目24 調達計画・実施</span></div>
+    <article>
+      <section class="overview">
+        <h2>項目全体の学習地図</h2>
+        <div class="flow" aria-label="調達の基本的な流れ">
+          <div class="step"><strong>情報を集める</strong>RFIで手段や技術動向を確認する。</div>
+          <div class="step"><strong>提案を求める</strong>RFPで要求や調達条件を示す。</div>
+          <div class="step"><strong>提案を受け取る</strong>ベンダーが提案書・見積書を出す。</div>
+          <div class="step"><strong>比較して選ぶ</strong>提案内容を評価し、調達先を決める。</div>
+          <div class="step"><strong>契約・受入れ</strong>契約締結後、受入れ・検収へ進む。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>発注者がベンダーへ提案を求める</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>システム調達で、候補となるITベンダーへ提案を依頼する。</div>
+          <div class="mini"><strong>判断すること</strong>誰が作り、誰へ渡し、何を求める文書か。</div>
+          <div class="mini"><strong>学習要点</strong>RFPは、発注者がITベンダーへ要求や調達条件を示し、提案を求める文書。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>調達文書を役割で分ける</h2>
+        <div class="compare" aria-label="調達文書の役割">
+          <div class="head">文書</div><div class="head">役割</div>
+          <div>RFI</div><div>RFPを作る前に、考えられる手段や技術動向などの情報提供をベンダーへ依頼する。</div>
+          <div>RFP</div><div>発注者が導入システムの概要、提案依頼事項、調達条件などを示し、提案書の提出を求める。</div>
+          <div>提案書</div><div>ベンダーがRFPを基に、システム構成や開発手法などを発注者へ提案する。</div>
+          <div>見積書</div><div>開発・運用・保守などにかかる費用を示し、取引先選定や発注内容確認に使う。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>必要な用語・概念</h2>
+        <div class="compare" aria-label="項目24の用語と見る対象">
+          <div class="head">用語</div><div class="head">見る対象</div>
+          <div>RFI</div><div>情報収集のための依頼。</div>
+          <div>RFP</div><div>提案を求めるための依頼。</div>
+          <div>提案書</div><div>ベンダー側から示される実現方法。</div>
+          <div>見積書</div><div>費用の提示。</div>
+          <div>選定・契約・受入れ</div><div>提案比較後に続く調達の工程。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge"><strong>調達文書は、作成主体 → 宛先 → 目的 → 調達工程のどこに置かれるかで見る。</strong><br>情報を集める文書、提案を求める文書、提案する文書、費用を示す文書を、情報の向きと前後関係で分ける。</div>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和8年度　問20</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
+        <div class="return-links">
+          <a href="../../past-questions/r08/">R8公開問題へ戻る</a>
+          <a href="../../fields/strategy/">ストラテジ系へ戻る</a>
+        </div>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
