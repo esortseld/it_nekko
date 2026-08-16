@@ -25,6 +25,9 @@
     .strategy-map .compare .head{font-weight:700;background:var(--soft)}
     .strategy-map .judge{margin-top:.8rem;padding:.95rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
     .strategy-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .strategy-map .refs p{margin:.35rem 0}
+    .strategy-map .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .strategy-map .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
     @media(max-width:720px){.strategy-map .three,.strategy-map .compare{grid-template-columns:1fr}.strategy-map .compare .head:nth-child(2){display:none}}
   </style>
 </head>
@@ -85,7 +88,19 @@
       <section class="refs">
         <h2>参照した公開問題</h2>
         <p>令和8年度　問34</p>
-        <p><a href="../../past-questions/r08/">令和8年度公開問題へ戻る</a></p>
+        <p>
+          <a
+            href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            IPA公式ITパスポート試験 過去問題
+          </a>
+        </p>
+        <div class="return-links">
+          <a href="../../past-questions/r08/">R8公開問題へ戻る</a>
+          <a href="../../fields/strategy/">ストラテジ系へ戻る</a>
+        </div>
       </section>
     </article>
   </div>
