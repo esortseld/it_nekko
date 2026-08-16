@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>IoTシステム・組込みシステム | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題の項目17「IoTシステム・組込みシステム」を、問8の学習要点から統合して整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .map,.judge{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin:1rem 0}
+    .map-card,.scene,.term,.judge-card{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff}
+    .map-card strong,.judge-card strong{display:block;margin-bottom:.3rem}
+    .scene{margin:1rem 0;background:#faf7f2;border-left:5px solid #8a755d}
+    .scene h3{margin:.1rem 0 .5rem}
+    .terms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin:1rem 0}
+    .term strong{display:block;margin-bottom:.25rem}
+    .arrow{text-align:center;color:#776e62;font-weight:700;align-self:center}
+    @media(max-width:800px){.map,.judge,.terms{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目17</p><h1>IoTシステム・組込みシステム</h1></div></section>
+  <div class="container page-flow">
+    <p class="breadcrumb"><a href="../../">トップ</a> › <a href="../../past-questions/r08/">令和8年度公開問題</a> › 項目17 IoTシステム・組込みシステム</p>
+
+    <section class="detail-section">
+      <h2>項目全体の学習地図</h2>
+      <div class="map">
+        <div class="map-card"><strong>1 モノ</strong>現実世界の対象を確認する。</div>
+        <div class="map-card"><strong>2 情報取得</strong>センサーなどで状態を取得する。</div>
+        <div class="map-card"><strong>3 通信</strong>ネットワーク経由でデータを送受信する。</div>
+        <div class="map-card"><strong>4 活用</strong>監視・分析・通知・制御などに使う。</div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>場面1　IoTかどうかを見分ける</h2>
+      <div class="scene"><h3>現実のモノから得たデータをネットワーク経由で使っているか</h3><p>IoTでは、設備・家電・車などの物理的なモノが情報源または制御対象になり、その状態をネットワーク経由で扱います。</p></div>
+      <div class="judge">
+        <div class="judge-card"><strong>確認1</strong>現実世界の何を観測・制御しているか。</div>
+        <div class="judge-card"><strong>確認2</strong>どの情報を取得しているか。</div>
+        <div class="judge-card"><strong>確認3</strong>そのデータがネットワークを流れるか。</div>
+        <div class="judge-card"><strong>確認4</strong>届いたデータを何に利用するか。</div>
+      </div>
+      <p><strong>モノ → 情報取得 → 通信 → 活用</strong>の流れがつながっていることが判断の中心です。</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>似たインターネット利用との違い</h2>
+      <div class="terms">
+        <div class="term"><strong>IoT</strong>現実のモノが情報源または制御対象になる。</div>
+        <div class="term"><strong>オンラインストレージ</strong>電子ファイルをネット上で保存・共有する。</div>
+        <div class="term"><strong>データ分析</strong>文章など既存データを分析する。</div>
+        <div class="term"><strong>資金仲介サービス</strong>ネット上で資金の出し手と受け手を結ぶ。</div>
+      </div>
+      <p>インターネットを使っているだけではIoTとは限りません。<strong>物理的なモノが情報源または制御対象か</strong>が大きな分かれ目です。</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>必要な用語・概念</h2>
+      <div class="terms">
+        <div class="term"><strong>IoT</strong>モノから情報を取得し、ネットワーク経由で利用する仕組み。</div>
+        <div class="term"><strong>センサー</strong>温度や稼働状態など、現実世界の状態を取得するもの。</div>
+        <div class="term"><strong>ネットワーク</strong>取得したデータを送受信する経路。</div>
+        <div class="term"><strong>データ活用</strong>監視・分析・通知・制御などへ利用すること。</div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>項目全体の判断の地図</h2>
+      <div class="judge">
+        <div class="judge-card"><strong>物理的なモノがある</strong>何を観測・制御するのかを見る。</div>
+        <div class="judge-card"><strong>状態を取得する</strong>センサーなどで何をデータ化するかを見る。</div>
+        <div class="judge-card"><strong>ネットワークで送る</strong>取得したデータの流れを追う。</div>
+        <div class="judge-card"><strong>届いたデータを使う</strong>監視・分析・通知・制御などの用途を見る。</div>
+      </div>
+      <div class="scene"><p><strong>判断の核心：</strong>機器名やサービス名ではなく、現実のモノから始まるデータの流れを追う。</p></div>
+    </section>
+
+    <section class="detail-section">
+      <h2>参照したR8問番号</h2>
+      <p>令和8年度　問8</p>
+    </section>
+
+    <p><a class="back-link" href="../../past-questions/r08/">令和8年度公開問題へ戻る</a></p>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
