@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>ソリューションビジネス | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目20「ソリューションビジネス」に対応する問19を、提供対象・提供場所・提供経路の関係で整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .solution-map{--accent:#6f665b;--soft:#f5f1ea}
+    .solution-map .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:var(--text-sub,#675f55);margin:0 0 1.1rem}
+    .solution-map .breadcrumbs a{color:inherit;text-decoration:none}
+    .solution-map .overview,.solution-map .scene-card{margin:0 0 1.1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .solution-map .overview h2,.solution-map .scene-card h2{margin:0 0 .8rem;font-size:1.15rem}
+    .solution-map .relation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+    .solution-map .node{padding:1rem;border-radius:14px;background:var(--soft)}
+    .solution-map .node strong{display:block;margin-bottom:.3rem}
+    .solution-map .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+    .solution-map .mini{padding:.85rem;border-radius:12px;background:#faf9f6}
+    .solution-map .mini strong{display:block;margin-bottom:.25rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .solution-map .compare{display:grid;grid-template-columns:minmax(10rem,.7fr) minmax(0,1.4fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
+    .solution-map .compare div{padding:.72rem .8rem;background:#fff}
+    .solution-map .compare .head{font-weight:700;background:var(--soft)}
+    .solution-map .judge{margin-top:.8rem;padding:.95rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
+    .solution-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    @media(max-width:720px){.solution-map .relation,.solution-map .three,.solution-map .compare{grid-template-columns:1fr}.solution-map .compare .head:nth-child(2){display:none}}
+  </style>
+</head>
+<body class="solution-map">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目20</p><h1>ソリューションビジネス</h1></div></section>
+  <div class="container page-flow">
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目20 ソリューションビジネス</span></div>
+    <article>
+      <section class="overview">
+        <h2>項目全体の学習地図</h2>
+        <div class="relation" aria-label="ASPの提供構造">
+          <div class="node"><strong>提供するもの</strong>アプリケーションソフトウェア。</div>
+          <div class="node"><strong>置き場所</strong>提供事業者側のサーバ。</div>
+          <div class="node"><strong>利用方法</strong>利用者がインターネット経由で使う。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>アプリケーションをサービスとして提供する</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>事業者がサーバ上のアプリケーションを利用者へ提供する。</div>
+          <div class="mini"><strong>判断すること</strong>何を提供しているか、どこに置かれているか、どの経路で利用するか。</div>
+          <div class="mini"><strong>学習要点</strong>ASPは、提供側のサーバにあるアプリケーションを、インターネット経由で利用者へ提供する事業者・サービス形態。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>関連するサービスを役割で分ける</h2>
+        <div class="compare" aria-label="ASP周辺概念の役割">
+          <div class="head">概念</div><div class="head">何を提供・扱うか</div>
+          <div>ASP</div><div>アプリケーションをインターネット経由で提供する。</div>
+          <div>ISP</div><div>インターネットへの接続を提供する。</div>
+          <div>アウトソーシング</div><div>業務や機能を外部へ委託する。対象はアプリケーション提供に限らない。</div>
+          <div>データウェアハウス</div><div>分析用データを統合・蓄積するための仕組み。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>必要な用語・概念</h2>
+        <div class="compare" aria-label="項目20の用語と見る対象">
+          <div class="head">用語</div><div class="head">見る対象</div>
+          <div>ASP</div><div>アプリケーションの提供。</div>
+          <div>ISP</div><div>インターネット接続の提供。</div>
+          <div>アウトソーシング</div><div>業務・機能の外部委託。</div>
+          <div>データウェアハウス</div><div>分析用データの統合・蓄積。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge"><strong>サービス形態は、提供対象 → 提供場所 → 提供経路で見る。</strong><br>接続を提供しているのか、アプリケーションを提供しているのか、業務を引き受けているのか、データを蓄積しているのかを分ける。</div>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和8年度　問19</p>
+        <p><a href="../../past-questions/r08/">令和8年度公開問題へ戻る</a></p>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
