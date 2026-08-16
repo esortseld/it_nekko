@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>業務プロセス | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目19「業務プロセス」に対応する問2・問12・問22を、業務の流れ・定型作業・端末利用の三つの場面で整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .process-map{--accent:#6f665b;--soft:#f5f1ea}
+    .process-map .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:var(--text-sub,#675f55);margin:0 0 1.1rem}
+    .process-map .breadcrumbs a{color:inherit;text-decoration:none}
+    .process-map .overview,.process-map .scene-card{margin:0 0 1.1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .process-map .overview h2,.process-map .scene-card h2{margin:0 0 .8rem;font-size:1.15rem}
+    .process-map .scene-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+    .process-map .map-node{padding:1rem;border-radius:14px;background:var(--soft)}
+    .process-map .map-node strong{display:block;margin-bottom:.3rem}
+    .process-map .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+    .process-map .mini{padding:.85rem;border-radius:12px;background:#faf9f6}
+    .process-map .mini strong{display:block;margin-bottom:.25rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .process-map .compare{display:grid;grid-template-columns:minmax(9rem,.7fr) minmax(0,1.4fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
+    .process-map .compare div{padding:.72rem .8rem;background:#fff}
+    .process-map .compare .head{font-weight:700;background:var(--soft)}
+    .process-map .judge{margin-top:.8rem;padding:.95rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
+    .process-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    @media(max-width:760px){.process-map .scene-map,.process-map .three,.process-map .compare{grid-template-columns:1fr}.process-map .compare .head:nth-child(2){display:none}}
+  </style>
+</head>
+<body class="process-map">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目19</p><h1>業務プロセス</h1></div></section>
+  <div class="container page-flow">
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目19 業務プロセス</span></div>
+    <article>
+      <section class="overview">
+        <h2>項目全体の学習地図</h2>
+        <div class="scene-map">
+          <div class="map-node"><strong>業務の流れを見える形にする</strong>誰が、何を、どの順番で行い、どんな情報が渡るかを見る。</div>
+          <div class="map-node"><strong>定型作業を自動化する</strong>人がPCで繰り返す作業を、ソフトウェアロボットへ置き換える。</div>
+          <div class="map-node"><strong>端末の使い方を決める</strong>端末の所有者、業務利用、組織の許可・管理を分けて見る。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>場面1　業務プロセスの流れを可視化する</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>業務の見直しのため、業務プロセスを流れ図で表す。</div>
+          <div class="mini"><strong>判断すること</strong>誰が処理を担い、何をし、どの順番で進み、どんな情報が受け渡されるか。</div>
+          <div class="mini"><strong>学習要点</strong>WFAは、業務主体・業務処理・順序・情報を整理して、業務の流れを可視化する。</div>
+        </div>
+        <div class="compare" aria-label="図や記述様式の対象">
+          <div class="head">手法</div><div class="head">主に表すもの</div>
+          <div>WFA</div><div>業務プロセスの流れ。</div>
+          <div>CRUD図</div><div>処理とCreate・Read・Update・Deleteの対応。</div>
+          <div>DMM</div><div>発想や目標の整理。</div>
+          <div>E-R図</div><div>データ上の関係。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>場面2　定型的なPC作業を自動化する</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>伝票入力、転記、定型集計などを人が繰り返し実行している。</div>
+          <div class="mini"><strong>判断すること</strong>何を対象に、誰が行っていた作業を、何へ置き換えるのか。</div>
+          <div class="mini"><strong>学習要点</strong>RPAは、人がPC上で行う定型作業をソフトウェアロボットへ置き換える。</div>
+        </div>
+        <div class="compare" aria-label="業務改善概念の違い">
+          <div class="head">概念</div><div class="head">何を変えるか</div>
+          <div>RPA</div><div>定型PC作業の実行主体を、人からソフトウェアへ変える。</div>
+          <div>BPO</div><div>業務プロセスを外部事業者へ委託する。</div>
+          <div>EUC</div><div>利用部門・利用者自身がシステムの開発や活用に主体的に関わる。</div>
+          <div>FA</div><div>工場の生産工程を機械や制御システムで自動化する。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>場面3　私物端末を業務に利用する</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>従業員自身が所有するスマートフォンやPCを業務にも使う。</div>
+          <div class="mini"><strong>判断すること</strong>端末の所有者、利用目的、組織の許可・管理の三点を確認する。</div>
+          <div class="mini"><strong>学習要点</strong>BYODは、個人所有の端末を、組織の許可・管理の下で業務にも利用する形態。</div>
+        </div>
+        <div class="compare" aria-label="BYODを成立させる条件">
+          <div class="head">確認点</div><div class="head">見ること</div>
+          <div>所有</div><div>端末は従業員本人が所有する。</div>
+          <div>用途</div><div>個人利用だけでなく業務にも利用する。</div>
+          <div>許可・管理</div><div>組織が利用範囲、認証、データ管理、セキュリティなどのルールを定める。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>必要な用語・概念</h2>
+        <div class="compare" aria-label="項目19の用語と見る対象">
+          <div class="head">用語</div><div class="head">見る対象</div>
+          <div>WFA</div><div>業務主体・処理・順序・情報の流れ。</div>
+          <div>RPA</div><div>定型的なPC作業の自動化。</div>
+          <div>BYOD</div><div>端末の所有者と業務利用の形態。</div>
+          <div>BPM / BPR</div><div>業務プロセスの継続的改善／抜本的な再設計。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge"><strong>まず、何を見直している場面かを特定する。</strong><br>仕事の流れなら、誰・処理・順序・情報。定型作業なら、対象・実行主体・置換先。端末利用なら、所有・用途・許可管理を見る。</div>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和8年度　問2・問12・問22</p>
+        <p><a href="../../past-questions/r08/">令和8年度公開問題へ戻る</a></p>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
