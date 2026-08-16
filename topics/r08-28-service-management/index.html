@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和8年度｜項目28 サービスマネジメント | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題の項目28「サービスマネジメント」に対応する問48・問53を、サービス水準の合意・測定から障害対応・改善までの流れで整理します。">
+  <title>項目28 サービスマネジメント | ITネッコ</title>
+  <meta name="description" content="ITパスポート公開問題の項目28「サービスマネジメント」に対応する問48・問53を、サービス水準の合意・測定から障害対応・改善までの流れで整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .sm28{--accent:#8a755d;--soft:#f3efe7}
@@ -28,14 +28,22 @@
     .sm28 .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
     @media(max-width:900px){.sm28 .flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:720px){.sm28 .flow,.sm28 .three,.sm28 .compare{grid-template-columns:1fr}.sm28 .compare .head:nth-child(2){display:none}}
+  
+    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
+    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .integrated-scene dd{margin:0;line-height:1.55}
+    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
   </style>
 </head>
 <body class="sm28">
 <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / 項目28</p><h1>令和8年度｜項目28 サービスマネジメント</h1></div></section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / 項目28</p><h1>項目28 サービスマネジメント</h1></div></section>
   <div class="container page-flow">
-    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目28 サービスマネジメント</span></div>
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/management/">マネジメント系</a><span>›</span><span>項目28 サービスマネジメント</span></div>
     <article>
       <section class="overview">
         <h2>項目全体の学習地図</h2>
@@ -95,12 +103,14 @@
         <div class="judge"><strong>サービスマネジメントでは、まず「何を管理しているか」と「その行動の目的」を見る。</strong><br>SLAという合意内容を扱っているのか、その合意を継続管理するSLMなのか。障害後なら、復旧・原因究明・管理方法の改善のどこに当たるのかを分ける。</div>
       </section>
 
-      <section class="refs">
-        <h2>参照した公開問題</h2>
-        <p>令和8年度　問48</p>
-        <p>令和8年度　問53</p>
-        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
-        <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/management/">マネジメント系へ戻る</a></div>
+      
+<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>合意したサービス水準を継続的に管理する</h2><dl><dt>場面</dt><dd>顧客とサービス品質を合意し、実績を測定して改善する。</dd><dt>判断すること</dt><dd>合意文書そのものか、その水準を維持・改善する管理活動か。</dd><dt>関係する知識</dt><dd>SLA、SLM</dd><dt>学習要点</dt><dd>SLAは合意内容、SLMは合意したサービス水準を測定・管理・改善する活動として分ける。</dd></dl></article></section>
+<section class="refs">
+        <h2>参照した公開問題</h2><p>令和7年度　問37</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p>
+        <p>　問48</p>
+        <p>　問53</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和8年度）</a></p>
+        <div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/management/">マネジメント系へ戻る</a></div>
       </section>
     </article>
   </div>
