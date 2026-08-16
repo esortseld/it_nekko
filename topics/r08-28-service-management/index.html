@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>サービスマネジメント | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題の項目28「サービスマネジメント」に対応する問48・問53を、サービス水準の合意・測定から障害対応・改善までの流れで整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .sm28{--accent:#8a755d;--soft:#f3efe7}
+    .sm28 .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1.1rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .sm28 .breadcrumbs a{color:inherit;text-decoration:none}
+    .sm28 .overview,.sm28 .scene-card{margin:0 0 1.1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .sm28 .overview h2,.sm28 .scene-card h2{margin:0 0 .8rem;font-size:1.15rem}
+    .sm28 .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}
+    .sm28 .step{padding:.95rem;border-radius:14px;background:var(--soft)}
+    .sm28 .step strong{display:block;margin-bottom:.3rem}
+    .sm28 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+    .sm28 .mini{padding:.85rem;border-radius:12px;background:#faf9f6}
+    .sm28 .mini strong{display:block;margin-bottom:.25rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .sm28 .compare{display:grid;grid-template-columns:minmax(10rem,.75fr) minmax(0,1.4fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
+    .sm28 .compare div{padding:.72rem .8rem;background:#fff}
+    .sm28 .compare .head{font-weight:700;background:var(--soft)}
+    .sm28 .judge{margin-top:.8rem;padding:.95rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
+    .sm28 .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .sm28 .refs p{margin:.35rem 0}
+    .sm28 .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .sm28 .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    @media(max-width:900px){.sm28 .flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.sm28 .flow,.sm28 .three,.sm28 .compare{grid-template-columns:1fr}.sm28 .compare .head:nth-child(2){display:none}}
+  </style>
+</head>
+<body class="sm28">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / 項目28</p><h1>サービスマネジメント</h1></div></section>
+  <div class="container page-flow">
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目28 サービスマネジメント</span></div>
+    <article>
+      <section class="overview">
+        <h2>項目全体の学習地図</h2>
+        <div class="flow" aria-label="サービスマネジメントの流れ">
+          <div class="step"><strong>1 水準を決める</strong>必要なサービス水準を整理し、利用者と提供者で合意する。</div>
+          <div class="step"><strong>2 提供・測定する</strong>合意した水準で提供し、実績を監視・測定する。</div>
+          <div class="step"><strong>3 影響を戻す</strong>中断や品質低下が起きたら、まず通常状態への復旧を図る。</div>
+          <div class="step"><strong>4 原因を調べる</strong>根本原因を特定し、再発防止につなげる。</div>
+          <div class="step"><strong>5 管理の仕組みを改善する</strong>監視・測定・手順など、今後も使う管理方法を見直す。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>サービス水準を合意し、継続して管理する</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>利用者と提供者で、必要なサービス水準を決め、提供後も達成状況を見続ける。</div>
+          <div class="mini"><strong>判断すること</strong>合意文書そのものなのか、その合意を作り・運用し・測定する活動なのか。</div>
+          <div class="mini"><strong>学習要点</strong>サービスレベル管理（SLM）は、SLAの計画・交渉・合意・導入・測定・改善を継続して行う活動。</div>
+        </div>
+        <div class="compare">
+          <div class="head">概念</div><div class="head">見る点</div>
+          <div>SLA</div><div>サービス内容や目標水準について合意した文書。</div>
+          <div>SLM</div><div>その合意を成立させ、実績を測定し、必要なら見直し・改善する管理活動。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>障害後の対応を目的で分ける</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>共有ディスクの容量が上限に達し、業務に支障が出た。</div>
+          <div class="mini"><strong>判断すること</strong>今の影響を解消するのか、原因を調べるのか、管理方法そのものを変えるのか。</div>
+          <div class="mini"><strong>学習要点</strong>同じ障害への対応でも、復旧・原因究明・管理の仕組みの改善では意味が異なる。</div>
+        </div>
+        <div class="compare">
+          <div class="head">活動</div><div class="head">中心となる目的</div>
+          <div>インシデント管理</div><div>今起きている中断や品質低下から、できるだけ早く通常状態へ回復させる。</div>
+          <div>問題管理</div><div>根本原因を特定し、再発防止のための恒久的な解決策を検討する。</div>
+          <div>サービスマネジメントシステムの改善</div><div>監視・測定・手順など、サービスを管理する仕組み自体をより適切・有効にする。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>必要な用語・概念</h2>
+        <div class="compare">
+          <div class="head">用語</div><div class="head">見る対象</div>
+          <div>サービスマネジメント</div><div>ITサービスを、利用者に必要な価値や水準で継続して提供・管理する活動。</div>
+          <div>SLA</div><div>利用者と提供者が合意したサービス内容・目標水準。</div>
+          <div>SLM</div><div>SLAを計画・交渉・合意・測定・改善する継続的な管理活動。</div>
+          <div>インシデント管理</div><div>サービスを早く通常状態へ戻す活動。</div>
+          <div>問題管理</div><div>根本原因を調べ、再発防止へつなげる活動。</div>
+          <div>サービスマネジメントシステムの改善</div><div>監視・測定・手順など管理の仕組みそのものを改善する活動。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge"><strong>サービスマネジメントでは、まず「何を管理しているか」と「その行動の目的」を見る。</strong><br>SLAという合意内容を扱っているのか、その合意を継続管理するSLMなのか。障害後なら、復旧・原因究明・管理方法の改善のどこに当たるのかを分ける。</div>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和8年度　問48</p>
+        <p>令和8年度　問53</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
+        <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/management/">マネジメント系へ戻る</a></div>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
