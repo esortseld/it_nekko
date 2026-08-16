@@ -6,8 +6,15 @@
   <title>ストラテジ系 | ITネッコ</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    .hero-title-row{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+    .hero-title-row h1{margin:0}
+    .hero-subtitle{margin:0;font-size:1rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .major-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .major-nav-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;color:inherit;text-decoration:none}
+    .major-nav-card strong{display:block;margin-bottom:.35rem;font-size:1rem;line-height:1.5}
+    .major-nav-card span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
     .syllabus-groups{display:grid;gap:1.5rem}
-    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72)}
+    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
     .major-title{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
     .middle-groups{display:grid;gap:1rem}
     .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
@@ -18,7 +25,9 @@
     .item-card h2{margin:0;font-size:1rem;line-height:1.5}
     .year-links{display:flex;gap:.45rem;margin-top:.7rem}
     .year-links a{display:inline-block;padding:.35rem .6rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.8rem;font-weight:700}
+    .top-link-wrap{margin-top:1.5rem}
     @media (max-width:800px){
+      .major-nav{grid-template-columns:1fr}
       .item-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media (max-width:560px){
@@ -28,7 +37,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="../../">ITネッコ</a>
@@ -44,15 +53,31 @@
   <section class="page-hero">
     <div class="container hero-inner">
       <p class="site-kicker">Strategy</p>
-      <h1>ストラテジ系</h1>
+      <div class="hero-title-row">
+        <h1>ストラテジ系</h1>
+        <p class="hero-subtitle">会社や仕事にITを生かす</p>
+      </div>
     </div>
   </section>
 
   <div class="container page-flow">
-    <a class="back-link" href="../">学習分野へ戻る</a>
+    <nav class="major-nav" aria-label="大分類">
+      <a class="major-nav-card" href="#major-1">
+        <strong>大分類1：企業と法務</strong>
+        <span>会社のしくみと、仕事を支えるルール</span>
+      </a>
+      <a class="major-nav-card" href="#major-2">
+        <strong>大分類2：経営戦略</strong>
+        <span>事業をどう考え、どう伸ばしていくか</span>
+      </a>
+      <a class="major-nav-card" href="#major-3">
+        <strong>大分類3：システム戦略</strong>
+        <span>仕事や事業を、ITでどう変えていくか</span>
+      </a>
+    </nav>
 
     <div class="syllabus-groups">
-      <section class="major-group">
+      <section class="major-group" id="major-1">
         <h2 class="major-title">大分類1：企業と法務</h2>
         <div class="middle-groups">
           <section class="middle-group">
@@ -77,7 +102,7 @@
         </div>
       </section>
 
-      <section class="major-group">
+      <section class="major-group" id="major-2">
         <h2 class="major-title">大分類2：経営戦略</h2>
         <div class="middle-groups">
           <section class="middle-group">
@@ -109,7 +134,7 @@
         </div>
       </section>
 
-      <section class="major-group">
+      <section class="major-group" id="major-3">
         <h2 class="major-title">大分類3：システム戦略</h2>
         <div class="middle-groups">
           <section class="middle-group">
@@ -132,6 +157,10 @@
           </section>
         </div>
       </section>
+    </div>
+
+    <div class="top-link-wrap">
+      <a class="back-link" href="#top">トップへ戻る</a>
     </div>
   </div>
 </main>
