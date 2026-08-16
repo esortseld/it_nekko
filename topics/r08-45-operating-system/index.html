@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>項目45 オペレーティングシステム | ITネッコ</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .topic-page{--accent:#6f665b;--soft:#f6f2eb;--line:var(--color-border,#d9d3c8)}
+    .topic-page .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 1.1rem;font-size:.82rem;color:var(--text-sub,#675f55)}
+    .topic-page .breadcrumbs a{color:inherit;text-decoration:none}
+    .topic-page .box{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .topic-page .box h2{margin:0 0 .8rem;font-size:1.15rem}
+    .topic-page .map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+    .topic-page .map.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .topic-page .mini{min-width:0;padding:.9rem;border-radius:13px;background:var(--soft)}
+    .topic-page .mini strong{display:block;margin-bottom:.25rem}
+    .topic-page .compare{display:grid;grid-template-columns:minmax(9rem,.72fr) minmax(0,1.4fr);gap:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--line)}
+    .topic-page .compare div{padding:.72rem .8rem;background:#fff}
+    .topic-page .compare .head{font-weight:700;background:var(--soft)}
+    .topic-page .judge{padding:.95rem 1rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft)}
+    .topic-page .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+    .topic-page .refs p{margin:.35rem 0}
+    .topic-page .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .topic-page .return-links a{padding:.55rem .75rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    .topic-page code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    @media(max-width:720px){.topic-page .map,.topic-page .map.two,.topic-page .compare{grid-template-columns:1fr}.topic-page .compare .head:nth-child(2){display:none}.topic-page .return-links{display:grid;grid-template-columns:1fr}.topic-page .return-links a{text-align:center}}
+  </style>
+</head>
+<body class="topic-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+<section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / 項目45</p><h1>項目45 オペレーティングシステム</h1></div></section>
+<div class="container page-flow">
+<div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/technology/">テクノロジ系</a><span>›</span><span>項目45 オペレーティングシステム</span></div>
+<article>
+<section class="box"><h2>項目全体の学習地図</h2><div class="map"><div class="mini"><strong>利用者・アプリと機械の間を管理する</strong>OSはハードウェア資源をアプリケーションへ使いやすい形で提供する。</div><div class="mini"><strong>資源を管理する</strong>ユーザー、ファイル、入出力、CPU、メモリなどを管理する。</div><div class="mini"><strong>物理的な制約を抽象化する</strong>アプリから見える資源と、実際のハードウェア構成を切り分ける。</div></div></section>
+<section class="box"><h2>仮想記憶で「見える記憶空間」と「実物」を分ける</h2><div class="map"><div class="mini"><strong>場面</strong>プログラムを実行するとき、主記憶の実容量だけに縛られずにアドレス空間を利用したい。</div><div class="mini"><strong>判断すること</strong>プログラムが扱う論理的なアドレス空間と、実際の主記憶上の物理的な配置を同じものとして考えていないか。</div><div class="mini"><strong>決定的な条件</strong>OSが主記憶と補助記憶を使い分け、必要な部分を入れ替えながら実行する。</div></div></section>
+<section class="box"><h2>三つの層を分ける</h2><div class="compare"><div class="head">層</div><div class="head">役割</div><div>論理アドレス空間</div><div>プログラムから見える連続した記憶空間。</div><div>物理メモリ</div><div>実際に搭載されている主記憶装置上の領域。</div><div>補助記憶</div><div>主記憶に載っていないページなどを一時的に退避するためにも使われる。</div></div></section>
+<section class="box"><h2>必要な用語・概念</h2><div class="compare"><div class="head">用語</div><div class="head">意味</div><div>仮想記憶</div><div>物理メモリの構成を直接意識せず、より大きな論理アドレス空間を利用できるようにする仕組み。</div><div>ページング</div><div>記憶領域を一定単位に分け、主記憶と補助記憶の間で入れ替える方式。</div><div>資源管理</div><div>CPU、メモリ、入出力装置などをOSが配分・制御すること。</div><div>ユーザー管理</div><div>アカウントやアクセス権を管理する機能。</div></div></section>
+<section class="box"><h2>項目全体の判断の地図</h2><div class="judge"><strong>OSの機能は「何を抽象化し、何を管理しているか」で見る。</strong><br>仮想記憶では、プログラムから見える論理空間と、実際の物理メモリを分けて考える。</div></section>
+<section class="refs"><h2>参照した公開問題</h2><p>令和7年度　問62</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p><div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/technology/">テクノロジ系へ戻る</a></div></section>
+</article></div></main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body></html>
