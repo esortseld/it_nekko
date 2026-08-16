@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和8年度｜項目17 IoTシステム・組込みシステム | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題の項目17「IoTシステム・組込みシステム」を、問8の学習要点から統合して整理します。">
+  <title>項目17 IoTシステム・組込みシステム | ITネッコ</title>
+  <meta name="description" content="ITパスポート公開問題の項目17「IoTシステム・組込みシステム」を、問8の学習要点から統合して整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .map,.judge{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin:1rem 0}
@@ -20,14 +20,23 @@
     .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
     .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
     @media(max-width:800px){.map,.judge,.terms{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+  
+    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
+    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .integrated-scene dd{margin:0;line-height:1.55}
+    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
   </style>
 </head>
 <body>
-<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a>
+      <a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目17</p><h1>令和8年度｜項目17 IoTシステム・組込みシステム</h1></div></section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目17</p><h1>項目17 IoTシステム・組込みシステム</h1></div></section>
   <div class="container page-flow">
-    <p class="breadcrumb"><a href="../../">トップ</a> › <a href="../../past-questions/r08/">令和8年度公開問題</a> › 項目17 IoTシステム・組込みシステム</p>
+    <p class="breadcrumb"><a href="../../">トップ</a> › <a href="../../fields/strategy/">ストラテジ系</a> › 項目17 IoTシステム・組込みシステム</p>
 
     <section class="detail-section">
       <h2>項目全体の学習地図</h2>
@@ -83,11 +92,13 @@
       <div class="scene"><p><strong>判断の核心：</strong>機器名やサービス名ではなく、現実のモノから始まるデータの流れを追う。</p></div>
     </section>
 
-    <section class="refs">
-      <h2>参照した公開問題</h2>
-      <p>令和8年度　問8</p>
-      <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
-      <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div>
+    
+<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>自動運転レベルで人とシステムの役割を分ける</h2><dl><dt>場面</dt><dd>車両が自動で走行するが、条件によって人の対応が必要になる。</dd><dt>判断すること</dt><dd>システムが運転主体か、人が常時監視するのか、作動継続困難時に誰が対応するか。</dd><dt>関係する知識</dt><dd>自動運転レベル、運転主体、フォールバック</dd><dt>学習要点</dt><dd>自動運転は「自動化されているか」だけでなく、誰が運転主体で、どの条件で人へ戻るかで区別する。</dd></dl></article></section>
+<section class="refs">
+      <h2>参照した公開問題</h2><p>令和7年度　問33</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p>
+      <p>　問8</p>
+      <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和8年度）</a></p>
+      <div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div>
     </section>
   </div>
 </main>
