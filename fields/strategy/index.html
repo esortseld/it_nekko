@@ -11,14 +11,17 @@
     .hero-subtitle{margin:0;font-size:1rem;font-weight:700;color:var(--text-sub,#675f55)}
     .major-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
     .major-nav-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;color:inherit;text-decoration:none}
+    .major-nav-card>a{display:block;color:inherit;text-decoration:none}
     .major-nav-card strong{display:block;margin-bottom:.35rem;font-size:1rem;line-height:1.5}
-    .major-nav-card span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
+    .major-nav-card>a>span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
+    .middle-nav-list{display:grid;gap:.7rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .middle-nav-item{display:block;color:inherit;text-decoration:none}
+    .middle-nav-item b{display:block;margin-bottom:.1rem;font-size:.84rem;line-height:1.5}
+    .middle-nav-item span{display:block;font-size:.8rem;line-height:1.55;color:var(--text-sub,#675f55)}
     .syllabus-groups{display:grid;gap:1.5rem}
     .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
-    .major-title{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
     .middle-groups{display:grid;gap:1rem}
-    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
-    .middle-title{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
+    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;scroll-margin-top:1rem}
     .item-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem}
     .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
     .item-no{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
@@ -66,35 +69,50 @@
 
   <div class="container page-flow">
     <nav class="major-nav" aria-label="大分類">
-      <a class="major-nav-card" href="#major-1">
-        <strong>大分類1：企業と法務</strong>
-        <span>会社のしくみと、仕事を支えるルール</span>
-      </a>
-      <a class="major-nav-card" href="#major-2">
-        <strong>大分類2：経営戦略</strong>
-        <span>事業をどう考え、どう伸ばしていくか</span>
-      </a>
-      <a class="major-nav-card" href="#major-3">
-        <strong>大分類3：システム戦略</strong>
-        <span>仕事や事業を、ITでどう変えていくか</span>
-      </a>
+      <div class="major-nav-card">
+        <a href="#major-1">
+          <strong>大分類1：企業と法務</strong>
+          <span>会社のしくみと、仕事を支えるルール</span>
+        </a>
+        <div class="middle-nav-list">
+          <a class="middle-nav-item" href="#middle-1"><b>中分類1：企業活動</b><span>会社のしくみと、仕事の進め方</span></a>
+          <a class="middle-nav-item" href="#middle-2"><b>中分類2：法務</b><span>仕事で守る権利とルール</span></a>
+        </div>
+      </div>
+      <div class="major-nav-card">
+        <a href="#major-2">
+          <strong>大分類2：経営戦略</strong>
+          <span>事業をどう考え、どう伸ばしていくか</span>
+        </a>
+        <div class="middle-nav-list">
+          <a class="middle-nav-item" href="#middle-3"><b>中分類3：経営戦略マネジメント</b><span>市場と競争を踏まえた事業の進め方</span></a>
+          <a class="middle-nav-item" href="#middle-4"><b>中分類4：技術戦略マネジメント</b><span>技術を事業につなげる取り組み</span></a>
+          <a class="middle-nav-item" href="#middle-5"><b>中分類5：ビジネスインダストリ</b><span>ITを活用するさまざまな仕事とサービス</span></a>
+        </div>
+      </div>
+      <div class="major-nav-card">
+        <a href="#major-3">
+          <strong>大分類3：システム戦略</strong>
+          <span>仕事や事業を、ITでどう変えていくか</span>
+        </a>
+        <div class="middle-nav-list">
+          <a class="middle-nav-item" href="#middle-6"><b>中分類6：システム戦略</b><span>仕事や事業へのITの活用</span></a>
+          <a class="middle-nav-item" href="#middle-7"><b>中分類7：システム企画</b><span>システム化の計画と準備</span></a>
+        </div>
+      </div>
     </nav>
 
     <div class="syllabus-groups">
       <section class="major-group" id="major-1">
-        <h2 class="major-title">大分類1：企業と法務</h2>
         <div class="middle-groups">
-          <section class="middle-group">
-            <h3 class="middle-title">中分類1：企業活動</h3>
+          <section class="middle-group" id="middle-1">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目1</span><h2>経営・組織論</h2></div>
               <div class="item-card"><span class="item-no">項目2</span><h2>業務分析・データ利活用</h2><div class="year-links"><a href="../../topics/r08-02-business-analysis-data-utilization/">R8</a></div></div>
               <div class="item-card"><span class="item-no">項目3</span><h2>会計・財務</h2></div>
             </div>
           </section>
-
-          <section class="middle-group">
-            <h3 class="middle-title">中分類2：法務</h3>
+          <section class="middle-group" id="middle-2">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目4</span><h2>知的財産権</h2></div>
               <div class="item-card"><span class="item-no">項目5</span><h2>セキュリティ関連法規</h2></div>
@@ -107,10 +125,8 @@
       </section>
 
       <section class="major-group" id="major-2">
-        <h2 class="major-title">大分類2：経営戦略</h2>
         <div class="middle-groups">
-          <section class="middle-group">
-            <h3 class="middle-title">中分類3：経営戦略マネジメント</h3>
+          <section class="middle-group" id="middle-3">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目9</span><h2>経営戦略手法</h2></div>
               <div class="item-card"><span class="item-no">項目10</span><h2>マーケティング</h2></div>
@@ -118,16 +134,12 @@
               <div class="item-card"><span class="item-no">項目12</span><h2>経営管理システム</h2></div>
             </div>
           </section>
-
-          <section class="middle-group">
-            <h3 class="middle-title">中分類4：技術戦略マネジメント</h3>
+          <section class="middle-group" id="middle-4">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目13</span><h2>技術開発戦略の立案・技術開発計画</h2></div>
             </div>
           </section>
-
-          <section class="middle-group">
-            <h3 class="middle-title">中分類5：ビジネスインダストリ</h3>
+          <section class="middle-group" id="middle-5">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目14</span><h2>ビジネスシステム</h2></div>
               <div class="item-card"><span class="item-no">項目15</span><h2>エンジニアリングシステム</h2></div>
@@ -139,10 +151,8 @@
       </section>
 
       <section class="major-group" id="major-3">
-        <h2 class="major-title">大分類3：システム戦略</h2>
         <div class="middle-groups">
-          <section class="middle-group">
-            <h3 class="middle-title">中分類6：システム戦略</h3>
+          <section class="middle-group" id="middle-6">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目18</span><h2>情報システム戦略</h2></div>
               <div class="item-card"><span class="item-no">項目19</span><h2>業務プロセス</h2></div>
@@ -150,9 +160,7 @@
               <div class="item-card"><span class="item-no">項目21</span><h2>システム活用促進・評価</h2></div>
             </div>
           </section>
-
-          <section class="middle-group">
-            <h3 class="middle-title">中分類7：システム企画</h3>
+          <section class="middle-group" id="middle-7">
             <div class="item-grid">
               <div class="item-card"><span class="item-no">項目22</span><h2>システム化計画</h2></div>
               <div class="item-card"><span class="item-no">項目23</span><h2>要件定義</h2></div>
