@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和8年度｜項目26 開発プロセス・手法 | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目26「開発プロセス・手法」に対応する問38・問43を、開発モデルを選ぶ場面と開発の進め方を見分ける場面で整理します。">
+  <title>項目26 開発プロセス・手法 | ITネッコ</title>
+  <meta name="description" content="ITパスポート公開問題のシラバス項目26「開発プロセス・手法」に対応する問38・問43を、開発モデルを選ぶ場面と開発の進め方を見分ける場面で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .item26{--accent:#6b6258;--soft:#f4f0e9;--line:#d8d1c6}
@@ -29,14 +29,22 @@
     .item26 .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
     .item26 .return-links a{padding:.55rem .75rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
     @media(max-width:760px){.item26 .map,.item26 .scene-grid,.item26 .axis,.item26 .flow{grid-template-columns:1fr}.item26 .axis .head:nth-child(2){display:none}}
+  
+    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
+    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .integrated-scene dd{margin:0;line-height:1.55}
+    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
   </style>
 </head>
 <body class="item26">
 <header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / 項目26</p><h1>令和8年度｜項目26 開発プロセス・手法</h1></div></section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / 項目26</p><h1>項目26 開発プロセス・手法</h1></div></section>
   <div class="container page-flow">
-    <div class="breadcrumb" aria-label="現在位置"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目26 開発プロセス・手法</span></div>
+    <div class="breadcrumb" aria-label="現在位置"><a href="../../">トップ</a><span>›</span><a href="../../fields/management/">マネジメント系</a><span>›</span><span>項目26 開発プロセス・手法</span></div>
     <article>
       <section class="overview">
         <h2>項目全体の学習地図</h2>
@@ -91,12 +99,14 @@
         <div class="key"><strong>開発プロセスは「何を作るか」ではなく「どう進めるか」を見る。</strong><br>まず要求の明確さ・変更・リスク・試作の必要性を見る。実際の開発場面では、一回型か反復型か、優先順位を途中で変えるか、開発と運用の連携が主題か、既存製品の解析かを分ける。</div>
       </section>
 
-      <section class="refs">
-        <h2>参照した公開問題</h2>
-        <p>令和8年度　問38</p>
-        <p>令和8年度　問43</p>
-        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
-        <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/management/">マネジメント系へ戻る</a></div>
+      
+<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>変更へ早く対応する開発と順序を固定する開発を分ける</h2><dl><dt>場面</dt><dd>要件変更が多い開発と、工程を順番に進める開発を比べる。</dd><dt>判断すること</dt><dd>反復しながら変更へ適応するのか、工程完了後に次へ進むのか。</dd><dt>関係する知識</dt><dd>アジャイル、ウォーターフォール</dd><dt>学習要点</dt><dd>開発モデルは変更頻度や要件の確定度によって向き不向きがある。</dd></dl></article><article class="integrated-scene"><h2>早い段階で動くものを見せる</h2><dl><dt>場面</dt><dd>利用者の要求が十分に固まっていない。</dd><dt>判断すること</dt><dd>試作品を作り、利用者の確認を通して要求を明確化するか。</dd><dt>関係する知識</dt><dd>プロトタイピングモデル</dd><dt>学習要点</dt><dd>要求が曖昧なときは、試作品による確認を通じて認識差を減らす方法がある。</dd></dl></article></section>
+<section class="refs">
+        <h2>参照した公開問題</h2><p>令和7年度　問39・問44</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p>
+        <p>　問38</p>
+        <p>　問43</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和8年度）</a></p>
+        <div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/management/">マネジメント系へ戻る</a></div>
       </section>
     </article>
   </div>
