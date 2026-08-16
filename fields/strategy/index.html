@@ -29,11 +29,10 @@
     .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;scroll-margin-top:1rem;min-width:0}
     .middle-name{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
     .item-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
-    .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
-    .item-no{grid-column:1;grid-row:1 / span 2;display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
-    .item-card h2{grid-column:2;margin:0;padding:.95rem 1rem;font-size:1rem;line-height:1.5;background:#fff}
-    .year-links{grid-column:2;display:flex;gap:.45rem;margin:0;padding:0 1rem .9rem;background:#fff}
-    .year-links a{display:inline-block;padding:.35rem .6rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.8rem;font-weight:700}
+    .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
+    .item-card:hover{transform:translateY(-1px)}
+    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
+    .item-card h2{display:flex;align-items:center;margin:0;padding:.95rem 1rem;font-size:1rem;line-height:1.5;background:#fff}
     .top-link-wrap{margin-top:1.5rem}
     @media (max-width:1000px){
       .major-nav{grid-template-columns:1fr}
@@ -48,7 +47,6 @@
       .item-card{grid-template-columns:72px minmax(0,1fr)}
       .item-no{padding:.9rem .45rem;font-size:.75rem}
       .item-card h2{padding:.9rem .9rem}
-      .year-links{padding:0 .9rem .85rem}
     }
   </style>
 </head>
@@ -117,19 +115,19 @@
           <section class="middle-group" id="middle-1">
             <h3 class="middle-name">企業活動</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目1</span><h2>経営・組織論</h2><div class="year-links"><a href="../../topics/r08-01-management-organization/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目2</span><h2>業務分析・データ利活用</h2><div class="year-links"><a href="../../topics/r08-02-business-analysis-data-utilization/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目3</span><h2>会計・財務</h2><div class="year-links"><a href="../../topics/r08-03-accounting-finance/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-01-management-organization/"><span class="item-no">項目1</span><h2>経営・組織論</h2></a>
+              <a class="item-card" href="../../topics/r08-02-business-analysis-data-utilization/"><span class="item-no">項目2</span><h2>業務分析・データ利活用</h2></a>
+              <a class="item-card" href="../../topics/r08-03-accounting-finance/"><span class="item-no">項目3</span><h2>会計・財務</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-2">
             <h3 class="middle-name">法務</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目4</span><h2>知的財産権</h2><div class="year-links"><a href="../../topics/r08-04-intellectual-property-rights/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目5</span><h2>セキュリティ関連法規</h2><div class="year-links"><a href="../../topics/r08-05-security-related-laws/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目6</span><h2>労働関連・取引関連法規</h2><div class="year-links"><a href="../../topics/r08-06-labor-transaction-laws/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目7</span><h2>その他の法律・ガイドライン・情報倫理</h2><div class="year-links"><a href="../../topics/r08-07-laws-guidelines-information-ethics/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目8</span><h2>標準化関連</h2><div class="year-links"><a href="../../topics/r08-08-standardization-related/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-04-intellectual-property-rights/"><span class="item-no">項目4</span><h2>知的財産権</h2></a>
+              <a class="item-card" href="../../topics/r08-05-security-related-laws/"><span class="item-no">項目5</span><h2>セキュリティ関連法規</h2></a>
+              <a class="item-card" href="../../topics/r08-06-labor-transaction-laws/"><span class="item-no">項目6</span><h2>労働関連・取引関連法規</h2></a>
+              <a class="item-card" href="../../topics/r08-07-laws-guidelines-information-ethics/"><span class="item-no">項目7</span><h2>その他の法律・ガイドライン・情報倫理</h2></a>
+              <a class="item-card" href="../../topics/r08-08-standardization-related/"><span class="item-no">項目8</span><h2>標準化関連</h2></a>
             </div>
           </section>
         </div>
@@ -141,25 +139,25 @@
           <section class="middle-group" id="middle-3">
             <h3 class="middle-name">経営戦略マネジメント</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目9</span><h2>経営戦略手法</h2><div class="year-links"><a href="../../topics/r08-09-management-strategy-methods/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目10</span><h2>マーケティング</h2><div class="year-links"><a href="../../topics/r08-10-marketing/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目11</span><h2>ビジネス戦略と目標・評価</h2><div class="year-links"><a href="../../topics/r08-11-business-strategy-goals-evaluation/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目12</span><h2>経営管理システム</h2><div class="year-links"><a href="../../topics/r08-12-management-systems/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-09-management-strategy-methods/"><span class="item-no">項目9</span><h2>経営戦略手法</h2></a>
+              <a class="item-card" href="../../topics/r08-10-marketing/"><span class="item-no">項目10</span><h2>マーケティング</h2></a>
+              <a class="item-card" href="../../topics/r08-11-business-strategy-goals-evaluation/"><span class="item-no">項目11</span><h2>ビジネス戦略と目標・評価</h2></a>
+              <a class="item-card" href="../../topics/r08-12-management-systems/"><span class="item-no">項目12</span><h2>経営管理システム</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-4">
             <h3 class="middle-name">技術戦略マネジメント</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目13</span><h2>技術開発戦略の立案・技術開発計画</h2><div class="year-links"><a href="../../topics/r08-13-technology-development-strategy/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-13-technology-development-strategy/"><span class="item-no">項目13</span><h2>技術開発戦略の立案・技術開発計画</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-5">
             <h3 class="middle-name">ビジネスインダストリ</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目14</span><h2>ビジネスシステム</h2><div class="year-links"><a href="../../topics/r08-14-business-systems/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目15</span><h2>エンジニアリングシステム</h2><div class="year-links"><a href="../../topics/r08-15-engineering-systems/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目16</span><h2>e-ビジネス</h2><div class="year-links"><a href="../../topics/r08-16-e-business/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目17</span><h2>IoTシステム・組込みシステム</h2><div class="year-links"><a href="../../topics/r08-17-iot-embedded-systems/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-14-business-systems/"><span class="item-no">項目14</span><h2>ビジネスシステム</h2></a>
+              <a class="item-card" href="../../topics/r08-15-engineering-systems/"><span class="item-no">項目15</span><h2>エンジニアリングシステム</h2></a>
+              <a class="item-card" href="../../topics/r08-16-e-business/"><span class="item-no">項目16</span><h2>e-ビジネス</h2></a>
+              <a class="item-card" href="../../topics/r08-17-iot-embedded-systems/"><span class="item-no">項目17</span><h2>IoTシステム・組込みシステム</h2></a>
             </div>
           </section>
         </div>
@@ -171,15 +169,15 @@
           <section class="middle-group" id="middle-6">
             <h3 class="middle-name">システム戦略</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目18</span><h2>情報システム戦略</h2><div class="year-links"><a href="../../topics/r08-18-information-systems-strategy/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目19</span><h2>業務プロセス</h2><div class="year-links"><a href="../../topics/r08-19-business-process/">R8</a></div></div>
-              <div class="item-card"><span class="item-no">項目20</span><h2>ソリューションビジネス</h2><div class="year-links"><a href="../../topics/r08-20-solution-business/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-18-information-systems-strategy/"><span class="item-no">項目18</span><h2>情報システム戦略</h2></a>
+              <a class="item-card" href="../../topics/r08-19-business-process/"><span class="item-no">項目19</span><h2>業務プロセス</h2></a>
+              <a class="item-card" href="../../topics/r08-20-solution-business/"><span class="item-no">項目20</span><h2>ソリューションビジネス</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-7">
             <h3 class="middle-name">システム企画</h3>
             <div class="item-grid">
-              <div class="item-card"><span class="item-no">項目24</span><h2>調達計画・実施</h2><div class="year-links"><a href="../../topics/r08-24-procurement-planning-execution/">R8</a></div></div>
+              <a class="item-card" href="../../topics/r08-24-procurement-planning-execution/"><span class="item-no">項目24</span><h2>調達計画・実施</h2></a>
             </div>
           </section>
         </div>
