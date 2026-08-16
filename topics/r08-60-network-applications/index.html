@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和8年度｜項目60 ネットワーク応用 | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目60「ネットワーク応用」に対応する問64・問65・問75を、無線通信、名前解決、電子メールの三つの場面で整理します。">
+  <title>項目60 ネットワーク応用 | ITネッコ</title>
+  <meta name="description" content="ITパスポート公開問題のシラバス項目60「ネットワーク応用」に対応する問64・問65・問75を、無線通信、名前解決、電子メールの三つの場面で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .network-map{--accent:#6f765f;--soft:#f3f5ef}
@@ -33,14 +33,23 @@
     .network-map .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
     .network-map .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
     @media(max-width:760px){.network-map .scene-map,.network-map .three,.network-map .flow,.network-map .compare{grid-template-columns:1fr}.network-map .relation{grid-template-columns:1fr}.network-map .relation .arrow{transform:rotate(90deg)}.network-map .compare .head:nth-child(2){display:none}}
+  
+    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
+    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .integrated-scene dd{margin:0;line-height:1.55}
+    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
   </style>
 </head>
 <body class="network-map">
-<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a>
+      <a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / 項目60</p><h1>令和8年度｜項目60 ネットワーク応用</h1></div></section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">テクノロジ系 / 項目60</p><h1>項目60 ネットワーク応用</h1></div></section>
   <div class="container page-flow">
-    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目60 ネットワーク応用</span></div>
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/technology/">テクノロジ系</a><span>›</span><span>項目60 ネットワーク応用</span></div>
     <article>
       <section class="overview">
         <h2>学習地図</h2>
@@ -108,11 +117,13 @@
         <div class="judge"><strong>まず、ネットワークを使って何を実現しようとしているかを見る。</strong><br>無線通信の速度なら、<strong>何を束ねて帯域を広げるか</strong>。Web接続なら、<strong>名前と通信先をどう対応付けるか</strong>。電子メールなら、<strong>誰に届けるかと誰から見えるか</strong>を確認する。</div>
       </section>
 
-      <section class="refs">
-        <h2>参照した公開問題</h2>
-        <p>令和8年度　問64・問65・問75</p>
-        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
-        <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/technology/">テクノロジ系へ戻る</a></div>
+      
+<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>名前とIPアドレスを対応付ける</h2><dl><dt>場面</dt><dd>利用者はドメイン名を入力するが、通信にはIPアドレスが必要になる。</dd><dt>判断すること</dt><dd>ドメイン名をIPアドレスへ変換する仕組みか。</dd><dt>関係する知識</dt><dd>DNS</dd><dt>学習要点</dt><dd>DNSは人が扱いやすい名前とネットワーク上のIPアドレスを対応付ける。</dd></dl></article><article class="integrated-scene"><h2>Web更新情報を定型形式で配信する</h2><dl><dt>場面</dt><dd>Webサイトの新着情報をまとめて受け取りたい。</dd><dt>判断すること</dt><dd>ページの見た目を定義するのではなく、更新情報を配信・購読する仕組みか。</dd><dt>関係する知識</dt><dd>RSS</dd><dt>学習要点</dt><dd>RSSはWebサイトの更新情報を定型形式で配信し、購読側でまとめて取得できる。</dd></dl></article></section>
+<section class="refs">
+        <h2>参照した公開問題</h2><p>令和7年度　問58・問64</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p>
+        <p>　問64・問65・問75</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和8年度）</a></p>
+        <div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/technology/">テクノロジ系へ戻る</a></div>
       </section>
     </article>
   </div>
