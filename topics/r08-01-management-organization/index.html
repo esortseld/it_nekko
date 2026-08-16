@@ -31,11 +31,11 @@
     .item-map .compare .head{font-weight:700;background:var(--soft)}
     .item-map .summary{margin-top:1.4rem;padding:1.1rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
     .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .item-map .refs p{margin:.35rem 0}
-    .item-map .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
-    .item-map .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    .item-map .refs p{margin:.35rem 0;overflow-wrap:anywhere}
+    .item-map .return-links{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:.65rem;margin-top:1rem}
+    .item-map .return-links a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:44px;max-width:100%;padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem;line-height:1.35;text-align:center;white-space:normal;overflow-wrap:anywhere}
     @media(max-width:900px){.item-map .map-layout{grid-template-columns:1fr}.item-map .side-map{position:static;display:flex;overflow-x:auto;gap:.3rem;padding:.55rem}.item-map .side-map strong{display:none}.item-map .side-map a{white-space:nowrap;border:1px solid var(--color-border,#d9d3c8);background:#fff}}
-    @media(max-width:640px){.item-map .structure,.item-map .three{grid-template-columns:1fr}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}}
+    @media(max-width:640px){.item-map .structure,.item-map .three{grid-template-columns:1fr}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .return-links{grid-template-columns:1fr}.item-map .return-links a{width:100%}}
   </style>
 </head>
 <body class="item-map">
@@ -68,50 +68,18 @@
             <a href="#organization"><b>内側の組織構造</b><span>人と機能を何単位でまとめるか</span></a>
           </div>
         </section>
-
         <section class="scene-card" id="change">
           <h2>社会・ビジネスの変化を見る</h2>
-          <div class="three">
-            <div class="mini"><strong>場面</strong>デジタル技術の普及によって、生活や企業活動のあり方が変わっている。</div>
-            <div class="mini"><strong>判断すること</strong>説明しているのは、変革・格差・世代・信号変換のどれか。</div>
-            <div class="mini"><strong>学習要点</strong>DXは、デジタル技術が生活やビジネスへ幅広く影響し、従来のあり方を変革すること。</div>
-          </div>
-          <div class="compare" aria-label="デジタル関連概念の違い">
-            <div class="head">概念</div><div class="head">何の話か</div>
-            <div>DX</div><div>生活・ビジネスなどの変革</div>
-            <div>デジタルディバイド</div><div>デジタル技術を利用できる人とできない人の機会・社会的格差</div>
-            <div>デジタルネイティブ</div><div>幼い頃からデジタル環境に接して育った世代・人</div>
-            <div>A/D変換</div><div>アナログ信号をデジタル信号へ変える信号処理</div>
-          </div>
+          <div class="three"><div class="mini"><strong>場面</strong>デジタル技術の普及によって、生活や企業活動のあり方が変わっている。</div><div class="mini"><strong>判断すること</strong>説明しているのは、変革・格差・世代・信号変換のどれか。</div><div class="mini"><strong>学習要点</strong>DXは、デジタル技術が生活やビジネスへ幅広く影響し、従来のあり方を変革すること。</div></div>
+          <div class="compare" aria-label="デジタル関連概念の違い"><div class="head">概念</div><div class="head">何の話か</div><div>DX</div><div>生活・ビジネスなどの変革</div><div>デジタルディバイド</div><div>デジタル技術を利用できる人とできない人の機会・社会的格差</div><div>デジタルネイティブ</div><div>幼い頃からデジタル環境に接して育った世代・人</div><div>A/D変換</div><div>アナログ信号をデジタル信号へ変える信号処理</div></div>
         </section>
-
         <section class="scene-card" id="organization">
           <h2>組織のまとまり方を見る</h2>
-          <div class="three">
-            <div class="mini"><strong>場面</strong>企業の中で、人や購買・販売などの機能がどのように配置されているかを見る。</div>
-            <div class="mini"><strong>判断すること</strong>何を単位にまとめているか、責任系統はいくつか、恒常組織か一時組織か。</div>
-            <div class="mini"><strong>学習要点</strong>事業部制では、事業・製品などの単位ごとに必要な機能を持つ。</div>
-          </div>
-          <div class="compare" aria-label="組織形態の違い">
-            <div class="head">組織形態</div><div class="head">まとまり方</div>
-            <div>事業部制組織</div><div>事業・製品などを単位に、その中へ購買・販売など必要な機能を持たせる。</div>
-            <div>職能別組織</div><div>人事・開発・生産・販売など、専門機能ごとに全社横断でまとめる。</div>
-            <div>マトリックス組織</div><div>製品・地域など複数の軸を重ね、複数の責任系統を持つ。</div>
-            <div>プロジェクト組織</div><div>特定目的のために部門横断で人材を集め、目的完了後に解散することがある。</div>
-          </div>
+          <div class="three"><div class="mini"><strong>場面</strong>企業の中で、人や購買・販売などの機能がどのように配置されているかを見る。</div><div class="mini"><strong>判断すること</strong>何を単位にまとめているか、責任系統はいくつか、恒常組織か一時組織か。</div><div class="mini"><strong>学習要点</strong>事業部制では、事業・製品などの単位ごとに必要な機能を持つ。</div></div>
+          <div class="compare" aria-label="組織形態の違い"><div class="head">組織形態</div><div class="head">まとまり方</div><div>事業部制組織</div><div>事業・製品などを単位に、その中へ購買・販売など必要な機能を持たせる。</div><div>職能別組織</div><div>人事・開発・生産・販売など、専門機能ごとに全社横断でまとめる。</div><div>マトリックス組織</div><div>製品・地域など複数の軸を重ね、複数の責任系統を持つ。</div><div>プロジェクト組織</div><div>特定目的のために部門横断で人材を集め、目的完了後に解散することがある。</div></div>
         </section>
-
-        <section class="summary" id="judge">
-          <strong>この項目の判断の地図</strong>
-          <p>まず、説明対象が<strong>企業を取り巻く社会・ITの変化</strong>なのか、<strong>企業内部の組織構造</strong>なのかを分ける。前者なら「何が変わるのか」、後者なら「何を単位に人と機能をまとめるのか」を見る。</p>
-        </section>
-
-        <section class="refs">
-          <h2>参照した公開問題</h2>
-          <p>令和8年度　問6・問30</p>
-          <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
-          <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div>
-        </section>
+        <section class="summary" id="judge"><strong>この項目の判断の地図</strong><p>まず、説明対象が<strong>企業を取り巻く社会・ITの変化</strong>なのか、<strong>企業内部の組織構造</strong>なのかを分ける。前者なら「何が変わるのか」、後者なら「何を単位に人と機能をまとめるのか」を見る。</p></section>
+        <section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問6・問30</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p><div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div></section>
       </article>
     </div>
   </div>
