@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和8年度｜項目19 業務プロセス | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目19「業務プロセス」に対応する問2・問12・問22を、業務の流れ・定型作業・端末利用の三つの場面で整理します。">
+  <title>項目19 業務プロセス | ITネッコ</title>
+  <meta name="description" content="ITパスポート公開問題のシラバス項目19「業務プロセス」に対応する問2・問12・問22を、業務の流れ・定型作業・端末利用の三つの場面で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .process-map{--accent:#6f665b;--soft:#f5f1ea}
@@ -27,14 +27,23 @@
     .process-map .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
     .process-map .return-links a{padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
     @media(max-width:760px){.process-map .scene-map,.process-map .three,.process-map .compare{grid-template-columns:1fr}.process-map .compare .head:nth-child(2){display:none}}
+  
+    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
+    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .integrated-scene dd{margin:0;line-height:1.55}
+    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
   </style>
 </head>
 <body class="process-map">
-<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a>
+      <a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目19</p><h1>令和8年度｜項目19 業務プロセス</h1></div></section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目19</p><h1>項目19 業務プロセス</h1></div></section>
   <div class="container page-flow">
-    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目19 業務プロセス</span></div>
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/strategy/">ストラテジ系</a><span>›</span><span>項目19 業務プロセス</span></div>
     <article>
       <section class="overview">
         <h2>項目全体の学習地図</h2>
@@ -108,9 +117,11 @@
         <div class="judge"><strong>まず、何を見直している場面かを特定する。</strong><br>仕事の流れなら、誰・処理・順序・情報。定型作業なら、対象・実行主体・置換先。端末利用なら、所有・用途・許可管理を見る。</div>
       </section>
 
-      <section class="refs">
-        <h2>参照した公開問題</h2>
-        <p>令和8年度　問2・問12・問22</p>
+      
+<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>実際の処理記録から業務の流れを把握する</h2><dl><dt>場面</dt><dd>システムの操作ログなど、業務で実際に発生した記録がある。</dd><dt>判断すること</dt><dd>想定した手順ではなく、実行履歴から業務プロセスを再構成・分析しているか。</dd><dt>関係する知識</dt><dd>プロセスマイニング、イベントログ</dd><dt>学習要点</dt><dd>プロセスマイニングは実データから実際の業務の流れや滞留を可視化する。</dd></dl></article><article class="integrated-scene"><h2>定型作業をソフトウェアで自動化する</h2><dl><dt>場面</dt><dd>画面操作や転記など、ルールが明確な定型作業が繰り返される。</dd><dt>判断すること</dt><dd>人の判断が中心か、決まった操作手順を自動実行できるか。</dd><dt>関係する知識</dt><dd>RPA、業務自動化</dd><dt>学習要点</dt><dd>RPAは定型的な事務操作をソフトウェアロボットで自動化する。</dd></dl></article><article class="integrated-scene"><h2>人の行動履歴をデータとして扱う</h2><dl><dt>場面</dt><dd>移動履歴やWeb利用履歴など、個人の行動記録を業務やサービスに活用する。</dd><dt>判断すること</dt><dd>記録しているのが人の生活・行動履歴か。</dd><dt>関係する知識</dt><dd>ライフログ</dd><dt>学習要点</dt><dd>業務改善で使うデータには、機械ログだけでなく人の行動ログも含まれる。</dd></dl></article></section>
+<section class="refs">
+        <h2>参照した公開問題</h2><p>令和7年度　問17・問24・問32</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p>
+        <p>　問2・問12・問22</p>
 
         <p>
           <a
@@ -123,7 +134,7 @@
         </p>
 
         <div class="return-links">
-          <a href="../../past-questions/r08/">R8公開問題へ戻る</a>
+          <a href="../../past-questions/">公開問題一覧へ戻る</a>
           <a href="../../fields/strategy/">ストラテジ系へ戻る</a>
         </div>
       </section>
