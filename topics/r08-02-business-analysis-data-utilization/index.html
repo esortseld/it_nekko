@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和8年度｜項目2 業務分析・データ利活用 | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題のうち、シラバス項目2「業務分析・データ利活用」に対応する問3・問10・問16・問25を、業務を考えデータを使って判断する流れとして整理します。">
+  <title>項目2 業務分析・データ利活用 | ITネッコ</title>
+  <meta name="description" content="ITパスポート試験シラバスのシラバス項目2「業務分析・データ利活用」に対応する問3・問10・問16・問25を、業務を考えデータを使って判断する流れとして整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .item-map{--accent:#7f6f58;--soft:#f6f1e9}
@@ -39,14 +39,23 @@
     .item-map .return-links a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:44px;max-width:100%;padding:.55rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem;line-height:1.35;text-align:center;white-space:normal;overflow-wrap:anywhere}
     @media(max-width:900px){.item-map .map-layout{grid-template-columns:1fr}.item-map .side-map{position:static;display:flex;overflow-x:auto;gap:.3rem;padding:.55rem}.item-map .side-map strong{display:none}.item-map .side-map a{white-space:nowrap;border:1px solid var(--color-border,#d9d3c8);background:#fff}.item-map .route{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:640px){.item-map .three{grid-template-columns:1fr}.item-map .route{grid-template-columns:1fr 1fr}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .return-links{grid-template-columns:1fr}.item-map .return-links a{width:100%}}
+  
+    .integrated-scenes{margin:1.2rem 0 1.6rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+    .integrated-scene{min-width:0;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff}
+    .integrated-scene h2{margin:0 0 .7rem;font-size:1.05rem;line-height:1.45}
+    .integrated-scene dl{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.38rem .7rem;margin:0}
+    .integrated-scene dt{font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .integrated-scene dd{margin:0;line-height:1.55}
+    @media(max-width:700px){.integrated-scenes{grid-template-columns:1fr}.integrated-scene dl{grid-template-columns:1fr;gap:.1rem}.integrated-scene dd{margin-bottom:.45rem}}
   </style>
 </head>
 <body class="item-map">
-<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a>
+      <a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目2</p><h1>令和8年度｜項目2 業務分析・データ利活用</h1></div></section>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目2</p><h1>項目2 業務分析・データ利活用</h1></div></section>
   <div class="container page-flow">
-    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目2 業務分析・データ利活用</span></div>
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../fields/strategy/">ストラテジ系</a><span>›</span><span>項目2 業務分析・データ利活用</span></div>
     <div class="map-layout"><nav class="side-map" aria-label="この項目の学習地図"><strong>学習地図</strong><a href="#ideas">1　案を広げる</a><a href="#data">2　データの特徴を見る</a><a href="#prepare">3　学習用データを作る</a><a href="#decide">4　条件の中で判断する</a></nav>
       <article>
         <section class="overview"><h2>業務を考え、データを使って判断する</h2><div class="route" aria-label="学習の流れ"><a href="#ideas"><b>案を広げる</b><span>ブレーンストーミング</span></a><a href="#data"><b>データを見る</b><span>ビッグデータの3V</span></a><a href="#prepare"><b>データを整える</b><span>アノテーション</span></a><a href="#decide"><b>判断する</b><span>マクシミン戦略</span></a></div></section>
@@ -55,7 +64,9 @@
         <section class="scene-card" id="prepare"><div class="scene-top"><span class="num">3</span><div><h2>AIで使うなら、データに意味を付ける</h2><p class="question">関係する知識：アノテーション</p></div></div><div class="three"><div class="mini"><strong>場面</strong>集めた画像や文章を、教師あり学習に使いたい。</div><div class="mini"><strong>判断すること</strong>正解情報を付けるのか、形式や品質を変えるのか。</div><div class="mini"><strong>知識</strong>アノテーションは、入力データに正解ラベルを付ける。</div></div><div class="compare" aria-label="データ処理の違い"><div class="head">処理</div><div class="head">何をするか</div><div>アノテーション</div><div>意味・正解を付ける</div><div>エンコード</div><div>表現形式を変える</div><div>クレンジング</div><div>品質を整える</div><div>フィルタリング</div><div>条件で選別する</div></div></section>
         <section class="scene-card" id="decide"><div class="scene-top"><span class="num">4</span><div><h2>条件が読めないときも、基準を決めて判断する</h2><p class="question">関係する知識：マクシミン戦略</p></div></div><div class="three"><div class="mini"><strong>場面</strong>複数の戦略があり、将来の状況は確定していない。</div><div class="mini"><strong>判断すること</strong>各戦略で最悪の場合の結果を比べる。</div><div class="mini"><strong>知識</strong>各戦略の最小値を取り、その中で最大のものを選ぶ。</div></div><div class="compare" aria-label="マクシミン戦略の判断順序"><div class="head">順序</div><div class="head">見るもの</div><div>1</div><div>戦略ごとに起こり得る結果を見る</div><div>2</div><div>各戦略の最小値を取る</div><div>3</div><div>最小値が最も大きい戦略を選ぶ</div></div></section>
         <section class="summary"><strong>この項目の判断の地図</strong><p>案を出すのか、データの特徴を見るのか、学習用データを準備するのか、条件の中で意思決定するのか。まず<strong>「今、業務のどの場面で何をしようとしているか」</strong>を分けます。</p></section>
-        <section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問3・問10・問16・問25</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p><div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div></section>
+        
+<section class="integrated-scenes" data-integrated-source="r07" aria-label="項目の判断場面"><article class="integrated-scene"><h2>分析前にデータの偏りを点検する</h2><dl><dt>場面</dt><dd>AIやデータ分析に使うデータを集めたが、元データに偏りや不備がある可能性がある。</dd><dt>判断すること</dt><dd>分析手法の前に、データの目的適合性・欠損・偏り・作成過程を確認できているか。</dd><dt>関係する知識</dt><dd>データ品質、バイアス、前処理、アノテーション</dd><dt>学習要点</dt><dd>分析結果の品質は、入力データの品質と収集・前処理の妥当性に大きく左右される。</dd></dl></article></section>
+<section class="refs"><h2>参照した公開問題</h2><p>令和7年度　問8</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和7年度）</a></p><p>　問3・問10・問16・問25</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題（令和8年度）</a></p><div class="return-links"><a href="../../past-questions/">公開問題一覧へ戻る</a><a href="../../fields/strategy/">ストラテジ系へ戻る</a></div></section>
       </article>
     </div>
   </div>
