@@ -1,0 +1,23 @@
+name: Fix R07 R08 reference labels
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fix_r07_r08_reference_labels.py'
+      - '.github/workflows/fix-r07-r08-reference-labels.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - run: python scripts/fix_r07_r08_reference_labels.py
