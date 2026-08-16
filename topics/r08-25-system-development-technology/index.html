@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>システム開発技術 | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題のシラバス項目25「システム開発技術」に対応する問52を、開発工程と利用者・開発者の役割の関係で整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .item25{--accent:#596b77;--soft:#eef3f5;--line:#d1dade;--deep:#354852}
+    .item25 .breadcrumbs{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:var(--text-sub,#675f55);margin:0 0 1.1rem}
+    .item25 .breadcrumbs a{color:inherit;text-decoration:none}
+    .item25 .overview,.item25 .scene-card,.item25 .judge-card{margin:0 0 1.1rem;padding:1.15rem;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .item25 .overview h2,.item25 .scene-card h2,.item25 .judge-card h2{margin:0 0 .8rem;font-size:1.15rem}
+    .item25 .flow{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:.35rem;align-items:center}
+    .item25 .step{min-width:0;padding:.85rem .6rem;border:1px solid var(--line);border-radius:12px;background:var(--soft);text-align:center;font-size:.86rem;line-height:1.4}
+    .item25 .arrow{text-align:center;color:var(--accent);font-weight:700}
+    .item25 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+    .item25 .mini{padding:.9rem;border-radius:12px;background:#faf9f6;min-width:0}
+    .item25 .mini strong{display:block;margin-bottom:.28rem;font-size:.82rem;color:var(--deep)}
+    .item25 .roles{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.8rem}
+    .item25 .role{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .item25 .role h3{margin:0 0 .4rem;font-size:1rem}
+    .item25 .compare{display:grid;grid-template-columns:minmax(9rem,.7fr) minmax(0,1.4fr);gap:1px;margin-top:.8rem;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--line)}
+    .item25 .compare div{padding:.72rem .8rem;background:#fff}
+    .item25 .compare .head{font-weight:700;background:var(--soft)}
+    .item25 .judge{padding:.95rem 1rem;border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0}
+    .item25 .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+    .item25 .refs p{margin:.35rem 0}
+    .item25 .return-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .item25 .return-links a{padding:.55rem .75rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.86rem}
+    @media(max-width:760px){
+      .item25 .flow{grid-template-columns:1fr;gap:.35rem}
+      .item25 .arrow{transform:rotate(90deg)}
+      .item25 .three,.item25 .roles,.item25 .compare{grid-template-columns:1fr}
+      .item25 .compare .head:nth-child(2){display:none}
+    }
+  </style>
+</head>
+<body class="item25">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">マネジメント系 / 項目25</p><h1>システム開発技術</h1></div></section>
+  <div class="container page-flow">
+    <div class="breadcrumbs"><a href="../../">トップ</a><span>›</span><a href="../../past-questions/r08/">令和8年度公開問題</a><span>›</span><span>項目25 システム開発技術</span></div>
+    <article>
+      <section class="overview">
+        <h2>項目全体の学習地図</h2>
+        <div class="flow" aria-label="システム開発の基本的な流れ">
+          <div class="step">要件定義</div><div class="arrow">→</div>
+          <div class="step">設計</div><div class="arrow">→</div>
+          <div class="step">プログラミング・単体テスト</div><div class="arrow">→</div>
+          <div class="step">統合・テスト</div><div class="arrow">→</div>
+          <div class="step">導入・受入れ</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>要件定義で利用者と開発者が関わる</h2>
+        <div class="three">
+          <div class="mini"><strong>場面</strong>開発者が、業務システムのシステム要件定義を進めている。</div>
+          <div class="mini"><strong>判断すること</strong>利用者は、要件定義のどの部分に関わるのか。</div>
+          <div class="mini"><strong>決定的な条件</strong>利用者は業務を知り、開発者は技術的実現性を判断する立場にある。</div>
+        </div>
+        <div class="roles">
+          <div class="role"><h3>利用者</h3><p>定義された要件が、実際の業務の目的・手順・ニーズに合っているかをレビューで確認する。</p></div>
+          <div class="role"><h3>開発者</h3><p>必要な機能・性能・構成を具体化し、技術的に実現できるか、どのように実装するかを判断する。</p></div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>同じ要件でも確認する観点を分ける</h2>
+        <div class="compare" aria-label="利用者と開発者の確認観点">
+          <div class="head">立場</div><div class="head">中心となる確認</div>
+          <div>利用者</div><div>業務上必要な内容が反映されているか、利用場面に合うか、抜けや誤解がないかという妥当性。</div>
+          <div>開発者</div><div>技術的に実現できるか、必要な性能・構成をどう実装するか、保守可能な設計にできるか。</div>
+        </div>
+      </section>
+
+      <section class="scene-card">
+        <h2>必要な用語・概念</h2>
+        <div class="compare" aria-label="項目25の用語と見る対象">
+          <div class="head">用語</div><div class="head">見る対象</div>
+          <div>システム要件定義</div><div>システムに要求される機能・性能などを明確にする工程。</div>
+          <div>共同レビュー</div><div>関係者が要件や成果物を確認し、妥当性や問題点を確かめる。</div>
+          <div>機能要件</div><div>システムが何をするか。</div>
+          <div>非機能要件</div><div>性能・信頼性・使用性など、機能以外に求める条件。</div>
+        </div>
+      </section>
+
+      <section class="judge-card">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge"><strong>開発工程を見る → その工程で何を決めるかを見る → その判断に必要な専門性を持つ立場を対応させる。</strong><br>要件定義では、「作れるか」は技術側、「業務で使えるか」は利用側の確認になる。</div>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和8年度　問52</p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式ITパスポート試験 過去問題</a></p>
+        <div class="return-links"><a href="../../past-questions/r08/">R8公開問題へ戻る</a><a href="../../fields/management/">マネジメント系へ戻る</a></div>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
