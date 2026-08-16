@@ -1,0 +1,32 @@
+name: Fix deferred R07 card links
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fix_r07_deferred_card_links.py'
+      - '.github/workflows/fix-r07-deferred-card-links.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Fix full-card links
+        run: python scripts/fix_r07_deferred_card_links.py
+      - name: Remove one-shot fixer
+        if: success()
+        run: |
+          rm -f scripts/fix_r07_deferred_card_links.py .github/workflows/fix-r07-deferred-card-links.yml
+          git add -A
+          git commit -m "Remove one-shot deferred card link fixer" || true
+          git push origin main
