@@ -1,0 +1,31 @@
+name: Create deferred R07 topic pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/create_r07_deferred_topics.py'
+permissions:
+  contents: write
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Create deferred topic pages sequentially
+        run: python scripts/create_r07_deferred_topics.py
+      - name: Remove one-shot automation
+        if: success()
+        run: |
+          rm -f scripts/create_r07_deferred_topics.py .github/workflows/create-r07-deferred-topics.yml
+          git add -A
+          git commit -m "Remove one-shot deferred topic generator" || true
+          git push origin main
