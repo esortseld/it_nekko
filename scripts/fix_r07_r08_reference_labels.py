@@ -13,10 +13,10 @@ for i,slug in SLUGS.items():
     s=p.read_text(encoding='utf-8')
     if '参照した公開問題' not in s: raise RuntimeError(f'reference section missing item {i}')
     head,tail=s.split('参照した公開問題',1)
-    marker='過去問題（令和8年度）'
-    pos=tail.find(marker)
-    if pos<0: raise RuntimeError(f'R8 IPA link missing item {i}')
-    before=tail[:pos]
+    anchors=list(re.finditer(r'<a\b[^>]*>\s*IPA公式ITパスポート試験\s*過去問題(?:（令和\d年度）)?\s*</a>',tail,re.S))
+    if len(anchors)<2: raise RuntimeError(f'expected two IPA links item {i}, got {len(anchors)}')
+    a2=anchors[1]
+    before=tail[:a2.start()]
     paras=list(re.finditer(r'<p[^>]*>(.*?)</p>',before,re.S))
     target=None
     for m in reversed(paras):
@@ -28,8 +28,13 @@ for i,slug in SLUGS.items():
     if '令和8年度' not in txt:
         full=target.group(0)
         fixed=re.sub(r'^(<p[^>]*>)\s*',r'\1令和8年度　',full,count=1)
-        before=before[:target.start()]+fixed+before[target.end():]
-        tail=before+tail[pos:]
+        tail=tail[:target.start()]+fixed+tail[target.end():]
+        # recompute second anchor after length change
+        anchors=list(re.finditer(r'<a\b[^>]*>\s*IPA公式ITパスポート試験\s*過去問題(?:（令和\d年度）)?\s*</a>',tail,re.S))
+        a2=anchors[1]
+    fulla=a2.group(0)
+    fulla=re.sub(r'IPA公式ITパスポート試験\s*過去問題(?:（令和\d年度）)?', 'IPA公式ITパスポート試験 過去問題（令和8年度）', fulla, count=1)
+    tail=tail[:a2.start()]+fulla+tail[a2.end():]
     s=head+'参照した公開問題'+tail
     s=s.replace('ITパスポート試験シラバスのシラバス項目','ITパスポート試験シラバス項目')
     p.write_text(s,encoding='utf-8')
@@ -39,7 +44,7 @@ subprocess.run(['git','push','origin','main'],cwd=ROOT,check=True)
 for i,slug in SLUGS.items():
     s=(ROOT/'topics'/slug/'index.html').read_text(encoding='utf-8')
     tail=s.split('参照した公開問題',1)[1]
-    if '令和7年度　' not in tail or '令和8年度　' not in tail:
+    if '令和7年度　' not in tail or '令和8年度　' not in tail or '過去問題（令和8年度）' not in tail:
         raise RuntimeError(f'year-group verification failed item {i}')
 subprocess.run(['git','rm','.github/workflows/fix-r07-r08-reference-labels.yml','scripts/fix_r07_r08_reference_labels.py'],cwd=ROOT,check=True)
 subprocess.run(['git','commit','-m','Remove one-shot reference label fix'],cwd=ROOT,check=True)
