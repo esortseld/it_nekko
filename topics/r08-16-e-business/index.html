@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>e-ビジネス | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題の項目16 e-ビジネスを、電子商取引の取引リスクとエスクローサービスの役割から整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .crumbs{margin:1rem 0 1.5rem;font-size:.9rem;color:var(--text-sub,#675f55)}
+    .crumbs a{color:inherit}
+    .map,.risk-grid,.judge-grid{display:grid;gap:.75rem;margin:1rem 0}
+    .map{grid-template-columns:repeat(5,minmax(0,1fr))}
+    .risk-grid,.judge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .card,.key{min-width:0;padding:1rem;border:1px solid var(--line,#d9d3c8);border-radius:14px;background:#fff}
+    .card h3{margin:0 0 .35rem;font-size:1rem}
+    .key{background:#faf7f2;border-left:4px solid #8a755d}
+    .term-table{width:100%;border-collapse:collapse;margin:1rem 0}
+    .term-table th,.term-table td{padding:.75rem .8rem;border:1px solid var(--line,#d9d3c8);text-align:left;vertical-align:top}
+    .term-table th{background:#f3efe7;width:11rem}
+    @media(max-width:900px){.map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.map,.risk-grid,.judge-grid{grid-template-columns:1fr}.term-table,.term-table tbody,.term-table tr,.term-table th,.term-table td{display:block;width:100%}.term-table tr{margin-bottom:.7rem}.term-table th{border-bottom:0}}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="../../">トップ</a><a href="../../fields/">学習分野</a><a href="../../past-questions/">公開問題</a><a href="../../about/">このサイトについて</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目16</p><h1>e-ビジネス</h1></div></section>
+  <div class="container page-flow">
+    <nav class="crumbs" aria-label="パンくず"><a href="../../">トップ</a> › <a href="../../past-questions/r08/">令和8年度公開問題</a> › 項目16 e-ビジネス</nav>
+    <article class="detail-flow">
+      <section class="detail-section">
+        <h2>項目全体の学習地図</h2>
+        <div class="key"><p>電子商取引では、代金と商品の受渡しが同時とは限りません。エスクローサービスは、その間に第三者を置いて取引相手の未履行リスクを下げます。</p></div>
+        <div class="map">
+          <div class="card"><h3>1 買主が支払う</h3><p>代金を第三者へ渡す。</p></div>
+          <div class="card"><h3>2 第三者が預かる</h3><p>代金を一時保持する。</p></div>
+          <div class="card"><h3>3 売主が発送する</h3><p>商品を買主へ送る。</p></div>
+          <div class="card"><h3>4 買主が受け取る</h3><p>商品の受渡しを確認する。</p></div>
+          <div class="card"><h3>5 売主へ支払う</h3><p>条件確認後、第三者が代金を渡す。</p></div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <h2>場面：ネット上で代金と商品をやり取りする</h2>
+        <h3>ここで判断すること</h3>
+        <p>取引のどこに第三者が入り、何を預かり、どのリスクを直接低減するのかを確認します。</p>
+        <h3>学習要点</h3>
+        <div class="risk-grid">
+          <div class="card"><h3>買主側</h3><p>代金を支払ったのに商品が届かない、という一方的な損失を起こりにくくする。</p></div>
+          <div class="card"><h3>売主側</h3><p>商品を送ったのに代金を受け取れない、という一方的な損失を起こりにくくする。</p></div>
+        </div>
+        <div class="key"><p><strong>エスクローサービス</strong>は、買主・売主の間に中立的な第三者が入り、代金を一時的に預かって、代金と商品の受渡しがずれることで生じる未履行リスクを低減する仕組みです。</p></div>
+      </section>
+
+      <section class="detail-section">
+        <h2>電子商取引のリスクを分ける</h2>
+        <div class="risk-grid">
+          <div class="card"><h3>取引相手の未履行</h3><p>代金と商品の交換条件を第三者が管理することで直接扱う。</p></div>
+          <div class="card"><h3>認証情報の漏えい</h3><p>パスワードなどの管理・セキュリティの問題。エスクローとは別の対策領域。</p></div>
+          <div class="card"><h3>入力操作の誤り</h3><p>利用者が金額などを誤って入力する問題。第三者預託とは別の論点。</p></div>
+          <div class="card"><h3>解約・返品条件</h3><p>契約条件や消費者保護の問題。エスクローが自動的に権利を作るわけではない。</p></div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <h2>必要な用語・概念</h2>
+        <table class="term-table">
+          <tbody>
+            <tr><th>EC／電子商取引</th><td>ネットワークを利用して商品・サービスの売買などを行う取引。</td></tr>
+            <tr><th>エスクローサービス</th><td>第三者が代金を一時預かり、商品の受渡し確認後に売主へ渡す仕組み。</td></tr>
+            <tr><th>第三者預託</th><td>取引当事者の一方へすぐ渡さず、中立的な第三者が一時的に保持すること。</td></tr>
+            <tr><th>未履行リスク</th><td>相手が代金支払いや商品の引渡しなど、約束した義務を果たさないリスク。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="detail-section">
+        <h2>項目全体の判断の地図</h2>
+        <div class="judge-grid">
+          <div class="card"><h3>代金を払ったのに商品が来ない</h3><p>代金と商品の受渡し順序、第三者が代金を保持する仕組みを見る。</p></div>
+          <div class="card"><h3>商品を送ったのに代金が来ない</h3><p>第三者が支払原資を預かっているかを見る。</p></div>
+          <div class="card"><h3>パスワードが漏れる</h3><p>取引仲介ではなく、認証・セキュリティの問題として分ける。</p></div>
+          <div class="card"><h3>返品・解約できるか</h3><p>取引仲介ではなく、契約条件・消費者保護の問題として分ける。</p></div>
+        </div>
+        <div class="key"><p><strong>誰が何を先に渡すか → その間に誰が保持するか → 次の受渡しは何を確認して起きるか</strong>、の順で見ると、エスクローの役割を判断できます。</p></div>
+      </section>
+
+      <section class="detail-section">
+        <h2>参照したR8問番号</h2>
+        <p>令和8年度　問28</p>
+        <p><a href="../../past-questions/r08/">令和8年度公開問題へ戻る</a></p>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
