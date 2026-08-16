@@ -661,3 +661,55 @@ h3 {
     align-items: flex-start;
   }
 }
+
+/* R8 integrated topic pages: responsive safeguards */
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) article,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .overview,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .scene-card,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .refs,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .reference-box {
+  min-width: 0;
+}
+
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .refs a,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .reference-box a,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .compare div,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .mini,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .map-node,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .node,
+:is(.item-map,.strategy-map,.process-map,.solution-map,.item27,.network-map) .level {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+:is(.item-map,.item27,.network-map) .return-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: start;
+  gap: .65rem;
+  align-items: stretch;
+}
+
+:is(.item-map,.item27,.network-map) .return-links a {
+  display: flex;
+  min-width: 0;
+  min-height: 44px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1.35;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  :is(.item-map,.item27,.network-map) .return-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :is(.item-map,.item27,.network-map) .return-links a {
+    width: 100%;
+  }
+}
