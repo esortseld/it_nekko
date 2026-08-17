@@ -122,7 +122,7 @@ const questionToItem={
 35:32,36:27,37:27,38:26,39:27,40:32,41:32,42:29,43:26,44:29,45:27,46:29,47:31,48:28,49:27,50:27,51:31,52:25,53:28,54:30,
 55:63,56:57,57:55,58:50,59:63,60:51,61:41,62:44,63:63,64:60,65:60,66:51,67:37,68:59,69:55,70:62,71:63,72:56,73:48,74:47,75:60,76:58,77:62,78:42,79:62,80:63,81:58,82:35,83:63,84:35,85:37,86:46,87:43,88:37,89:61,90:63,91:63,92:63,93:62,94:63,95:63,96:61,97:48,98:35,99:49,100:62
 };
-document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;return `<a class="q-mini" href="#item-${questionToItem[n]}" aria-label="問${n}のシラバス項目へ">${n}</a>`}).join('');
+document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;const href=n===1?'../../questions/01/#r08':`#item-${questionToItem[n]}`;const label=n===1?'令和8年度問1の個別復習へ':`問${n}のシラバス項目へ`;return `<a class="q-mini" href="${href}" aria-label="${label}">${n}</a>`}).join('');
 </script>
 </body>
 </html>
