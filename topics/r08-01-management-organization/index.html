@@ -4,18 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>項目1 経営・組織論 | ITネッコ</title>
-  <meta name="description" content="令和6・7・8年度の公開問題から、経営・組織論で理解すべき企業理念、組織形態、デジタル化とAI活用の基礎を整理します。">
+  <meta name="description" content="令和6・7・8年度の公開問題から、企業の方向、組織の形、ITによる企業・社会の変化という三つの視点で経営・組織論を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .item-map{--accent:#7f6f58;--soft:#f6f1e9}
     .item-map .overview,.item-map .scene-card{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
     .item-map .overview h2,.item-map .scene-card h2{margin:0 0 .7rem;font-size:1.15rem}
-    .item-map .study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .item-map .overview p{margin-bottom:0}
+    .item-map .scene-card{position:relative;padding-left:4rem}
+    .item-map .scene-no{position:absolute;top:1.05rem;left:1.05rem;display:flex;align-items:center;justify-content:center;width:2.15rem;height:2.15rem;border-radius:50%;background:var(--soft);font-weight:700;color:var(--accent)}
+    .item-map .scene-lead{margin:.1rem 0 .8rem;font-weight:700}
     .item-map .compare{display:grid;grid-template-columns:minmax(9rem,.8fr) minmax(0,1fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
     .item-map .compare div{padding:.65rem .75rem;background:#fff}.item-map .compare .head{font-weight:700;background:var(--soft)}
+    .item-map .keyline{margin-top:.8rem;padding:.75rem .85rem;border-radius:12px;background:var(--soft)}
     .item-map .summary{margin-top:1.2rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
+    .item-map .summary p{margin-bottom:0}
     .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}.item-map .refs p{margin:.35rem 0}
-    @media(max-width:700px){.item-map .study-grid{grid-template-columns:1fr}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}}
+    @media(max-width:700px){.item-map .scene-card{padding:3.7rem 1rem 1rem}.item-map .scene-no{top:1rem;left:1rem}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}}
   </style>
 </head>
 <body class="item-map">
@@ -23,14 +28,35 @@
 <main>
   <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目1</p><h1>項目1 経営・組織論</h1></div></section>
   <div class="container page-flow"><article>
-    <section class="overview"><h2>この項目で理解すること</h2><p>企業を理解するときは、<strong>何のために存在し、どこを目指すのか</strong>、<strong>人や機能をどのように組織するのか</strong>、そして<strong>社会やITの変化を経営にどう取り込むのか</strong>という三つの層に分けると整理しやすくなります。</p></section>
-    <div class="study-grid">
-      <section class="scene-card"><h2>企業理念と目指す姿</h2><p>企業理念は、企業活動の土台となる価値観や考え方です。MVVでは、ミッションを存在意義、ビジョンを将来のありたい姿、バリューを判断・行動の基準として区別します。</p><p>将来像から現在へさかのぼって必要な行動を考える方法がバックキャスティングです。現在の延長だけで考えるのではなく、先に到達したい状態を置く点が特徴です。</p></section>
-      <section class="scene-card"><h2>組織は何を単位にまとめるか</h2><div class="compare"><div class="head">組織形態</div><div class="head">まとまり方</div><div>職能別組織</div><div>人事・開発・生産・販売など、専門機能ごとにまとめる。</div><div>事業部制組織</div><div>製品・市場・地域などの事業単位に必要な機能を持たせる。</div><div>マトリックス組織</div><div>機能と事業など複数の軸を重ね、複数の指揮系統をもつ。</div><div>プロジェクト組織</div><div>特定の目的のために部門横断で人を集める。</div></div></section>
-      <section class="scene-card"><h2>ITの進展を社会・経営の変化として見る</h2><p>DXは、単に紙をデジタル化することではなく、デジタル技術やデータを用いて生活、業務、製品・サービス、ビジネスのあり方そのものを変えていくことです。官民データ活用のように、データ利用の範囲は一企業の内部だけでなく社会全体にも広がります。</p></section>
-      <section class="scene-card"><h2>AI導入では「置き換える仕事」を見極める</h2><p>AIや自動化で効率化しやすいのは、判断条件や手順が明確で、反復しやすい作業です。一方、例外判断、責任ある意思決定、人との高度な調整まで機械に任せられるとは限りません。技術を導入する目的と、残すべき人の役割を分けて考えます。</p></section>
-    </div>
-    <section class="summary"><strong>判断の軸</strong><p>まず、問われているのが<strong>企業の目的・将来像</strong>、<strong>組織の構造</strong>、<strong>ITによる社会・経営の変化</strong>のどれかを切り分けます。組織なら「何を単位にまとめるか」、経営の方向なら「現在から考えるか、将来像から逆算するか」、IT活用なら「単なる電子化か、仕組み自体の変革か」を見ます。</p></section>
+    <section class="overview"><h2>企業を見る三つの方向</h2><p>企業について問われたら、まず<strong>どこを目指すのか</strong>、<strong>どう組織するのか</strong>、<strong>ITによって何が変わるのか</strong>に分けて考えます。</p></section>
+
+    <section class="scene-card">
+      <span class="scene-no">1</span>
+      <h2>企業はどこを目指すのか</h2>
+      <p class="scene-lead">企業の存在理由や将来像を見る。</p>
+      <p>企業理念は、企業活動の土台となる価値観や考え方です。MVVでは、<strong>ミッション</strong>を存在意義、<strong>ビジョン</strong>を将来のありたい姿、<strong>バリュー</strong>を判断・行動の基準として区別します。</p>
+      <p>将来のありたい姿を先に置き、そこから現在へさかのぼって必要な行動を考える方法が<strong>バックキャスティング</strong>です。</p>
+      <div class="keyline"><strong>見分けるところ：</strong>現在の延長で考えるのか、将来像から逆算するのか。</div>
+    </section>
+
+    <section class="scene-card">
+      <span class="scene-no">2</span>
+      <h2>企業はどう組織するのか</h2>
+      <p class="scene-lead">人や仕事を、何を単位にまとめているかを見る。</p>
+      <div class="compare"><div class="head">組織形態</div><div class="head">まとまり方</div><div>職能別組織</div><div>人事・開発・生産・販売など、専門機能ごとにまとめる。</div><div>事業部制組織</div><div>製品・市場・地域などの事業単位に必要な機能を持たせる。</div><div>マトリックス組織</div><div>機能と事業など複数の軸を重ね、複数の指揮系統をもつ。</div><div>プロジェクト組織</div><div>特定の目的のために部門横断で人を集める。</div></div>
+      <div class="keyline"><strong>見分けるところ：</strong>専門機能、事業、複数の軸、特定目的のどれで人をまとめているか。</div>
+    </section>
+
+    <section class="scene-card">
+      <span class="scene-no">3</span>
+      <h2>ITによって企業や社会はどう変わるのか</h2>
+      <p class="scene-lead">技術そのものではなく、技術を使った結果として何が変わるかを見る。</p>
+      <p><strong>DX</strong>は、単に紙や作業をデジタル化することではありません。デジタル技術やデータを使って、業務、製品・サービス、ビジネスや生活のあり方そのものを変えていくことです。</p>
+      <p>データの活用は企業の内部だけに限らず、社会全体にも広がります。また、AIや自動化を導入するときは、判断条件や手順が明確で反復しやすい仕事と、人が判断や調整を担う仕事を分けて考えます。</p>
+      <div class="keyline"><strong>見分けるところ：</strong>単なる電子化・効率化なのか、仕組みや活動そのものを変えるのか。</div>
+    </section>
+
+    <section class="summary"><strong>この項目の判断の軸</strong><p><strong>方向を決める話</strong>、<strong>組織を作る話</strong>、<strong>ITによる変化の話</strong>を混ぜないことが基本です。まず三つのどれを問われているかを決め、その中で用語の違いを見ます。</p></section>
     <section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問6・問30</p><p>令和7年度　問3・問15・問29</p><p>令和6年度　問28・問29</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p></section>
   </article></div>
 </main>
