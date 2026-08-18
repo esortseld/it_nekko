@@ -3,50 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>問1 | ITネッコ</title>
-  <meta name="description" content="ITパスポート公開問題の問1を年度別に復習するページです。">
+  <title>令和8年度 公開問題01 | ITネッコ</title>
+  <meta name="description" content="令和8年度ITパスポート公開問題01を起点に、生成AIで作った楽曲と著作権を判断するための見方を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .question-year{margin:0 0 1.2rem;padding:1.2rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff;scroll-margin-top:1rem}
-    .question-year h2{margin:0 0 .75rem;font-size:1.2rem}
-    .question-note{margin:.85rem 0;padding:1rem;border-left:5px solid #8a755d;background:#f6f1e9;border-radius:0 14px 14px 0}
-    .question-links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
-    .question-links a{display:inline-block;padding:.65rem .9rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none}
-    .question-links a:hover{background:#f3efe7}
+    .question-page{--q-accent:#7f6f58;--q-soft:#f6f1e9;--q-ink:#342f29}
+    .question-hero .hero-inner{padding-bottom:1.7rem}
+    .question-hero h1{margin-bottom:.35rem}
+    .question-subtitle{max-width:760px;margin:.35rem 0 0;font-size:1.05rem;line-height:1.7;color:var(--text-sub,#675f55)}
+    .question-shell{max-width:900px}
+    .intro-card,.problem-card,.judge-card,.knowledge-card{margin:0 0 1.15rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .intro-card h2,.problem-card h2,.judge-card h2,.knowledge-card h2{margin:0 0 .7rem;font-size:1.18rem}
+    .intro-card p:last-child,.problem-card p:last-child,.judge-card p:last-child,.knowledge-card p:last-child{margin-bottom:0}
+    .focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+    .focus-item{padding:.9rem;border-radius:14px;background:var(--q-soft)}
+    .focus-no{display:block;margin-bottom:.25rem;font-size:.75rem;font-weight:800;letter-spacing:.06em;color:var(--q-accent)}
+    .focus-item strong{display:block;margin-bottom:.25rem;font-size:.98rem}
+    .focus-item p{margin:0;font-size:.9rem;line-height:1.6}
+    .problem-lead{font-weight:700;line-height:1.8}
+    .case-list{display:grid;gap:.75rem;margin:1rem 0}
+    .case-row{display:grid;grid-template-columns:2.2rem 1fr;gap:.7rem;align-items:start;padding:.9rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fcfbf9}
+    .case-label{display:flex;align-items:center;justify-content:center;width:2.2rem;height:2.2rem;border-radius:999px;background:var(--q-soft);font-weight:800;color:var(--q-ink)}
+    .case-row p{margin:.1rem 0 0;line-height:1.7}
+    .choices{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.8rem}
+    .choice{padding:.45rem .75rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;font-size:.92rem}
+    .decision-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.55rem;align-items:stretch;margin:1rem 0}
+    .decision-step{padding:1rem;border-radius:14px;background:var(--q-soft);text-align:center}
+    .decision-step span{display:block;margin-bottom:.25rem;font-size:.74rem;font-weight:800;color:var(--q-accent)}
+    .decision-step strong{font-size:.95rem;line-height:1.55}
+    .flow-arrow{align-self:center;color:var(--q-accent);font-size:1.15rem;font-weight:800}
+    .judge-grid{display:grid;gap:.7rem;margin-top:1rem}
+    .judge-row{display:grid;grid-template-columns:2.2rem 1fr auto;gap:.75rem;align-items:center;padding:.9rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px}
+    .judge-row p{margin:0;line-height:1.65}
+    .judge-result{white-space:nowrap;font-size:.82rem;font-weight:800;padding:.35rem .6rem;border-radius:999px;background:#f1eee8}
+    .answer-box{margin:1.2rem 0 0;padding:1.1rem 1.2rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0}
+    .answer-box .answer-label{display:block;margin-bottom:.2rem;font-size:.78rem;font-weight:800;color:var(--q-accent)}
+    .answer-box strong{font-size:1.18rem}
+    .knowledge-card{background:#fff}
+    .knowledge-order{margin:.9rem 0 0;padding:0;list-style:none;counter-reset:point}
+    .knowledge-order li{position:relative;margin:.7rem 0;padding:.75rem .8rem .75rem 3rem;border-radius:12px;background:#faf8f4;line-height:1.65;counter-increment:point}
+    .knowledge-order li::before{content:counter(point);position:absolute;left:.8rem;top:.72rem;display:flex;align-items:center;justify-content:center;width:1.55rem;height:1.55rem;border-radius:999px;background:var(--q-accent);color:#fff;font-size:.78rem;font-weight:800}
+    .next-link{margin:1.35rem 0 0;padding-top:1.1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .next-link a{display:inline-flex;align-items:center;gap:.4rem;padding:.72rem 1rem;border:1px solid var(--q-accent);border-radius:999px;color:inherit;text-decoration:none;font-weight:700;background:#fff}
+    .next-link a:hover{background:var(--q-soft)}
+    @media(max-width:760px){
+      .focus-grid{grid-template-columns:1fr}
+      .decision-flow{grid-template-columns:1fr}
+      .flow-arrow{transform:rotate(90deg);justify-self:center}
+      .judge-row{grid-template-columns:2.2rem 1fr}.judge-result{grid-column:2;justify-self:start}
+      .question-subtitle{font-size:.98rem}
+    }
   </style>
 </head>
-<body>
+<body class="question-page">
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="../../">ITネッコ</a>
     <nav class="site-nav" aria-label="主要ページ">
-      <a href="../../past-questions/r08/">令和8年度公開問題へ戻る</a>
+      <a href="../../past-questions/r08/">令和8年度一覧へ</a>
     </nav>
   </div>
 </header>
+
 <main>
-  <section class="page-hero">
+  <section class="page-hero question-hero">
     <div class="container hero-inner">
-      <p class="site-kicker">Question 01</p>
-      <h1>問1</h1>
+      <p class="site-kicker">令和8年度 ITパスポート試験</p>
+      <h1>公開問題 01</h1>
+      <p class="question-subtitle">生成AIで似た楽曲を作ったとき、著作権では何を見て判断するのか</p>
     </div>
   </section>
-  <div class="container page-flow">
-    <section id="r08" class="question-year">
-      <p class="section-kicker">R08</p>
-      <h2>令和8年度　問1</h2>
-      <p>このページは、公開問題を1問ずつ解いた後に見直すための個別復習ページです。</p>
-      <div class="question-note">
-        <strong>暫定版</strong>
-        <p>現在はページ構成を検討中のため、令和8年度問1が「知的財産権」に関する問題であることと、体系的に学ぶ項目への導線だけを置いています。個別の問題文・選択肢・判断の流れ・復習ポイントは、構成確定後に整理します。</p>
-      </div>
-      <div class="question-links">
-        <a href="../../topics/r08-04-intellectual-property-rights/">項目4「知的財産権」を学ぶ</a>
-        <a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a>
-      </div>
-    </section>
+
+  <div class="container page-flow question-shell">
+    <article>
+      <section class="intro-card">
+        <h2>この問題で見ること</h2>
+        <p>この問題は、「生成AIを使ったかどうか」だけで判断する問題ではありません。生成した楽曲と既存の楽曲の関係、そして、その楽曲をどう利用したのかを分けて見ます。</p>
+        <div class="focus-grid" aria-label="判断する三つの視点">
+          <div class="focus-item"><span class="focus-no">POINT 1</span><strong>似せようとしたか</strong><p>既存の楽曲を意識して生成したのかを見る。</p></div>
+          <div class="focus-item"><span class="focus-no">POINT 2</span><strong>偶然似たのか</strong><p>既存の楽曲を意識せず、結果として似たのかを見る。</p></div>
+          <div class="focus-item"><span class="focus-no">POINT 3</span><strong>どう利用したか</strong><p>公開したのか、個人で視聴しただけなのかを見る。</p></div>
+        </div>
+      </section>
+
+      <section class="problem-card">
+        <p class="section-kicker">QUESTION</p>
+        <h2>問題を整理する</h2>
+        <p class="problem-lead">生成AIを用いた生成物について、既存の著作物の著作権者から許諾を得ることが必要となる可能性があるものはどれか。</p>
+        <div class="case-list">
+          <div class="case-row"><span class="case-label">a</span><p>好みのアーティストの楽曲に似るように生成AIで楽曲を作り、インターネット上にアップロードして無料で公開した。</p></div>
+          <div class="case-row"><span class="case-label">b</span><p>好みのアーティストの楽曲に似るように生成AIで楽曲を作り、自分のPCに保管して個人で視聴した。</p></div>
+          <div class="case-row"><span class="case-label">c</span><p>生成AIで作った楽曲が偶然、好みのアーティストの楽曲に似たので、自分のPCに保管して個人で視聴した。</p></div>
+        </div>
+        <div class="choices" aria-label="選択肢">
+          <span class="choice">ア　a</span><span class="choice">イ　a、b</span><span class="choice">ウ　a、b、c</span><span class="choice">エ　b、c</span>
+        </div>
+      </section>
+
+      <section class="judge-card">
+        <p class="section-kicker">HOW TO READ</p>
+        <h2>判断の順序</h2>
+        <p>三つの事例を別々に暗記するのではなく、同じ順番で確認します。</p>
+        <div class="decision-flow" aria-label="判断の流れ">
+          <div class="decision-step"><span>STEP 1</span><strong>既存の楽曲を意識して<br>似せようとしたか</strong></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="decision-step"><span>STEP 2</span><strong>生成した楽曲を<br>どう利用したか</strong></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="decision-step"><span>STEP 3</span><strong>許諾が必要となる<br>可能性を考える</strong></div>
+        </div>
+
+        <div class="judge-grid">
+          <div class="judge-row"><span class="case-label">a</span><p><strong>似せる意図があり、さらに公開している。</strong><br>個人で楽しむ範囲を超えて利用しているので、既存の著作権者の許諾が必要となる可能性があります。</p><span class="judge-result">対象になる</span></div>
+          <div class="judge-row"><span class="case-label">b</span><p><strong>似せる意図はあるが、個人で視聴している。</strong><br>この問題では、私的に利用する範囲として扱います。</p><span class="judge-result">対象にしない</span></div>
+          <div class="judge-row"><span class="case-label">c</span><p><strong>偶然似ただけで、個人で視聴している。</strong><br>既存の楽曲に似せようとした事例ではなく、利用も個人の範囲です。</p><span class="judge-result">対象にしない</span></div>
+        </div>
+
+        <div class="answer-box">
+          <span class="answer-label">この問題の答え</span>
+          <strong>ア　a</strong>
+        </div>
+      </section>
+
+      <section class="knowledge-card">
+        <p class="section-kicker">BACK TO KNOWLEDGE</p>
+        <h2>この1問から知識へ戻る</h2>
+        <p>残しておきたいのは「aが正解」という記憶ではなく、著作権の問題で何を切り分けるかです。この問題では、次の順序で考えると整理できます。</p>
+        <ol class="knowledge-order">
+          <li><strong>既存の著作物との関係を見る。</strong> 似せようとして作ったのか、偶然似たのかを区別する。</li>
+          <li><strong>利用の仕方を見る。</strong> インターネットで公開する行為と、個人で利用する行為を同じに扱わない。</li>
+          <li><strong>「生成AIだから」ではなく、著作権の判断軸に戻す。</strong> AIで生成したデータについても、著作権の観点で留意する必要があります。</li>
+        </ol>
+        <div class="next-link">
+          <a href="../../topics/r08-04-intellectual-property-rights/">項目4「知的財産権」で体系的に見る →</a>
+        </div>
+      </section>
+    </article>
   </div>
 </main>
+
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
