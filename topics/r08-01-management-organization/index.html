@@ -19,8 +19,13 @@
     .item-map .keyline{margin-top:.8rem;padding:.75rem .85rem;border-radius:12px;background:var(--soft)}
     .item-map .summary{margin-top:1.2rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
     .item-map .summary p{margin-bottom:0}
-    .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}.item-map .refs p{margin:.35rem 0}
-    @media(max-width:700px){.item-map .scene-card{padding:3.7rem 1rem 1rem}.item-map .scene-no{top:1rem;left:1rem}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}}
+    .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .item-map .refs p{margin:.55rem 0}
+    .item-map .ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin:.6rem 0}
+    .item-map .ref-year{min-width:6.7rem;font-weight:700}
+    .item-map .question-pill{display:inline-flex;align-items:center;justify-content:center;min-width:3.15rem;height:3.15rem;padding:0 .65rem;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;transition:background .15s ease,transform .15s ease}
+    .item-map .question-pill:hover{background:var(--soft);transform:translateY(-1px)}
+    @media(max-width:700px){.item-map .scene-card{padding:3.7rem 1rem 1rem}.item-map .scene-no{top:1rem;left:1rem}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
   </style>
 </head>
 <body class="item-map">
@@ -57,7 +62,13 @@
     </section>
 
     <section class="summary"><strong>この項目の判断の軸</strong><p><strong>方向を決める話</strong>、<strong>組織を作る話</strong>、<strong>ITによる変化の話</strong>を混ぜないことが基本です。まず三つのどれを問われているかを決め、その中で用語の違いを見ます。</p></section>
-    <section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問6・問30</p><p>令和7年度　問3・問15・問29</p><p>令和6年度　問28・問29</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p></section>
+    <section class="refs">
+      <h2>参照した公開問題</h2>
+      <div class="ref-row"><span class="ref-year">令和8年度</span><a class="question-pill" href="../../questions/06/">問6</a><a class="question-pill" href="../../questions/30/">問30</a></div>
+      <div class="ref-row"><span class="ref-year">令和7年度</span><a class="question-pill" href="../../questions/r07-03/">問3</a><a class="question-pill" href="../../questions/r07-15/">問15</a><a class="question-pill" href="../../questions/r07-29/">問29</a></div>
+      <div class="ref-row"><span class="ref-year">令和6年度</span><a class="question-pill" href="../../questions/r06-28/">問28</a><a class="question-pill" href="../../questions/r06-29/">問29</a></div>
+      <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
+    </section>
   </article></div>
 </main>
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
