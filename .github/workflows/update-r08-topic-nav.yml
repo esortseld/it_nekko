@@ -1,0 +1,95 @@
+name: Update R08 topic navigation
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-r08-topic-nav.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-navigation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update navigation on R08 item-card destination pages
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          repo = Path('.')
+          index_path = repo / 'past-questions' / 'r08' / 'index.html'
+          html = index_path.read_text(encoding='utf-8')
+
+          hrefs = re.findall(
+              r'<a\b[^>]*class="[^"]*\bitem-card\b[^"]*"[^>]*href="\.\./\.\./(topics/[^"]+)/"',
+              html,
+              flags=re.I,
+          )
+          if not hrefs:
+              # Attribute order fallback: extract item-card tags, then href.
+              tags = re.findall(r'<a\b[^>]*\bitem-card\b[^>]*>', html, flags=re.I)
+              for tag in tags:
+                  m = re.search(r'href="\.\./\.\./(topics/[^"]+)/"', tag, flags=re.I)
+                  if m:
+                      hrefs.append(m.group(1))
+
+          targets = []
+          for href in hrefs:
+              p = repo / href / 'index.html'
+              if p.exists() and p not in targets:
+                  targets.append(p)
+
+          if not targets:
+              raise SystemExit('No R08 item-card destination pages found.')
+
+          nav = (
+              '<nav class="site-nav" aria-label="主要ページ">'
+              '<a href="https://esortseld.github.io/it_nekko/">ITネッコ</a>'
+              '<a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a>'
+              '<a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a>'
+              '<a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a>'
+              '</nav>'
+          )
+
+          changed = []
+          for path in targets:
+              src = path.read_text(encoding='utf-8')
+              dst, count = re.subn(
+                  r'<nav\s+class="site-nav"[^>]*>.*?</nav>',
+                  nav,
+                  src,
+                  count=1,
+                  flags=re.I | re.S,
+              )
+              if count != 1:
+                  raise SystemExit(f'Navigation block not found exactly once: {path}')
+              if dst != src:
+                  path.write_text(dst, encoding='utf-8')
+                  changed.append(path.as_posix())
+
+          print(f'Target pages: {len(targets)}')
+          print(f'Changed pages: {len(changed)}')
+          for p in changed:
+              print(p)
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add topics/
+          git commit -m "Update R08 topic page navigation"
+          git push origin main
