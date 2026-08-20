@@ -24,9 +24,15 @@
     .field-name:hover{text-decoration:underline}
     .field-description{margin:0;line-height:1.65}
 
+    .approach-intro{margin:0 0 1rem;line-height:1.75}
+    .approach-list{display:grid;gap:.7rem}
+    .approach-row{display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:1rem;align-items:start;padding:.85rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fcfbf9}
+    .approach-name{font-weight:700}
+    .approach-description{margin:0;line-height:1.65}
+
     @media(max-width:720px){
       .quick-grid,.past-question-grid{grid-template-columns:1fr}
-      .field-row{grid-template-columns:1fr;gap:.45rem}
+      .field-row,.approach-row{grid-template-columns:1fr;gap:.45rem}
       .field-name{width:100%;box-sizing:border-box}
       .field-description{padding:0 .15rem .2rem}
     }
@@ -82,6 +88,22 @@
               <a class="quick-link" href="past-questions/r08/"><strong>令和8年度</strong></a>
               <a class="quick-link" href="past-questions/r07/"><strong>令和7年度</strong></a>
               <a class="quick-link" href="past-questions/r06/"><strong>令和6年度</strong></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="home-route-grid">
+          <div class="home-route-card">
+            <h2>問題ごとに、考え始める場所を変える</h2>
+            <p class="approach-intro">公開問題は、すべて同じ考え方で解くものではありません。知識として知っている必要があるものもあれば、用語の意味や関係を理解すれば導けるもの、条件を整理して判断するものもあります。ITネッコの問題別ページでは、まずその問題でどこから考え始めればよいかを示してから、必要な知識や考え方を整理します。</p>
+            <div class="approach-list">
+              <div class="approach-row"><div class="approach-name">知識確認</div><p class="approach-description">法令上の定義や制度、用語など、まず知っていることが必要な問題。</p></div>
+              <div class="approach-row"><div class="approach-name">概念理解</div><p class="approach-description">用語の意味や役割、関係を理解すると、答えまでたどり着ける問題。</p></div>
+              <div class="approach-row"><div class="approach-name">比較・識別</div><p class="approach-description">似た用語や仕組みの違いを整理して、どれに当てはまるかを見分ける問題。</p></div>
+              <div class="approach-row"><div class="approach-name">条件判断</div><p class="approach-description">問題文に示された条件を順に確認し、当てはまる結論を導く問題。</p></div>
+              <div class="approach-row"><div class="approach-name">計算・適用</div><p class="approach-description">数値やルール、式を使って、求める結果を出す問題。</p></div>
             </div>
           </div>
         </div>
