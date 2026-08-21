@@ -4,19 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>項目1 経営・組織論 | ITネッコ</title>
-  <meta name="description" content="令和6・7・8年度の公開問題から、企業理念とMVV、組織の形、ITによる企業・社会の変化という三つのテーマで経営・組織論を整理します。">
+  <meta name="description" content="令和6・7・8年度の公開問題から、企業理念とMVV、組織の形、ITによる変化を、出来事から仕組みを読み解く形で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .item-map{--accent:#7f6f58;--soft:#f6f1e9}
-    .item-map .overview,.item-map .scene-card{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .item-map .overview h2,.item-map .scene-card h2{margin:0 0 .7rem;font-size:1.15rem}
-    .item-map .overview p{margin-bottom:0}
-    .item-map .scene-card{position:relative;padding-left:4rem}
-    .item-map .scene-no{position:absolute;top:1.05rem;left:1.05rem;display:flex;align-items:center;justify-content:center;width:2.15rem;height:2.15rem;border-radius:50%;background:var(--soft);font-weight:700;color:var(--accent)}
-    .item-map .scene-lead{margin:.1rem 0 .8rem;font-weight:700}
+    .item-map{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29}
+    .item-map .overview,.item-map .case-card,.item-map .knowledge-card{margin:0 0 1.1rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .item-map .overview h2,.item-map .case-card h2,.item-map .knowledge-card h2{margin:0 0 .7rem;font-size:1.18rem}
+    .item-map .overview p:last-child,.item-map .case-card p:last-child,.item-map .knowledge-card p:last-child{margin-bottom:0}
+    .item-map .case-card{position:relative;padding-top:1.4rem}
+    .item-map .case-label{display:inline-block;margin:0 0 .55rem;padding:.28rem .62rem;border-radius:999px;background:var(--soft);font-size:.76rem;font-weight:800;color:var(--accent);letter-spacing:.04em}
+    .item-map .scene{margin:.85rem 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--paper)}
+    .item-map .scene strong{display:block;margin-bottom:.35rem}
+    .item-map .clue-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:.9rem 0}
+    .item-map .clue{padding:.85rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
+    .item-map .clue small{display:block;margin-bottom:.25rem;font-weight:800;color:var(--accent)}
+    .item-map .reveal{margin-top:.9rem;padding:.9rem 1rem;border-radius:12px;background:var(--soft)}
+    .item-map .reveal strong{display:block;margin-bottom:.3rem}
     .item-map .compare{display:grid;grid-template-columns:minmax(9rem,.8fr) minmax(0,1fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
     .item-map .compare div{padding:.65rem .75rem;background:#fff}.item-map .compare .head{font-weight:700;background:var(--soft)}
-    .item-map .summary{margin-top:1.2rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
+    .item-map .trail{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;margin:.9rem 0}
+    .item-map .trail-step{padding:.85rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
+    .item-map .trail-arrow{font-weight:800;color:var(--accent)}
+    .item-map .summary{margin-top:1.25rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
     .item-map .summary p{margin-bottom:0}
     .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
     .item-map .refs p{margin:.55rem 0}
@@ -24,7 +33,7 @@
     .item-map .ref-year{min-width:6.7rem;font-weight:700}
     .item-map .question-pill{display:inline-flex;align-items:center;justify-content:center;width:4.5rem;height:2.35rem;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap;transition:background .15s ease,transform .15s ease}
     .item-map .question-pill:hover{background:var(--soft);transform:translateY(-1px)}
-    @media(max-width:700px){.item-map .scene-card{padding:3.7rem 1rem 1rem}.item-map .scene-no{top:1rem;left:1rem}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
+    @media(max-width:760px){.item-map .clue-grid{grid-template-columns:1fr}.item-map .trail{grid-template-columns:1fr}.item-map .trail-arrow{transform:rotate(90deg);justify-self:center}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
   </style>
 </head>
 <body class="item-map">
@@ -32,34 +41,86 @@
 <main>
   <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目1</p><h1>項目1 経営・組織論</h1></div></section>
   <div class="container page-flow"><article>
-    <section class="overview"><h2>この項目で扱う三つのテーマ</h2><p>経営・組織論では、<strong>企業が何を土台にどこを目指すのか</strong>、<strong>仕事や人をどう組織するのか</strong>、<strong>ITの進展によって企業活動や社会がどう変わるのか</strong>を扱います。</p></section>
 
-    <section class="scene-card">
-      <span class="scene-no">1</span>
-      <h2>企業の土台と方向</h2>
-      <p class="scene-lead">企業理念とMVVは、企業活動の土台や目指す方向を表す。</p>
-      <p><strong>企業理念</strong>は、企業活動の土台となる価値観や基本的な考え方です。</p>
-      <p>MVVでは、<strong>ミッション</strong>は「企業がなぜ存在するのか」という存在意義、<strong>ビジョン</strong>は「将来どのような姿を目指すのか」というありたい姿、<strong>バリュー</strong>は「そのために何を大切にして行動するのか」という判断・行動の基準を表します。</p>
-      <p>三つは同じ役割の言葉ではなく、<strong>存在意義・将来像・行動基準</strong>という異なる役割をもっています。</p>
+    <section class="overview">
+      <h2>会社を見ても、仕組みはすぐには見えない</h2>
+      <p>会社には理念があり、部署があり、ITも使われています。けれど、名前を知っているだけでは、その会社が<strong>何を大切にし、どう人を配置し、何を変えようとしているのか</strong>までは分かりません。ここでは、表に見える出来事から、その裏にある仕組みをたどります。</p>
     </section>
 
-    <section class="scene-card">
-      <span class="scene-no">2</span>
-      <h2>企業の組織の形</h2>
-      <p class="scene-lead">組織形態は、仕事や人を何の単位でまとめ、権限や責任をどう持たせるかによって異なる。</p>
-      <div class="compare"><div class="head">組織形態</div><div class="head">まとまり方・特徴</div><div>職能別・機能別組織</div><div>人事・開発・生産・販売など、専門機能ごとにまとめる。</div><div>事業部制組織</div><div>製品・市場・地域などの事業単位に必要な機能を持たせる。</div><div>カンパニー制</div><div>事業単位で分ける点は事業部制に近いが、各カンパニーにより大きな権限と責任を持たせ、独立採算で運営する。</div><div>マトリックス組織</div><div>機能と事業など複数の軸を重ね、複数の指揮系統をもつ。</div><div>プロジェクト組織</div><div>特定の目的のために部門横断で人を集める。</div></div>
-      <p>組織形態の違いは、名称だけではなく、<strong>何を単位に人や仕事をまとめるか</strong>、<strong>どこまで権限・責任・独立性を持たせるか</strong>という構造の違いとして整理できます。</p>
+    <section class="case-card">
+      <span class="case-label">CASE 1　会社が三つの文章を掲げている</span>
+      <h2>同じ「会社の考え方」なのに、内容が違う</h2>
+      <div class="scene">
+        <strong>ある会社のWebサイトに、三つの文章が並んでいる。</strong>
+        <p>一つは「私たちは何のために存在する会社なのか」。もう一つは「将来どんな会社になりたいのか」。そして最後は「社員が仕事をするとき、何を大切にするのか」。どれも会社の方針に見えるが、話していることは同じではありません。</p>
+      </div>
+      <div class="clue-grid">
+        <div class="clue"><small>手掛かり 1</small><strong>なぜ存在するのか</strong><br>会社の存在意義について話している。</div>
+        <div class="clue"><small>手掛かり 2</small><strong>どこへ向かうのか</strong><br>将来のありたい姿について話している。</div>
+        <div class="clue"><small>手掛かり 3</small><strong>どう行動するのか</strong><br>判断や行動の基準について話している。</div>
+      </div>
+      <div class="reveal">
+        <strong>ここで名前を付ける。</strong>
+        <p><strong>Mission</strong>は存在意義、<strong>Vision</strong>は将来像、<strong>Value</strong>は行動基準。この三つに分けて企業の考え方を示す形が<strong>MVV</strong>です。</p>
+        <p><strong>企業理念</strong>は、企業活動の根本にある価値観や基本的な考え方を表します。企業によって表し方はさまざまで、その内容をMission・Vision・Valueという役割に分けて示す形の一つがMVVです。</p>
+      </div>
     </section>
 
-    <section class="scene-card">
-      <span class="scene-no">3</span>
-      <h2>ITによる企業活動と社会の変化</h2>
-      <p class="scene-lead">ITの進展は、作業の効率化だけでなく、企業活動や社会の仕組みそのものにも影響する。</p>
-      <p><strong>DX</strong>は、単に紙や作業をデジタル化することではありません。デジタル技術やデータを使って、業務、製品・サービス、ビジネスや生活のあり方そのものを変えていくことです。</p>
-      <p>データの活用は企業の内部だけに限らず、社会全体にも広がります。AIや自動化も、従来人が行っていた作業の一部を置き換えるだけでなく、仕事の進め方や役割分担を変える要因になります。</p>
+    <section class="case-card">
+      <span class="case-label">CASE 2　人事担当者の所属先を追う</span>
+      <h2>部署名ではなく、「誰が何をまとめて担当しているか」を見る</h2>
+      <div class="scene">
+        <strong>人事担当のBさんは、一つの事業だけを担当しているわけではない。</strong>
+        <p>複数の事業について人事を担当している。開発、生産、販売も同じように、それぞれ専門の組織が複数事業を担当している。ここで重要なのは、「人事部という名前があること」ではなく、<strong>仕事を何の単位でまとめているか</strong>です。</p>
+      </div>
+      <div class="trail" aria-label="組織を読む流れ">
+        <div class="trail-step">登場する仕事を見る<br>人事・開発・生産・販売</div>
+        <div class="trail-arrow">→</div>
+        <div class="trail-step">誰がどこまで担当するかを見る<br>複数事業を横断</div>
+        <div class="trail-arrow">→</div>
+        <div class="trail-step">まとまりの軸が見える<br>専門機能ごと</div>
+      </div>
+      <div class="reveal"><strong>この構造には「機能別組織・職能別組織」という名前が付く。</strong><p>逆に、製品・市場・地域などの<strong>事業ごとに人事・開発・販売などを一式持たせる</strong>なら、まとまりの軸は機能ではなく事業になります。</p></div>
+      <div class="compare">
+        <div class="head">構造</div><div class="head">中で起きていること</div>
+        <div>機能別・職能別組織</div><div>同じ専門機能を一つに集め、複数の事業を横断して担当する。</div>
+        <div>事業部制組織</div><div>事業ごとに、必要な機能を一式持たせる。</div>
+        <div>カンパニー制</div><div>事業単位で分けたうえで、さらに大きな権限と採算責任を持たせる。</div>
+        <div>マトリックス組織</div><div>機能と事業など、二つ以上の軸を重ねる。</div>
+        <div>プロジェクト組織</div><div>特定の目的のために、必要な人を部門横断で集める。</div>
+      </div>
     </section>
 
-    <section class="summary"><strong>この項目の全体像</strong><p><strong>企業理念・MVV</strong>は企業活動の土台や方向を示し、<strong>組織形態</strong>はその活動を行うための人や仕事の配置を示します。さらに、<strong>ITの進展</strong>は企業活動の方法や社会の仕組みに変化をもたらします。経営・組織論では、この三つをそれぞれ別の役割をもつテーマとして整理します。</p></section>
+    <section class="case-card">
+      <span class="case-label">CASE 3　紙をなくした会社</span>
+      <h2>デジタル化した。それだけでDXなのか</h2>
+      <div class="scene">
+        <strong>会社が申請書を紙から電子ファイルに変えた。</strong>
+        <p>確かにデジタル技術は使っています。しかし、承認の順番も、担当者の仕事も、顧客に提供する価値も何も変わっていないなら、起きたのはまず「情報のデジタル化」です。</p>
+      </div>
+      <div class="trail" aria-label="デジタル変化を読む流れ">
+        <div class="trail-step">紙や情報を<br>デジタルにする</div>
+        <div class="trail-arrow">→</div>
+        <div class="trail-step">仕事の進め方や<br>仕組みが変わる</div>
+        <div class="trail-arrow">→</div>
+        <div class="trail-step">事業・生活・価値の<br>生み方まで変わる</div>
+      </div>
+      <div class="reveal"><strong>DXを見るときは、「ITを使ったか」ではなく「何が変わったか」を追う。</strong><p><strong>DX（デジタルトランスフォーメーション）</strong>は、デジタル技術やデータの活用によって、業務だけでなく製品・サービス、ビジネス、生活のあり方まで変えていく考え方です。</p></div>
+    </section>
+
+    <section class="knowledge-card">
+      <h2>三つの事件に共通していたこと</h2>
+      <p>最初から用語を当てにいく必要はありません。</p>
+      <div class="clue-grid">
+        <div class="clue"><small>企業の考え方</small><strong>その文章は何を語っているか</strong><br>存在意義なのか、将来像なのか、行動基準なのか。</div>
+        <div class="clue"><small>組織</small><strong>人や仕事を何でまとめているか</strong><br>機能なのか、事業なのか、複数の軸なのか。</div>
+        <div class="clue"><small>ITによる変化</small><strong>技術を入れた結果、何が変わったか</strong><br>情報だけか、仕事か、事業や社会までか。</div>
+      </div>
+      <p>まず出来事の構造を読む。そのあとで、<strong>Mission・Vision・Value、機能別組織、事業部制、DX</strong>といった名前を付ける。これがこの項目で残しておきたい考え方です。</p>
+    </section>
+
+    <section class="summary"><strong>この項目の学習地図</strong><p><strong>会社は何を大切にしているのか</strong>、<strong>人と仕事をどう配置しているのか</strong>、<strong>ITによって何が変わったのか</strong>。経営・組織論では、名称を先に覚えるより、この三つの構造を読めるようにしてから用語を結び付けます。</p></section>
+
     <section class="refs">
       <h2>参照した公開問題</h2>
       <div class="ref-row"><span class="ref-year">令和8年度</span><a class="question-pill" href="../../questions/06/">問6</a><a class="question-pill" href="../../questions/30/">問30</a></div>
