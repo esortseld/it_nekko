@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>ストラテジ系 | 1 企業と法務 | 1 企業活動 | 2 業務分析・データ利活用 | ITネッコ</title>
-  <meta name="description" content="令和6・7・8年度の公開問題から、業務分析・データ利活用を、出来事から着目点・構造・用語へたどる形で整理します。">
+  <meta name="description" content="令和6・7・8年度の公開問題から、業務分析・データ利活用を、出来事から疑問・手掛かり・構造・用語へたどる形で整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .item-map{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29}
@@ -14,42 +14,38 @@
     .item-map .topic-sep{color:#9a9186}
     .item-map .hero-inner h1{margin-top:.2rem}
     .item-map .hero-item-no{display:inline-block;margin-right:.28rem;color:var(--accent)}
-    .item-map .overview,.item-map .map-card,.item-map .case-card,.item-map .knowledge-card{margin:0 0 1.1rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .item-map .overview h2,.item-map .map-card h2,.item-map .case-card h2,.item-map .knowledge-card h2{margin:0 0 .7rem;font-size:1.18rem}
-    .item-map .overview p:last-child,.item-map .map-card p:last-child,.item-map .case-card p:last-child,.item-map .knowledge-card p:last-child{margin-bottom:0}
-    .item-map .case-card{position:relative;padding-top:1.4rem}
+    .item-map .overview,.item-map .case-card,.item-map .map-card,.item-map .knowledge-card{margin:0 0 1.1rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .item-map .overview h2,.item-map .case-card h2,.item-map .map-card h2,.item-map .knowledge-card h2{margin:0 0 .7rem;font-size:1.18rem}
+    .item-map .overview p:last-child,.item-map .case-card p:last-child,.item-map .map-card p:last-child,.item-map .knowledge-card p:last-child{margin-bottom:0}
     .item-map .case-label{display:inline-block;margin:0 0 .55rem;padding:.28rem .62rem;border-radius:999px;background:var(--soft);font-size:.76rem;font-weight:800;color:var(--accent);letter-spacing:.04em}
     .item-map .scene{margin:.85rem 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--paper)}
     .item-map .scene strong{display:block;margin-bottom:.35rem}
-    .item-map .clue-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:.9rem 0}
-    .item-map .clue{padding:.85rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
-    .item-map .clue small{display:block;margin-bottom:.25rem;font-weight:800;color:var(--accent)}
-    .item-map .journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.55rem;margin:.9rem 0}
-    .item-map .journey-step{position:relative;padding:.9rem .8rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
-    .item-map .journey-step span{display:block;margin-bottom:.25rem;font-size:.72rem;color:var(--accent)}
+    .item-map .question{margin:.85rem 0;padding:.9rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff;font-weight:700}
+    .item-map .clue-list{display:grid;gap:.65rem;margin:.9rem 0}
+    .item-map .clue{padding:.85rem .95rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
+    .item-map .clue small{display:block;margin-bottom:.22rem;font-weight:800;color:var(--accent)}
+    .item-map .reveal{margin-top:.9rem;padding:.95rem 1rem;border-radius:12px;background:var(--soft)}
+    .item-map .reveal strong{display:block;margin-bottom:.3rem}
     .item-map .trail{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;margin:.9rem 0}
     .item-map .trail-step{padding:.85rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
     .item-map .trail-arrow{font-weight:800;color:var(--accent)}
-    .item-map .reveal{margin-top:.9rem;padding:.9rem 1rem;border-radius:12px;background:var(--soft)}
-    .item-map .reveal strong{display:block;margin-bottom:.3rem}
+    .item-map .journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.55rem;margin:.9rem 0}
+    .item-map .journey-step{padding:.9rem .8rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
+    .item-map .journey-step span{display:block;margin-bottom:.25rem;font-size:.72rem;color:var(--accent)}
     .item-map .compare{display:grid;grid-template-columns:minmax(9rem,.8fr) minmax(0,1fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
     .item-map .compare div{padding:.65rem .75rem;background:#fff}
     .item-map .compare .head{font-weight:700;background:var(--soft)}
-    .item-map .subscene{margin-top:.85rem;padding:.9rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
-    .item-map .subscene strong{display:block;margin-bottom:.25rem}
     .item-map .summary{margin-top:1.25rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
     .item-map .summary p{margin-bottom:0}
     .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
     .item-map .refs p{margin:.55rem 0}
     .item-map .ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin:.6rem 0}
     .item-map .ref-year{min-width:6.7rem;font-weight:700}
-    .item-map .question-pill{display:inline-flex;align-items:center;justify-content:center;width:4.5rem;height:2.35rem;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap;transition:background .15s ease,transform .15s ease}
-    .item-map .question-pill:hover{background:var(--soft);transform:translateY(-1px)}
+    .item-map .question-pill{display:inline-flex;align-items:center;justify-content:center;width:4.5rem;height:2.35rem;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap}
     .item-map .back-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
     .item-map .back-links a{display:inline-flex;padding:.7rem .9rem;border:1px solid var(--accent);border-radius:999px;color:inherit;text-decoration:none;font-weight:700;background:#fff}
-    .item-map .back-links a:hover{background:var(--soft)}
     @media(max-width:900px){.item-map .journey{grid-template-columns:1fr 1fr}.item-map .journey-step:last-child{grid-column:1/-1}}
-    @media(max-width:760px){.item-map .topic-path{align-items:flex-start}.item-map .clue-grid,.item-map .journey{grid-template-columns:1fr}.item-map .journey-step:last-child{grid-column:auto}.item-map .trail{grid-template-columns:1fr}.item-map .trail-arrow{transform:rotate(90deg);justify-self:center}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
+    @media(max-width:760px){.item-map .topic-path{align-items:flex-start}.item-map .journey{grid-template-columns:1fr}.item-map .journey-step:last-child{grid-column:auto}.item-map .trail{grid-template-columns:1fr}.item-map .trail-arrow{transform:rotate(90deg);justify-self:center}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
   </style>
 </head>
 <body class="item-map">
@@ -59,145 +55,96 @@
   <div class="container page-flow"><article>
 
     <section class="overview">
-      <h2>業務では、「データを見る」前にも後にも判断がある</h2>
-      <p>困りごとが起きたとき、いきなり分析手法を選ぶわけではありません。まず何を知りたいのかを決め、人やデータから材料を集め、使える状態に整え、関係や特徴を読み、最後に判断へつなげます。<strong>手法名は、この流れのどこで何をしているのかが分かった後に付いてくる名前</strong>です。</p>
+      <h2>同じ「データを使う話」に見えても、起きていることは違う</h2>
+      <p>人に意見を聞く。大量のデータを集める。二つの数値を比べる。表を見て案を選ぶ。どれも業務分析・データ利活用の話ですが、確認すべきことは同じではありません。ここでは、まず出来事の中にある疑問を追い、最後にそれぞれの手法や用語へ名前を付けます。</p>
+    </section>
+
+    <section class="case-card">
+      <span class="case-label">CASE 1</span>
+      <h2>どちらも意見を集めているのに、なぜやり方が逆なのか</h2>
+      <div class="scene"><strong>同じ会社で、二つの場面があった。</strong><p>新しい企画では、参加者が次々と案を出し、他人の案からさらに発想を広げている。別の将来予測では、複数の専門家へ何度も質問し、前回までの回答傾向も知らせながら意見を集めている。</p></div>
+      <div class="question">どちらも「人から意見を集める」方法なのに、なぜ片方は広げ、もう片方は何度も聞き直すのだろう。</div>
+      <div class="clue-list">
+        <div class="clue"><small>手掛かり1</small><strong>最初の場面では、まだ一つに決めたくない。</strong><br>評価や選別を後回しにし、案の量と幅を増やすことが目的になっている。</div>
+        <div class="clue"><small>手掛かり2</small><strong>もう一方では、ばらばらな判断を近づけたい。</strong><br>専門家の回答を反復し、フィードバックを使って意見を少しずつ収束させている。</div>
+      </div>
+      <div class="reveal"><strong>ここで名前を付ける。</strong><p>案を広げる方法が<strong>ブレーンストーミング</strong>、専門家への反復質問で判断を収束させる方法が<strong>デルファイ法</strong>です。同じ「意見を集める」でも、<strong>広げるのか、近づけるのか</strong>という目的が違います。</p></div>
+    </section>
+
+    <section class="case-card">
+      <span class="case-label">CASE 2</span>
+      <h2>データは大量にある。それなのに、なぜまだ使えないのか</h2>
+      <div class="scene"><strong>機械学習のためのデータを十分に集めた。</strong><p>ところが、中身を見ると目的に合わない記録が混ざり、出所が分からないものもある。特定の種類だけ少なく、教師あり学習に使うには、何を正解として扱うかもデータだけでは分からない。</p></div>
+      <div class="question">量が足りているなら、そのまま分析や学習に使ってよいのではないか。</div>
+      <div class="clue-list">
+        <div class="clue"><small>手掛かり1</small><strong>量と「使えるかどうか」は別の話。</strong><br>目的に合わないデータや、由来が不明なデータは、数が多くても判断材料としての信頼性が低い。</div>
+        <div class="clue"><small>手掛かり2</small><strong>分析の前に、整える作業がある。</strong><br>欠損、偏り、表記の違いなどを確認し、目的に使える状態へ直していく。</div>
+        <div class="clue"><small>手掛かり3</small><strong>教師あり学習では、意味も付ける。</strong><br>入力データに対して、何を正解として扱うかを対応付ける必要がある。</div>
+      </div>
+      <div class="reveal"><strong>広い考え方と具体的な作業を分ける。</strong><p><strong>データ品質</strong>は、目的に使えるデータかを見る性質の話です。欠損・偏り・表記などを整える処理が<strong>前処理</strong>、データにラベルや正解情報を付ける作業が<strong>アノテーション</strong>です。これらは同じ階層の言葉ではなく、「使えるデータにする」という流れの中で役割が違います。</p></div>
+    </section>
+
+    <section class="case-card">
+      <span class="case-label">CASE 3</span>
+      <h2>大量のデータの話なのか、それを扱う人の話なのか</h2>
+      <div class="scene"><strong>購買履歴、センサログ、文章、画像が大量に蓄積され、しかも次々に増えている。</strong><p>その一方で、統計や機械学習を使って、そこから傾向や規則性を読み、業務上の課題や意思決定へつなげる担当者もいる。</p></div>
+      <div class="question">この二つはセットで登場しやすいが、同じ種類の概念なのだろうか。</div>
+      <div class="clue-list">
+        <div class="clue"><small>手掛かり1</small><strong>一方は「対象」の特徴。</strong><br>量が多い、速く発生・更新する、形式や内容が多様である、といったデータ側の性質を見る。</div>
+        <div class="clue"><small>手掛かり2</small><strong>もう一方は「人の役割」。</strong><br>データを分析し、意味を読み、課題解決や意思決定につなげる仕事を担う。</div>
+      </div>
+      <div class="reveal"><strong>対象と役割は別の階層。</strong><p>量・速さ・多様性などの性質をもつデータ群が<strong>ビッグデータ</strong>、それを分析して意味を読み取り、意思決定へつなげる役割が<strong>データサイエンティスト</strong>です。</p></div>
+    </section>
+
+    <section class="case-card">
+      <span class="case-label">CASE 4</span>
+      <h2>二つの値が一緒に動く。それだけで原因まで分かるのか</h2>
+      <div class="scene"><strong>気温が高い日に、ある商品の販売量も増える傾向が見つかった。</strong><p>担当者は、まず二つの値に関係があるかを知りたい。さらに、予想気温から今後の販売量も見積もりたい。</p></div>
+      <div class="question">「一緒に動く」「予測できる」「原因である」は、同じことなのだろうか。</div>
+      <div class="trail" aria-label="関係から予測へ進む流れ"><div class="trail-step">一緒に動くか<br>を見る</div><div class="trail-arrow">→</div><div class="trail-step">一方から他方を<br>推定する</div><div class="trail-arrow">→</div><div class="trail-step">原因と結果かは<br>別に確かめる</div></div>
+      <div class="reveal"><strong>三つの問いを分ける。</strong><p>二つの変数がどの程度一緒に変化するかを見るのが<strong>相関</strong>、一方の変数を使って他方を推定する関係を作るのが<strong>回帰分析</strong>です。相関が見えても、それだけで<strong>因果関係</strong>が確認できたことにはなりません。</p></div>
+    </section>
+
+    <section class="case-card">
+      <span class="case-label">CASE 5</span>
+      <h2>一番良い案を選びたいのに、なぜ「最悪」を見るのか</h2>
+      <div class="scene"><strong>複数の投資案があり、将来の市場がどうなるかは分からない。</strong><p>しかも、それぞれの状態が起きる確率も与えられていない。担当者は、各案について最も不利な結果を確認し、その中で一番ましな案を選ぼうとしている。</p></div>
+      <div class="question">良い案を選ぶなら、最大の利益を見る方が自然に思える。それなのに、なぜ最悪の結果を基準にするのか。</div>
+      <div class="clue-list">
+        <div class="clue"><small>手掛かり1</small><strong>将来の状態も、その確率も分からない。</strong><br>平均的な結果を計算する材料がない。</div>
+        <div class="clue"><small>手掛かり2</small><strong>判断者が重視しているのは「最悪でもどこまで耐えられるか」。</strong><br>各案の最悪値を基準にして、その最悪値が最も良い案を選んでいる。</div>
+      </div>
+      <div class="reveal"><strong>これは分析手法ではなく、選び方のルール。</strong><p>この判断基準が<strong>マキシミン</strong>です。表の計算方法を覚えるより、<strong>不確実な条件で何を重視して選んでいるか</strong>を見ると構造が分かります。</p></div>
+    </section>
+
+    <section class="case-card">
+      <span class="case-label">CASE 6</span>
+      <h2>必要な量が分かっているのに、なぜそのまま発注しないのか</h2>
+      <div class="scene"><strong>次の補充までに必要な量は分かっている。</strong><p>ただし、需要が少し増えても困らないよう余裕を持ちたい。一方で、倉庫には在庫があり、既に注文済みでこれから届く分もある。</p></div>
+      <div class="question">「必要な量」をそのまま注文すると、何を二重に数えてしまうのだろう。</div>
+      <div class="trail" aria-label="在庫発注量の構造"><div class="trail-step">これから必要な量と<br>余裕を足す</div><div class="trail-arrow">→</div><div class="trail-step">手元と入荷予定を<br>確認する</div><div class="trail-arrow">→</div><div class="trail-step">既に確保した量を<br>差し引く</div></div>
+      <div class="reveal"><strong>必要量と、確保済みの量を分ける。</strong><p>需要変動に備える余裕が<strong>安全在庫</strong>、注文済みで未入荷の数量が<strong>発注残</strong>です。数量を決める問題では、何を足し、何を既に確保済みとして引くのかを読みます。</p></div>
     </section>
 
     <section class="map-card">
-      <h2>項目全体の学習地図</h2>
+      <h2>ここまでの事件を、一つの流れに戻す</h2>
+      <p>ばらばらに見えた六つの出来事は、業務で判断材料を作り、使う流れのどこかに置けます。</p>
       <div class="journey" aria-label="業務分析・データ利活用の流れ">
         <div class="journey-step"><span>1</span>材料を集める<br>人の意見・データ</div>
-        <div class="journey-step"><span>2</span>使える状態にする<br>出所・偏り・意味付け</div>
+        <div class="journey-step"><span>2</span>使える状態にする<br>品質・前処理・意味付け</div>
         <div class="journey-step"><span>3</span>関係や特徴を読む<br>相関・データの性質</div>
         <div class="journey-step"><span>4</span>予測や分析へ進む<br>回帰・データ分析</div>
         <div class="journey-step"><span>5</span>判断へ変える<br>選択・数量決定</div>
       </div>
-      <p>公開問題では、この流れの一部分だけが切り出されます。そこで、問題ごとに用語を覚えるのではなく、<strong>その出来事が流れのどこにあるのか</strong>を戻せるようにします。</p>
-    </section>
-
-    <section class="case-card">
-      <span class="case-label">CASE 1　人から判断材料を集める</span>
-      <h2>意見を集める目的が違えば、進め方も逆になる</h2>
-      <div class="scene">
-        <strong>新しい企画では、まだ答えを絞りたくない。</strong>
-        <p>参加者から多くの案を出してもらい、他人の案にも乗りながら発想を広げたい。一方、将来予測では、複数の専門家へ繰り返し質問し、回答傾向を返しながら判断を少しずつまとめたい。</p>
-      </div>
-      <div class="clue-grid">
-        <div class="clue"><small>企画の初期</small><strong>広げる</strong><br>評価や選別を後回しにして、案の量と幅を増やす。</div>
-        <div class="clue"><small>予測の場面</small><strong>収束させる</strong><br>専門家の判断を反復し、フィードバックを使って近づける。</div>
-        <div class="clue"><small>見る軸</small><strong>発散か、収束か</strong><br>同じ「意見を集める」でも目的が反対なら手法も変わる。</div>
-      </div>
-      <div class="reveal"><strong>ここで名前を付ける。</strong><p>案を広げる方法が<strong>ブレーンストーミング</strong>、専門家への反復質問で判断を収束させる方法が<strong>デルファイ法</strong>です。どちらも「人から情報を得る方法」ですが、<strong>使う段階と向かう方向が違う</strong>ため、単純な同類語ではありません。</p></div>
-    </section>
-
-    <section class="case-card">
-      <span class="case-label">CASE 2　集めたデータを、使える状態にする</span>
-      <h2>「データがある」と「分析に使える」は別の話</h2>
-      <div class="scene">
-        <strong>機械学習のために大量のデータを集めた。</strong>
-        <p>ところが、目的に合わない記録が混ざり、出所が分からないものもあり、特定の種類だけ少ない。教師あり学習に使うなら、入力データに何を正解として扱うかも対応付ける必要があります。</p>
-      </div>
-      <div class="clue-grid">
-        <div class="clue"><small>目的</small><strong>何を学習・分析したいか</strong><br>目的に合わないデータは、量が多くても役に立たない。</div>
-        <div class="clue"><small>由来</small><strong>どこから、どう作られたか</strong><br>出所や作成過程を見ると、誤りや偏りの入り方が分かる。</div>
-        <div class="clue"><small>準備</small><strong>不足や意味付けをどう補うか</strong><br>偏りを小さくしたり、学習用の正解情報を付けたりする。</div>
-      </div>
-      <div class="reveal"><strong>ここでは、広い考え方と具体的な作業を分ける。</strong><p><strong>データ品質</strong>は、目的に使えるデータかを見る性質の話です。欠損・偏り・表記などを整える処理は<strong>前処理</strong>。その中で、データにラベルや正解情報を付ける作業が<strong>アノテーション</strong>です。また、少ないパターンを補うためにデータを増やすなどの処理は、偏りを抑えるための具体策です。</p></div>
-    </section>
-
-    <section class="case-card">
-      <span class="case-label">CASE 3　データの特徴を読み、分析する人の役割を見る</span>
-      <h2>「どんなデータか」と「誰が何をするか」を混ぜない</h2>
-      <div class="scene">
-        <strong>購買履歴、センサログ、文章、画像が大量に蓄積され、しかも次々に増えている。</strong>
-        <p>そのデータから傾向や規則性を読み、業務上の課題や意思決定へつなげる担当者もいる。ここには、データ側の特徴と、人の役割という二つの話があります。</p>
-      </div>
-      <div class="clue-grid">
-        <div class="clue"><small>量</small><strong>どれだけ多いか</strong><br>蓄積されるデータ量を見る。</div>
-        <div class="clue"><small>速さ</small><strong>どれだけ速く発生・更新するか</strong><br>時間的な性質を見る。</div>
-        <div class="clue"><small>多様性</small><strong>どれだけ種類が違うか</strong><br>形式や内容の広がりを見る。</div>
-      </div>
-      <div class="reveal"><strong>対象と役割は別の階層。</strong><p>量・速さ・多様性などの性質をもつデータ群を<strong>ビッグデータ</strong>として捉えます。一方、統計や機械学習などを使ってデータから意味を読み、課題解決や意思決定につなげる役割が<strong>データサイエンティスト</strong>です。「ビッグデータ」はデータ側、「データサイエンティスト」は人の役割です。</p></div>
-    </section>
-
-    <section class="case-card">
-      <span class="case-label">CASE 4　二つの値の関係から、予測へ進む</span>
-      <h2>一緒に動くことが分かっても、まだ予測は終わっていない</h2>
-      <div class="scene">
-        <strong>気温が高い日に、ある商品の販売量も増える傾向が見えている。</strong>
-        <p>担当者が知りたいのは、二つの値に関係があるかだけではありません。予想気温を使って、今後の販売量まで見積もりたいと考えています。</p>
-      </div>
-      <div class="trail" aria-label="相関から回帰へ進む流れ">
-        <div class="trail-step">二つの値が<br>一緒に動くかを見る</div>
-        <div class="trail-arrow">→</div>
-        <div class="trail-step">説明に使う側と<br>予測される側を分ける</div>
-        <div class="trail-arrow">→</div>
-        <div class="trail-step">一方から他方を<br>推定する関係を作る</div>
-      </div>
-      <div class="reveal"><strong>「関係を見る」と「予測する」は別の段階。</strong><p>二つの変数がどの程度一緒に変化するかを見るのが<strong>相関</strong>、一方の変数を使って他方を推定する関係を作るのが<strong>回帰分析</strong>です。さらに、相関が見えても<strong>因果関係</strong>が確認できたことにはなりません。ここは「関係の有無・強さ」「予測」「原因と結果」という別の問いです。</p></div>
-    </section>
-
-    <section class="case-card">
-      <span class="case-label">CASE 5　分析した情報を、実際の判断へ変える</span>
-      <h2>同じ「意思決定」でも、決めるものによって構造が違う</h2>
-      <div class="scene">
-        <strong>ある場面では投資案を一つ選び、別の場面では発注数量を決める。</strong>
-        <p>どちらも最終的には判断ですが、前者は「どの案を選ぶか」、後者は「いくつ必要か」を決めています。ここを一つの計算問題としてまとめないことが重要です。</p>
-      </div>
-
-      <div class="subscene">
-        <strong>案を選ぶ：何を重視するかを先に決める</strong>
-        <p>市場が好転するか悪化するか分からず、確率も与えられていない。そこで各案の最も不利な結果を見て、その中で一番ましな案を選ぶ。</p>
-        <div class="trail" aria-label="マキシミンの構造">
-          <div class="trail-step">各案の<br>最悪結果を見る</div><div class="trail-arrow">→</div>
-          <div class="trail-step">案ごとに<br>基準値を一つにする</div><div class="trail-arrow">→</div>
-          <div class="trail-step">その基準値が<br>最も良い案を選ぶ</div>
-        </div>
-        <p>この判断基準が<strong>マキシミン</strong>です。これは分析手法ではなく、<strong>不確実な条件で何を重視して選ぶか</strong>という意思決定ルールです。</p>
-      </div>
-
-      <div class="subscene">
-        <strong>数量を決める：必要量と確保済みの量を分ける</strong>
-        <p>在庫では、次の補充までに必要な量と、需要のずれに備える余裕を足します。一方、手元の在庫や、既に注文済みでこれから入る分は、既に確保している量として差し引きます。</p>
-        <div class="trail" aria-label="在庫発注量の構造">
-          <div class="trail-step">これから必要な量と<br>余裕を足す</div><div class="trail-arrow">→</div>
-          <div class="trail-step">手元と入荷予定を<br>確認する</div><div class="trail-arrow">→</div>
-          <div class="trail-step">確保済みの量を<br>差し引く</div>
-        </div>
-        <p>需要変動に備える余裕が<strong>安全在庫</strong>、注文済みで未入荷の数量が<strong>発注残</strong>です。ここでは「選択基準」ではなく、<strong>数量を決めるための関係</strong>を読んでいます。</p>
-      </div>
+      <p><strong>最初にこの地図を覚える必要はありません。</strong>個々の出来事で「何をしているのか」を追ったあとに戻すと、手法名がばらばらな暗記項目ではなく、業務の流れのどこにある知識なのかが見えてきます。</p>
     </section>
 
     <section class="knowledge-card">
-      <h2>必要な用語・概念を、役割ごとに置き直す</h2>
-      <div class="compare">
-        <div class="head">役割</div><div class="head">用語・概念</div>
-        <div>材料を広げる</div><div>ブレーンストーミング</div>
-        <div>専門家の判断を収束させる</div><div>デルファイ法</div>
-        <div>データを使える状態にする</div><div>データ品質、前処理、アノテーション</div>
-        <div>データ自体の特徴を捉える</div><div>ビッグデータ（量・速さ・多様性）</div>
-        <div>データを分析し意思決定へつなぐ</div><div>データサイエンティスト</div>
-        <div>二つの値の関係を見る</div><div>相関</div>
-        <div>一方から他方を予測する</div><div>回帰分析</div>
-        <div>原因と結果を考える</div><div>因果関係</div>
-        <div>不確実な条件で案を選ぶ</div><div>マキシミン</div>
-        <div>在庫数量を決める</div><div>安全在庫、発注残</div>
-      </div>
+      <h2>用語を、役割で置き直す</h2>
+      <div class="compare"><div class="head">何をしているか</div><div class="head">用語・概念</div><div>案を広げる</div><div>ブレーンストーミング</div><div>専門家の判断を収束させる</div><div>デルファイ法</div><div>データが目的に使えるかを見る</div><div>データ品質</div><div>分析前にデータを整える</div><div>前処理</div><div>データに意味・正解情報を付ける</div><div>アノテーション</div><div>大量・高速・多様なデータを捉える</div><div>ビッグデータ</div><div>データを分析し意思決定へつなぐ</div><div>データサイエンティスト</div><div>二つの値の関係を見る</div><div>相関</div><div>一方から他方を予測する</div><div>回帰分析</div><div>原因と結果を考える</div><div>因果関係</div><div>不確実な条件で案を選ぶ</div><div>マキシミン</div><div>需要変動への余裕を持つ</div><div>安全在庫</div><div>注文済みで未入荷の量を捉える</div><div>発注残</div></div>
     </section>
 
-    <section class="knowledge-card">
-      <h2>別の問題でも、まずここを見る</h2>
-      <div class="clue-grid">
-        <div class="clue"><small>人の意見が出てきたら</small><strong>広げたいのか、まとめたいのか</strong><br>意見の「集め方」ではなく、集めた後にどちらへ向かうかを見る。</div>
-        <div class="clue"><small>データが出てきたら</small><strong>そもそも使える状態か</strong><br>目的、出所、偏り、欠損、意味付けを先に見る。</div>
-        <div class="clue"><small>二つの値が出てきたら</small><strong>関係・予測・因果のどれを聞いているか</strong><br>似た話でも、知りたいことの階層が違う。</div>
-        <div class="clue"><small>大量データが出てきたら</small><strong>データの性質か、人の役割か</strong><br>対象と、それを扱う人を分ける。</div>
-        <div class="clue"><small>表から案を選ぶなら</small><strong>何を重視する基準か</strong><br>数値を比較する前に、判断ルールを見る。</div>
-        <div class="clue"><small>数量を決めるなら</small><strong>必要な量と、既に確保した量は何か</strong><br>条件を「足すもの」「引くもの」に分ける。</div>
-      </div>
-    </section>
-
-    <section class="summary"><strong>この項目で残す読み方</strong><p><strong>目的 → 材料 → データの状態 → 関係・特徴 → 予測・分析 → 判断</strong>の順で戻ります。用語名を先に当てるのではなく、「いま何をしようとしているのか」を確定してから、その構造に付いている名前へ結び付けます。</p></section>
+    <section class="summary"><strong>別の問題でも残す読み方</strong><p>人の意見が出てきたら<strong>広げたいのか、まとめたいのか</strong>。データが出てきたら<strong>そもそも使える状態か</strong>。二つの値が出てきたら<strong>関係・予測・因果のどれを聞いているか</strong>。表から案を選ぶなら<strong>何を重視する判断基準か</strong>。数量を決めるなら<strong>必要な量と既に確保した量は何か</strong>を見る。用語名は、その構造を読んだあとに付いてきます。</p></section>
 
     <section class="refs">
       <h2>参照した公開問題</h2>
