@@ -25,6 +25,22 @@
     .item-map .trail{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;margin:.9rem 0}
     .item-map .trail-step{padding:.85rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
     .item-map .trail-arrow{font-weight:800;color:var(--accent)}
+    .item-map .org-figure{margin:1rem 0 1.05rem}
+    .item-map .org-figure figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.6;color:#625a50}
+    .item-map .org-diagram-placeholder{padding:1rem;border:1px dashed #b7aa97;border-radius:14px;background:#fbf9f5}
+    .item-map .org-diagram-title{margin:0 0 .8rem;font-weight:800;text-align:center}
+    .item-map .org-diagram-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+    .item-map .org-diagram-panel{padding:.85rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
+    .item-map .org-diagram-panel h3{margin:0 0 .25rem;font-size:1rem}
+    .item-map .org-diagram-note{margin:0 0 .65rem;font-size:.82rem;color:#6e655a}
+    .item-map .org-function-row{display:grid;grid-template-columns:5.2rem 1fr;gap:.5rem;align-items:center;margin:.45rem 0}
+    .item-map .org-function{padding:.45rem .5rem;border-radius:8px;background:var(--soft);font-weight:700;text-align:center}
+    .item-map .org-businesses{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem}
+    .item-map .org-business{padding:.42rem .25rem;border:1px solid #ddd4c7;border-radius:8px;text-align:center;font-size:.84rem}
+    .item-map .org-division-list{display:grid;gap:.55rem}
+    .item-map .org-division{padding:.6rem;border:1px solid #ddd4c7;border-radius:9px;background:#fff}
+    .item-map .org-division strong{display:block;margin-bottom:.3rem}
+    .item-map .org-mini-functions{font-size:.82rem;line-height:1.55;color:#5f574d}
     .item-map .summary{margin-top:1.25rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
     .item-map .summary p{margin-bottom:0}
     .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
@@ -33,7 +49,7 @@
     .item-map .ref-year{min-width:6.7rem;font-weight:700}
     .item-map .question-pill{display:inline-flex;align-items:center;justify-content:center;width:4.5rem;height:2.35rem;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap;transition:background .15s ease,transform .15s ease}
     .item-map .question-pill:hover{background:var(--soft);transform:translateY(-1px)}
-    @media(max-width:760px){.item-map .clue-grid{grid-template-columns:1fr}.item-map .trail{grid-template-columns:1fr}.item-map .trail-arrow{transform:rotate(90deg);justify-self:center}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
+    @media(max-width:760px){.item-map .clue-grid{grid-template-columns:1fr}.item-map .trail{grid-template-columns:1fr}.item-map .trail-arrow{transform:rotate(90deg);justify-self:center}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .org-diagram-grid{grid-template-columns:1fr}.item-map .org-function-row{grid-template-columns:1fr}.item-map .org-businesses{grid-template-columns:repeat(3,1fr)}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
   </style>
 </head>
 <body class="item-map">
@@ -68,19 +84,46 @@
 
     <section class="case-card">
       <span class="case-label">CASE 2　人事担当者の所属先を追う</span>
-      <h2>部署名ではなく、「誰が何をまとめて担当しているか」を見る</h2>
+      <h2>組織が「何を単位に人をまとめているか」を見る</h2>
       <div class="scene">
-        <strong>Bさんの会社には、複数の事業がある。けれど、人事組織は事業ごとには分かれていない。</strong>
-        <p>Bさんが所属する人事組織は、ある一つの事業だけを担当するのではなく、会社の複数事業の人事をまとめて担当している。開発、生産、販売も同じで、それぞれの専門組織が複数の事業を横断して担当する。つまり、この会社は<strong>事業ごとに人事・開発・生産・販売を一式そろえるのではなく、人事、開発、生産、販売という仕事の種類ごとに人をまとめている</strong>。</p>
+        <strong>Bさんの会社には複数の事業がある。</strong>
+        <p>Bさんが所属する人事組織は、一つの事業だけを担当するのではなく、複数の事業の人事をまとめて担当している。開発、生産、販売も同じように、それぞれの専門組織が複数事業を担当している。</p>
       </div>
+
+      <figure class="org-figure" id="organization-diagram">
+        <div class="org-diagram-placeholder" data-replace-with-image="organization-structure-comparison">
+          <p class="org-diagram-title">図で見ると、違いは「どこでひとまとまりにするか」</p>
+          <div class="org-diagram-grid">
+            <section class="org-diagram-panel" aria-label="機能別組織・職能別組織の図">
+              <h3>この会社：機能ごとにまとめる</h3>
+              <p class="org-diagram-note">同じ専門機能が、複数の事業を横断して担当する。</p>
+              <div class="org-function-row"><div class="org-function">人事（Bさん）</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
+              <div class="org-function-row"><div class="org-function">開発</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
+              <div class="org-function-row"><div class="org-function">生産</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
+              <div class="org-function-row"><div class="org-function">販売</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
+            </section>
+            <section class="org-diagram-panel" aria-label="事業部制組織の図">
+              <h3>対比：事業ごとにまとめる</h3>
+              <p class="org-diagram-note">各事業の中に、必要な機能を一式そろえる。</p>
+              <div class="org-division-list">
+                <div class="org-division"><strong>事業A</strong><div class="org-mini-functions">人事 ／ 開発 ／ 生産 ／ 販売</div></div>
+                <div class="org-division"><strong>事業B</strong><div class="org-mini-functions">人事 ／ 開発 ／ 生産 ／ 販売</div></div>
+                <div class="org-division"><strong>事業C</strong><div class="org-mini-functions">人事 ／ 開発 ／ 生産 ／ 販売</div></div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <figcaption>この図は後から画像へ差し替えられるよう、図解部分を <code>#organization-diagram</code> として独立させています。</figcaption>
+      </figure>
+
       <div class="trail" aria-label="組織を読む流れ">
-        <div class="trail-step">登場する仕事を見る<br>人事・開発・生産・販売</div>
+        <div class="trail-step">会社には<br>複数の事業がある</div>
         <div class="trail-arrow">→</div>
-        <div class="trail-step">誰がどこまで担当するかを見る<br>複数事業を横断</div>
+        <div class="trail-step">人事・開発・生産・販売は<br>複数事業を担当する</div>
         <div class="trail-arrow">→</div>
-        <div class="trail-step">まとまりの軸が見える<br>専門機能ごと</div>
+        <div class="trail-step">人をまとめる軸は<br>事業ではなく専門機能</div>
       </div>
-      <div class="reveal"><strong>この構造には「機能別組織・職能別組織」という名前が付く。</strong><p>逆に、製品・市場・地域などの<strong>事業ごとに人事・開発・販売などを一式持たせる</strong>なら、まとまりの軸は機能ではなく事業になります。</p></div>
+      <div class="reveal"><strong>この構造には「機能別組織・職能別組織」という名前が付く。</strong><p>Bさんが複数事業を担当しているのは、この会社が<strong>事業ごとではなく、人事という専門機能ごとに人をまとめている</strong>からです。逆に、事業ごとに人事・開発・生産・販売などを一式持たせるなら、まとまりの軸は事業になります。</p></div>
       <div class="compare">
         <div class="head">構造</div><div class="head">中で起きていること</div>
         <div>機能別・職能別組織</div><div>同じ専門機能を一つに集め、複数の事業を横断して担当する。</div>
