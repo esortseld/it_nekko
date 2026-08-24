@@ -4,175 +4,216 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>項目1 経営・組織論 | ITネッコ</title>
-  <meta name="description" content="令和6・7・8年度の公開問題から、企業理念とMVV、組織の形、ITによる変化を、出来事から仕組みを読み解く形で整理します。">
+  <meta name="description" content="令和6・7・8年度の公開問題を手掛かりに、企業理念とMVV、経営資源、経営管理、組織、ITによる変化を、会社が動いていく順序に沿って整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .item-map{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29}
-    .item-map .overview,.item-map .case-card,.item-map .knowledge-card{margin:0 0 1.1rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .item-map .overview h2,.item-map .case-card h2,.item-map .knowledge-card h2{margin:0 0 .7rem;font-size:1.18rem}
-    .item-map .overview p:last-child,.item-map .case-card p:last-child,.item-map .knowledge-card p:last-child{margin-bottom:0}
-    .item-map .case-card{position:relative;padding-top:1.4rem}
-    .item-map .case-label{display:inline-block;margin:0 0 .55rem;padding:.28rem .62rem;border-radius:999px;background:var(--soft);font-size:.76rem;font-weight:800;color:var(--accent);letter-spacing:.04em}
-    .item-map .scene{margin:.85rem 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--paper)}
-    .item-map .scene strong{display:block;margin-bottom:.35rem}
-    .item-map .clue-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:.9rem 0}
-    .item-map .clue{padding:.85rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
-    .item-map .clue small{display:block;margin-bottom:.25rem;font-weight:800;color:var(--accent)}
-    .item-map .reveal{margin-top:.9rem;padding:.9rem 1rem;border-radius:12px;background:var(--soft)}
-    .item-map .reveal strong{display:block;margin-bottom:.3rem}
-    .item-map .compare{display:grid;grid-template-columns:minmax(9rem,.8fr) minmax(0,1fr);gap:1px;margin-top:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;overflow:hidden;background:var(--color-border,#d9d3c8)}
-    .item-map .compare div{padding:.65rem .75rem;background:#fff}.item-map .compare .head{font-weight:700;background:var(--soft)}
-    .item-map .trail{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;margin:.9rem 0}
-    .item-map .trail-step{padding:.85rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
-    .item-map .trail-arrow{font-weight:800;color:var(--accent)}
-    .item-map .org-figure{margin:1rem 0 1.05rem}
-    .item-map .org-figure figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.6;color:#625a50}
-    .item-map .org-diagram-placeholder{padding:1rem;border:1px dashed #b7aa97;border-radius:14px;background:#fbf9f5}
-    .item-map .org-diagram-title{margin:0 0 .8rem;font-weight:800;text-align:center}
-    .item-map .org-diagram-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
-    .item-map .org-diagram-panel{padding:.85rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
-    .item-map .org-diagram-panel h3{margin:0 0 .25rem;font-size:1rem}
-    .item-map .org-diagram-note{margin:0 0 .65rem;font-size:.82rem;color:#6e655a}
-    .item-map .org-function-row{display:grid;grid-template-columns:5.2rem 1fr;gap:.5rem;align-items:center;margin:.45rem 0}
-    .item-map .org-function{padding:.45rem .5rem;border-radius:8px;background:var(--soft);font-weight:700;text-align:center}
-    .item-map .org-businesses{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem}
-    .item-map .org-business{padding:.42rem .25rem;border:1px solid #ddd4c7;border-radius:8px;text-align:center;font-size:.84rem}
-    .item-map .org-division-list{display:grid;gap:.55rem}
-    .item-map .org-division{padding:.6rem;border:1px solid #ddd4c7;border-radius:9px;background:#fff}
-    .item-map .org-division strong{display:block;margin-bottom:.3rem}
-    .item-map .org-mini-functions{font-size:.82rem;line-height:1.55;color:#5f574d}
-    .item-map .summary{margin-top:1.25rem;padding:1.05rem;border-left:5px solid var(--accent);border-radius:0 14px 14px 0;background:var(--soft)}
-    .item-map .summary p{margin-bottom:0}
-    .item-map .refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .item-map .refs p{margin:.55rem 0}
-    .item-map .ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin:.6rem 0}
-    .item-map .ref-year{min-width:6.7rem;font-weight:700}
-    .item-map .question-pill{display:inline-flex;align-items:center;justify-content:center;width:4.5rem;height:2.35rem;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap;transition:background .15s ease,transform .15s ease}
-    .item-map .question-pill:hover{background:var(--soft);transform:translateY(-1px)}
-    @media(max-width:760px){.item-map .clue-grid{grid-template-columns:1fr}.item-map .trail{grid-template-columns:1fr}.item-map .trail-arrow{transform:rotate(90deg);justify-self:center}.item-map .compare{grid-template-columns:1fr}.item-map .compare .head:nth-child(2){display:none}.item-map .org-diagram-grid{grid-template-columns:1fr}.item-map .org-function-row{grid-template-columns:1fr}.item-map .org-businesses{grid-template-columns:repeat(3,1fr)}.item-map .ref-row{align-items:flex-start}.item-map .ref-year{width:100%;min-width:0}}
+    .story-page{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29;--muted:#6c6257}
+    .story-shell{max-width:900px}
+    .story-lead{margin:0 0 2rem;padding:0 .15rem}
+    .story-lead h2{margin:0 0 .8rem;font-size:1.55rem;line-height:1.45}
+    .story-lead p{margin:.55rem 0;font-size:1.02rem;line-height:1.95}
+    .story-lead .lead-close{margin-top:1rem;font-weight:700}
+    .chapter{margin:0 0 1.4rem;padding:1.35rem 1.4rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .chapter-no{display:block;margin-bottom:.35rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;color:var(--accent)}
+    .chapter h2{margin:0 0 .85rem;font-size:1.28rem;line-height:1.55}
+    .chapter h3{margin:1.15rem 0 .45rem;font-size:1.03rem}
+    .chapter p{margin:.55rem 0;line-height:1.85}
+    .turn{margin:1rem 0 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft)}
+    .turn strong{display:block;margin-bottom:.3rem}
+    .term-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+    .term{padding:.9rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:var(--paper)}
+    .term small{display:block;margin-bottom:.2rem;color:var(--accent);font-weight:800}
+    .term strong{display:block;margin-bottom:.25rem}
+    .term p{margin:0;font-size:.92rem;line-height:1.65}
+    .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:.45rem;align-items:center;margin:1rem 0}
+    .flow-step{padding:.8rem .7rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
+    .flow-arrow{color:var(--accent);font-weight:800}
+    .axis-box{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+    .axis{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--paper)}
+    .axis h3{margin:0 0 .45rem;font-size:1rem}
+    .axis p{margin:.35rem 0;font-size:.92rem;line-height:1.7}
+    .org-list{display:grid;gap:.55rem;margin-top:.8rem}
+    .org-item{display:grid;grid-template-columns:10rem 1fr;gap:.75rem;padding:.75rem .85rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .org-item:first-child{border-top:0}
+    .org-item strong{font-size:.93rem}
+    .org-item span{font-size:.92rem;line-height:1.65}
+    .resource-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem;margin:1rem 0}
+    .resource{padding:.75rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700}
+    .reading-point{margin:1rem 0;padding:1rem;border:1px dashed #b7aa97;border-radius:14px;background:#fbf9f5}
+    .reading-point strong{display:block;margin-bottom:.3rem}
+    .closing{margin:1.7rem 0 0;padding:1.25rem 1.35rem;border-radius:18px;background:var(--soft)}
+    .closing h2{margin:0 0 .7rem;font-size:1.2rem}
+    .closing p{margin:.5rem 0;line-height:1.85}
+    .refs{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .refs h2{font-size:1.18rem}
+    .ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin:.6rem 0}
+    .ref-year{min-width:6.7rem;font-weight:700}
+    .question-pill{display:inline-flex;align-items:center;justify-content:center;width:4.5rem;height:2.35rem;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap;transition:background .15s ease,transform .15s ease}
+    .question-pill:hover{background:var(--soft);transform:translateY(-1px)}
+    @media(max-width:760px){
+      .story-lead h2{font-size:1.35rem}.chapter{padding:1.15rem}.term-grid,.axis-box,.resource-row{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);justify-self:center}.org-item{grid-template-columns:1fr;gap:.2rem}.ref-row{align-items:flex-start}.ref-year{width:100%;min-width:0}
+    }
   </style>
 </head>
-<body class="item-map">
-<header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="https://esortseld.github.io/it_nekko/">ITネッコ</a><a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a><a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a><a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a></nav></div></header>
+<body class="story-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../">ITネッコ</a>
+    <nav class="site-nav" aria-label="主要ページ">
+      <a href="https://esortseld.github.io/it_nekko/">ITネッコ</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-  <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目1</p><h1>項目1 経営・組織論</h1></div></section>
-  <div class="container page-flow"><article>
+  <section class="page-hero">
+    <div class="container hero-inner">
+      <p class="site-kicker">ストラテジ系 / 項目1</p>
+      <h1>項目1 経営・組織論</h1>
+    </div>
+  </section>
 
-    <section class="overview">
-      <h2>会社を見ても、仕組みはすぐには見えない</h2>
-      <p>会社には理念があり、部署があり、ITも使われています。けれど、名前を知っているだけでは、その会社が<strong>何を大切にし、どう人を配置し、何を変えようとしているのか</strong>までは分かりません。ここでは、表に見える出来事から、その裏にある仕組みをたどります。</p>
-    </section>
+  <div class="container page-flow story-shell">
+    <article>
+      <section class="story-lead">
+        <h2>会社は、ただ仕事を分けて動いているわけではない</h2>
+        <p>会社をつくれば、まず人を集めて部署を置けばよい。そう考えると、経営や組織の話はずいぶん単純に見えます。</p>
+        <p>けれど実際には、その前に決めることがあります。何のためにこの会社があるのか。どこへ向かうのか。そのために、人やお金や情報をどう使うのか。仕事をどこで分け、誰にどこまで任せるのか。</p>
+        <p>動き始めたあとも終わりではありません。思ったとおりに進んでいるかを確かめ、必要ならやり方を変える。さらにITが入れば、仕事の手順だけでなく、事業そのものや社会の仕組みまで変わることがあります。</p>
+        <p class="lead-close">経営・組織論では、こうした会社の動きを、ばらばらの用語ではなく一つの流れとして見ていきます。</p>
+      </section>
 
-    <section class="case-card">
-      <span class="case-label">CASE 1　会社が三つの文章を掲げている</span>
-      <h2>同じ「会社の考え方」なのに、内容が違う</h2>
-      <div class="scene">
-        <strong>ある会社のWebサイトに、三つの文章が並んでいる。</strong>
-        <p>一つは「私たちは何のために存在する会社なのか」。もう一つは「将来どんな会社になりたいのか」。そして最後は「社員が仕事をするとき、何を大切にするのか」。どれも会社の方針に見えるが、話していることは同じではありません。</p>
-      </div>
-      <div class="clue-grid">
-        <div class="clue"><small>手掛かり 1</small><strong>なぜ存在するのか</strong><br>会社の存在意義について話している。</div>
-        <div class="clue"><small>手掛かり 2</small><strong>どこへ向かうのか</strong><br>将来のありたい姿について話している。</div>
-        <div class="clue"><small>手掛かり 3</small><strong>どう行動するのか</strong><br>判断や行動の基準について話している。</div>
-      </div>
-      <div class="reveal">
-        <strong>ここで名前を付ける。</strong>
-        <p><strong>Mission</strong>は存在意義、<strong>Vision</strong>は将来像、<strong>Value</strong>は行動基準。この三つに分けて企業の考え方を示す形が<strong>MVV</strong>です。</p>
-        <p><strong>企業理念</strong>は、企業活動の根本にある価値観や基本的な考え方を表します。企業によって表し方はさまざまで、その内容をMission・Vision・Valueという役割に分けて示す形の一つがMVVです。</p>
-      </div>
-    </section>
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 1</span>
+        <h2>最初に決めるのは、「この会社は何をする場所なのか」</h2>
+        <p>会社が何を目指すのかが決まっていなければ、人を集めても、部署をつくっても、どちらへ進めばよいのか分かりません。</p>
+        <p>そこで最初に置かれるのが、企業活動の土台となる考え方です。企業理念は、その会社が大切にする価値観や基本的な考え方を表します。そして、その内容を役割ごとに分けて示す方法の一つがMVVです。</p>
 
-    <section class="case-card">
-      <span class="case-label">CASE 2　人事担当者の所属先を追う</span>
-      <h2>組織が「何を単位に人をまとめているか」を見る</h2>
-      <div class="scene">
-        <strong>Bさんの会社には複数の事業がある。</strong>
-        <p>Bさんが所属する人事組織は、一つの事業だけを担当するのではなく、複数の事業の人事をまとめて担当している。開発、生産、販売も同じように、それぞれの専門組織が複数事業を担当している。</p>
-      </div>
+        <div class="term-grid">
+          <div class="term"><small>MISSION</small><strong>なぜ存在するのか</strong><p>会社の存在意義や使命を示す。</p></div>
+          <div class="term"><small>VISION</small><strong>どこを目指すのか</strong><p>将来、どのような姿になりたいのかを示す。</p></div>
+          <div class="term"><small>VALUE</small><strong>どう行動するのか</strong><p>判断や行動で大切にする価値観を示す。</p></div>
+        </div>
 
-      <figure class="org-figure" id="organization-diagram">
-        <div class="org-diagram-placeholder" data-replace-with-image="organization-structure-comparison">
-          <p class="org-diagram-title">図で見ると、違いは「どこでひとまとまりにするか」</p>
-          <div class="org-diagram-grid">
-            <section class="org-diagram-panel" aria-label="機能別組織・職能別組織の図">
-              <h3>この会社：機能ごとにまとめる</h3>
-              <p class="org-diagram-note">同じ専門機能が、複数の事業を横断して担当する。</p>
-              <div class="org-function-row"><div class="org-function">人事（Bさん）</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
-              <div class="org-function-row"><div class="org-function">開発</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
-              <div class="org-function-row"><div class="org-function">生産</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
-              <div class="org-function-row"><div class="org-function">販売</div><div class="org-businesses"><div class="org-business">事業A</div><div class="org-business">事業B</div><div class="org-business">事業C</div></div></div>
-            </section>
-            <section class="org-diagram-panel" aria-label="事業部制組織の図">
-              <h3>対比：事業ごとにまとめる</h3>
-              <p class="org-diagram-note">各事業の中に、必要な機能を一式そろえる。</p>
-              <div class="org-division-list">
-                <div class="org-division"><strong>事業A</strong><div class="org-mini-functions">人事 ／ 開発 ／ 生産 ／ 販売</div></div>
-                <div class="org-division"><strong>事業B</strong><div class="org-mini-functions">人事 ／ 開発 ／ 生産 ／ 販売</div></div>
-                <div class="org-division"><strong>事業C</strong><div class="org-mini-functions">人事 ／ 開発 ／ 生産 ／ 販売</div></div>
-              </div>
-            </section>
+        <p>三つは似た言葉ではありません。問いが違います。存在する理由を話しているのか、目指す姿を話しているのか、日々の行動を話しているのか。文章の中で何を答えようとしているかを見れば、役割が分かれます。</p>
+
+        <div class="flow" aria-label="企業経営の流れ">
+          <div class="flow-step">MVV<br>方向を定める</div><div class="flow-arrow">→</div>
+          <div class="flow-step">戦略<br>進み方を決める</div><div class="flow-arrow">→</div>
+          <div class="flow-step">CSF<br>成功の鍵を押さえる</div><div class="flow-arrow">→</div>
+          <div class="flow-step">KPI<br>進み具合を測る</div>
+        </div>
+
+        <div class="turn">
+          <strong>選択肢で横に並んでいても、同じ役割の言葉とは限らない。</strong>
+          <p>MVVは企業そのものの方向を示します。CSFやKPIは、その方向へ進むための戦略を実行・評価する段階で使います。名前を一列に覚えるより、経営のどこで使う言葉なのかを置き直す方が分かりやすくなります。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 2</span>
+        <h2>目指す方向が決まったら、人と仕事を置いていく</h2>
+        <p>会社が実際に動くには、人が必要です。設備や商品も必要です。お金がなければ続きませんし、判断するための情報も欠かせません。</p>
+        <p>こうした、会社が活動するために使うものを経営資源として考えます。</p>
+
+        <div class="resource-row" aria-label="代表的な経営資源">
+          <div class="resource">ヒト</div><div class="resource">モノ</div><div class="resource">カネ</div><div class="resource">情報</div>
+        </div>
+
+        <p>問題は、それをどう置くかです。人事、開発、生産、販売のように、同じ専門の仕事をまとめる方法があります。反対に、製品や地域などの事業ごとに必要な仕事を一式そろえる方法もあります。</p>
+
+        <div class="axis-box">
+          <div class="axis">
+            <h3>専門機能でまとめる</h3>
+            <p>人事は人事、開発は開発というように、同じ種類の仕事を一つの組織に集める。</p>
+            <p><strong>→ 機能別組織・職能別組織</strong></p>
+          </div>
+          <div class="axis">
+            <h3>事業でまとめる</h3>
+            <p>事業A、事業Bという単位ごとに、人事・開発・生産・販売など必要な機能を持たせる。</p>
+            <p><strong>→ 事業部制組織</strong></p>
           </div>
         </div>
-        <figcaption>この図は後から画像へ差し替えられるよう、図解部分を <code>#organization-diagram</code> として独立させています。</figcaption>
-      </figure>
 
-      <div class="trail" aria-label="組織を読む流れ">
-        <div class="trail-step">会社には<br>複数の事業がある</div>
-        <div class="trail-arrow">→</div>
-        <div class="trail-step">人事・開発・生産・販売は<br>複数事業を担当する</div>
-        <div class="trail-arrow">→</div>
-        <div class="trail-step">人をまとめる軸は<br>事業ではなく専門機能</div>
-      </div>
-      <div class="reveal"><strong>この構造には「機能別組織・職能別組織」という名前が付く。</strong><p>Bさんが複数事業を担当しているのは、この会社が<strong>事業ごとではなく、人事という専門機能ごとに人をまとめている</strong>からです。逆に、事業ごとに人事・開発・生産・販売などを一式持たせるなら、まとまりの軸は事業になります。</p></div>
-      <div class="compare">
-        <div class="head">構造</div><div class="head">中で起きていること</div>
-        <div>機能別・職能別組織</div><div>同じ専門機能を一つに集め、複数の事業を横断して担当する。</div>
-        <div>事業部制組織</div><div>事業ごとに、必要な機能を一式持たせる。</div>
-        <div>カンパニー制</div><div>事業単位で分けたうえで、さらに大きな権限と採算責任を持たせる。</div>
-        <div>マトリックス組織</div><div>機能と事業など、二つ以上の軸を重ねる。</div>
-        <div>プロジェクト組織</div><div>特定の目的のために、必要な人を部門横断で集める。</div>
-      </div>
-    </section>
+        <p>さらに、事業単位に大きな権限と採算責任を持たせればカンパニー制になります。機能と事業など二つの軸を重ねればマトリックス組織、特定の目的のために必要な人を集めればプロジェクト組織です。</p>
 
-    <section class="case-card">
-      <span class="case-label">CASE 3　紙をなくした会社</span>
-      <h2>デジタル化した。それだけでDXなのか</h2>
-      <div class="scene">
-        <strong>会社が申請書を紙から電子ファイルに変えた。</strong>
-        <p>確かにデジタル技術は使っています。しかし、承認の順番も、担当者の仕事も、顧客に提供する価値も何も変わっていないなら、起きたのはまず「情報のデジタル化」です。</p>
-      </div>
-      <div class="trail" aria-label="デジタル変化を読む流れ">
-        <div class="trail-step">紙や情報を<br>デジタルにする</div>
-        <div class="trail-arrow">→</div>
-        <div class="trail-step">仕事の進め方や<br>仕組みが変わる</div>
-        <div class="trail-arrow">→</div>
-        <div class="trail-step">事業・生活・価値の<br>生み方まで変わる</div>
-      </div>
-      <div class="reveal"><strong>DXを見るときは、「ITを使ったか」ではなく「何が変わったか」を追う。</strong><p><strong>DX（デジタルトランスフォーメーション）</strong>は、デジタル技術やデータの活用によって、業務だけでなく製品・サービス、ビジネス、生活のあり方まで変えていく考え方です。</p></div>
-    </section>
+        <div class="org-list">
+          <div class="org-item"><strong>機能別・職能別組織</strong><span>同じ専門機能をまとめる。</span></div>
+          <div class="org-item"><strong>事業部制組織</strong><span>事業ごとに必要な機能を持たせる。</span></div>
+          <div class="org-item"><strong>カンパニー制</strong><span>事業単位に大きな権限と採算責任を持たせる。</span></div>
+          <div class="org-item"><strong>マトリックス組織</strong><span>機能と事業など、複数の管理軸を重ねる。</span></div>
+          <div class="org-item"><strong>プロジェクト組織</strong><span>特定の目的のために、部門を越えて人を集める。</span></div>
+        </div>
 
-    <section class="knowledge-card">
-      <h2>三つの事件に共通していたこと</h2>
-      <p>最初から用語を当てにいく必要はありません。</p>
-      <div class="clue-grid">
-        <div class="clue"><small>企業の考え方</small><strong>その文章は何を語っているか</strong><br>存在意義なのか、将来像なのか、行動基準なのか。</div>
-        <div class="clue"><small>組織</small><strong>人や仕事を何でまとめているか</strong><br>機能なのか、事業なのか、複数の軸なのか。</div>
-        <div class="clue"><small>ITによる変化</small><strong>技術を入れた結果、何が変わったか</strong><br>情報だけか、仕事か、事業や社会までか。</div>
-      </div>
-      <p>まず出来事の構造を読む。そのあとで、<strong>Mission・Vision・Value、機能別組織、事業部制、DX</strong>といった名前を付ける。これがこの項目で残しておきたい考え方です。</p>
-    </section>
+        <div class="reading-point">
+          <strong>組織名を当てる前に、「何を単位に人と仕事をまとめたか」を見る。</strong>
+          部署名に「人事」や「営業」と書いてあることより、その部署が一つの事業だけを見るのか、複数の事業を横断するのかの方が重要です。
+        </div>
+      </section>
 
-    <section class="summary"><strong>この項目の学習地図</strong><p><strong>会社は何を大切にしているのか</strong>、<strong>人と仕事をどう配置しているのか</strong>、<strong>ITによって何が変わったのか</strong>。経営・組織論では、名称を先に覚えるより、この三つの構造を読めるようにしてから用語を結び付けます。</p></section>
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 3</span>
+        <h2>組織をつくっただけでは、会社は思いどおりには動かない</h2>
+        <p>計画を立て、人を配置しても、それで予定どおりに進むとは限りません。売上が伸びないかもしれません。人が足りなくなるかもしれません。想定していなかった問題が起きることもあります。</p>
+        <p>そこで必要になるのが経営管理です。目標を決め、実行し、結果を確かめ、必要なら直す。PDCAは、その流れをPlan、Do、Check、Actの四つに分けて捉えます。</p>
 
-    <section class="refs">
-      <h2>参照した公開問題</h2>
-      <div class="ref-row"><span class="ref-year">令和8年度</span><a class="question-pill" href="../../questions/06/">問6</a><a class="question-pill" href="../../questions/30/">問30</a></div>
-      <div class="ref-row"><span class="ref-year">令和7年度</span><a class="question-pill" href="../../questions/r07-03/">問3</a><a class="question-pill" href="../../questions/r07-15/">問15</a><a class="question-pill" href="../../questions/r07-29/">問29</a></div>
-      <div class="ref-row"><span class="ref-year">令和6年度</span><a class="question-pill" href="../../questions/r06-28/">問28</a><a class="question-pill" href="../../questions/r06-29/">問29</a></div>
-      <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
-    </section>
-  </article></div>
+        <div class="flow" aria-label="PDCAの流れ">
+          <div class="flow-step">Plan<br>計画する</div><div class="flow-arrow">→</div>
+          <div class="flow-step">Do<br>実行する</div><div class="flow-arrow">→</div>
+          <div class="flow-step">Check<br>確認する</div><div class="flow-arrow">→</div>
+          <div class="flow-step">Act<br>改善する</div>
+        </div>
+
+        <p>変化が速く、最初から十分な計画を立てにくい場面では、状況を観察し、意味を判断し、決めて動くOODAループという考え方もあります。</p>
+        <div class="turn">
+          <strong>経営管理は、「管理する人の仕事」という意味ではない。</strong>
+          <p>会社が目標へ進み続けるために、資源の使い方や仕事の進み方を見て、必要な修正をする仕組みです。</p>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 4</span>
+        <h2>ITが入ると、変わるのは道具だけとは限らない</h2>
+        <p>紙の申請書を電子ファイルに変える。会議をオンラインにする。データを集めて分析する。どれもITの利用ですが、起きている変化の大きさは同じではありません。</p>
+        <p>情報をデジタルにしただけなのか。仕事の進め方まで変わったのか。製品やサービス、事業のやり方、生活のあり方まで変わったのか。ここを分けて考えると、DXという言葉の位置が見えてきます。</p>
+
+        <div class="flow" aria-label="デジタルによる変化の広がり">
+          <div class="flow-step">情報を<br>デジタルにする</div><div class="flow-arrow">→</div>
+          <div class="flow-step">仕事の<br>やり方が変わる</div><div class="flow-arrow">→</div>
+          <div class="flow-step">事業の<br>仕組みが変わる</div><div class="flow-arrow">→</div>
+          <div class="flow-step">社会や生活の<br>あり方も変わる</div>
+        </div>
+
+        <p>シラバスでは、AIの進化、データ駆動型社会、DX、Society 5.0なども、この「ITの進展によって企業活動や社会がどう変わるか」という流れの中に置かれています。</p>
+        <p>さらに、社会全体でデータを活用するとなれば、企業だけを見ていればよいわけではありません。国や地方公共団体など、誰がどのような役割や義務を負うのかという制度の知識も必要になります。</p>
+
+        <div class="reading-point">
+          <strong>ITの名前ではなく、「その結果、何が変わったか」を追う。</strong>
+          技術を使ったという事実だけで終わらず、仕事、事業、社会のどこまで変化が広がっているのかを見るのが、この分野の読み方です。
+        </div>
+      </section>
+
+      <section class="closing">
+        <h2>こうして見ると、用語は一つの会社の中でつながっている</h2>
+        <p>会社は、まず何のために存在し、どこを目指すのかを決めます。次に、そのために必要な経営資源を集め、人と仕事を組織します。動き始めれば、目標どおり進んでいるかを管理します。そしてITや社会の変化に合わせて、仕事や事業そのものを変えていきます。</p>
+        <p><strong>企業理念・MVV、経営資源、経営管理、組織、DX。</strong> 一つずつ見ると別々の用語ですが、会社が動いていく順番に置くと、それぞれが何のためにあるのかが見えてきます。</p>
+        <p>問題を読むときも、最初から用語を探す必要はありません。いま読んでいるのは、<strong>方向を決める話なのか、人と仕事を置く話なのか、進み方を管理する話なのか、それともITによる変化の話なのか。</strong> まずそこを決めると、覚えた用語を置く場所ができます。</p>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <div class="ref-row"><span class="ref-year">令和8年度</span><a class="question-pill" href="../../questions/06/">問6</a><a class="question-pill" href="../../questions/30/">問30</a></div>
+        <div class="ref-row"><span class="ref-year">令和7年度</span><a class="question-pill" href="../../questions/r07-03/">問3</a><a class="question-pill" href="../../questions/r07-15/">問15</a><a class="question-pill" href="../../questions/r07-29/">問29</a></div>
+        <div class="ref-row"><span class="ref-year">令和6年度</span><a class="question-pill" href="../../questions/r06-28/">問28</a><a class="question-pill" href="../../questions/r06-29/">問29</a></div>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
+      </section>
+    </article>
+  </div>
 </main>
+
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
