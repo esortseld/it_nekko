@@ -1,1 +1,221 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>項目3 会計・財務 | ITネッコ</title><meta name="description" content="令和6・7・8年度の公開問題から、会計・財務で理解すべき利益、原価、財務諸表、投資判断の基礎を整理します。"><link rel="stylesheet" href="../../assets/style.css"><style>.item-map{--accent:#7f6f58;--soft:#f6f1e9}.overview,.scene-card{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}.overview h2,.scene-card h2{margin:0 0 .7rem;font-size:1.15rem}.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.summary{margin-top:1.2rem;padding:1.05rem;border-left:5px solid var(--accent);background:var(--soft);border-radius:0 14px 14px 0}.refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}.refs p{margin:.35rem 0}@media(max-width:700px){.study-grid{grid-template-columns:1fr}}</style></head><body class="item-map"><header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="https://esortseld.github.io/it_nekko/">ITネッコ</a><a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a><a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a><a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a></nav></div></header><main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目3</p><h1>項目3 会計・財務</h1></div></section><div class="container page-flow"><article><section class="overview"><h2>この項目で理解すること</h2><p>会計は、企業活動を金額で記録し、<strong>どれだけ稼いだか</strong>と<strong>どのような財産・負債を持つか</strong>を示します。計算では、数値を式へ入れる前に、売上・費用・利益・資産・負債のどこを見ているのかを分けます。</p></section><div class="study-grid"><section class="scene-card"><h2>売上から利益までの流れ</h2><p>売上高から売上原価を引くと売上総利益、そこから販売費及び一般管理費を引くと営業利益です。製造原価では、製品へ直接対応できる費用と、工場全体にかかる間接費を区別します。</p></section><section class="scene-card"><h2>損益分岐点と収益性</h2><p>固定費は販売量にかかわらず発生し、変動費は販売量に応じて増減します。この違いから、利益がゼロになる損益分岐点や、売上高に対してどれだけ利益を得たかという利益率を考えます。</p></section><section class="scene-card"><h2>貸借対照表は財産の構成を見る</h2><p>貸借対照表は、資産をどのような資金でまかなっているかを示します。資産＝負債＋純資産です。自己資本比率などの指標は、単独の金額ではなく、全体に占める割合として安全性を見ます。</p></section><section class="scene-card"><h2>投資は回収できるかを見る</h2><p>システム投資では、初期投資額と導入後の年間効果・費用を比較します。単純な回収期間なら、投資額を年間の純効果で割って、何年で回収できるかを見ます。投資判断は利益計算とは別の視点です。</p></section></div><section class="summary"><strong>判断の軸</strong><p>まず<strong>一定期間の成績を見る損益</strong>なのか、<strong>一時点の財産状態を見る財務</strong>なのかを分けます。次に、費用の種類、利益の段階、比率の分母・分子を確認します。</p></section><section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問9・問26</p><p>令和7年度　問5・問26・問34</p><p>令和6年度　問8・問20・問30</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p></section></article></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>項目3 会計・財務 | ITネッコ</title>
+  <meta name="description" content="令和6・7・8年度の公開問題を手掛かりに、売上と利益、原価と在庫、財務諸表、収益性や投資判断を、企業のお金の動きを追いながら整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .story-page{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29;--muted:#6c6257}
+    .story-shell{max-width:900px}
+    .story-lead{margin:0 0 2rem;padding:0 .15rem}
+    .story-lead h2{margin:0 0 .8rem;font-size:1.55rem;line-height:1.45}
+    .story-lead p{margin:.55rem 0;font-size:1.02rem;line-height:1.95}
+    .story-lead .lead-close{margin-top:1rem;font-weight:700}
+    .chapter{margin:0 0 1.4rem;padding:1.35rem 1.4rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .chapter-no{display:block;margin-bottom:.35rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;color:var(--accent)}
+    .chapter h2{margin:0 0 .85rem;font-size:1.28rem;line-height:1.55}
+    .chapter h3{margin:1.15rem 0 .45rem;font-size:1.03rem}
+    .chapter p{margin:.55rem 0;line-height:1.85}
+    .term-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+    .term{padding:.9rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:var(--paper)}
+    .term small{display:block;margin-bottom:.2rem;color:var(--accent);font-weight:800}
+    .term strong{display:block;margin-bottom:.25rem}
+    .term p{margin:0;font-size:.92rem;line-height:1.65}
+    .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.45rem;align-items:center;margin:1rem 0}
+    .flow.four{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr}
+    .flow-step{padding:.8rem .7rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
+    .flow-arrow{color:var(--accent);font-weight:800}
+    .axis-box{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+    .axis{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--paper)}
+    .axis h3{margin:0 0 .45rem;font-size:1rem}
+    .axis p{margin:.35rem 0;font-size:.92rem;line-height:1.7}
+    .formula{margin:1rem 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft);font-weight:700;line-height:1.8}
+    .org-list{display:grid;gap:.55rem;margin-top:.8rem}
+    .org-item{display:grid;grid-template-columns:11rem 1fr;gap:.75rem;padding:.75rem .85rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .org-item:first-child{border-top:0}
+    .org-item strong{font-size:.93rem}
+    .org-item span{font-size:.92rem;line-height:1.65}
+    .closing{margin:1.7rem 0 0;padding:1.25rem 1.35rem;border-radius:18px;background:var(--soft)}
+    .closing h2{margin:0 0 .7rem;font-size:1.2rem}
+    .closing p{margin:.5rem 0;line-height:1.85}
+    .refs{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .refs h2{font-size:1.18rem}
+    .ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.7rem;margin:.6rem 0}
+    .ref-year{min-width:6.7rem;font-weight:700}
+    .question-link{color:inherit;text-decoration:underline;text-underline-offset:.18em;font-weight:700}
+    .question-link:hover{text-decoration-thickness:2px}
+    .back-to-year{margin:1.6rem 0 0}
+    @media(max-width:760px){
+      .story-lead h2{font-size:1.35rem}.chapter{padding:1.15rem}.term-grid,.axis-box{grid-template-columns:1fr}.flow,.flow.four{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);justify-self:center}.org-item{grid-template-columns:1fr;gap:.2rem}.ref-row{align-items:flex-start}.ref-year{width:100%;min-width:0}
+    }
+  </style>
+</head>
+<body class="story-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../">ITネッコ</a>
+    <nav class="site-nav" aria-label="主要ページ">
+      <a href="https://esortseld.github.io/it_nekko/">ITネッコ</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-inner">
+      <p class="site-kicker">ストラテジ系 / 項目3</p>
+      <h1>項目3 会計・財務</h1>
+    </div>
+  </section>
+
+  <div class="container page-flow story-shell">
+    <article>
+      <section class="story-lead">
+        <h2>売れた金額だけでは、会社の状態は分からない</h2>
+        <p>商品が売れれば、会社には売上ができます。けれど、売上が大きい会社ほど利益も大きいとは限りません。</p>
+        <p>商品を仕入れたり、つくったりするためのお金がかかります。販売するための費用もかかります。売れずに残った商品もあれば、借りているお金や会社が持っている設備もあります。</p>
+        <p>さらに、新しいシステムへ投資するなら、その支出によって将来どれだけ費用を減らせるのか、何年で取り戻せるのかという見方も必要になります。</p>
+        <p class="lead-close">会計・財務では、会社のお金を一つの数字で見るのではなく、何を知りたいのかに応じて数字の見方を変えていきます。</p>
+      </section>
+
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 1</span>
+        <h2>売上ができても、それがそのまま利益になるわけではない</h2>
+        <p>家電メーカーが冷蔵庫を販売したとします。お客さまから受け取る金額は売上になりますが、その冷蔵庫を用意するまでには費用がかかっています。</p>
+        <p>まず、売れた商品の原価を売上から差し引きます。ここで残るのが<strong>売上総利益</strong>です。さらに、販売や会社の管理にかかった費用を差し引くと、会社の本業から得た<strong>営業利益</strong>が見えてきます。</p>
+
+        <div class="flow" aria-label="売上から営業利益までの流れ">
+          <div class="flow-step">売上高</div><div class="flow-arrow">−</div>
+          <div class="flow-step">売上原価</div><div class="flow-arrow">→</div>
+          <div class="flow-step">売上総利益</div>
+        </div>
+        <div class="flow" aria-label="売上総利益から営業利益までの流れ">
+          <div class="flow-step">売上総利益</div><div class="flow-arrow">−</div>
+          <div class="flow-step">販売費及び<br>一般管理費</div><div class="flow-arrow">→</div>
+          <div class="flow-step">営業利益</div>
+        </div>
+
+        <p>同じ「費用」でも、何のために使ったお金なのかによって置かれる場所が違います。利益の名前が変わるのは、どこまでの費用を差し引いた段階なのかが違うからです。</p>
+
+        <h3>製品をつくる費用にも、分け方がある</h3>
+        <p>冷蔵庫を製造する工場では、特定の製品に直接対応する費用もあれば、工場全体のためにかかる費用もあります。</p>
+        <div class="axis-box">
+          <div class="axis">
+            <h3>特定の製品に直接結び付けられる</h3>
+            <p>その冷蔵庫をつくるために使った材料や、その製品の製造に直接かかった作業など、どの製品のための費用かを追えるものです。</p>
+            <p><strong>→ 直接費</strong></p>
+          </div>
+          <div class="axis">
+            <h3>複数の製品や工場全体にかかる</h3>
+            <p>設備の保守や工場全体を支える作業など、一つの製品だけに直接結び付けにくい費用です。</p>
+            <p><strong>→ 間接費</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 2</span>
+        <h2>売れなかった商品は、費用として消えたわけではない</h2>
+        <p>仕入れた商品が、その期のうちにすべて売れるとは限りません。売れずに残った商品は、期末の<strong>棚卸資産</strong>として会社に残ります。</p>
+        <p>そのため、その期に売れた商品の原価を求めるときは、仕入れた金額をそのまま費用にするのではありません。</p>
+
+        <div class="formula">売上原価 ＝ 期首棚卸高 ＋ 当期仕入高 − 期末棚卸高</div>
+
+        <p>期末に残った商品の金額が大きくなれば、その分だけ当期の売上原価は小さくなります。反対に、期末棚卸高が小さくなれば、売上原価は大きくなります。</p>
+        <p>つまり、在庫の評価は「残っている商品の価値」だけの話ではありません。売上原価を通じて、その期の利益にも関係します。</p>
+
+        <div class="axis-box">
+          <div class="axis">
+            <h3>期末棚卸高が大きい</h3>
+            <p>期末に資産として残る金額が大きくなる。</p>
+            <p><strong>売上原価は小さくなる</strong></p>
+          </div>
+          <div class="axis">
+            <h3>期末棚卸高が小さい</h3>
+            <p>期末に資産として残る金額が小さくなる。</p>
+            <p><strong>売上原価は大きくなる</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 3</span>
+        <h2>利益とは別に、「今、何を持ち、何を負っているか」を見る</h2>
+        <p>ここまで見てきた売上や費用、利益は、一定期間に会社がどのような成績を上げたかという話です。それだけでは、会社が今どれだけの財産を持ち、どれだけ返す必要のあるお金を抱えているのかは分かりません。</p>
+        <p>ある時点で会社が持っているものと、その資金をどこから得たのかを表すのが<strong>貸借対照表</strong>です。</p>
+
+        <div class="term-grid">
+          <div class="term"><small>ASSETS</small><strong>資産</strong><p>現金、商品、設備など、会社が持つ財産。</p></div>
+          <div class="term"><small>LIABILITIES</small><strong>負債</strong><p>借入金など、将来返す必要があるもの。</p></div>
+          <div class="term"><small>NET ASSETS</small><strong>純資産</strong><p>資産のうち、負債を差し引いた会社の正味の部分。</p></div>
+        </div>
+
+        <div class="formula">資産 ＝ 負債 ＋ 純資産</div>
+
+        <p>貸借対照表を見るときは、金額そのものだけでなく、全体に対する割合も使います。たとえば<strong>自己資本比率</strong>は、総資本のうち自己資本がどれだけを占めるかを見る指標です。</p>
+
+        <div class="axis-box">
+          <div class="axis">
+            <h3>損益計算書</h3>
+            <p>一定期間の売上、費用、利益を見る。</p>
+            <p><strong>期間の成績</strong></p>
+          </div>
+          <div class="axis">
+            <h3>貸借対照表</h3>
+            <p>ある時点の資産、負債、純資産を見る。</p>
+            <p><strong>時点の財産状態</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <span class="chapter-no">CHAPTER 4</span>
+        <h2>数字を使って、「このままでよいか」を判断する</h2>
+        <p>会計の数字は、記録して終わりではありません。売上や費用の関係を使えば、どれだけ売れば利益が出るのか、投資したお金を何年で取り戻せるのかといった判断にも使えます。</p>
+
+        <h3>売れる量によって変わる費用と、変わりにくい費用</h3>
+        <p>商品を1台多く売るたびに増える材料費などは<strong>変動費</strong>です。一方、販売量が変わっても一定額発生する家賃などは<strong>固定費</strong>です。</p>
+        <div class="flow four" aria-label="売上と利益の関係">
+          <div class="flow-step">販売量が<br>増える</div><div class="flow-arrow">→</div>
+          <div class="flow-step">売上が<br>増える</div><div class="flow-arrow">→</div>
+          <div class="flow-step">変動費も<br>増える</div><div class="flow-arrow">→</div>
+          <div class="flow-step">固定費を超えた分が<br>利益につながる</div>
+        </div>
+        <p>売上と費用が等しく、利益がゼロになるところが<strong>損益分岐点</strong>です。目標とする利益が決まっているなら、その利益を出すために必要な販売量を逆に考えることもできます。</p>
+
+        <h3>投資したお金は、何年で取り戻せるか</h3>
+        <p>たとえば、新しいシステムを導入するために費用がかかっても、導入後に毎年の運用費が減るなら、その削減額は投資の効果として見ることができます。</p>
+        <div class="formula">回収期間 ＝ 初期投資額 ÷ 1年間の純効果</div>
+        <p>ここで見ているのは、売上から利益を計算することとは別です。最初に出したお金を、導入後の効果によってどれくらいの期間で回収できるかという<strong>投資判断</strong>です。</p>
+      </section>
+
+      <section class="closing">
+        <h2>会計・財務で見てきたこと</h2>
+        <p>会社のお金は、一つの数字だけでは状態を表せません。</p>
+        <p>売上から費用を差し引けば、その期間にどれだけ利益を得たかが見えます。商品が残れば在庫として次の期へ持ち越され、売上原価との関係を通じて利益にも影響します。</p>
+        <p>一方、会社がある時点で何を持ち、何を負っているかは、資産・負債・純資産から見ます。そして、こうして記録された数字を比率や費用の性質と組み合わせれば、収益性や安全性、必要な販売量、投資の回収といった判断にも使えます。</p>
+        <p><strong>利益、在庫、資産・負債、比率、投資回収は、同じ種類の数字ではありません。</strong></p>
+        <p>それぞれが、会社のお金を「一定期間の成績」「期末に残るもの」「ある時点の財産状態」「数字同士の関係」「将来に向けた判断」という別の角度から表しています。</p>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <div class="ref-row"><span class="ref-year">令和8年度</span><span>問9</span><span>問26</span></div>
+        <div class="ref-row"><span class="ref-year">令和7年度</span><span>問5</span><span>問26</span><span>問34</span></div>
+        <div class="ref-row"><span class="ref-year">令和6年度</span><span>問8</span><span>問20</span><span>問30</span></div>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
+      </section>
+
+      <p class="back-to-year"><a href="https://esortseld.github.io/it_nekko/past-questions/r08/">← 令和8年度公開問題へ戻る</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
