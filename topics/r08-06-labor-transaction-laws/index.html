@@ -1,1 +1,169 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>項目6 労働関連・取引関連法規 | ITネッコ</title><meta name="description" content="令和6・7・8年度の公開問題から、労働関連・取引関連法規で理解すべき派遣、請負、指揮命令、成果物と契約責任の基礎を整理します。"><link rel="stylesheet" href="../../assets/style.css"><style>.item-map{--accent:#7f6f58;--soft:#f6f1e9}.overview,.scene-card{margin:0 0 1rem;padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}.overview h2,.scene-card h2{margin:0 0 .7rem;font-size:1.15rem}.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.summary{margin-top:1.2rem;padding:1.05rem;border-left:5px solid var(--accent);background:var(--soft)}.refs{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}.refs p{margin:.35rem 0}@media(max-width:700px){.study-grid{grid-template-columns:1fr}}</style></head><body class="item-map"><header class="site-header"><div class="container header-inner"><a class="brand" href="../../">ITネッコ</a><nav class="site-nav" aria-label="主要ページ"><a href="https://esortseld.github.io/it_nekko/">ITネッコ</a><a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a><a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a><a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a></nav></div></header><main><section class="page-hero"><div class="container hero-inner"><p class="site-kicker">ストラテジ系 / 項目6</p><h1>項目6 労働関連・取引関連法規</h1></div></section><div class="container page-flow"><article><section class="overview"><h2>この項目で理解すること</h2><p>外部の人や会社へ仕事を任せる場面では、<strong>誰と誰が契約しているか</strong>、<strong>誰が作業者へ指揮命令できるか</strong>、<strong>何を完成させる責任を負うか</strong>を分けて考えます。</p></section><div class="study-grid"><section class="scene-card"><h2>労働者派遣</h2><p>派遣労働者と雇用関係にあるのは派遣元です。一方、実際の業務上の指揮命令は派遣先が行います。雇用する者と指揮命令する者が分かれる点が特徴です。</p></section><section class="scene-card"><h2>請負契約</h2><p>請負は、請負人が仕事を完成させ、その結果に対して注文者が報酬を支払う契約です。注文者が請負会社の作業者へ日常的に直接指揮命令する関係とは異なります。</p></section><section class="scene-card"><h2>契約では責任の発生時点を見る</h2><p>プログラム開発などでは、完成、引渡し、代金支払、不具合への対応、契約解除など、出来事ごとに権利義務が異なります。「外注した」という事実だけで結論を出さず、契約類型とその時点の状態を確認します。</p></section></div><section class="summary"><strong>判断の軸</strong><p><strong>雇用関係・指揮命令関係・成果完成責任</strong>の三つを別々に確認します。派遣か請負かを名称だけでなく、実際の関係から見分けます。</p></section><section class="refs"><h2>参照した公開問題</h2><p>令和8年度　問29</p><p>令和7年度　問1</p><p>令和6年度　問32</p><p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p></section></article></div></main><footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>項目6 労働関連・取引関連法規 | ITネッコ</title>
+  <meta name="description" content="令和6・7・8年度の公開問題をもとに、労働者派遣、請負、偽装請負、契約類型と権利義務を、雇用・指揮命令・仕事の完成という関係から理解します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .item-map{--accent:#7f6f58;--soft:#f6f1e9}
+    .lead-box,.chapter,.check-box,.scope-box{margin:0 0 1.15rem;padding:1.2rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .chapter{scroll-margin-top:1rem}
+    .chapter-kicker{margin:0 0 .28rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;color:var(--text-sub,#675f55)}
+    .lead-box h2,.chapter h2,.scope-box h2{margin:0 0 .75rem;font-size:1.18rem;line-height:1.55}
+    .chapter p:last-child,.lead-box p:last-child,.scope-box p:last-child{margin-bottom:0}
+    .relation{display:grid;grid-template-columns:1fr auto 1fr;gap:.7rem;align-items:center;margin:1rem 0;padding:.95rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--soft)}
+    .relation-box{padding:.8rem;border-radius:12px;background:#fff;text-align:center}
+    .relation-arrow{font-weight:700;color:var(--accent)}
+    .contrast{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
+    .contrast-card{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff}
+    .contrast-card h3{margin:0 0 .55rem;font-size:1rem}
+    .signal{margin:1rem 0;padding:1rem;border-left:5px solid var(--accent);background:var(--soft)}
+    .signal strong{display:block;margin-bottom:.35rem}
+    .check-box{background:var(--soft)}
+    .check-box h2{margin:0 0 .65rem;font-size:1.12rem}
+    .check-list{margin:.45rem 0 0;padding-left:1.3rem}
+    .check-list li{margin:.35rem 0}
+    .scope-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin:.8rem 0 0;padding:0;list-style:none}
+    .scope-list li{padding:.8rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:#fff}
+    .refs{margin-top:1.7rem;padding-top:1.1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .refs h2{margin-bottom:.75rem}
+    .refs p{margin:.4rem 0}
+    @media(max-width:700px){.relation{grid-template-columns:1fr}.relation-arrow{transform:rotate(90deg);text-align:center}.contrast,.scope-list{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="item-map">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../">ITネッコ</a>
+    <nav class="site-nav" aria-label="主要ページ">
+      <a href="https://esortseld.github.io/it_nekko/">ITネッコ</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a>
+      <a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="container hero-inner">
+      <p class="site-kicker">ストラテジ系 / 項目6</p>
+      <h1>項目6 労働関連・取引関連法規</h1>
+    </div>
+  </section>
+
+  <div class="container page-flow">
+    <article>
+      <section class="lead-box">
+        <h2>会社の外へ仕事を任せた。では、その人に指示できるのは誰だろう。</h2>
+        <p>外部の会社の人が自社で作業していても、それだけでは「派遣」か「請負」かは分かりません。見るべきなのは勤務場所ではなく、<strong>誰がその人を雇っているか</strong>、<strong>誰が仕事の進め方を指揮命令するか</strong>、そして<strong>契約で何を引き受けているか</strong>です。</p>
+      </section>
+
+      <section class="chapter">
+        <p class="chapter-kicker">Chapter 1</p>
+        <h2>同じ場所で働いていても、契約関係は一つではない</h2>
+        <p>A社がB社へ仕事を任せ、B社の従業員がA社の事業所で作業しているとします。ここで「A社にいるのだからA社の従業員」と考えると、関係を取り違えます。</p>
+        <p>最初に確認するのは、作業者の<strong>雇用主</strong>です。労働者派遣では、作業者を雇用しているのは派遣元であり、派遣先との間に雇用関係が生じるわけではありません。</p>
+        <div class="relation" aria-label="労働者派遣の関係">
+          <div class="relation-box"><strong>派遣元</strong><br>労働者を雇用する</div>
+          <div class="relation-arrow">→ 派遣 →</div>
+          <div class="relation-box"><strong>派遣先</strong><br>業務上の指揮命令をする</div>
+        </div>
+        <p>ここで一つ疑問が残ります。雇っている会社と、実際に仕事を指示する会社が違ってよいのでしょうか。</p>
+      </section>
+
+      <section class="chapter">
+        <p class="chapter-kicker">Chapter 2</p>
+        <h2>派遣では、「雇う会社」と「指示する会社」が分かれる</h2>
+        <p>労働者派遣の特徴は、まさにこの分離にあります。<strong>雇用関係は派遣元</strong>にありながら、<strong>業務上の指揮命令は派遣先</strong>が行います。</p>
+        <p>したがって、誰が給料を支払うかだけを見ても派遣の仕組みはつかめません。雇用と指揮命令を二つの別の関係として見る必要があります。</p>
+        <div class="signal"><strong>ここでの判断材料</strong>「どこで働いているか」ではなく、雇用関係と指揮命令関係を別々に確認する。</div>
+        <p>では、A社がB社と「請負契約」を結んでいた場合はどうでしょう。契約書に請負と書いてあれば、A社がB社の従業員へ直接指示しても請負のままでしょうか。</p>
+      </section>
+
+      <section class="chapter">
+        <p class="chapter-kicker">Chapter 3</p>
+        <h2>契約名が「請負」でも、実態まで請負とは限らない</h2>
+        <p>請負では、注文者が受託会社の作業者一人ひとりを直接動かすのではなく、<strong>請負会社が自ら作業を管理して仕事を完成させる</strong>のが基本です。</p>
+        <div class="contrast">
+          <div class="contrast-card">
+            <h3>労働者派遣</h3>
+            <p>派遣先が、派遣労働者に業務上の指揮命令を行う。</p>
+          </div>
+          <div class="contrast-card">
+            <h3>請負</h3>
+            <p>請負会社が、自社の作業者を指揮して仕事を完成させる。</p>
+          </div>
+        </div>
+        <p>そのため、契約書では請負としていても、注文者が受託会社の従業員へ直接、業務の遂行方法を指揮命令する実態になっていれば、契約名と実態が食い違います。いわゆる<strong>偽装請負</strong>を見分けるときは、この指揮命令関係が重要になります。</p>
+        <p>つまり、「誰が作業者を動かしているのか」が分かれば、派遣と請負の違いはかなり見えてきます。しかし、請負についてはまだ一つ足りません。請負会社は、そもそも何を約束しているのでしょうか。</p>
+      </section>
+
+      <section class="chapter">
+        <p class="chapter-kicker">Chapter 4</p>
+        <h2>請負で引き受ける中心は、人そのものではなく「仕事の完成」</h2>
+        <p>請負契約では、請負人が<strong>仕事を完成させること</strong>を約束し、注文者はその仕事の結果に対して報酬を支払います。ここが、労働者を受け入れて指揮命令する派遣との大きな違いです。</p>
+        <p>プログラム開発を例にすると、注文者が買っているのは「開発者を何時間働かせる権利」ではなく、契約で定めた仕事を完成させることです。</p>
+        <p>すると、契約を考えるときの視点も変わります。作業中の指示だけではなく、<strong>完成、引渡し、報酬の支払、不具合への対応、契約解除</strong>といった出来事ごとに、双方の権利と義務を見る必要があります。</p>
+        <div class="signal"><strong>請負の中心</strong>作業者の労働を直接管理する関係ではなく、請負人が仕事の完成を引き受ける関係。</div>
+        <p>では、完成した成果物を引き渡す契約では、報酬はいつ支払うのでしょうか。</p>
+      </section>
+
+      <section class="chapter">
+        <p class="chapter-kicker">Chapter 5</p>
+        <h2>権利と義務は、「何が起きた時点か」で変わる</h2>
+        <p>請負契約の基本ルールでは、引渡しが必要な成果物については、<strong>成果物の引渡しと報酬の支払が結び付いています</strong>。一方、不具合への対応や契約解除などは、それぞれ別の要件や制限があります。</p>
+        <p>したがって、「請負だから注文者はいつでも修理を求められる」「完成前なら損害を負担せず自由に解除できる」といった一括した理解では足りません。契約で特段の取決めがないときは、どの出来事について、どちらにどんな権利義務が生じるのかを分けて考えます。</p>
+        <p>ここまでで、派遣と請負は整理できました。しかし、外部へ仕事を任せる契約は、この二つだけではありません。</p>
+      </section>
+
+      <section class="chapter">
+        <p class="chapter-kicker">Chapter 6</p>
+        <h2>「外注」という一語の中には、違う契約が入っている</h2>
+        <p>シラバスでは、請負契約や派遣契約だけでなく、雇用契約や（準）委任契約も契約類型として挙げられています。違いを理解するときは、契約名を暗記するより、<strong>何を約束し、誰が誰を指揮し、何に対して責任を負うのか</strong>を見ます。</p>
+        <div class="contrast">
+          <div class="contrast-card"><h3>雇用</h3><p>労働者が使用者の下で働き、使用者が労務に対して賃金を支払う。</p></div>
+          <div class="contrast-card"><h3>派遣</h3><p>雇用は派遣元、業務上の指揮命令は派遣先という三者関係になる。</p></div>
+          <div class="contrast-card"><h3>請負</h3><p>請負人が仕事の完成を引き受け、注文者がその結果に報酬を支払う。</p></div>
+          <div class="contrast-card"><h3>（準）委任</h3><p>一定の事務処理を委ねる契約で、請負のように仕事の完成そのものを中心とする契約とは区別する。</p></div>
+        </div>
+      </section>
+
+      <section class="check-box">
+        <h2>この項目で迷ったときの確認順</h2>
+        <ol class="check-list">
+          <li><strong>誰が作業者を雇用しているか</strong>を確認する。</li>
+          <li><strong>誰が作業者へ業務上の指揮命令をしているか</strong>を確認する。</li>
+          <li>契約が<strong>労働力の提供</strong>なのか、<strong>仕事の完成</strong>なのか、<strong>事務処理の委託</strong>なのかを見る。</li>
+          <li>請負なら、完成・引渡し・報酬支払・不具合対応・解除など、<strong>どの時点の権利義務が問われているか</strong>を確認する。</li>
+          <li>契約書の名称と実際の指揮命令関係が一致しているかを見る。</li>
+        </ol>
+      </section>
+
+      <section class="scope-box">
+        <h2>この項目には、契約以外の労働・取引ルールも含まれる</h2>
+        <p>令和6〜8年度の公開問題では、派遣・請負・偽装請負・請負契約上の権利義務が中心でした。一方、シラバス上の「労働関連・取引関連法規」はさらに広く、次のような法律や考え方も範囲に含みます。</p>
+        <ul class="scope-list">
+          <li><strong>労働条件</strong><br>労働基準法、36協定、フレックスタイム制、裁量労働制、最低賃金</li>
+          <li><strong>労働者の保護</strong><br>労働契約法、労働安全衛生法、労働施策総合推進法など</li>
+          <li><strong>秘密と契約</strong><br>守秘義務契約、請負・派遣・（準）委任・雇用などの契約類型</li>
+          <li><strong>取引の公正</strong><br>中小受託取引適正化法（取適法）、独占禁止法、特定商取引法など</li>
+          <li><strong>金融取引</strong><br>資金決済法、金融商品取引法</li>
+          <li><strong>消費者との取引</strong><br>PL法、景品表示法、ステルスマーケティング規制など</li>
+        </ul>
+      </section>
+
+      <section class="refs">
+        <h2>参照した公開問題</h2>
+        <p>令和6年度　<a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問32</a></p>
+        <p>令和7年度　<a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問1</a></p>
+        <p>令和8年度　<a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2026r08_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問29</a></p>
+        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題一覧</a></p>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
