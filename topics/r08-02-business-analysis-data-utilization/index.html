@@ -78,10 +78,11 @@
       <div class="question">量が足りているなら、そのまま分析や学習に使ってよいのではないか。</div>
       <div class="clue-list">
         <div class="clue"><small>手掛かり1</small><strong>量と「使えるかどうか」は別の話。</strong><br>目的に合わないデータや、由来が不明なデータは、数が多くても判断材料としての信頼性が低い。</div>
-        <div class="clue"><small>手掛かり2</small><strong>分析の前に、整える作業がある。</strong><br>欠損、偏り、表記の違いなどを確認し、目的に使える状態へ直していく。</div>
-        <div class="clue"><small>手掛かり3</small><strong>教師あり学習では、意味も付ける。</strong><br>入力データに対して、何を正解として扱うかを対応付ける必要がある。</div>
+        <div class="clue"><small>手掛かり2</small><strong>集め方の偏りは、結果にも残る。</strong><br>特定の種類だけ少ないなど、収集段階の偏りがあると、そのデータから学習・分析した結果も偏る可能性がある。</div>
+        <div class="clue"><small>手掛かり3</small><strong>偏りを小さくするため、データ側を補う方法もある。</strong><br>目的に応じて不足するパターンを増やすなど、学習に使うデータを補う処理を検討する。</div>
+        <div class="clue"><small>手掛かり4</small><strong>教師あり学習では、意味も付ける。</strong><br>入力データに対して、何を正解として扱うかを対応付ける必要がある。</div>
       </div>
-      <div class="reveal"><strong>広い考え方と具体的な作業を分ける。</strong><p><strong>データ品質</strong>は、目的に使えるデータかを見る性質の話です。欠損・偏り・表記などを整える処理が<strong>前処理</strong>、データにラベルや正解情報を付ける作業が<strong>アノテーション</strong>です。これらは同じ階層の言葉ではなく、「使えるデータにする」という流れの中で役割が違います。</p></div>
+      <div class="reveal"><strong>「品質」「偏り」「加工」「意味付け」は同じ話ではない。</strong><p><strong>データ品質</strong>は、目的に使えるデータかを見る性質の話です。収集方法などによって一部の特徴が過不足することは<strong>統計的バイアス</strong>につながります。不足するパターンを補う方法の一つが<strong>データ拡張</strong>です。さらに、欠損や表記などを整える<strong>前処理</strong>、正解情報やラベルを付ける<strong>アノテーション</strong>があります。「使えるデータにする」という流れの中でも、それぞれ役割は異なります。</p></div>
     </section>
 
     <section class="case-card">
@@ -131,7 +132,7 @@
       <p>ばらばらに見えた六つの出来事は、業務で判断材料を作り、使う流れのどこかに置けます。</p>
       <div class="journey" aria-label="業務分析・データ利活用の流れ">
         <div class="journey-step"><span>1</span>材料を集める<br>人の意見・データ</div>
-        <div class="journey-step"><span>2</span>使える状態にする<br>品質・前処理・意味付け</div>
+        <div class="journey-step"><span>2</span>使える状態にする<br>品質・偏り・前処理・意味付け</div>
         <div class="journey-step"><span>3</span>関係や特徴を読む<br>相関・データの性質</div>
         <div class="journey-step"><span>4</span>予測や分析へ進む<br>回帰・データ分析</div>
         <div class="journey-step"><span>5</span>判断へ変える<br>選択・数量決定</div>
@@ -141,10 +142,10 @@
 
     <section class="knowledge-card">
       <h2>用語を、役割で置き直す</h2>
-      <div class="compare"><div class="head">何をしているか</div><div class="head">用語・概念</div><div>案を広げる</div><div>ブレーンストーミング</div><div>専門家の判断を収束させる</div><div>デルファイ法</div><div>データが目的に使えるかを見る</div><div>データ品質</div><div>分析前にデータを整える</div><div>前処理</div><div>データに意味・正解情報を付ける</div><div>アノテーション</div><div>大量・高速・多様なデータを捉える</div><div>ビッグデータ</div><div>データを分析し意思決定へつなぐ</div><div>データサイエンティスト</div><div>二つの値の関係を見る</div><div>相関</div><div>一方から他方を予測する</div><div>回帰分析</div><div>原因と結果を考える</div><div>因果関係</div><div>不確実な条件で案を選ぶ</div><div>マキシミン</div><div>需要変動への余裕を持つ</div><div>安全在庫</div><div>注文済みで未入荷の量を捉える</div><div>発注残</div></div>
+      <div class="compare"><div class="head">何をしているか</div><div class="head">用語・概念</div><div>案を広げる</div><div>ブレーンストーミング</div><div>専門家の判断を収束させる</div><div>デルファイ法</div><div>データが目的に使えるかを見る</div><div>データ品質</div><div>収集・標本の偏りを捉える</div><div>統計的バイアス</div><div>不足するパターンを補う</div><div>データ拡張</div><div>分析前にデータを整える</div><div>前処理</div><div>データに意味・正解情報を付ける</div><div>アノテーション</div><div>大量・高速・多様なデータを捉える</div><div>ビッグデータ</div><div>データを分析し意思決定へつなぐ</div><div>データサイエンティスト</div><div>二つの値の関係を見る</div><div>相関</div><div>一方から他方を予測する</div><div>回帰分析</div><div>原因と結果を考える</div><div>因果関係</div><div>不確実な条件で案を選ぶ</div><div>マキシミン</div><div>需要変動への余裕を持つ</div><div>安全在庫</div><div>注文済みで未入荷の量を捉える</div><div>発注残</div></div>
     </section>
 
-    <section class="summary"><strong>別の問題でも残す読み方</strong><p>人の意見が出てきたら<strong>広げたいのか、まとめたいのか</strong>。データが出てきたら<strong>そもそも使える状態か</strong>。二つの値が出てきたら<strong>関係・予測・因果のどれを聞いているか</strong>。表から案を選ぶなら<strong>何を重視する判断基準か</strong>。数量を決めるなら<strong>必要な量と既に確保した量は何か</strong>を見る。用語名は、その構造を読んだあとに付いてきます。</p></section>
+    <section class="summary"><strong>別の問題でも残す読み方</strong><p>人の意見が出てきたら<strong>広げたいのか、まとめたいのか</strong>。データが出てきたら<strong>そもそも使える状態か、偏りはないか</strong>。二つの値が出てきたら<strong>関係・予測・因果のどれを聞いているか</strong>。表から案を選ぶなら<strong>何を重視する判断基準か</strong>。数量を決めるなら<strong>必要な量と既に確保した量は何か</strong>を見る。用語名は、その構造を読んだあとに付いてきます。</p></section>
 
     <section class="refs">
       <h2>参照した公開問題</h2>
