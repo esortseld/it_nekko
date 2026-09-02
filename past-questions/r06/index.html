@@ -48,7 +48,7 @@
     </nav>
 
     <section id="strategy">
-      <div class="section-heading"><div><p class="section-kicker">Strategy</p><h2>ストラテジ系</h2></div></div>
+      <div class="section-heading"><div><p class="section-kicker">Strategy</p><h2>分野から学ぶ　ストラテジ系</h2></div></div>
       <div class="card-grid">
         <a id="item-1" class="item-card item-card--ready" href="../../topics/r08-01-management-organization/"><div class="item-card__top"><span class="item-no">項目1</span></div><h3>経営・組織論</h3><p class="item-questions">問28・問29</p></a>
         <a id="item-2" class="item-card item-card--ready" href="../../topics/r08-02-business-analysis-data-utilization/"><div class="item-card__top"><span class="item-no">項目2</span></div><h3>業務分析・データ利活用</h3><p class="item-questions">問9・問14・問24・問26</p></a>
@@ -119,7 +119,7 @@
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 <script>
 const questionToItem={1:10,2:5,3:11,4:16,5:9,6:13,7:19,8:3,9:2,10:4,11:8,12:7,13:16,14:2,15:15,16:19,17:13,18:7,19:16,20:3,21:4,22:16,23:19,24:2,25:53,26:2,27:5,28:1,29:1,30:3,31:18,32:6,33:23,34:14,35:4,36:27,37:27,38:28,39:28,40:26,41:27,42:31,43:30,44:28,45:28,46:28,47:26,48:31,49:27,50:25,51:25,52:27,53:32,54:32,55:31,56:41,57:63,58:47,59:42,60:54,61:60,62:37,63:63,64:62,65:35,66:63,67:44,68:50,69:43,70:63,71:60,72:63,73:63,74:57,75:61,76:42,77:61,78:52,79:60,80:48,81:55,82:62,83:34,84:58,85:37,86:62,87:10,88:38,89:63,90:63,91:63,92:59,93:56,94:62,95:35,96:60,97:48,98:61,99:49,100:61};
-document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;return `<a class="q-mini" href="#item-${questionToItem[n]}" aria-label="問${n}のシラバス項目へ">${n}</a>`}).join('');
+document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;const href=n===1?'../../questions/r06-01/':`#item-${questionToItem[n]}`;return `<a class="q-mini" href="${href}" aria-label="問${n}${n===1?'の復習ページへ':'のシラバス項目へ'}">${n}</a>`}).join('');
 </script>
 </body>
 </html>
