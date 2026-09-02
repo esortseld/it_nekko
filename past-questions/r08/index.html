@@ -102,6 +102,6 @@
   </div>
 </main>
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
-<script>document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;if(n===1){return `<a class="q-mini" href="../../questions/01/" aria-label="令和8年度問1の個別解説へ">${n}</a>`;}return `<span class="q-mini" aria-label="問${n}は個別解説ページ準備中">${n}</span>`;}).join('');</script>
+<script>document.getElementById('question-mini-grid').innerHTML=Array.from({length:100},(_,i)=>{const n=i+1;if(n===1){return `<a class="q-mini" href="../../questions/01/" aria-label="令和8年度問1の個別解説へ">${n}</a>`;}if(n===9){return `<a class="q-mini" href="../../questions/r08-09/" aria-label="令和8年度問9の個別解説へ">${n}</a>`;}return `<span class="q-mini" aria-label="問${n}は個別解説ページ準備中">${n}</span>`;}).join('');</script>
 </body>
 </html>
