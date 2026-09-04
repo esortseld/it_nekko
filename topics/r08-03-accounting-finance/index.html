@@ -1,300 +1,277 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>項目3 会計・財務 | ITネッコ</title>
-  <meta name="description" content="令和6・7・8年度の公開問題を手掛かりに、売上と利益、原価と在庫、財務諸表、損益分岐点や投資判断を、会社のお金を読む順序に沿って整理します。">
-  <link rel="stylesheet" href="../../assets/style.css">
-  <style>
-    .story-page{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29;--muted:#6c6257}
-    .story-shell{max-width:900px}
-    .story-lead{margin:0 0 2rem;padding:0 .15rem}
-    .story-lead h2{margin:0 0 .8rem;font-size:1.55rem;line-height:1.45}
-    .story-lead p{margin:.55rem 0;font-size:1.02rem;line-height:1.95}
-    .story-lead .lead-close{margin-top:1rem;font-weight:700}
-    .chapter{margin:0 0 1.4rem;padding:1.35rem 1.4rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .chapter-no{display:block;margin-bottom:.35rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;color:var(--accent)}
-    .chapter h2{margin:0 0 .85rem;font-size:1.28rem;line-height:1.55}
-    .chapter h3{margin:1.15rem 0 .45rem;font-size:1.03rem}
-    .chapter p{margin:.55rem 0;line-height:1.85}
-    .term-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}
-    .term{padding:.9rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:var(--paper)}
-    .term small{display:block;margin-bottom:.2rem;color:var(--accent);font-weight:800}
-    .term strong{display:block;margin-bottom:.25rem}
-    .term p{margin:0;font-size:.92rem;line-height:1.65}
-    .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.45rem;align-items:center;margin:1rem 0}
-    .flow.four{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr}
-    .flow-step{padding:.8rem .7rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
-    .flow-arrow{color:var(--accent);font-weight:800}
-    .axis-box{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
-    .axis{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--paper)}
-    .axis h3{margin:0 0 .45rem;font-size:1rem}
-    .axis p{margin:.35rem 0;font-size:.92rem;line-height:1.7}
-    .formula{margin:1rem 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft);font-weight:700;line-height:1.8}
-    .org-list{display:grid;gap:.55rem;margin-top:.8rem}
-    .org-item{display:grid;grid-template-columns:11rem 1fr;gap:.75rem;padding:.75rem .85rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .org-item:first-child{border-top:0}
-    .org-item strong{font-size:.93rem}
-    .org-item span{font-size:.92rem;line-height:1.65}
-    .closing{margin:1.7rem 0 0;padding:1.25rem 1.35rem;border-radius:18px;background:var(--soft)}
-    .closing h2{margin:0 0 .7rem;font-size:1.2rem}
-    .closing p{margin:.5rem 0;line-height:1.85}
-    .refs{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .refs h2{font-size:1.18rem}
-    .ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.7rem;margin:.6rem 0}
-    .ref-year{min-width:6.7rem;font-weight:700}
-    .question-link{color:inherit;text-decoration:underline;text-underline-offset:.18em;font-weight:700}
-    .question-link:hover{text-decoration-thickness:2px}
-    .back-to-year{margin:1.6rem 0 0}
-    @media(max-width:760px){
-      .story-lead h2{font-size:1.35rem}.chapter{padding:1.15rem}.term-grid,.axis-box{grid-template-columns:1fr}.flow,.flow.four{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);justify-self:center}.org-item{grid-template-columns:1fr;gap:.2rem}.ref-row{align-items:flex-start}.ref-year{width:100%;min-width:0}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>項目3 会計・財務 | ITネッコ</title>
+<meta name="description" content="令和6・7・8年度の公開問題を手掛かりに、売上と利益、原価と在庫、売掛金、財務諸表、損益分岐点や投資判断を、会社のお金を読む順序に沿って整理します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.story-page{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29;--muted:#6c6257}
+.story-shell{max-width:900px}
+.story-lead{margin:0 0 2rem;padding:0 .15rem}
+.story-lead h2{margin:0 0 .8rem;font-size:1.55rem;line-height:1.45}
+.story-lead p{margin:.55rem 0;font-size:1.02rem;line-height:1.95}
+.story-lead .lead-close{margin-top:1rem;font-weight:700}
+.chapter{margin:0 0 1.4rem;padding:1.35rem 1.4rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+.chapter-no{display:block;margin-bottom:.35rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;color:var(--accent)}
+.chapter h2{margin:0 0 .85rem;font-size:1.28rem;line-height:1.55}
+.chapter h3{margin:1.15rem 0 .45rem;font-size:1.03rem}
+.chapter p{margin:.55rem 0;line-height:1.85}
+.term-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.term{padding:.9rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:var(--paper)}
+.term small{display:block;margin-bottom:.2rem;color:var(--accent);font-weight:800}
+.term strong{display:block;margin-bottom:.25rem}
+.term p{margin:0;font-size:.92rem;line-height:1.65}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.45rem;align-items:center;margin:1rem 0}
+.flow.four{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr}
+.flow-step{padding:.8rem .7rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700;line-height:1.55}
+.flow-arrow{color:var(--accent);font-weight:800}
+.axis-box{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+.axis{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--paper)}
+.axis h3{margin:0 0 .45rem;font-size:1rem}
+.axis p{margin:.35rem 0;font-size:.92rem;line-height:1.7}
+.formula{margin:1rem 0;padding:1rem 1.05rem;border-left:4px solid var(--accent);border-radius:0 12px 12px 0;background:var(--soft);font-weight:700;line-height:1.8}
+.note{margin:1rem 0;padding:.95rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:12px;background:var(--paper);line-height:1.8}
+.closing{margin:1.7rem 0 0;padding:1.25rem 1.35rem;border-radius:18px;background:var(--soft)}
+.closing h2{margin:0 0 .7rem;font-size:1.2rem}
+.closing p{margin:.5rem 0;line-height:1.85}
+.refs{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+.refs h2{font-size:1.18rem}
+.ref-row{display:flex;align-items:center;flex-wrap:wrap;gap:.7rem;margin:.6rem 0}
+.ref-year{min-width:6.7rem;font-weight:700}
+.question-link{color:inherit;text-decoration:underline;text-underline-offset:.18em;font-weight:700}
+.question-link:hover{text-decoration-thickness:2px}
+.back-to-year{margin:1.6rem 0 0}
+@media(max-width:760px){
+.story-lead h2{font-size:1.35rem}.chapter{padding:1.15rem}.term-grid,.axis-box{grid-template-columns:1fr}.flow,.flow.four{grid-template-columns:1fr}.flow-arrow{transform:rotate(90deg);justify-self:center}.ref-row{align-items:flex-start}.ref-year{width:100%;min-width:0}
+}
+</style>
 </head>
 <body class="story-page">
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="../../">ITネッコ</a>
-    <nav class="site-nav" aria-label="主要ページ">
-      <a href="https://esortseld.github.io/it_nekko/">ITネッコ</a>
-      <a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a>
-      <a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a>
-      <a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a>
-    </nav>
-  </div>
+<div class="container header-inner">
+<a class="brand" href="../../">ITネッコ</a>
+<nav class="site-nav" aria-label="主要ページ">
+<a href="https://esortseld.github.io/it_nekko/">ITネッコ</a>
+<a href="https://esortseld.github.io/it_nekko/fields/strategy/">ストラテジ系</a>
+<a href="https://esortseld.github.io/it_nekko/fields/management/">マネジメント系</a>
+<a href="https://esortseld.github.io/it_nekko/fields/technology/">テクノロジ系</a>
+</nav>
+</div>
 </header>
-
 <main>
-  <section class="page-hero">
-    <div class="container hero-inner">
-      <p class="site-kicker">ストラテジ系 / 項目3</p>
-      <h1>項目3 会計・財務</h1>
-    </div>
-  </section>
-
-  <div class="container page-flow story-shell">
-    <article>
-      <section class="story-lead">
-        <h2>売上1億円。さて、この会社は儲かっているのか</h2>
-        <p>「売上1億円」と聞けば、会社がそれだけの仕事をしたことは分かります。けれど、それだけでは、どれだけ利益が残ったのかは分かりません。</p>
-        <p>製品をつくるには原価がかかります。売るためには営業や広告の費用がかかり、会社そのものを動かすにも費用がかかります。しかも、つくったものが全部売れるとは限らず、売れても代金をまだ受け取っていないことがあります。</p>
-        <p class="lead-close">売上という一つの数字から出発して、何を差し引き、何が残り、その数字がどこへつながるのか。順に追っていきます。</p>
-      </section>
-
-      <section class="chapter">
-        <span class="chapter-no">CHAPTER 1</span>
-        <h2>売上から、いくら残ったのか</h2>
-        <p>製品が売れて、売上高が1億円になりました。では、この1億円のうち、会社の利益として残ったのはいくらでしょうか。</p>
-        <p>まず差し引くのは、その売れた製品に対応する<strong>売上原価</strong>です。売上高が1億円、売上原価が6,000万円なら、残るのは4,000万円です。</p>
-
-        <div class="flow" aria-label="売上高と売上総利益の関係">
-          <div class="flow-step">売上高<br>1億円</div><div class="flow-arrow">−</div>
-          <div class="flow-step">売上原価<br>6,000万円</div><div class="flow-arrow">＝</div>
-          <div class="flow-step">売上総利益<br>4,000万円</div>
-        </div>
-
-        <p>この4,000万円が<strong>売上総利益</strong>です。ここでは、売れた製品の売上から、その製品の原価を差し引いたところまでを見ています。</p>
-
-        <div class="formula">売上総利益 ＝ 売上高 − 売上原価</div>
-        <p>では、会社は4,000万円儲かったのでしょうか。</p>
-        <p>まだです。製品を売るためには営業担当者の人件費や広告費がかかります。会社を運営するには、管理部門の人件費や事務所の賃料なども必要です。こうした<strong>販売費及び一般管理費</strong>も差し引かなければ、本業全体でどれだけ利益が残ったかは分かりません。</p>
-
-        <div class="flow" aria-label="売上総利益と営業利益の関係">
-          <div class="flow-step">売上総利益<br>4,000万円</div><div class="flow-arrow">−</div>
-          <div class="flow-step">販売費及び<br>一般管理費<br>2,500万円</div><div class="flow-arrow">＝</div>
-          <div class="flow-step">営業利益<br>1,500万円</div>
-        </div>
-
-        <p>ここで残る1,500万円が<strong>営業利益</strong>です。</p>
-
-        <div class="axis-box">
-          <div class="axis">
-            <h3>売上総利益</h3>
-            <p>売れた製品の売上から、その製品の原価を差し引いた利益。</p>
-          </div>
-          <div class="axis">
-            <h3>営業利益</h3>
-            <p>さらに営業・広告・管理の費用まで差し引いた、本業全体の利益。</p>
-          </div>
-        </div>
-
-        <p>どちらも、すでに製品が売れたあとの数字です。違うのは、<strong>その売上から、どこまでの費用を差し引いているか</strong>です。</p>
-        <p>ところで、ここでは売上原価を6,000万円と置きました。では、その6,000万円はどうやって決まるのでしょうか。</p>
-      </section>
-
-      <section class="chapter">
-        <span class="chapter-no">CHAPTER 2</span>
-        <h2>売上原価は、どうやって決まるのか</h2>
-        <p>Chapter 1では、売上高から売上原価を差し引いて、売上総利益を求めました。では、その<strong>売上原価</strong>には、何が入るのでしょうか。</p>
-        <p>売上原価は、製品をつくるためにその期にかかった費用を、すべてまとめた金額ではありません。<strong>その期に売れた製品に対応する原価</strong>です。</p>
-
-        <h3>つくった製品が、全部その期に売れるとは限らない</h3>
-        <p>たとえば製品を100個つくっても、その期に売れたのが80個なら、残り20個はまだ売上を生んでいません。</p>
-        <p>そのため、売れた80個に対応する原価はその期の<strong>売上原価</strong>にし、売れずに残った20個に対応する原価は、翌期以降に販売できるものとして<strong>棚卸資産</strong>に残します。</p>
-
-        <div class="flow" aria-label="製造した製品の原価と売上原価・在庫の関係">
-          <div class="flow-step">製造した製品の原価</div><div class="flow-arrow">→</div>
-          <div class="flow-step">その期に売れた分<br>＝ 売上原価</div><div class="flow-arrow">／</div>
-          <div class="flow-step">売れずに残った分<br>＝ 棚卸資産</div>
-        </div>
-
-        <p>Chapter 1で使った売上原価6,000万円も、製造にかかった費用の総額ではなく、<strong>その期の売上に対応する原価</strong>として考えていたことになります。</p>
-
-        <h3>製品の原価には、どんな費用が入るのか</h3>
-        <p>では、その製品をつくるための原価そのものは、何からできているのでしょうか。</p>
-        <p>材料費や作業者の賃金のように、特定の製品に直接結び付けられる費用もあれば、工場設備の保守費や工場管理者の人件費のように、複数の製品に共通してかかる費用もあります。</p>
-
-        <div class="axis-box">
-          <div class="axis">
-            <h3>直接費</h3>
-            <p><strong>特定の製品に直接結び付けられる</strong></p>
-            <p>材料費、その製品を組み立てた作業者の賃金など。</p>
-          </div>
-          <div class="axis">
-            <h3>間接費</h3>
-            <p><strong>複数の製品に共通してかかる</strong></p>
-            <p>工場設備の保守費、工場管理者の人件費など。</p>
-          </div>
-        </div>
-
-        <p>こうして製品ごとの原価を考えたうえで、その期に売れた分だけが売上原価になります。</p>
-
-        <h3>仕入れて売る会社なら、式はこうなる</h3>
-        <p>ここまでは、製品を自社でつくるメーカーを例にしてきました。商品を他社から仕入れて販売する会社でも考え方は同じです。</p>
-        <p>期首から持っていた商品と、その期に仕入れた商品を合わせ、期末まで売れずに残った商品を差し引けば、その期に売れた商品に対応する原価が分かります。</p>
-
-        <div class="formula">売上原価 ＝ 期首棚卸高 ＋ 当期仕入高 − 期末棚卸高</div>
-
-        <p>ここで期末棚卸高を差し引くのは、まだ売れていない商品を、その期の売上原価から外すためです。</p>
-
-        <h3>残った在庫を、いくらと見るか</h3>
-        <p>さらに一つ問題があります。同じ商品でも、仕入れた時期によって単価が違うことがあります。すると、期末に残った在庫をいくらと評価するかで、期末棚卸高が変わります。</p>
-        <p>期末棚卸高が変われば、そこから計算する売上原価も変わります。</p>
-
-        <div class="axis-box">
-          <div class="axis">
-            <h3>期末棚卸高が大きい</h3>
-            <p>差し引く金額が大きくなるため、<strong>売上原価は小さくなる</strong>。</p>
-          </div>
-          <div class="axis">
-            <h3>期末棚卸高が小さい</h3>
-            <p>差し引く金額が小さくなるため、<strong>売上原価は大きくなる</strong>。</p>
-          </div>
-        </div>
-
-        <p>売上原価をたどると、まず製品や商品の原価があり、そのうち<strong>その期に売れた分だけを売上原価にする</strong>ことが分かります。売れずに残った分は、棚卸資産として次の期へ残ります。</p>
-        <p>では、商品が売れたら、その瞬間に会社には現金が入ってくるのでしょうか。</p>
-      </section>
-
-      <section class="chapter">
-        <span class="chapter-no">CHAPTER 3</span>
-        <h2>売れた。でも、代金はまだ来ていない</h2>
-        <p>会社間の取引では、商品を販売した日に代金を受け取らず、後日まとめて支払ってもらうことがあります。</p>
-        <p>この場合、売上はすでに計上されています。しかし、代金はまだ受け取っていません。その未回収の代金が<strong>売掛金</strong>です。</p>
-
-        <div class="flow" aria-label="販売と売掛金の関係">
-          <div class="flow-step">商品を販売</div><div class="flow-arrow">→</div>
-          <div class="flow-step">売上を計上</div><div class="flow-arrow">→</div>
-          <div class="flow-step">未回収の代金<br>＝ 売掛金</div>
-        </div>
-
-        <p>ここで見るのは、受注した金額ではありません。受注しただけでは、まだ売上は計上されていないからです。</p>
-        <p>Chapter 2では、売れずに残った製品が<strong>棚卸資産</strong>として残りました。今度は、売れたあとにまだ受け取っていない代金が<strong>売掛金</strong>として残りました。</p>
-        <p>では、この「利益」と「棚卸資産」と「売掛金」は、会計の中で同じように並ぶ数字なのでしょうか。</p>
-      </section>
-
-      <section class="chapter">
-        <span class="chapter-no">CHAPTER 4</span>
-        <h2>同じ会社の数字なのに、見る表が違う</h2>
-        <p>Chapter 1で見た売上・費用・利益は、ある一定期間に会社がどんな成績を上げたかを表しています。</p>
-        <p>一方、Chapter 2・3で出てきた棚卸資産や売掛金は、ある時点で会社に残っているものです。</p>
-        <p>この違いによって、見る財務諸表も分かれます。</p>
-
-        <div class="axis-box">
-          <div class="axis">
-            <h3>損益計算書</h3>
-            <p>売上、費用、利益を表す。</p>
-            <p><strong>一定期間の経営成績を見る</strong></p>
-          </div>
-          <div class="axis">
-            <h3>貸借対照表</h3>
-            <p>資産、負債、純資産を表す。</p>
-            <p><strong>ある時点の財政状態を見る</strong></p>
-          </div>
-        </div>
-
-        <p>棚卸資産や売掛金は、現金や設備などと同じく<strong>資産</strong>として貸借対照表に載ります。借入金など、将来支払う義務があるものは<strong>負債</strong>、資産から負債を差し引いた部分が<strong>純資産</strong>です。</p>
-
-        <div class="term-grid">
-          <div class="term"><small>ASSETS</small><strong>資産</strong><p>現金、棚卸資産、売掛金、設備など。</p></div>
-          <div class="term"><small>LIABILITIES</small><strong>負債</strong><p>借入金など、将来支払う義務があるもの。</p></div>
-          <div class="term"><small>NET ASSETS</small><strong>純資産</strong><p>資産から負債を差し引いた部分。</p></div>
-        </div>
-
-        <div class="formula">資産 ＝ 負債 ＋ 純資産</div>
-
-        <p>表が分かれると、今度はその数字を比べて会社の状態を見ることができます。</p>
-
-        <h3>同じ「比率」でも、何を見ているかが違う</h3>
-        <p><strong>売上高利益率</strong>は、売上高に対してどれだけ利益が残ったかを見る指標です。売上高と利益は損益計算書の数字なので、損益計算書から求められます。</p>
-        <div class="formula">売上高利益率 ＝ 利益 ÷ 売上高 × 100</div>
-
-        <p><strong>自己資本比率</strong>は、会社の資産を支える資本のうち、返済する必要のない自己資本がどれくらいあるかを見る指標です。こちらは貸借対照表の数字を使います。</p>
-        <div class="formula">自己資本比率 ＝ 自己資本 ÷ 総資本 × 100</div>
-
-        <p>式を覚える前に、その数字が<strong>期間の成績</strong>を見ているのか、<strong>ある時点の財政状態</strong>を見ているのかを分けると、使う数字も見つけやすくなります。</p>
-        <p>ここまでで、会社で起きたことを数字にして整理できました。では、会計の仕事は「記録して終わり」なのでしょうか。</p>
-      </section>
-
-      <section class="chapter">
-        <span class="chapter-no">CHAPTER 5</span>
-        <h2>数字がそろうと、これからのことも読める</h2>
-        <p>会計の数字は、過去や現在を記録するだけではありません。売上と費用の関係が分かれば、これからどれだけ売れば利益が出るのかを考えられます。</p>
-
-        <h3>あと何個売れば、赤字ではなくなるのか</h3>
-        <p>販売量に応じて増減する費用が<strong>変動費</strong>、販売量が変わっても一定額発生する費用が<strong>固定費</strong>です。</p>
-
-        <div class="flow four" aria-label="売上高、変動費、固定費、利益の関係">
-          <div class="flow-step">売上高</div><div class="flow-arrow">−</div>
-          <div class="flow-step">変動費</div><div class="flow-arrow">−</div>
-          <div class="flow-step">固定費</div><div class="flow-arrow">＝</div>
-          <div class="flow-step">利益</div>
-        </div>
-
-        <p>売上高と費用がちょうど等しくなり、利益が0になるところが<strong>損益分岐点</strong>です。販売単価、1個当たりの変動費、固定費が分かれば、何個売れば損益分岐点を超えるのかを計算できます。</p>
-        <p>目標とする利益があるなら、その分も加えて、必要な販売量を逆算できます。</p>
-
-        <h3>投資したお金は、何年で戻るのか</h3>
-        <p>新しいシステムなどに投資すると、最初に投資額が発生します。その代わり、導入後には運用費の削減や利益の増加といった効果が生まれることがあります。</p>
-        <p>1年間で得られる効果が分かれば、初期投資額を何年で回収できるかも計算できます。</p>
-
-        <div class="formula">1年間の純効果 ＝ 運用費の削減額 ＋ 利益の増加額</div>
-        <div class="formula">回収期間 ＝ 初期投資額 ÷ 1年間の純効果</div>
-
-        <p>最初に見たのは「売上1億円」という一つの数字でした。そこから原価をたどり、残ったものを分け、財務諸表に置き直していくと、最後には将来の販売量や投資まで考えられるようになります。</p>
-      </section>
-
-      <section class="closing">
-        <h2>一つの数字だけでは、会社は読めない</h2>
-        <p>売上だけでは、利益は分かりません。利益だけ見ても、その利益がどこまで費用を差し引いたものなのかを知らなければ意味が変わります。</p>
-        <p>売上原価をたどると、売れた分と在庫に残った分が分かれます。売れたあとも、未回収の代金は売掛金として残ります。そして、期間の成績と、ある時点で残っているものは、別の財務諸表で表されます。</p>
-        <p>会計・財務では、数字を一つずつ覚えるより、<strong>その数字がどこから生まれ、何を表し、次のどの数字につながるのか</strong>を追うと、全体が見えてきます。</p>
-      </section>
-
-      <section class="refs">
-        <h2>参照した公開問題</h2>
-        <div class="ref-row"><span class="ref-year">令和8年度</span><a class="question-link" href="../../questions/r08-09/">問9</a><a class="question-link" href="../../questions/r08-26/">問26</a></div>
-        <div class="ref-row"><span class="ref-year">令和7年度</span><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問5</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問26</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問34</a></div>
-        <div class="ref-row"><span class="ref-year">令和6年度</span><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問8</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問20</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問30</a></div>
-        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
-      </section>
-
-      <p class="back-to-year"><a href="https://esortseld.github.io/it_nekko/past-questions/r08/">← 令和8年度公開問題へ戻る</a></p>
-    </article>
-  </div>
+<section class="page-hero">
+<div class="container hero-inner">
+<p class="site-kicker">ストラテジ系 / 項目3</p>
+<h1>項目3 会計・財務</h1>
+</div>
+</section>
+<div class="container page-flow story-shell">
+<article>
+<section class="story-lead">
+<h2>売上1億円。さて、この会社は儲かっているのか</h2>
+<p>「売上1億円」と聞けば、どれだけ売ったかは分かります。けれど、会社にどれだけ利益が残ったのかは、売上だけでは分かりません。</p>
+<p>売ったものには原価があり、売るための費用も、会社を運営するための費用もかかります。また、会社全体の数字を見るときは、売れ残った在庫や、売ったのにまだ回収していない代金も考える必要があります。</p>
+<p class="lead-close">まず「利益はどうできるか」を見ます。そこから、原価、在庫、売掛金、財務諸表へと、必要になった順に広げていきます。</p>
+</section>
+<section class="chapter">
+<span class="chapter-no">CHAPTER 1</span>
+<h2>売上から、いくら残ったのか</h2>
+<p>製品が売れて、売上高が1億円になりました。最初に見るのは、その売上から何を差し引くと、どの利益になるのかです。</p>
+<h3>まず、売ったもの自体の原価を引く</h3>
+<p>売上高が1億円、その売った製品の原価が6,000万円なら、残る4,000万円が<strong>売上総利益</strong>です。</p>
+<div class="flow" aria-label="売上高と売上総利益の関係">
+<div class="flow-step">売上高<br>1億円</div><div class="flow-arrow">−</div>
+<div class="flow-step">売上原価<br>6,000万円</div><div class="flow-arrow">＝</div>
+<div class="flow-step">売上総利益<br>4,000万円</div>
+</div>
+<div class="formula">売上総利益 ＝ 売上高 − 売上原価</div>
+<h3>さらに、売ること・会社を動かすことにかかった費用を引く</h3>
+<p>売上総利益がそのまま会社の本業の利益になるわけではありません。営業担当者の人件費、広告費、管理部門の人件費、事務所の賃料などもかかっています。</p>
+<p>こうした<strong>販売費及び一般管理費</strong>を差し引いて残るのが<strong>営業利益</strong>です。</p>
+<div class="flow" aria-label="売上総利益と営業利益の関係">
+<div class="flow-step">売上総利益<br>4,000万円</div><div class="flow-arrow">−</div>
+<div class="flow-step">販売費及び<br>一般管理費<br>2,500万円</div><div class="flow-arrow">＝</div>
+<div class="flow-step">営業利益<br>1,500万円</div>
+</div>
+<div class="axis-box">
+<div class="axis">
+<h3>売上総利益</h3>
+<p>売ったもの自体の原価を差し引いたところまでの利益。</p>
+</div>
+<div class="axis">
+<h3>営業利益</h3>
+<p>さらに営業・広告・管理の費用まで差し引いた、本業全体の利益。</p>
+</div>
+</div>
+<p>ここで一つ、まだ中身を見ていない数字があります。<strong>売上原価6,000万円</strong>です。次は、この数字が何を表すのかを見ます。</p>
+</section>
+<section class="chapter">
+<span class="chapter-no">CHAPTER 2</span>
+<h2>売上原価は、何の金額なのか</h2>
+<h3>まず、製品1個で考える</h3>
+<p>製品を1個1,000円で売ったとします。その1個をつくるのに600円かかっていたなら、その600円が、その製品を売ったときの<strong>売上原価</strong>です。</p>
+<div class="flow" aria-label="1個の製品の売上と原価">
+<div class="flow-step">売価<br>1,000円</div><div class="flow-arrow">−</div>
+<div class="flow-step">その1個の原価<br>600円</div><div class="flow-arrow">＝</div>
+<div class="flow-step">売上総利益<br>400円</div>
+</div>
+<p>つまり、売上原価はまず、<strong>売った商品・製品そのものにかかった原価</strong>と考えればよいことになります。</p>
+<h3>では、その1個の原価には何が入るのか</h3>
+<p>メーカーが製品をつくるときには、材料費や作業者の賃金だけでなく、工場全体を支える設備や管理の費用も発生します。</p>
+<p>ここでは、「費用の名前」ではなく、<strong>特定の製品に直接結び付けられるか</strong>で分けます。</p>
+<div class="axis-box">
+<div class="axis">
+<h3>直接費</h3>
+<p><strong>特定の製品に直接結び付けられる費用</strong></p>
+<p>その製品に使った材料、その製品の加工や検査にかかった費用など。</p>
+</div>
+<div class="axis">
+<h3>間接費</h3>
+<p><strong>複数の製品に共通してかかる費用</strong></p>
+<p>工場全体の設備保守、工場管理者の人件費など。</p>
+</div>
+</div>
+<p>製品の原価を考えるときは、こうした製造にかかった費用を製品に対応付けていきます。</p>
+<h3>会社全体・1年間の数字に広げる</h3>
+<p>1個だけなら、「売った1個の原価」を見れば終わりです。ところが会社全体の1年間の売上原価を出すには、その期間に売れた商品や製品の原価をまとめなければなりません。</p>
+<p>ここで初めて、<strong>その年につくったものが全部その年に売れるとは限らない</strong>という問題が出てきます。</p>
+<p>たとえば100個つくって80個売れたなら、売れた80個分の原価はその期の売上原価になります。一方、まだ売れていない20個分は、翌期以降に売ることができるので<strong>棚卸資産</strong>として残ります。</p>
+<div class="flow" aria-label="売れた製品と売れ残った製品">
+<div class="flow-step">100個つくった</div><div class="flow-arrow">→</div>
+<div class="flow-step">80個売れた<br>原価は売上原価へ</div><div class="flow-arrow">／</div>
+<div class="flow-step">20個残った<br>原価は棚卸資産へ</div>
+</div>
+<p>Chapter 1で使った売上原価6,000万円は、こうして<strong>その期間に売れたものの原価を会社全体でまとめた金額</strong>です。</p>
+<h3>仕入れて売る会社では、在庫から売上原価を求められる</h3>
+<p>ここまではメーカーを例にしました。商品を仕入れて販売する会社でも、考え方は同じです。</p>
+<p>期首から持っていた商品と、その期に仕入れた商品を合わせ、期末まで売れずに残った商品を差し引けば、その期に売れた商品の原価が分かります。</p>
+<div class="formula">売上原価 ＝ 期首棚卸高 ＋ 当期仕入高 − 期末棚卸高</div>
+<p>期末棚卸高を差し引くのは、<strong>まだ売れていない商品の原価を、その期の売上原価から外すため</strong>です。</p>
+<h3>在庫をいくらと見るかでも、売上原価は変わる</h3>
+<p>同じ商品でも、仕入れた時期によって単価が違うことがあります。その場合、期末に残った在庫をどの単価で評価するかによって、期末棚卸高が変わります。</p>
+<div class="axis-box">
+<div class="axis">
+<h3>期末棚卸高が大きい</h3>
+<p>差し引く金額が大きくなるので、<strong>売上原価は小さくなる</strong>。</p>
+</div>
+<div class="axis">
+<h3>期末棚卸高が小さい</h3>
+<p>差し引く金額が小さくなるので、<strong>売上原価は大きくなる</strong>。</p>
+</div>
+</div>
+<p>ここまでで、「利益を出すために使った売上原価」が、どこから来る数字なのかが分かりました。次は、<strong>売上が立ったあと、お金がどう残るか</strong>を見ます。</p>
+</section>
+<section class="chapter">
+<span class="chapter-no">CHAPTER 3</span>
+<h2>売れたことと、現金を受け取ったことは同じではない</h2>
+<p>会社間の取引では、商品を販売した日に代金を受け取らず、後日まとめて支払ってもらうことがあります。</p>
+<p>この場合、販売した時点で売上は計上されています。しかし、まだ現金は受け取っていません。</p>
+<div class="flow" aria-label="受注、売上、回収の関係">
+<div class="flow-step">受注</div><div class="flow-arrow">→</div>
+<div class="flow-step">販売して<br>売上を計上</div><div class="flow-arrow">→</div>
+<div class="flow-step">後日<br>現金を回収</div>
+</div>
+<p>販売済みなのに、まだ回収していない代金が<strong>売掛金</strong>です。</p>
+<div class="formula">売掛金 ＝ 売上として計上済みだが、まだ回収していない代金</div>
+<p>ここでは<strong>受注</strong>と<strong>売上計上</strong>も区別します。注文を受けただけでは、まだ売上になっていない取引もあります。</p>
+<div class="note">
+<strong>Chapter 2の在庫と、Chapter 3の売掛金は別の場面の数字です。</strong><br>
+在庫は「まだ売っていないもの」、売掛金は「もう売ったが、まだ代金を受け取っていないもの」です。
+</div>
+<p>利益の計算では売上や費用を見ました。一方、在庫や売掛金は、その時点で会社に何が残っているかを表します。ここで、財務諸表の役割が分かれてきます。</p>
+</section>
+<section class="chapter">
+<span class="chapter-no">CHAPTER 4</span>
+<h2>「期間の成績」と「ある時点の状態」は、別の表で見る</h2>
+<p>Chapter 1で見た売上・費用・利益は、1か月や1年間など、<strong>ある期間に会社がどんな成績を上げたか</strong>を表す数字です。</p>
+<p>一方、Chapter 2・3で出てきた棚卸資産や売掛金は、決算日などの<strong>ある時点で会社に残っているもの</strong>です。</p>
+<div class="axis-box">
+<div class="axis">
+<h3>損益計算書</h3>
+<p>売上、費用、利益を表す。</p>
+<p><strong>一定期間の経営成績を見る</strong></p>
+</div>
+<div class="axis">
+<h3>貸借対照表</h3>
+<p>資産、負債、純資産を表す。</p>
+<p><strong>ある時点の財政状態を見る</strong></p>
+</div>
+</div>
+<p>棚卸資産や売掛金は、現金や設備などと同じく<strong>資産</strong>として貸借対照表に載ります。借入金など、将来支払う義務があるものは<strong>負債</strong>、資産から負債を差し引いた部分が<strong>純資産</strong>です。</p>
+<div class="term-grid">
+<div class="term"><small>ASSETS</small><strong>資産</strong><p>現金、棚卸資産、売掛金、設備など。</p></div>
+<div class="term"><small>LIABILITIES</small><strong>負債</strong><p>借入金など、将来支払う義務があるもの。</p></div>
+<div class="term"><small>NET ASSETS</small><strong>純資産</strong><p>資産から負債を差し引いた部分。</p></div>
+</div>
+<div class="formula">資産 ＝ 負債 ＋ 純資産</div>
+<h3>財務諸表の数字を使うと、会社の状態を比率でも見られる</h3>
+<p><strong>売上高利益率</strong>は、売上高に対してどれだけ利益が残ったかを見る指標です。売上高と利益という「期間の成績」の数字を使います。</p>
+<div class="formula">売上高利益率 ＝ 利益 ÷ 売上高 × 100</div>
+<p><strong>自己資本比率</strong>は、会社全体を支える資本のうち、返済する必要のない自己資本がどれくらいあるかを見る指標です。こちらは貸借対照表の数字を使います。</p>
+<div class="formula">自己資本比率 ＝ 自己資本 ÷ 総資本 × 100</div>
+<p>式を覚える前に、<strong>期間の成績を見ているのか、ある時点の財政状態を見ているのか</strong>を分けると、どの数字を使うか判断しやすくなります。</p>
+</section>
+<section class="chapter">
+<span class="chapter-no">CHAPTER 5</span>
+<h2>利益を「結果」ではなく「計画」として考える</h2>
+<p>ここまでは、実際に売れた結果を会計の数字として見てきました。ここからは、その数字を使って、<strong>どれだけ売れば利益が出るか</strong>を考えます。</p>
+<h3>販売量が変わると、費用も同じように変わるのか</h3>
+<p>費用には、販売量や生産量に応じて増減する<strong>変動費</strong>と、販売量が変わっても一定額発生する<strong>固定費</strong>があります。</p>
+<div class="axis-box">
+<div class="axis">
+<h3>変動費</h3>
+<p>売る量・つくる量が増えると増え、減ると減る費用。</p>
+</div>
+<div class="axis">
+<h3>固定費</h3>
+<p>売る量・つくる量が変わっても、一定額かかる費用。</p>
+</div>
+</div>
+<div class="note">
+<strong>直接費・間接費とは別の分け方です。</strong><br>
+直接費・間接費は「特定の製品に直接結び付くか」。変動費・固定費は「販売量や生産量が変わると金額が変わるか」で分けます。
+</div>
+<h3>どこまで売れば赤字ではなくなるか</h3>
+<div class="flow four" aria-label="売上高、変動費、固定費、利益の関係">
+<div class="flow-step">売上高</div><div class="flow-arrow">−</div>
+<div class="flow-step">変動費</div><div class="flow-arrow">−</div>
+<div class="flow-step">固定費</div><div class="flow-arrow">＝</div>
+<div class="flow-step">利益</div>
+</div>
+<p>売上高と費用がちょうど等しくなり、利益が0になるところが<strong>損益分岐点</strong>です。</p>
+<p>販売単価、1個当たりの変動費、固定費が分かれば、何個売れば赤字を抜けるのかを計算できます。さらに目標利益があるなら、その分を加えて必要な販売量を逆算できます。</p>
+<p>ここでは、「今いくら儲かったか」ではなく、<strong>これから何個売れば、いくら利益を残せるか</strong>を考えています。</p>
+</section>
+<section class="chapter">
+<span class="chapter-no">CHAPTER 6</span>
+<h2>投資するなら、かけたお金がいつ戻るかを見る</h2>
+<p>会計・財務の数字は、商品を売る計画だけでなく、設備やシステムに投資する判断にも使えます。</p>
+<p>新しいシステムを導入すると、最初に投資額が発生します。その代わり、導入後には運用費の削減や利益の増加といった効果が生まれることがあります。</p>
+<div class="formula">1年間の純効果 ＝ 運用費の削減額 ＋ 利益の増加額</div>
+<div class="formula">回収期間 ＝ 初期投資額 ÷ 1年間の純効果</div>
+<p>ここで見ているのは、<strong>投じたお金を、その後の効果で何年かけて取り戻せるか</strong>です。</p>
+<p>Chapter 1では会社の利益を読み、Chapter 5では必要な販売量を考え、ここでは投資の回収を考えました。同じ「お金の計算」でも、何を判断したいかによって使う数字は変わります。</p>
+</section>
+<section class="closing">
+<h2>会計・財務は、数字の置き場所をたどると分かりやすい</h2>
+<p>売上から売上原価を引くと売上総利益、さらに販売費及び一般管理費を引くと営業利益になります。</p>
+<p>売上原価は、まず「売ったもの自体の原価」です。会社全体・一定期間で見ると、売れたものの原価は売上原価へ、売れ残ったものは棚卸資産へ分かれます。売ったあとにまだ回収していない代金は売掛金です。</p>
+<p>売上・費用・利益は一定期間の成績として損益計算書に、棚卸資産や売掛金などはある時点の財政状態として貸借対照表に表れます。</p>
+<p>そこから先は、損益分岐点で販売計画を立てたり、投資回収期間で投資を判断したりします。<strong>用語を一列に覚えるのではなく、「今は何を知りたいのか」を決めてから、そのための数字をたどる</strong>のが会計・財務の基本です。</p>
+</section>
+<section class="refs">
+<h2>参照した公開問題</h2>
+<div class="ref-row"><span class="ref-year">令和8年度</span><a class="question-link" href="../../questions/r08-09/">問9</a><a class="question-link" href="../../questions/r08-26/">問26</a></div>
+<div class="ref-row"><span class="ref-year">令和7年度</span><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問5</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問26</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2025r07_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問34</a></div>
+<div class="ref-row"><span class="ref-year">令和6年度</span><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問8</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問20</a><a class="question-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/pdf/questions/2024r06_ip_qs.pdf" target="_blank" rel="noopener noreferrer">問30</a></div>
+<p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
+</section>
+<p class="back-to-year"><a href="https://esortseld.github.io/it_nekko/past-questions/r08/">← 令和8年度公開問題へ戻る</a></p>
+</article>
+</div>
 </main>
-
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
 </body>
 </html>
