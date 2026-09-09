@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>令和8年度 公開問題01 復習 | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題01を解いた後に、判断の流れと学習要点を振り返るためのページです。">
+  <meta name="description" content="令和8年度ITパスポート公開問題01を解いた後に、生成AIと著作権について、依拠性・私的使用・公表を切り分けて判断する流れと学習要点を振り返るためのページです。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .question-page{--q-accent:#7f6f58;--q-soft:#f6f1e9;--q-ink:#342f29}
@@ -16,6 +16,11 @@
     .reference-block h2{margin:0 0 .35rem;font-size:1.08rem}
     .reference-block p{margin:.25rem 0;line-height:1.65}
     .reference-block a{font-weight:700}
+    .item-context{margin:0 0 1.15rem;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--q-soft)}
+    .item-context .section-kicker{margin-bottom:.25rem}
+    .item-context h2{margin:0 0 .35rem;font-size:1.08rem}
+    .item-context p{margin:.25rem 0;line-height:1.7}
+    .item-context strong{font-size:1.02rem}
     .flow-card,.point-card,.finish-card{margin:0 0 1.15rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
     .flow-card h2,.point-card h2,.finish-card h2{margin:0 0 .7rem;font-size:1.18rem}
     .flow-card p:last-child,.point-card p:last-child,.finish-card p:last-child{margin-bottom:0}
@@ -32,8 +37,14 @@
     .memory-box{margin-top:1rem;padding:1rem 1.05rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0}
     .memory-box p{margin:.3rem 0 0;line-height:1.7}
     .next-link{margin:1.25rem 0 0;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .next-link a{display:inline-flex;align-items:center;gap:.4rem;padding:.72rem 1rem;border:1px solid var(--q-accent);border-radius:999px;color:inherit;text-decoration:none;font-weight:700;background:#fff}
-    .next-link a:hover{background:var(--q-soft)}
+    .next-link .item-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-left:5px solid #8a755d;border-radius:14px;background:#fff;color:inherit;text-decoration:none;transition:transform .15s ease,background .15s ease}
+    .next-link .item-card:hover{transform:translateY(-1px);background:#faf9f6}
+    .next-link .item-card__top{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:.35rem}
+    .next-link .item-no{font-size:.82rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .next-link .item-arrow{font-size:.95rem;font-weight:700;color:var(--text-sub,#675f55);white-space:nowrap}
+    .next-link .item-card h3{margin:0;font-size:1.02rem;line-height:1.5}
+    .next-link .item-questions{margin:.45rem 0 0;font-size:.88rem;line-height:1.55;color:var(--text-sub,#675f55)}
+    .back-to-year{margin:1.2rem 0 0}
     @media(max-width:760px){
       .decision-flow{grid-template-columns:1fr}
       .flow-arrow{transform:rotate(90deg);justify-self:center}
@@ -46,7 +57,6 @@
     <a class="brand" href="../../">ITネッコ</a>
     <nav class="site-nav" aria-label="主要ページ">
       <a href="../../">ITネッコ</a>
-      <a href="../../past-questions/r08/">令和8年度一覧へ</a>
     </nav>
   </div>
 </header>
@@ -68,16 +78,23 @@
         <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
       </section>
 
+      <section class="item-context">
+        <p class="section-kicker">ITEM</p>
+        <h2>この問題の項目</h2>
+        <p><strong>項目4　知的財産権</strong></p>
+        <p>この問題では、その中の「生成AIで作ったものと著作権」を扱います。</p>
+      </section>
+
       <section class="flow-card">
         <p class="section-kicker">HOW TO READ</p>
         <h2>この問題で確認したい判断の順序</h2>
-        <p>生成AIと著作権が一緒に出てきても、「AIだから特別」と考えるのではなく、著作権の基本的な見方に戻して整理します。</p>
+        <p>「似ているものができた」という一点だけで決める問題ではありません。既存の著作物を意識して作ったのか、その生成物を私的に使うのか、公表・商用利用するのかを分けて見ます。</p>
         <div class="decision-flow" aria-label="判断の流れ">
-          <div class="decision-step"><span>STEP 1</span><strong>既存の著作物との<br>関係を見る</strong></div>
+          <div class="decision-step"><span>STEP 1</span><strong>既存の著作物を意識して<br>生成したかを見る</strong></div>
           <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="decision-step"><span>STEP 2</span><strong>どのような利用を<br>しているかを見る</strong></div>
+          <div class="decision-step"><span>STEP 2</span><strong>私的使用か、公表・利用かを<br>見る</strong></div>
           <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="decision-step"><span>STEP 3</span><strong>権利者の許諾が問題に<br>なり得るかを考える</strong></div>
+          <div class="decision-step"><span>STEP 3</span><strong>著作権者の許諾が必要となる<br>可能性を判断する</strong></div>
         </div>
       </section>
 
@@ -85,24 +102,31 @@
         <p class="section-kicker">CHECKPOINT</p>
         <h2>問題文のどこを見ればよかったか</h2>
         <div class="checkpoint-list">
-          <div class="checkpoint"><span class="checkpoint-no">1</span><div><strong>「似ている」という結果だけで判断しない</strong><p>既存の著作物との関係を考えるときは、単に出来上がったものが似ているかだけではなく、その関係がどのように生じたのかを切り分けます。</p></div></div>
-          <div class="checkpoint"><span class="checkpoint-no">2</span><div><strong>作ったことと、利用したことを分ける</strong><p>生成したという事実だけで結論を出さず、その後どのような形で利用されたのかを別の論点として見ます。</p></div></div>
-          <div class="checkpoint"><span class="checkpoint-no">3</span><div><strong>問題が聞いているのは「可能性があるか」</strong><p>現実の著作権侵害を最終判定するのではなく、設問の条件の中で、権利者の許諾が必要となる可能性を見分ける問題として読みます。</p></div></div>
+          <div class="checkpoint"><span class="checkpoint-no">1</span><div><strong>a は、既存の楽曲を意識して生成し、インターネット上で商用公開している</strong><p>「好みのアーティストの楽曲に似た音楽が得られるように」と生成しているため、既存著作物への依拠が問題になります。さらに、私的な利用にとどまらず公開しているため、著作権者の許諾が必要となる可能性があります。</p></div></div>
+          <div class="checkpoint"><span class="checkpoint-no">2</span><div><strong>b は、既存の楽曲を意識していても、個人で視聴するための保存にとどまる</strong><p>私的に鑑賞するための複製は、著作権法上の権利制限の対象となり得ます。この設問では、著作権者の許諾が必要となるものには含めません。</p></div></div>
+          <div class="checkpoint"><span class="checkpoint-no">3</span><div><strong>c は、「偶然似た」とされている</strong><p>既存の楽曲をもとに似せようとして生成したのではなく、設問上は偶然の一致として示されています。そのため、依拠性がある場合としては扱いません。</p></div></div>
         </div>
       </section>
 
       <section class="finish-card">
         <p class="section-kicker">BACK TO KNOWLEDGE</p>
         <h2>この1問から残す学習要点</h2>
-        <p>この問題から残したいのは、特定の選択肢の内容ではありません。次に生成AIや別の著作物が出てきても、同じ順序で確認できることが重要です。</p>
+        <p>生成AIを使った場合でも、著作権の判断では「既存の著作物との類似性」だけでなく、「その著作物に依拠しているか」と「どのように利用するか」を分けて考えます。</p>
         <div class="memory-box">
-          <strong>覚えるのは答えではなく、判断の順序。</strong>
-          <p><strong>既存の著作物との関係 → 利用の仕方 → 許諾が問題になるか</strong>、という流れに戻して考えます。</p>
-        </div>
-        <div class="next-link">
-          <a href="../../topics/r08-04-intellectual-property-rights/">項目4「知的財産権」で体系的に見る →</a>
+          <strong>似ているだけでは決まらない。</strong>
+          <p><strong>依拠性があるか → 私的使用か公表・利用か → 許諾が必要か</strong>、という順序で確認します。この問題の正解は、aだけを挙げた<strong>ア</strong>です。</p>
         </div>
       </section>
+
+      <div class="next-link">
+        <a class="item-card" href="../../topics/r08-04-intellectual-property-rights/">
+          <div class="item-card__top"><span class="item-no">項目4</span><span class="item-arrow">→</span></div>
+          <h3>知的財産権</h3>
+          <p class="item-questions">体系的に見る</p>
+        </a>
+      </div>
+
+      <p class="back-to-year"><a href="../../past-questions/r08/">← 令和8年度公開問題へ戻る</a></p>
     </article>
   </div>
 </main>
