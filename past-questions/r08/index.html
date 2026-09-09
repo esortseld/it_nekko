@@ -4,9 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>令和8年度公開問題 | ITネッコ</title>
-  <meta name="description" content="令和8年度ITパスポート公開問題を、シラバス項目ごとに整理した索引です。">
+  <meta name="description" content="令和8年度ITパスポート公開問題を、問題番号とシラバス項目の両方から学べる索引です。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    .r08-index{display:grid;gap:3.5rem;padding-top:.5rem;padding-bottom:2rem}
+    .index-block{display:grid;gap:1.25rem}
+    .index-block__head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding-bottom:.85rem;border-bottom:1px solid var(--color-border,#d9d3c8)}
+    .index-block__head h2{margin:0}
+    .index-block__note{margin:.25rem 0 0;color:var(--text-sub,#675f55);font-size:.92rem;line-height:1.7}
+
+    .question-index{padding:1.35rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#faf9f6}
+    .q-mini-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:.55rem}
+    .q-mini{display:flex;align-items:center;justify-content:center;min-height:2.65rem;padding:.35rem;border:1px solid var(--color-border,#d9d3c8);border-radius:9px;background:#fff;color:inherit;font-size:.84rem;font-weight:700;line-height:1;text-decoration:none}
+    a.q-mini:hover{background:#f3efe7;transform:translateY(-1px)}
+    span.q-mini{background:#f5f3ee;color:var(--text-sub,#8a837a);cursor:default}
+
+    .field-index{display:grid;gap:3rem}
+    .field-section{display:grid;gap:1rem;scroll-margin-top:1rem}
+    .field-section>.section-heading{margin-bottom:0}
+    .field-section .card-grid{margin-top:0}
+
     .item-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;scroll-margin-top:1rem}
     .item-card[href]:hover{transform:translateY(-1px)}
     .item-card:target{outline:3px solid #8a755d;outline-offset:3px}
@@ -16,14 +33,17 @@
     .item-questions{margin:.45rem 0 0;font-size:.88rem;line-height:1.55;color:var(--text-sub,#675f55)}
     .item-card--ready{border-left:5px solid #8a755d}
     .item-card--pending{background:#faf9f6}
-    .q-mini-wrap{margin:2rem 0}
-    .q-mini-grid{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:.28rem}
-    .q-mini{display:flex;align-items:center;justify-content:center;min-height:1.75rem;padding:.18rem .1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:6px;background:#fff;color:inherit;font-size:.72rem;line-height:1}
-    a.q-mini{text-decoration:none}
-    a.q-mini:hover{background:#f3efe7}
-    span.q-mini{background:#faf9f6;color:var(--text-sub,#8a837a);cursor:default}
-    @media(max-width:900px){.q-mini-grid{grid-template-columns:repeat(10,minmax(0,1fr))}}
-    @media(max-width:520px){.q-mini-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.item-card__top{align-items:flex-start}}
+
+    @media(max-width:760px){
+      .r08-index{gap:2.75rem}
+      .index-block__head{align-items:flex-start;flex-direction:column}
+      .question-index{padding:1rem}
+      .q-mini-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:.45rem}
+    }
+    @media(max-width:420px){
+      .q-mini-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .item-card__top{align-items:flex-start}
+    }
   </style>
 </head>
 <body>
@@ -35,70 +55,98 @@
 </header>
 <main>
   <section class="page-hero"><div class="container hero-inner"><p class="site-kicker">R08</p><h1>令和8年度公開問題</h1></div></section>
-  <div class="container page-flow">
-    <div class="section-heading"><div><h2>学習分野から学ぶ</h2></div></div>
 
-    <section id="strategy">
-      <div class="section-heading"><div><p class="section-kicker">Strategy</p><h2>ストラテジ系</h2></div></div>
-      <div class="card-grid">
-        <a id="item-1" class="item-card item-card--ready" href="../../topics/r08-01-management-organization/"><div class="item-card__top"><span class="item-no">項目1</span></div><h3>経営・組織論</h3><p class="item-questions">問6・問30</p></a>
-        <a id="item-2" class="item-card item-card--ready" href="../../topics/r08-02-business-analysis-data-utilization/"><div class="item-card__top"><span class="item-no">項目2</span></div><h3>業務分析・データ利活用</h3><p class="item-questions">問3・問10・問16・問25</p></a>
-        <a id="item-3" class="item-card item-card--ready" href="../../topics/r08-03-accounting-finance/"><div class="item-card__top"><span class="item-no">項目3</span></div><h3>会計・財務</h3><p class="item-questions">問9・問26</p></a>
-        <a id="item-4" class="item-card item-card--ready" href="../../topics/r08-04-intellectual-property-rights/"><div class="item-card__top"><span class="item-no">項目4</span></div><h3>知的財産権</h3><p class="item-questions">問1・問5・問11</p></a>
-        <a id="item-5" class="item-card item-card--ready" href="../../topics/r08-05-security-related-laws/"><div class="item-card__top"><span class="item-no">項目5</span></div><h3>セキュリティ関連法規</h3><p class="item-questions">問13・問21</p></a>
-        <a id="item-6" class="item-card item-card--ready" href="../../topics/r08-06-labor-transaction-laws/"><div class="item-card__top"><span class="item-no">項目6</span></div><h3>労働関連・取引関連法規</h3><p class="item-questions">問29</p></a>
-        <a id="item-7" class="item-card item-card--ready" href="../../topics/r08-07-laws-guidelines-information-ethics/"><div class="item-card__top"><span class="item-no">項目7</span></div><h3>その他の法律・ガイドライン・情報倫理</h3><p class="item-questions">問24</p></a>
-        <a id="item-8" class="item-card item-card--ready" href="../../topics/r08-08-standardization-related/"><div class="item-card__top"><span class="item-no">項目8</span></div><h3>標準化関連</h3><p class="item-questions">問14</p></a>
-        <a id="item-9" class="item-card item-card--ready" href="../../topics/r08-09-management-strategy-methods/"><div class="item-card__top"><span class="item-no">項目9</span></div><h3>経営戦略手法</h3><p class="item-questions">問32</p></a>
-        <a id="item-10" class="item-card item-card--ready" href="../../topics/r08-10-marketing/"><div class="item-card__top"><span class="item-no">項目10</span></div><h3>マーケティング</h3><p class="item-questions">問23</p></a>
-        <a id="item-11" class="item-card item-card--ready" href="../../topics/r08-11-business-strategy-goals-evaluation/"><div class="item-card__top"><span class="item-no">項目11</span></div><h3>ビジネス戦略と目標・評価</h3><p class="item-questions">問7</p></a>
-        <a id="item-12" class="item-card item-card--ready" href="../../topics/r08-12-management-systems/"><div class="item-card__top"><span class="item-no">項目12</span></div><h3>経営管理システム</h3><p class="item-questions">問33</p></a>
-        <a id="item-13" class="item-card item-card--ready" href="../../topics/r08-13-technology-development-strategy/"><div class="item-card__top"><span class="item-no">項目13</span></div><h3>技術開発戦略の立案・技術開発計画</h3><p class="item-questions">問4・問15</p></a>
-        <a id="item-14" class="item-card item-card--ready" href="../../topics/r08-14-business-systems/"><div class="item-card__top"><span class="item-no">項目14</span></div><h3>ビジネスシステム</h3><p class="item-questions">問17・問27</p></a>
-        <a id="item-15" class="item-card item-card--ready" href="../../topics/r08-15-engineering-systems/"><div class="item-card__top"><span class="item-no">項目15</span></div><h3>エンジニアリングシステム</h3><p class="item-questions">問18・問31</p></a>
-        <a id="item-16" class="item-card item-card--ready" href="../../topics/r08-16-e-business/"><div class="item-card__top"><span class="item-no">項目16</span></div><h3>e-ビジネス</h3><p class="item-questions">問28</p></a>
-        <a id="item-17" class="item-card item-card--ready" href="../../topics/r08-17-iot-embedded-systems/"><div class="item-card__top"><span class="item-no">項目17</span></div><h3>IoTシステム・組込みシステム</h3><p class="item-questions">問8</p></a>
-        <a id="item-18" class="item-card item-card--ready" href="../../topics/r08-18-information-systems-strategy/"><div class="item-card__top"><span class="item-no">項目18</span></div><h3>情報システム戦略</h3><p class="item-questions">問34</p></a>
-        <a id="item-19" class="item-card item-card--ready" href="../../topics/r08-19-business-process/"><div class="item-card__top"><span class="item-no">項目19</span></div><h3>業務プロセス</h3><p class="item-questions">問2・問12・問22</p></a>
-        <a id="item-20" class="item-card item-card--ready" href="../../topics/r08-20-solution-business/"><div class="item-card__top"><span class="item-no">項目20</span></div><h3>ソリューションビジネス</h3><p class="item-questions">問19</p></a>
-        <a id="item-24" class="item-card item-card--ready" href="../../topics/r08-24-procurement-planning-execution/"><div class="item-card__top"><span class="item-no">項目24</span></div><h3>調達計画・実施</h3><p class="item-questions">問20</p></a>
+  <div class="container page-flow r08-index">
+    <section class="index-block" aria-labelledby="question-no-index">
+      <div class="index-block__head">
+        <div>
+          <h2 id="question-no-index">過去問から学ぶ</h2>
+          <p class="index-block__note">問題番号から、公開問題の個別解説へ進みます。</p>
+        </div>
+      </div>
+      <div class="question-index">
+        <div class="q-mini-grid" id="question-mini-grid"></div>
       </div>
     </section>
-    <section id="management"><div class="section-heading"><div><p class="section-kicker">Management</p><h2>マネジメント系</h2></div></div><div class="card-grid">
-      <a id="item-25" class="item-card item-card--ready" href="../../topics/r08-25-system-development-technology/"><div class="item-card__top"><span class="item-no">項目25</span></div><h3>システム開発技術</h3><p class="item-questions">問52</p></a>
-      <a id="item-26" class="item-card item-card--ready" href="../../topics/r08-26-development-process-methods/"><div class="item-card__top"><span class="item-no">項目26</span></div><h3>開発プロセス・手法</h3><p class="item-questions">問38・問43</p></a>
-      <a id="item-27" class="item-card item-card--ready" href="../../topics/r08-27-project-management/"><div class="item-card__top"><span class="item-no">項目27</span></div><h3>プロジェクトマネジメント</h3><p class="item-questions">問36・問37・問39・問45・問49・問50</p></a>
-      <a id="item-28" class="item-card item-card--ready" href="../../topics/r08-28-service-management/"><div class="item-card__top"><span class="item-no">項目28</span></div><h3>サービスマネジメント</h3><p class="item-questions">問48・問53</p></a>
-      <a id="item-29" class="item-card item-card--ready" href="../../topics/r08-29-service-management-system/"><div class="item-card__top"><span class="item-no">項目29</span></div><h3>サービスマネジメントシステム</h3><p class="item-questions">問42・問44・問46</p></a>
-      <a id="item-30" class="item-card item-card--ready" href="../../topics/r08-30-facility-management/"><div class="item-card__top"><span class="item-no">項目30</span></div><h3>ファシリティマネジメント</h3><p class="item-questions">問54</p></a>
-      <a id="item-31" class="item-card item-card--ready" href="../../topics/r08-31-system-audit/"><div class="item-card__top"><span class="item-no">項目31</span></div><h3>システム監査</h3><p class="item-questions">問47・問51</p></a>
-      <a id="item-32" class="item-card item-card--ready" href="../../topics/r08-32-internal-control/"><div class="item-card__top"><span class="item-no">項目32</span></div><h3>内部統制</h3><p class="item-questions">問35・問40・問41</p></a>
-    </div></section>
-    <section id="technology"><div class="section-heading"><div><p class="section-kicker">Technology</p><h2>テクノロジ系</h2></div></div><div class="card-grid">
-      <a id="item-35" class="item-card item-card--ready" href="../../topics/r08-35-information-theory/"><div class="item-card__top"><span class="item-no">項目35</span></div><h3>情報に関する理論</h3><p class="item-questions">問82・問84・問98</p></a>
-      <a id="item-37" class="item-card item-card--ready" href="../../topics/r08-37-algorithms-programming/"><div class="item-card__top"><span class="item-no">項目37</span></div><h3>アルゴリズムとプログラミング</h3><p class="item-questions">問67・問85・問88</p></a>
-      <a id="item-41" class="item-card item-card--ready" href="../../topics/r08-41-memory/"><div class="item-card__top"><span class="item-no">項目41</span></div><h3>メモリ</h3><p class="item-questions">問61</p></a>
-      <a id="item-42" class="item-card item-card--ready" href="../../topics/r08-42-input-output-devices/"><div class="item-card__top"><span class="item-no">項目42</span></div><h3>入出力デバイス</h3><p class="item-questions">問78</p></a>
-      <a id="item-43" class="item-card item-card--ready" href="../../topics/r08-43-system-configuration/"><div class="item-card__top"><span class="item-no">項目43</span></div><h3>システムの構成</h3><p class="item-questions">問87</p></a>
-      <a id="item-44" class="item-card item-card--ready" href="../../topics/r08-44-system-evaluation-indicators/"><div class="item-card__top"><span class="item-no">項目44</span></div><h3>システムの評価指標</h3><p class="item-questions">問62</p></a>
-      <a id="item-46" class="item-card item-card--ready" href="../../topics/r08-46-file-system/"><div class="item-card__top"><span class="item-no">項目46</span></div><h3>ファイルシステム</h3><p class="item-questions">問86</p></a>
-      <a id="item-47" class="item-card item-card--ready" href="../../topics/r08-47-office-tools/"><div class="item-card__top"><span class="item-no">項目47</span></div><h3>オフィスツール</h3><p class="item-questions">問74</p></a>
-      <a id="item-48" class="item-card item-card--ready" href="../../topics/r08-48-open-source-software/"><div class="item-card__top"><span class="item-no">項目48</span></div><h3>オープンソースソフトウェア</h3><p class="item-questions">問73・問97</p></a>
-      <a id="item-49" class="item-card item-card--ready" href="../../topics/r08-49-hardware/"><div class="item-card__top"><span class="item-no">項目49</span></div><h3>ハードウェア（コンピュータ・入出力装置）</h3><p class="item-questions">問99</p></a>
-      <a id="item-50" class="item-card item-card--ready" href="../../topics/r08-50-information-design/"><div class="item-card__top"><span class="item-no">項目50</span></div><h3>情報デザイン</h3><p class="item-questions">問58</p></a>
-      <a id="item-51" class="item-card item-card--ready" href="../../topics/r08-51-interface-design/"><div class="item-card__top"><span class="item-no">項目51</span></div><h3>インタフェース設計</h3><p class="item-questions">問60・問66</p></a>
-      <a id="item-55" class="item-card item-card--ready" href="../../topics/r08-55-database-design/"><div class="item-card__top"><span class="item-no">項目55</span></div><h3>データベース設計</h3><p class="item-questions">問57・問69</p></a>
-      <a id="item-56" class="item-card item-card--ready" href="../../topics/r08-56-data-operations/"><div class="item-card__top"><span class="item-no">項目56</span></div><h3>データ操作</h3><p class="item-questions">問72</p></a>
-      <a id="item-57" class="item-card item-card--ready" href="../../topics/r08-57-transaction-processing/"><div class="item-card__top"><span class="item-no">項目57</span></div><h3>トランザクション処理</h3><p class="item-questions">問56</p></a>
-      <a id="item-58" class="item-card item-card--ready" href="../../topics/r08-58-network-methods/"><div class="item-card__top"><span class="item-no">項目58</span></div><h3>ネットワーク方式</h3><p class="item-questions">問76・問81</p></a>
-      <a id="item-59" class="item-card item-card--ready" href="../../topics/r08-59-communication-protocols/"><div class="item-card__top"><span class="item-no">項目59</span></div><h3>通信プロトコル</h3><p class="item-questions">問68</p></a>
-      <a id="item-60" class="item-card item-card--ready" href="../../topics/r08-60-network-applications/"><div class="item-card__top"><span class="item-no">項目60</span></div><h3>ネットワーク応用</h3><p class="item-questions">問64・問65・問75</p></a>
-      <a id="item-61" class="item-card item-card--ready" href="../../topics/r08-61-information-security/"><div class="item-card__top"><span class="item-no">項目61</span></div><h3>情報セキュリティ</h3><p class="item-questions">問89・問96</p></a>
-      <a id="item-62" class="item-card item-card--ready" href="../../topics/r08-62-information-security-management/"><div class="item-card__top"><span class="item-no">項目62</span></div><h3>情報セキュリティ管理</h3><p class="item-questions">問70・問77・問79・問93・問100</p></a>
-      <a id="item-63" class="item-card item-card--ready" href="../../topics/r08-63-security-measures-implementation/"><div class="item-card__top"><span class="item-no">項目63</span></div><h3>情報セキュリティ対策・情報セキュリティ実装技術</h3><p class="item-questions">問55・問59・問63・問71・問80・問83・問90・問91・問92・問94・問95</p></a>
-    </div></section>
 
-    <section class="q-mini-wrap" aria-labelledby="question-no-index"><div class="section-heading"><div><h2 id="question-no-index">過去問から学ぶ</h2></div></div><div class="q-mini-grid" id="question-mini-grid"></div></section>
+    <section class="index-block" aria-labelledby="field-index-title">
+      <div class="index-block__head">
+        <div>
+          <h2 id="field-index-title">学習分野から学ぶ</h2>
+          <p class="index-block__note">公開問題を、ITパスポートの学習分野ごとにまとめています。</p>
+        </div>
+      </div>
+
+      <div class="field-index">
+        <section id="strategy" class="field-section">
+          <div class="section-heading"><div><p class="section-kicker">Strategy</p><h2>ストラテジ系</h2></div></div>
+          <div class="card-grid">
+            <a id="item-1" class="item-card item-card--ready" href="../../topics/r08-01-management-organization/"><div class="item-card__top"><span class="item-no">項目1</span></div><h3>経営・組織論</h3><p class="item-questions">問6・問30</p></a>
+            <a id="item-2" class="item-card item-card--ready" href="../../topics/r08-02-business-analysis-data-utilization/"><div class="item-card__top"><span class="item-no">項目2</span></div><h3>業務分析・データ利活用</h3><p class="item-questions">問3・問10・問16・問25</p></a>
+            <a id="item-3" class="item-card item-card--ready" href="../../topics/r08-03-accounting-finance/"><div class="item-card__top"><span class="item-no">項目3</span></div><h3>会計・財務</h3><p class="item-questions">問9・問26</p></a>
+            <a id="item-4" class="item-card item-card--ready" href="../../topics/r08-04-intellectual-property-rights/"><div class="item-card__top"><span class="item-no">項目4</span></div><h3>知的財産権</h3><p class="item-questions">問1・問5・問11</p></a>
+            <a id="item-5" class="item-card item-card--ready" href="../../topics/r08-05-security-related-laws/"><div class="item-card__top"><span class="item-no">項目5</span></div><h3>セキュリティ関連法規</h3><p class="item-questions">問13・問21</p></a>
+            <a id="item-6" class="item-card item-card--ready" href="../../topics/r08-06-labor-transaction-laws/"><div class="item-card__top"><span class="item-no">項目6</span></div><h3>労働関連・取引関連法規</h3><p class="item-questions">問29</p></a>
+            <a id="item-7" class="item-card item-card--ready" href="../../topics/r08-07-laws-guidelines-information-ethics/"><div class="item-card__top"><span class="item-no">項目7</span></div><h3>その他の法律・ガイドライン・情報倫理</h3><p class="item-questions">問24</p></a>
+            <a id="item-8" class="item-card item-card--ready" href="../../topics/r08-08-standardization-related/"><div class="item-card__top"><span class="item-no">項目8</span></div><h3>標準化関連</h3><p class="item-questions">問14</p></a>
+            <a id="item-9" class="item-card item-card--ready" href="../../topics/r08-09-management-strategy-methods/"><div class="item-card__top"><span class="item-no">項目9</span></div><h3>経営戦略手法</h3><p class="item-questions">問32</p></a>
+            <a id="item-10" class="item-card item-card--ready" href="../../topics/r08-10-marketing/"><div class="item-card__top"><span class="item-no">項目10</span></div><h3>マーケティング</h3><p class="item-questions">問23</p></a>
+            <a id="item-11" class="item-card item-card--ready" href="../../topics/r08-11-business-strategy-goals-evaluation/"><div class="item-card__top"><span class="item-no">項目11</span></div><h3>ビジネス戦略と目標・評価</h3><p class="item-questions">問7</p></a>
+            <a id="item-12" class="item-card item-card--ready" href="../../topics/r08-12-management-systems/"><div class="item-card__top"><span class="item-no">項目12</span></div><h3>経営管理システム</h3><p class="item-questions">問33</p></a>
+            <a id="item-13" class="item-card item-card--ready" href="../../topics/r08-13-technology-development-strategy/"><div class="item-card__top"><span class="item-no">項目13</span></div><h3>技術開発戦略の立案・技術開発計画</h3><p class="item-questions">問4・問15</p></a>
+            <a id="item-14" class="item-card item-card--ready" href="../../topics/r08-14-business-systems/"><div class="item-card__top"><span class="item-no">項目14</span></div><h3>ビジネスシステム</h3><p class="item-questions">問17・問27</p></a>
+            <a id="item-15" class="item-card item-card--ready" href="../../topics/r08-15-engineering-systems/"><div class="item-card__top"><span class="item-no">項目15</span></div><h3>エンジニアリングシステム</h3><p class="item-questions">問18・問31</p></a>
+            <a id="item-16" class="item-card item-card--ready" href="../../topics/r08-16-e-business/"><div class="item-card__top"><span class="item-no">項目16</span></div><h3>e-ビジネス</h3><p class="item-questions">問28</p></a>
+            <a id="item-17" class="item-card item-card--ready" href="../../topics/r08-17-iot-embedded-systems/"><div class="item-card__top"><span class="item-no">項目17</span></div><h3>IoTシステム・組込みシステム</h3><p class="item-questions">問8</p></a>
+            <a id="item-18" class="item-card item-card--ready" href="../../topics/r08-18-information-systems-strategy/"><div class="item-card__top"><span class="item-no">項目18</span></div><h3>情報システム戦略</h3><p class="item-questions">問34</p></a>
+            <a id="item-19" class="item-card item-card--ready" href="../../topics/r08-19-business-process/"><div class="item-card__top"><span class="item-no">項目19</span></div><h3>業務プロセス</h3><p class="item-questions">問2・問12・問22</p></a>
+            <a id="item-20" class="item-card item-card--ready" href="../../topics/r08-20-solution-business/"><div class="item-card__top"><span class="item-no">項目20</span></div><h3>ソリューションビジネス</h3><p class="item-questions">問19</p></a>
+            <a id="item-24" class="item-card item-card--ready" href="../../topics/r08-24-procurement-planning-execution/"><div class="item-card__top"><span class="item-no">項目24</span></div><h3>調達計画・実施</h3><p class="item-questions">問20</p></a>
+          </div>
+        </section>
+
+        <section id="management" class="field-section">
+          <div class="section-heading"><div><p class="section-kicker">Management</p><h2>マネジメント系</h2></div></div>
+          <div class="card-grid">
+            <a id="item-25" class="item-card item-card--ready" href="../../topics/r08-25-system-development-technology/"><div class="item-card__top"><span class="item-no">項目25</span></div><h3>システム開発技術</h3><p class="item-questions">問52</p></a>
+            <a id="item-26" class="item-card item-card--ready" href="../../topics/r08-26-development-process-methods/"><div class="item-card__top"><span class="item-no">項目26</span></div><h3>開発プロセス・手法</h3><p class="item-questions">問38・問43</p></a>
+            <a id="item-27" class="item-card item-card--ready" href="../../topics/r08-27-project-management/"><div class="item-card__top"><span class="item-no">項目27</span></div><h3>プロジェクトマネジメント</h3><p class="item-questions">問36・問37・問39・問45・問49・問50</p></a>
+            <a id="item-28" class="item-card item-card--ready" href="../../topics/r08-28-service-management/"><div class="item-card__top"><span class="item-no">項目28</span></div><h3>サービスマネジメント</h3><p class="item-questions">問48・問53</p></a>
+            <a id="item-29" class="item-card item-card--ready" href="../../topics/r08-29-service-management-system/"><div class="item-card__top"><span class="item-no">項目29</span></div><h3>サービスマネジメントシステム</h3><p class="item-questions">問42・問44・問46</p></a>
+            <a id="item-30" class="item-card item-card--ready" href="../../topics/r08-30-facility-management/"><div class="item-card__top"><span class="item-no">項目30</span></div><h3>ファシリティマネジメント</h3><p class="item-questions">問54</p></a>
+            <a id="item-31" class="item-card item-card--ready" href="../../topics/r08-31-system-audit/"><div class="item-card__top"><span class="item-no">項目31</span></div><h3>システム監査</h3><p class="item-questions">問47・問51</p></a>
+            <a id="item-32" class="item-card item-card--ready" href="../../topics/r08-32-internal-control/"><div class="item-card__top"><span class="item-no">項目32</span></div><h3>内部統制</h3><p class="item-questions">問35・問40・問41</p></a>
+          </div>
+        </section>
+
+        <section id="technology" class="field-section">
+          <div class="section-heading"><div><p class="section-kicker">Technology</p><h2>テクノロジ系</h2></div></div>
+          <div class="card-grid">
+            <a id="item-35" class="item-card item-card--ready" href="../../topics/r08-35-information-theory/"><div class="item-card__top"><span class="item-no">項目35</span></div><h3>情報に関する理論</h3><p class="item-questions">問82・問84・問98</p></a>
+            <a id="item-37" class="item-card item-card--ready" href="../../topics/r08-37-algorithms-programming/"><div class="item-card__top"><span class="item-no">項目37</span></div><h3>アルゴリズムとプログラミング</h3><p class="item-questions">問67・問85・問88</p></a>
+            <a id="item-41" class="item-card item-card--ready" href="../../topics/r08-41-memory/"><div class="item-card__top"><span class="item-no">項目41</span></div><h3>メモリ</h3><p class="item-questions">問61</p></a>
+            <a id="item-42" class="item-card item-card--ready" href="../../topics/r08-42-input-output-devices/"><div class="item-card__top"><span class="item-no">項目42</span></div><h3>入出力デバイス</h3><p class="item-questions">問78</p></a>
+            <a id="item-43" class="item-card item-card--ready" href="../../topics/r08-43-system-configuration/"><div class="item-card__top"><span class="item-no">項目43</span></div><h3>システムの構成</h3><p class="item-questions">問87</p></a>
+            <a id="item-44" class="item-card item-card--ready" href="../../topics/r08-44-system-evaluation-indicators/"><div class="item-card__top"><span class="item-no">項目44</span></div><h3>システムの評価指標</h3><p class="item-questions">問62</p></a>
+            <a id="item-46" class="item-card item-card--ready" href="../../topics/r08-46-file-system/"><div class="item-card__top"><span class="item-no">項目46</span></div><h3>ファイルシステム</h3><p class="item-questions">問86</p></a>
+            <a id="item-47" class="item-card item-card--ready" href="../../topics/r08-47-office-tools/"><div class="item-card__top"><span class="item-no">項目47</span></div><h3>オフィスツール</h3><p class="item-questions">問74</p></a>
+            <a id="item-48" class="item-card item-card--ready" href="../../topics/r08-48-open-source-software/"><div class="item-card__top"><span class="item-no">項目48</span></div><h3>オープンソースソフトウェア</h3><p class="item-questions">問73・問97</p></a>
+            <a id="item-49" class="item-card item-card--ready" href="../../topics/r08-49-hardware/"><div class="item-card__top"><span class="item-no">項目49</span></div><h3>ハードウェア（コンピュータ・入出力装置）</h3><p class="item-questions">問99</p></a>
+            <a id="item-50" class="item-card item-card--ready" href="../../topics/r08-50-information-design/"><div class="item-card__top"><span class="item-no">項目50</span></div><h3>情報デザイン</h3><p class="item-questions">問58</p></a>
+            <a id="item-51" class="item-card item-card--ready" href="../../topics/r08-51-interface-design/"><div class="item-card__top"><span class="item-no">項目51</span></div><h3>インタフェース設計</h3><p class="item-questions">問60・問66</p></a>
+            <a id="item-55" class="item-card item-card--ready" href="../../topics/r08-55-database-design/"><div class="item-card__top"><span class="item-no">項目55</span></div><h3>データベース設計</h3><p class="item-questions">問57・問69</p></a>
+            <a id="item-56" class="item-card item-card--ready" href="../../topics/r08-56-data-operations/"><div class="item-card__top"><span class="item-no">項目56</span></div><h3>データ操作</h3><p class="item-questions">問72</p></a>
+            <a id="item-57" class="item-card item-card--ready" href="../../topics/r08-57-transaction-processing/"><div class="item-card__top"><span class="item-no">項目57</span></div><h3>トランザクション処理</h3><p class="item-questions">問56</p></a>
+            <a id="item-58" class="item-card item-card--ready" href="../../topics/r08-58-network-methods/"><div class="item-card__top"><span class="item-no">項目58</span></div><h3>ネットワーク方式</h3><p class="item-questions">問76・問81</p></a>
+            <a id="item-59" class="item-card item-card--ready" href="../../topics/r08-59-communication-protocols/"><div class="item-card__top"><span class="item-no">項目59</span></div><h3>通信プロトコル</h3><p class="item-questions">問68</p></a>
+            <a id="item-60" class="item-card item-card--ready" href="../../topics/r08-60-network-applications/"><div class="item-card__top"><span class="item-no">項目60</span></div><h3>ネットワーク応用</h3><p class="item-questions">問64・問65・問75</p></a>
+            <a id="item-61" class="item-card item-card--ready" href="../../topics/r08-61-information-security/"><div class="item-card__top"><span class="item-no">項目61</span></div><h3>情報セキュリティ</h3><p class="item-questions">問89・問96</p></a>
+            <a id="item-62" class="item-card item-card--ready" href="../../topics/r08-62-information-security-management/"><div class="item-card__top"><span class="item-no">項目62</span></div><h3>情報セキュリティ管理</h3><p class="item-questions">問70・問77・問79・問93・問100</p></a>
+            <a id="item-63" class="item-card item-card--ready" href="../../topics/r08-63-security-measures-implementation/"><div class="item-card__top"><span class="item-no">項目63</span></div><h3>情報セキュリティ対策・情報セキュリティ実装技術</h3><p class="item-questions">問55・問59・問63・問71・問80・問83・問90・問91・問92・問94・問95</p></a>
+          </div>
+        </section>
+      </div>
+    </section>
   </div>
 </main>
 <footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
