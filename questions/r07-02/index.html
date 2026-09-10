@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>クラウド向けに追加されたセキュリティ標準を見分ける | ITネッコ</title>
+  <meta name="description" content="令和7年度ITパスポート公開問題2を起点に、既存の情報セキュリティ管理の枠組みと、クラウド固有の追加管理策を区別する判断順序を整理します。">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .question-page{--q-accent:#7f6f58;--q-soft:#f6f1e9;--q-ink:#342f29}
+    .question-hero .hero-inner{padding-bottom:1.7rem}
+    .question-hero h1{margin:.15rem 0 .35rem;max-width:780px;line-height:1.35}
+    .question-shell{max-width:880px}
+    .question-tools{display:flex;flex-wrap:wrap;gap:.7rem 1rem;align-items:center;margin:0 0 1.25rem;padding:.85rem 0;border-bottom:1px solid var(--color-border,#d9d3c8)}
+    .question-tools a{font-weight:700}
+    .question-tools .source-link{margin-left:auto;font-size:.92rem}
+    .step-card{margin:0 0 1rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .step-card .step-label{margin:0 0 .25rem;font-size:.76rem;font-weight:800;letter-spacing:.08em;color:var(--q-accent)}
+    .step-card h2{margin:0 0 .75rem;font-size:1.2rem;line-height:1.45}
+    .step-card p{margin:.45rem 0;line-height:1.8}
+    .step-card p:last-child{margin-bottom:0}
+    .focus-box{margin-top:.9rem;padding:1rem 1.05rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0}
+    .focus-box strong{display:block;margin-bottom:.25rem}
+    .relation{display:grid;grid-template-columns:1fr auto 1fr;gap:.65rem;align-items:center;margin-top:1rem}
+    .relation-box{padding:1rem;border-radius:14px;background:var(--q-soft);text-align:center;line-height:1.6}
+    .relation-arrow{font-size:1.15rem;font-weight:800;color:var(--q-accent)}
+    .term-list{display:grid;gap:.75rem;margin-top:1rem}
+    .term-item{padding:.95rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fcfbf9}
+    .term-item strong{display:block;margin-bottom:.25rem}
+    .memory-line{margin-top:1rem;padding:1rem 1.05rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0;font-weight:800;line-height:1.75}
+    .next-link{margin:1.25rem 0 0;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .next-link .item-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-left:5px solid #8a755d;border-radius:14px;background:#fff;color:inherit;text-decoration:none;transition:transform .15s ease,background .15s ease}
+    .next-link .item-card:hover{transform:translateY(-1px);background:#faf9f6}
+    .next-link .item-card__top{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:.35rem}
+    .next-link .item-no{font-size:.82rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .next-link .item-arrow{font-size:.95rem;font-weight:700;color:var(--text-sub,#675f55);white-space:nowrap}
+    .next-link .item-card h3{margin:0;font-size:1.02rem;line-height:1.5}
+    .next-link .item-questions{margin:.45rem 0 0;font-size:.88rem;line-height:1.55;color:var(--text-sub,#675f55)}
+    @media(max-width:700px){
+      .question-tools{display:block}
+      .question-tools a{display:block;margin:.35rem 0}
+      .question-tools .source-link{margin-left:0}
+      .relation{grid-template-columns:1fr}
+      .relation-arrow{justify-self:center;transform:rotate(90deg)}
+    }
+  </style>
+</head>
+<body class="question-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../../">ITネッコ</a>
+    <nav class="site-nav" aria-label="主要ページ">
+      <a href="../../">ITネッコ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero question-hero">
+    <div class="container hero-inner">
+      <p class="site-kicker">令和7年度 ITパスポート試験 / 公開問題2</p>
+      <h1>クラウド向けに追加されたセキュリティ標準を見分ける</h1>
+    </div>
+  </section>
+
+  <div class="container page-flow question-shell">
+    <article>
+      <div class="question-tools">
+        <a href="../../past-questions/r07/">← 令和7年度公開問題へ戻る</a>
+        <a class="source-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式の公開問題を確認する</a>
+      </div>
+
+      <section class="step-card">
+        <p class="step-label">STEP 1</p>
+        <h2>まず「何の管理を、どの利用場面に合わせる話か」を見る</h2>
+        <p>情報セキュリティを管理するための既存の枠組みを土台にしながら、ある利用形態に合わせて追加の指針を設ける場面です。</p>
+        <p>ここで知りたいのは、単に「情報セキュリティの規格は何か」ではありません。<strong>既存の管理の枠組みに、どんな場面のための視点が追加されたのか</strong>を見分けることです。</p>
+        <div class="focus-box">
+          <strong>次に見る理由</strong>
+          情報セキュリティという目的が同じでも、利用環境が変われば追加で必要になる管理策が変わるからです。
+        </div>
+      </section>
+
+      <section class="step-card">
+        <p class="step-label">STEP 2</p>
+        <h2>一般的な管理と、クラウド固有の管理を分ける</h2>
+        <p>組織の情報セキュリティを管理する基本的な仕組みと、クラウドサービスを利用・提供するときの管理は、同じ目的を持ちながら扱う状況が異なります。</p>
+        <div class="relation" aria-label="一般的な管理とクラウド固有の管理の関係">
+          <div class="relation-box"><strong>基本の管理</strong><br>組織の情報セキュリティ</div>
+          <div class="relation-arrow" aria-hidden="true">→</div>
+          <div class="relation-box"><strong>追加の視点</strong><br>クラウド特有の管理策</div>
+        </div>
+        <p>クラウドでは、サービス提供者と利用者が関わり、管理責任や運用上の注意点も増えます。したがって、一般的な管理の考え方だけでなく、クラウドという利用場面に合わせた補足が必要になります。</p>
+        <div class="focus-box">
+          <strong>次に見る理由</strong>
+          「基礎となる規格」と「追加された指針」の関係が分かれば、規格の役割を絞り込めます。
+        </div>
+      </section>
+
+      <section class="step-card">
+        <p class="step-label">STEP 3</p>
+        <h2>決定的なのは「既存の枠組みを基礎に、クラウド向けの管理策を補う」という関係</h2>
+        <p>判断を分けるのは、クラウドという語だけではありません。重要なのは、<strong>既存の情報セキュリティ管理を置き換えるのではなく、その上にクラウド固有の管理策を追加する</strong>という構造です。</p>
+        <div class="focus-box">
+          <strong>判断の芯</strong>
+          基本の情報セキュリティ管理 → クラウドという利用場面 → 固有の管理策を追加する指針
+        </div>
+      </section>
+
+      <section class="step-card">
+        <p class="step-label">STEP 4</p>
+        <h2>この関係に付いている規格名を確認する</h2>
+        <p>ここまでの関係に対応するのが、<strong>ISO/IEC 27017</strong>です。クラウドサービスに関する情報セキュリティ管理策のための指針として位置付けられます。</p>
+        <div class="term-list">
+          <div class="term-item"><strong>ISO/IEC 27001</strong>情報セキュリティマネジメントシステムの要求事項を扱う基本的な規格。</div>
+          <div class="term-item"><strong>ISO/IEC 27017</strong>クラウドサービスに関する情報セキュリティ管理策の指針。</div>
+        </div>
+        <p>番号だけで覚えるよりも、基本の規格に対して<strong>どの利用場面の管理策を補っているのか</strong>を対応させると、別の問題でも判断しやすくなります。</p>
+      </section>
+
+      <section class="step-card">
+        <p class="step-label">STEP 5</p>
+        <h2>別の問題でも使える判断順序にする</h2>
+        <p>似た規格が並んだときは、まず管理対象を確認し、次に一般的な仕組みか特定の利用場面向けかを分けます。最後に、その規格が要求事項なのか補足的な指針なのかを確認します。</p>
+        <div class="memory-line">管理対象を見る → 利用場面を見る → 基本か追加かを分ける → 要求事項か指針かを確認する → 最後に規格名を付ける</div>
+      </section>
+
+      <div class="next-link">
+        <a class="item-card" href="../../topics/r08-08-standardization-related/">
+          <div class="item-card__top"><span class="item-no">項目8</span><span class="item-arrow">→</span></div>
+          <h3>標準化関連</h3>
+          <p class="item-questions">体系的に見る</p>
+        </a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="container"><p>ITネッコ / のらネコ学習室</p></div></footer>
+</body>
+</html>
