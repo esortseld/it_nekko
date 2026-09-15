@@ -3,39 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>令和7年度 公開問題29 復習 | ITネッコ</title>
-  <meta name="description" content="令和7年度ITパスポート公開問題29を解いた後に、MVVのうちビジョンが「企業のありたい姿」を示すことを、ミッション・バリューとの役割の違いから振り返るためのページです。">
+  <title>令和7年度 公開問題29 | ITネッコ</title>
+  <meta name="description" content="令和7年度ITパスポート公開問題29を自力で判断するために、企業理念に関する用語を役割で区別する考え方と判断順序を整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .question-page{--q-accent:#7f6f58;--q-soft:#f6f1e9;--q-ink:#342f29}
     .question-hero .hero-inner{padding-bottom:1.7rem}
-    .question-hero h1{margin:.15rem 0 .35rem}
+    .question-hero h1{margin:.15rem 0 .35rem;max-width:780px;line-height:1.35}
     .question-shell{max-width:880px}
-    .reference-block{margin:0 0 1.15rem;padding:.95rem 1.05rem;border-left:4px solid var(--q-accent);background:#faf8f4;border-radius:0 12px 12px 0}
-    .reference-block .section-kicker{margin-bottom:.25rem}
-    .reference-block h2{margin:0 0 .35rem;font-size:1.08rem}
-    .reference-block p{margin:.25rem 0;line-height:1.65}
-    .reference-block a{font-weight:700}
-    .item-context{margin:0 0 1.15rem;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:var(--q-soft)}
-    .item-context .section-kicker{margin-bottom:.25rem}
-    .item-context h2{margin:0 0 .35rem;font-size:1.08rem}
-    .item-context p{margin:.25rem 0;line-height:1.7}
-    .item-context strong{font-size:1.02rem}
-    .flow-card,.point-card,.finish-card{margin:0 0 1.15rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
-    .flow-card h2,.point-card h2,.finish-card h2{margin:0 0 .7rem;font-size:1.18rem}
-    .flow-card p:last-child,.point-card p:last-child,.finish-card p:last-child{margin-bottom:0}
-    .decision-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.55rem;align-items:stretch;margin:1rem 0 .2rem}
-    .decision-step{padding:1rem;border-radius:14px;background:var(--q-soft);text-align:center}
-    .decision-step span{display:block;margin-bottom:.25rem;font-size:.74rem;font-weight:800;color:var(--q-accent)}
-    .decision-step strong{font-size:.95rem;line-height:1.55}
-    .flow-arrow{align-self:center;color:var(--q-accent);font-size:1.15rem;font-weight:800}
-    .checkpoint-list{display:grid;gap:.7rem;margin-top:1rem}
-    .checkpoint{display:grid;grid-template-columns:2rem 1fr;gap:.75rem;align-items:start;padding:.9rem 1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fcfbf9}
-    .checkpoint-no{display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:999px;background:var(--q-soft);font-size:.8rem;font-weight:800;color:var(--q-accent)}
-    .checkpoint strong{display:block;margin-bottom:.2rem}
-    .checkpoint p{margin:0;line-height:1.65;font-size:.94rem}
-    .memory-box{margin-top:1rem;padding:1rem 1.05rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0}
-    .memory-box p{margin:.3rem 0 0;line-height:1.7}
+    .question-tools{display:flex;flex-wrap:wrap;gap:.7rem 1rem;align-items:center;margin:0 0 1.25rem;padding:.85rem 0;border-bottom:1px solid var(--color-border,#d9d3c8)}
+    .question-tools a{font-weight:700}
+    .question-tools .source-link{margin-left:auto;font-size:.92rem}
+    .step-card{margin:0 0 1rem;padding:1.2rem 1.25rem;border:1px solid var(--color-border,#d9d3c8);border-radius:18px;background:#fff}
+    .step-card .step-label{margin:0 0 .25rem;font-size:.76rem;font-weight:800;letter-spacing:.08em;color:var(--q-accent)}
+    .step-card h2{margin:0 0 .75rem;font-size:1.2rem;line-height:1.45}
+    .step-card p{margin:.45rem 0;line-height:1.8}
+    .step-card p:last-child{margin-bottom:0}
+    .focus-box{margin-top:.9rem;padding:1rem 1.05rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0}
+    .focus-box strong{display:block;margin-bottom:.25rem}
+    .role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin-top:1rem}
+    .role-card{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fcfbf9}
+    .role-card small{display:block;margin-bottom:.25rem;font-weight:800;letter-spacing:.05em;color:var(--q-accent)}
+    .role-card strong{display:block;margin-bottom:.3rem}
+    .role-card p{margin:0;font-size:.94rem;line-height:1.65}
+    .relation{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:.55rem;align-items:center;margin-top:1rem}
+    .relation-box{padding:.9rem;border-radius:14px;background:var(--q-soft);text-align:center;line-height:1.55;font-weight:700}
+    .relation-arrow{font-size:1rem;font-weight:800;color:var(--q-accent)}
+    .memory-line{margin-top:1rem;padding:1rem 1.05rem;border-left:5px solid var(--q-accent);background:var(--q-soft);border-radius:0 14px 14px 0;font-weight:800;line-height:1.75}
     .next-link{margin:1.25rem 0 0;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
     .next-link .item-card{display:block;padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-left:5px solid #8a755d;border-radius:14px;background:#fff;color:inherit;text-decoration:none;transition:transform .15s ease,background .15s ease}
     .next-link .item-card:hover{transform:translateY(-1px);background:#faf9f6}
@@ -44,10 +38,12 @@
     .next-link .item-arrow{font-size:.95rem;font-weight:700;color:var(--text-sub,#675f55);white-space:nowrap}
     .next-link .item-card h3{margin:0;font-size:1.02rem;line-height:1.5}
     .next-link .item-questions{margin:.45rem 0 0;font-size:.88rem;line-height:1.55;color:var(--text-sub,#675f55)}
-    .back-to-year{margin:1.2rem 0 0}
     @media(max-width:760px){
-      .decision-flow{grid-template-columns:1fr}
-      .flow-arrow{transform:rotate(90deg);justify-self:center}
+      .question-tools{display:block}
+      .question-tools a{display:block;margin:.35rem 0}
+      .question-tools .source-link{margin-left:0}
+      .role-grid,.relation{grid-template-columns:1fr}
+      .relation-arrow{justify-self:center;transform:rotate(90deg)}
     }
   </style>
 </head>
@@ -57,6 +53,7 @@
     <a class="brand" href="../../">ITネッコ</a>
     <nav class="site-nav" aria-label="主要ページ">
       <a href="../../">ITネッコ</a>
+      <a href="../../past-questions/r07/">令和7年度一覧へ</a>
     </nav>
   </div>
 </header>
@@ -71,51 +68,78 @@
 
   <div class="container page-flow question-shell">
     <article>
-      <section class="reference-block">
-        <p class="section-kicker">REFERENCE</p>
-        <h2>今回の公開問題</h2>
-        <p>令和7年度 ITパスポート試験 公開問題 問29</p>
-        <p><a href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式 ITパスポート試験 過去問題</a></p>
-      </section>
+      <div class="question-tools">
+        <a href="../../past-questions/r07/">← 令和7年度公開問題へ戻る</a>
+        <a class="source-link" href="https://www3.jitec.ipa.go.jp/JitesCbt/html/openinfo/questions.html" target="_blank" rel="noopener noreferrer">IPA公式の公開問題を確認する</a>
+      </div>
 
-      <section class="item-context">
-        <p class="section-kicker">ITEM</p>
-        <h2>この問題の項目</h2>
-        <p><strong>項目1　経営・組織論</strong></p>
-        <p>この問題では、その中の「MVV（ミッション・ビジョン・バリュー）」を扱います。</p>
-      </section>
-
-      <section class="flow-card">
-        <p class="section-kicker">HOW TO READ</p>
-        <h2>この問題で確認したい判断の順序</h2>
-        <p>企業理念に関する文言を、言葉の雰囲気だけで判断するのではなく、その文言が「なぜ存在するのか」「将来どのような姿を目指すのか」「どう判断し行動するのか」のどれを表しているかで見分けます。</p>
-        <div class="decision-flow" aria-label="判断の流れ">
-          <div class="decision-step"><span>STEP 1</span><strong>文言が何を表しているかを<br>読み取る</strong></div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="decision-step"><span>STEP 2</span><strong>存在理由・将来像・行動基準に<br>分ける</strong></div>
-          <div class="flow-arrow" aria-hidden="true">→</div>
-          <div class="decision-step"><span>STEP 3</span><strong>対応するMVVの用語を<br>当てる</strong></div>
+      <section class="step-card">
+        <p class="step-label">STEP 1</p>
+        <h2>まず「その言葉が会社の何を表しているか」を見る</h2>
+        <p>企業理念に関する用語は、似た印象の言葉が並ぶと混同しやすくなります。最初から用語名を当てにいくのではなく、その説明が会社について<strong>何を決めるためのものか</strong>を確認します。</p>
+        <p>見る軸は、会社が存在する理由なのか、これから目指す方向なのか、日々の判断や行動のよりどころなのか、という役割の違いです。</p>
+        <div class="focus-box">
+          <strong>最初の判断軸</strong>
+          用語名ではなく、「存在理由」「目指す方向」「行動のよりどころ」のどこに当たる説明かを整理する。
         </div>
       </section>
 
-      <section class="point-card">
-        <p class="section-kicker">CHECKPOINT</p>
-        <h2>問題文のどこを見ればよかったか</h2>
-        <div class="checkpoint-list">
-          <div class="checkpoint"><span class="checkpoint-no">1</span><div><strong>「企業の存在意義や使命」は、存在する理由を示している</strong><p>これは「なぜこの企業があるのか」を表す役割で、Mission（ミッション）に対応します。</p></div></div>
-          <div class="checkpoint"><span class="checkpoint-no">2</span><div><strong>「ある時点でのありたい姿」は、将来の状態を示している</strong><p>この表現が問29の中心です。「将来どのような企業でありたいか」という到達イメージなので、Vision（ビジョン）に対応します。</p></div></div>
-          <div class="checkpoint"><span class="checkpoint-no">3</span><div><strong>業績管理指標や成功要因は、企業の「ありたい姿」そのものではない</strong><p>KPIは進捗や業績を測る指標、CSFは戦略を実現するための重要な成功要因です。MVVのうちビジョンを表す文言とは役割が異なります。</p></div></div>
+      <section class="step-card">
+        <p class="step-label">STEP 2</p>
+        <h2>企業の方向性と、戦略を進めるための指標を分ける</h2>
+        <p>企業経営では、会社の方向性を定める考え方と、その方向へ進むための戦略や管理指標は役割が異なります。</p>
+        <div class="relation" aria-label="企業経営の役割の流れ">
+          <div class="relation-box">理念・方向性</div>
+          <div class="relation-arrow" aria-hidden="true">→</div>
+          <div class="relation-box">戦略</div>
+          <div class="relation-arrow" aria-hidden="true">→</div>
+          <div class="relation-box">成功の鍵</div>
+          <div class="relation-arrow" aria-hidden="true">→</div>
+          <div class="relation-box">進み具合を測る指標</div>
+        </div>
+        <p>したがって、将来像を示す考え方と、業績を測る数値や戦略実現の重要要因を同じものとして扱わないことが重要です。</p>
+      </section>
+
+      <section class="step-card">
+        <p class="step-label">STEP 3</p>
+        <h2>MVVは三つの役割に分けて理解する</h2>
+        <p>MVVは、企業理念を一つの言葉として覚えるのではなく、役割を分けて捉えると区別しやすくなります。</p>
+        <div class="role-grid">
+          <div class="role-card">
+            <small>MISSION</small>
+            <strong>なぜ存在するのか</strong>
+            <p>企業の存在意義や使命を表す。</p>
+          </div>
+          <div class="role-card">
+            <small>VISION</small>
+            <strong>どこを目指すのか</strong>
+            <p>将来、どのような状態を目指すかを表す。</p>
+          </div>
+          <div class="role-card">
+            <small>VALUE</small>
+            <strong>どう判断し行動するのか</strong>
+            <p>組織や人が共有する価値観、判断や行動のよりどころを表す。</p>
+          </div>
+        </div>
+        <p>ここで大切なのは、単語の日本語訳ではなく、<strong>会社の存在・将来・行動のどの層を扱う言葉か</strong>で見分けることです。</p>
+      </section>
+
+      <section class="step-card">
+        <p class="step-label">STEP 4</p>
+        <h2>設問が求めている役割だけを、説明と照合する</h2>
+        <p>問題へ戻ったら、設問で指定されている用語が、三つの役割のどれに当たるかを先に確認します。そのうえで、説明文がその役割と一致しているかを見ます。</p>
+        <p>この順序にすると、企業理念そのものを説明する文、戦略上の重要要因を説明する文、業績管理の指標を説明する文が混在していても、役割の違いで整理できます。</p>
+        <div class="focus-box">
+          <strong>照合するときの順序</strong>
+          設問が指定する用語の役割を確認する → 説明がその役割を表しているかを見る → 他の経営用語の役割と混同していないか確認する。
         </div>
       </section>
 
-      <section class="finish-card">
-        <p class="section-kicker">BACK TO KNOWLEDGE</p>
-        <h2>この1問から残す学習要点</h2>
-        <p>MVVは、名称だけで覚えるより、それぞれが企業について何を表す言葉なのかで区別します。Missionは存在意義や使命、Visionは将来のありたい姿、Valueは判断や行動で大切にする価値観です。</p>
-        <div class="memory-box">
-          <strong>ビジョンは「ありたい姿」。</strong>
-          <p><strong>Mission＝存在理由 / Vision＝ありたい姿 / Value＝行動のよりどころ</strong>と役割で区別します。この問題の正解は<strong>イ</strong>です。</p>
-        </div>
+      <section class="step-card">
+        <p class="step-label">STEP 5</p>
+        <h2>別の問題でも使える判断順序にする</h2>
+        <p>企業理念や経営管理の用語が並ぶ問題では、名称だけを暗記するより、会社の中での役割を上流から並べると判断しやすくなります。</p>
+        <div class="memory-line">存在する理由を見る → 目指す方向を見る → 行動のよりどころを見る → 戦略・成功要因・管理指標とは役割を分ける</div>
       </section>
 
       <div class="next-link">
@@ -125,8 +149,6 @@
           <p class="item-questions">体系的に見る</p>
         </a>
       </div>
-
-      <p class="back-to-year"><a href="../../past-questions/r07/">← 令和7年度公開問題へ戻る</a></p>
     </article>
   </div>
 </main>
