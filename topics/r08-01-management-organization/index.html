@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>項目1 経営・組織論 | ITネッコ</title>
-  <meta name="description" content="令和6・7・8年度の公開問題を手掛かりに、企業理念とMVV、経営資源、経営管理、組織、ITによる変化を、会社が動いていく順序に沿って整理します。">
+  <meta name="description" content="令和6・7・8年度の公開問題を手掛かりに、企業理念とMVV、経営資源、経営管理、組織の形と権限・責任、ITによる変化を、会社が動いていく順序に沿って整理します。">
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
     .story-page{--accent:#7f6f58;--soft:#f6f1e9;--paper:#fcfbf8;--ink:#342f29;--muted:#6c6257}
@@ -33,10 +33,10 @@
     .axis h3{margin:0 0 .45rem;font-size:1rem}
     .axis p{margin:.35rem 0;font-size:.92rem;line-height:1.7}
     .org-list{display:grid;gap:.55rem;margin-top:.8rem}
-    .org-item{display:grid;grid-template-columns:10rem 1fr;gap:.75rem;padding:.75rem .85rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .org-item{display:grid;grid-template-columns:10rem 1fr;gap:.75rem;padding:.9rem .85rem;border-top:1px solid var(--color-border,#d9d3c8)}
     .org-item:first-child{border-top:0}
     .org-item strong{font-size:.93rem}
-    .org-item span{font-size:.92rem;line-height:1.65}
+    .org-item span{font-size:.92rem;line-height:1.7}
     .resource-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem;margin:1rem 0}
     .resource{padding:.75rem;border-radius:12px;background:var(--soft);text-align:center;font-weight:700}
     .reading-point{margin:1rem 0;padding:1rem;border:1px dashed #b7aa97;border-radius:14px;background:#fbf9f5}
@@ -133,8 +133,35 @@
           </div>
         </div>
 
-        <p>同じ会社でも、人と仕事をどのようにまとめるかで組織の姿が変わります。</p>
-        <p>さらに、冷蔵庫事業、エアコン事業といった事業単位に大きな権限を与え、利益についても責任を持たせるのが<strong>カンパニー制</strong>。製品設計・製造・販売という軸と、冷蔵庫・エアコン・洗濯機という軸を重ねるのが<strong>マトリックス組織</strong>。新製品の開発など、特定の目的のために必要な人を部門を越えて集めるのが<strong>プロジェクト組織</strong>です。</p>
+        <p>ここで見るのは、部署の名前だけではありません。<strong>どの単位に仕事をまとめ、誰にどこまで判断を任せ、誰が結果に責任を持つのか</strong>によって、組織の動き方は変わります。</p>
+
+        <div class="org-list" aria-label="組織形態と権限・責任の違い">
+          <div class="org-item">
+            <strong>機能別組織・職能別組織</strong>
+            <span>設計、製造、販売など、同じ機能を担う人をまとめます。同じ種類の仕事や専門知識を一か所に集めやすい組織です。</span>
+          </div>
+          <div class="org-item">
+            <strong>事業部制組織</strong>
+            <span>製品、地域、顧客などの事業単位に必要な機能をまとめます。各事業部に一定の権限を持たせることで、その事業の状況に応じて判断しやすくなります。</span>
+          </div>
+          <div class="org-item">
+            <strong>カンパニー制</strong>
+            <span>事業単位を一つの会社に近いまとまりとして扱い、より大きな権限と利益に対する責任を持たせます。本社に一つ一つ判断を仰ぐ範囲を減らし、事業単位で意思決定を行いやすくする考え方です。収益についても事業ごとに責任を持つため、独立採算と結び付きます。</span>
+          </div>
+          <div class="org-item">
+            <strong>マトリックス組織</strong>
+            <span>機能別と事業別など、二つの異なる軸を重ねます。一人の構成員が二つの組織上の関係を持つことがあり、複数の視点や専門性を組み合わせます。</span>
+          </div>
+          <div class="org-item">
+            <strong>プロジェクト組織</strong>
+            <span>新製品の開発など、特定の目的を達成するために、必要な人を部門を越えて集めます。通常の部署とは別に、目的を中心として人を編成する組織です。</span>
+          </div>
+        </div>
+
+        <div class="reading-point">
+          <strong>組織の問題を読むときの手掛かり</strong>
+          <p>「何を基準に人をまとめているか」だけでなく、「誰に権限があるか」「誰が利益や成果に責任を持つか」「どの単位で意思決定できるか」を見ると、組織形態の違いがつながって見えてきます。</p>
+        </div>
       </section>
 
       <section class="chapter">
@@ -185,10 +212,11 @@
       <section class="closing">
         <h2>経営・組織論で見てきたこと</h2>
         <p>会社は、ただ人が集まって仕事をしている場所ではありません。</p>
-        <p>何のために活動するのかを定め、活動に必要なヒト・モノ・カネ・情報を使い、人と仕事を組織します。活動が始まれば、その結果や周囲の状況を確かめながら、必要に応じて進め方を変えていきます。</p>
+        <p>何のために活動するのかを定め、活動に必要なヒト・モノ・カネ・情報を使い、人と仕事を組織します。組織を考えるときは、仕事の分け方だけでなく、どこに権限を置き、誰が成果や利益に責任を持つのかを見ることも重要です。</p>
+        <p>活動が始まれば、その結果や周囲の状況を確かめながら、必要に応じて進め方を変えていきます。</p>
         <p>そして会社は、社会から独立して存在しているわけでもありません。ITやデータの使われ方が変われば、仕事の進め方だけでなく、製品やサービス、企業活動そのものも変わります。</p>
         <p><strong>企業理念やMVV、経営資源、組織形態、PDCAやOODA、DXは、同じ種類の言葉ではありません。</strong></p>
-        <p>それぞれが、会社が何をよりどころに活動するのか、何を使うのか、どう人と仕事を組み立てるのか、どう管理するのか、環境の変化にどう関わるのかという、会社の異なる側面を説明しています。</p>
+        <p>それぞれが、会社が何をよりどころに活動するのか、何を使うのか、どう人と仕事を組み立てるのか、どこに権限と責任を置くのか、どう管理するのか、環境の変化にどう関わるのかという、会社の異なる側面を説明しています。</p>
       </section>
 
       <section class="refs">
