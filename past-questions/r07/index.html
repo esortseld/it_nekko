@@ -127,8 +127,8 @@
   };
   document.getElementById('question-mini-grid').innerHTML = Array.from({length:100}, (_,i) => {
     const q = i + 1;
-    const href = q === 29 ? '../../questions/r07-29/' : `#item-${questionToItem[q]}`;
-    return `<a class="q-mini" href="${href}" aria-label="問${q}の学習項目へ">${q}</a>`;
+    const href = `../../questions/r07-${String(q).padStart(2, '0')}/`;
+    return `<a class="q-mini" href="${href}" aria-label="問${q}のページへ">${q}</a>`;
   }).join('');
 </script>
 </body>
