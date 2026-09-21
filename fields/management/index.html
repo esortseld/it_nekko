@@ -6,21 +6,49 @@
   <title>マネジメント系 | ITネッコ</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
-    .item-card{padding:1rem 1.05rem;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#faf9f6;color:inherit}
-    .item-no{display:block;margin-bottom:.3rem;font-size:.82rem;font-weight:700;color:var(--text-sub,#675f55)}
-    .item-card h2{margin:0;font-size:1rem;line-height:1.5}
-    .year-links{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
-    .year-links a{display:inline-block;padding:.4rem .65rem;border:1px solid var(--color-border,#d9d3c8);border-radius:999px;background:#fff;color:inherit;text-decoration:none;font-size:.82rem;font-weight:700}
+    .hero-title-row{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+    .hero-title-row h1{margin:0}
+    .hero-subtitle{margin:0;font-size:1rem;font-weight:700;color:var(--text-sub,#675f55)}
+    .major-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .major-nav-card{display:block;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#faf9f6;color:inherit;text-decoration:none}
+    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start;gap:.75rem;color:inherit;text-decoration:none}
+    .major-nav-no,.middle-nav-no{display:flex;align-items:center;justify-content:center;border-radius:999px;background:#eee9df;color:var(--text-sub,#675f55);font-weight:700;line-height:1}
+    .major-nav-no{width:34px;height:34px;font-size:.82rem}
+    .major-nav-copy strong{display:block;margin:0 0 .25rem;font-size:1rem;line-height:1.5}
+    .major-nav-copy span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
+    .middle-nav-list{display:grid;gap:.65rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .middle-nav-item{display:grid;grid-template-columns:30px minmax(0,1fr);gap:.55rem;padding:.75rem;border:1px solid var(--color-border,#e2ddd4);border-radius:12px;background:#fff;color:inherit;text-decoration:none;min-width:0}
+    .middle-nav-no{width:26px;height:26px;margin-top:.05rem;font-size:.7rem}
+    .middle-nav-copy b{display:block;margin:0 0 .15rem;font-size:.82rem;line-height:1.45}
+    .middle-nav-copy span{display:block;font-size:.76rem;line-height:1.5;color:var(--text-sub,#675f55)}
+    .syllabus-groups{display:grid;gap:1.5rem}
+    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
+    .major-name{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
+    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .middle-groups.cols-1{grid-template-columns:1fr}
+    .middle-groups.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;scroll-margin-top:1rem;min-width:0}
+    .middle-name{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
+    .item-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
+    .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
+    .item-card:hover{transform:translateY(-1px)}
+    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
+    .item-card h2{display:flex;align-items:center;margin:0;padding:.95rem 1rem;font-size:1rem;line-height:1.5;background:#fff}
+    .top-link-wrap{margin-top:1.5rem}
+    @media (max-width:1000px){.major-nav{grid-template-columns:1fr}.middle-groups.cols-3{grid-template-columns:1fr}}
+    @media (max-width:800px){.middle-groups{grid-template-columns:1fr}}
+    @media (max-width:560px){.major-group{padding:.9rem}.middle-group{padding:.8rem}.item-card{grid-template-columns:72px minmax(0,1fr)}.item-no{padding:.9rem .45rem;font-size:.75rem}.item-card h2{padding:.9rem .9rem}}
   </style>
 </head>
-<body>
+<body id="top">
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="../../">ITネッコ</a>
     <nav class="site-nav" aria-label="主要ページ">
       <a href="../../">トップ</a>
-      <a href="../../past-questions/">過去問</a>
-      <a href="../../about/">このサイトについて</a>
+      <a href="../strategy/">ストラテジ系</a>
+      <a href="../management/">マネジメント系</a>
+      <a href="../technology/">テクノロジ系</a>
     </nav>
   </div>
 </header>
@@ -29,22 +57,101 @@
   <section class="page-hero">
     <div class="container hero-inner">
       <p class="site-kicker">Management</p>
-      <h1>マネジメント系</h1>
+      <div class="hero-title-row">
+        <h1>マネジメント系</h1>
+        <p class="hero-subtitle">ITの開発・運用を計画し、管理する</p>
+      </div>
     </div>
   </section>
 
   <div class="container page-flow">
-    <a class="back-link" href="../">学習分野へ戻る</a>
+    <nav class="major-nav" aria-label="大分類">
+      <div class="major-nav-card">
+        <a class="major-nav-head" href="#major-4">
+          <span class="major-nav-no">4</span>
+          <span class="major-nav-copy"><strong>開発技術</strong><span>システムをどう作り、開発をどう進めるか</span></span>
+        </a>
+        <div class="middle-nav-list">
+          <a class="middle-nav-item" href="#middle-8"><span class="middle-nav-no">8</span><span class="middle-nav-copy"><b>システム開発技術</b><span>システム開発の工程と技術</span></span></a>
+          <a class="middle-nav-item" href="#middle-9"><span class="middle-nav-no">9</span><span class="middle-nav-copy"><b>ソフトウェア開発管理技術</b><span>開発プロセスと手法の管理</span></span></a>
+        </div>
+      </div>
+      <div class="major-nav-card">
+        <a class="major-nav-head" href="#major-5">
+          <span class="major-nav-no">5</span>
+          <span class="major-nav-copy"><strong>プロジェクトマネジメント</strong><span>期限・費用・品質を見ながら計画を進める</span></span>
+        </a>
+        <div class="middle-nav-list">
+          <a class="middle-nav-item" href="#middle-10"><span class="middle-nav-no">10</span><span class="middle-nav-copy"><b>プロジェクトマネジメント</b><span>プロジェクト全体の計画と管理</span></span></a>
+        </div>
+      </div>
+      <div class="major-nav-card">
+        <a class="major-nav-head" href="#major-6">
+          <span class="major-nav-no">6</span>
+          <span class="major-nav-copy"><strong>サービスマネジメント</strong><span>ITサービスを安定して提供し、改善する</span></span>
+        </a>
+        <div class="middle-nav-list">
+          <a class="middle-nav-item" href="#middle-11"><span class="middle-nav-no">11</span><span class="middle-nav-copy"><b>サービスマネジメント</b><span>サービスの運用と継続的な改善</span></span></a>
+          <a class="middle-nav-item" href="#middle-12"><span class="middle-nav-no">12</span><span class="middle-nav-copy"><b>システム監査</b><span>システムと業務を独立した立場から確認する</span></span></a>
+        </div>
+      </div>
+    </nav>
 
-    <div class="card-grid">
-      <div class="item-card"><span class="item-no">項目25</span><h2>システム開発技術</h2></div>
-      <div class="item-card"><span class="item-no">項目26</span><h2>開発プロセス・手法</h2></div>
-      <div class="item-card"><span class="item-no">項目27</span><h2>プロジェクトマネジメント</h2><div class="year-links"><a href="../../topics/r08-27-project-management/">R8</a></div></div>
-      <div class="item-card"><span class="item-no">項目28</span><h2>サービスマネジメント</h2></div>
-      <div class="item-card"><span class="item-no">項目29</span><h2>サービスマネジメントシステム</h2></div>
-      <div class="item-card"><span class="item-no">項目30</span><h2>ファシリティマネジメント</h2></div>
-      <div class="item-card"><span class="item-no">項目31</span><h2>システム監査</h2></div>
-      <div class="item-card"><span class="item-no">項目32</span><h2>内部統制</h2></div>
+    <div class="syllabus-groups">
+      <section class="major-group" id="major-4">
+        <h2 class="major-name">開発技術</h2>
+        <div class="middle-groups">
+          <section class="middle-group" id="middle-8">
+            <h3 class="middle-name">システム開発技術</h3>
+            <div class="item-grid">
+              <a class="item-card" href="../../topics/r08-25-system-development-technology/"><span class="item-no">項目25</span><h2>システム開発技術</h2></a>
+            </div>
+          </section>
+          <section class="middle-group" id="middle-9">
+            <h3 class="middle-name">ソフトウェア開発管理技術</h3>
+            <div class="item-grid">
+              <a class="item-card" href="../../topics/r08-26-development-process-methods/"><span class="item-no">項目26</span><h2>開発プロセス・手法</h2></a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="major-group" id="major-5">
+        <h2 class="major-name">プロジェクトマネジメント</h2>
+        <div class="middle-groups cols-1">
+          <section class="middle-group" id="middle-10">
+            <h3 class="middle-name">プロジェクトマネジメント</h3>
+            <div class="item-grid">
+              <a class="item-card" href="../../topics/r08-27-project-management/"><span class="item-no">項目27</span><h2>プロジェクトマネジメント</h2></a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="major-group" id="major-6">
+        <h2 class="major-name">サービスマネジメント</h2>
+        <div class="middle-groups">
+          <section class="middle-group" id="middle-11">
+            <h3 class="middle-name">サービスマネジメント</h3>
+            <div class="item-grid">
+              <a class="item-card" href="../../topics/r08-28-service-management/"><span class="item-no">項目28</span><h2>サービスマネジメント</h2></a>
+              <a class="item-card" href="../../topics/r08-29-service-management-system/"><span class="item-no">項目29</span><h2>サービスマネジメントシステム</h2></a>
+              <a class="item-card" href="../../topics/r08-30-facility-management/"><span class="item-no">項目30</span><h2>ファシリティマネジメント</h2></a>
+            </div>
+          </section>
+          <section class="middle-group" id="middle-12">
+            <h3 class="middle-name">システム監査</h3>
+            <div class="item-grid">
+              <a class="item-card" href="../../topics/r08-31-system-audit/"><span class="item-no">項目31</span><h2>システム監査</h2></a>
+              <a class="item-card" href="../../topics/r08-32-internal-control/"><span class="item-no">項目32</span><h2>内部統制</h2></a>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <div class="top-link-wrap">
+      <a class="back-link" href="#top">トップへ戻る</a>
     </div>
   </div>
 </main>
