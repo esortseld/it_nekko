@@ -10,19 +10,13 @@
     .hero-title-row h1{margin:0}
     .hero-subtitle{margin:0;font-size:1rem;font-weight:700;color:var(--text-sub,#675f55)}
     .major-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-    .major-nav-card{display:block;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#faf9f6;color:inherit;text-decoration:none}
-    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start;gap:.75rem;color:inherit;text-decoration:none}
+    .major-nav-card{display:block;padding:1.2rem 1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#f3efe7;color:inherit;text-decoration:none}
+    .major-nav-card:hover{transform:translateY(-1px);background:#eee8de}
+    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:.8rem;color:inherit;text-decoration:none}
     .major-nav-no,.middle-nav-no{display:flex;align-items:center;justify-content:center;border-radius:999px;background:#eee9df;color:var(--text-sub,#675f55);font-weight:700;line-height:1}
     .major-nav-no{width:38px;height:34px;border-radius:7px;font-size:.82rem}
     .major-nav-copy strong{display:block;margin:0 0 .25rem;font-size:1rem;line-height:1.5}
     .major-nav-copy span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
-    .middle-nav-list{display:grid;gap:0;margin-top:1rem;padding-top:.45rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .middle-nav-item{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:.65rem;padding:.72rem .15rem;border:0;border-bottom:1px solid var(--color-border,#e8e3da);border-radius:0;background:transparent;color:inherit;text-decoration:none;min-width:0}
-    .middle-nav-item:last-child{border-bottom:0}
-    .middle-nav-item::after{content:"›";font-size:1.2rem;line-height:1;color:var(--text-sub,#675f55);padding-right:.1rem}
-    .middle-nav-no{width:26px;height:26px;margin-top:.05rem;font-size:.7rem}
-    .middle-nav-copy b{display:block;margin:0 0 .15rem;font-size:.82rem;line-height:1.45}
-    .middle-nav-copy span{display:block;font-size:.76rem;line-height:1.5;color:var(--text-sub,#675f55)}
     .syllabus-groups{display:grid;gap:1.5rem}
     .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
     .major-name{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
@@ -78,37 +72,18 @@
 
   <div class="container page-flow">
     <nav class="major-nav" aria-label="大分類">
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-1">
-          <span class="major-nav-no">1</span>
-          <span class="major-nav-copy"><strong>企業と法務</strong><span>会社のしくみと、仕事を支えるルール</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-1"><span class="middle-nav-no">1</span><span class="middle-nav-copy"><b>企業活動</b><span>会社のしくみと、仕事の進め方</span></span></a>
-          <a class="middle-nav-item" href="#middle-2"><span class="middle-nav-no">2</span><span class="middle-nav-copy"><b>法務</b><span>仕事で守る権利とルール</span></span></a>
-        </div>
-      </div>
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-2">
-          <span class="major-nav-no">2</span>
-          <span class="major-nav-copy"><strong>経営戦略</strong><span>事業をどう考え、どう伸ばしていくか</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-3"><span class="middle-nav-no">3</span><span class="middle-nav-copy"><b>経営戦略マネジメント</b><span>市場と競争を踏まえた事業の進め方</span></span></a>
-          <a class="middle-nav-item" href="#middle-4"><span class="middle-nav-no">4</span><span class="middle-nav-copy"><b>技術戦略マネジメント</b><span>技術を事業につなげる取り組み</span></span></a>
-          <a class="middle-nav-item" href="#middle-5"><span class="middle-nav-no">5</span><span class="middle-nav-copy"><b>ビジネスインダストリ</b><span>ITを活用するさまざまな仕事とサービス</span></span></a>
-        </div>
-      </div>
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-3">
-          <span class="major-nav-no">3</span>
-          <span class="major-nav-copy"><strong>システム戦略</strong><span>仕事や事業を、ITでどう変えていくか</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-6"><span class="middle-nav-no">6</span><span class="middle-nav-copy"><b>システム戦略</b><span>仕事や事業へのITの活用</span></span></a>
-          <a class="middle-nav-item" href="#middle-7"><span class="middle-nav-no">7</span><span class="middle-nav-copy"><b>システム企画</b><span>システム化の計画と準備</span></span></a>
-        </div>
-      </div>
+      <a class="major-nav-card major-nav-head" href="#major-1">
+        <span class="major-nav-no">1</span>
+        <span class="major-nav-copy"><strong>企業と法務</strong><span>会社のしくみと、仕事を支えるルール</span></span>
+      </a>
+      <a class="major-nav-card major-nav-head" href="#major-2">
+        <span class="major-nav-no">2</span>
+        <span class="major-nav-copy"><strong>経営戦略</strong><span>事業をどう考え、どう伸ばしていくか</span></span>
+      </a>
+      <a class="major-nav-card major-nav-head" href="#major-3">
+        <span class="major-nav-no">3</span>
+        <span class="major-nav-copy"><strong>システム戦略</strong><span>仕事や事業を、ITでどう変えていくか</span></span>
+      </a>
     </nav>
 
     <div class="syllabus-groups">
