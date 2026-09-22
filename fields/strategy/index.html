@@ -18,17 +18,20 @@
     .major-nav-copy strong{display:block;margin:0 0 .25rem;font-size:1rem;line-height:1.5}
     .major-nav-copy span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
     .syllabus-groups{display:grid;gap:1.5rem}
-    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
-    .major-name{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
-    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .major-group{padding:0 0 1.4rem;border:0;border-radius:0;background:transparent;scroll-margin-top:1rem}
+    .major-group + .major-group{margin-top:1rem;padding-top:1.6rem;border-top:1px solid var(--color-border,#d9d3c8)}
+    .major-name{display:flex;align-items:center;gap:.55rem;margin:0 0 1rem;padding:.7rem .9rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:8px;font-size:1.08rem;line-height:1.5}
+    .major-name .major-mark{font-weight:800;letter-spacing:.02em}
+    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
     .major-group:nth-child(2) .middle-groups{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;scroll-margin-top:1rem;min-width:0}
-    .middle-name{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
-    .item-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
-    .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
-    .item-card:hover{transform:translateY(-1px)}
-    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
-    .item-card h2{display:flex;align-items:center;margin:0;padding:.95rem 1rem;font-size:1rem;line-height:1.5;background:#fff}
+    .middle-group{padding:.2rem 0 0;border:0;border-radius:0;background:transparent;scroll-margin-top:1rem;min-width:0}
+    .middle-name{display:flex;align-items:center;gap:.45rem;margin:0 0 .75rem;padding:0 0 .5rem;border-bottom:1px solid var(--color-border,#d9d3c8);font-size:.95rem;line-height:1.5;color:var(--text-main,#342f29)}
+    .middle-name .middle-mark{display:inline-flex;align-items:center;justify-content:center;width:1.8rem;height:1.8rem;border-radius:999px;background:#eee9df;font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55);flex:0 0 auto}
+    .item-grid{display:grid;grid-template-columns:1fr;gap:.55rem}
+    .item-card{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid #e6e0d7;border-radius:10px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
+    .item-card:hover{transform:translateY(-1px);background:#fcfbf8}
+    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.75rem .45rem;border-right:1px solid #e6e0d7;background:#f7f4ee;font-size:.74rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
+    .item-card h2{display:flex;align-items:center;margin:0;padding:.75rem .85rem;font-size:.96rem;line-height:1.5;background:transparent}
     .top-link-wrap{margin-top:1.5rem}
     @media (max-width:1000px){
       .major-nav{grid-template-columns:1fr}
@@ -88,10 +91,10 @@
 
     <div class="syllabus-groups">
       <section class="major-group" id="major-1">
-        <h2 class="major-name">企業と法務</h2>
+        <h2 class="major-name"><span class="major-mark">■1</span>企業と法務</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-1">
-            <h3 class="middle-name">企業活動</h3>
+            <h3 class="middle-name"><span class="middle-mark">①</span>企業活動</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-01-management-organization/"><span class="item-no">項目1</span><h2>経営・組織論</h2></a>
               <a class="item-card" href="../../topics/r08-02-business-analysis-data-utilization/"><span class="item-no">項目2</span><h2>業務分析・データ利活用</h2></a>
@@ -99,7 +102,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-2">
-            <h3 class="middle-name">法務</h3>
+            <h3 class="middle-name"><span class="middle-mark">②</span>法務</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-04-intellectual-property-rights/"><span class="item-no">項目4</span><h2>知的財産権</h2></a>
               <a class="item-card" href="../../topics/r08-05-security-related-laws/"><span class="item-no">項目5</span><h2>セキュリティ関連法規</h2></a>
@@ -112,10 +115,10 @@
       </section>
 
       <section class="major-group" id="major-2">
-        <h2 class="major-name">経営戦略</h2>
+        <h2 class="major-name"><span class="major-mark">■2</span>経営戦略</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-3">
-            <h3 class="middle-name">経営戦略マネジメント</h3>
+            <h3 class="middle-name"><span class="middle-mark">③</span>経営戦略マネジメント</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-09-management-strategy-methods/"><span class="item-no">項目9</span><h2>経営戦略手法</h2></a>
               <a class="item-card" href="../../topics/r08-10-marketing/"><span class="item-no">項目10</span><h2>マーケティング</h2></a>
@@ -124,13 +127,13 @@
             </div>
           </section>
           <section class="middle-group" id="middle-4">
-            <h3 class="middle-name">技術戦略マネジメント</h3>
+            <h3 class="middle-name"><span class="middle-mark">④</span>技術戦略マネジメント</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-13-technology-development-strategy/"><span class="item-no">項目13</span><h2>技術開発戦略の立案・技術開発計画</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-5">
-            <h3 class="middle-name">ビジネスインダストリ</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑤</span>ビジネスインダストリ</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-14-business-systems/"><span class="item-no">項目14</span><h2>ビジネスシステム</h2></a>
               <a class="item-card" href="../../topics/r08-15-engineering-systems/"><span class="item-no">項目15</span><h2>エンジニアリングシステム</h2></a>
@@ -142,10 +145,10 @@
       </section>
 
       <section class="major-group" id="major-3">
-        <h2 class="major-name">システム戦略</h2>
+        <h2 class="major-name"><span class="major-mark">■3</span>システム戦略</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-6">
-            <h3 class="middle-name">システム戦略</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑥</span>システム戦略</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-18-information-systems-strategy/"><span class="item-no">項目18</span><h2>情報システム戦略</h2></a>
               <a class="item-card" href="../../topics/r08-19-business-process/"><span class="item-no">項目19</span><h2>業務プロセス</h2></a>
@@ -153,7 +156,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-7">
-            <h3 class="middle-name">システム企画</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑦</span>システム企画</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-24-procurement-planning-execution/"><span class="item-no">項目24</span><h2>調達計画・実施</h2></a>
             </div>
