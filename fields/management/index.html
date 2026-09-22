@@ -10,34 +10,45 @@
     .hero-title-row h1{margin:0}
     .hero-subtitle{margin:0;font-size:1rem;font-weight:700;color:var(--text-sub,#675f55)}
     .major-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-    .major-nav-card{display:block;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#faf9f6;color:inherit;text-decoration:none}
-    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start;gap:.75rem;color:inherit;text-decoration:none}
-    .major-nav-no,.middle-nav-no{display:flex;align-items:center;justify-content:center;border-radius:999px;background:#eee9df;color:var(--text-sub,#675f55);font-weight:700;line-height:1}
-    .major-nav-no{width:38px;height:34px;border-radius:7px;font-size:.82rem}
+    .major-nav-card{display:block;padding:1.2rem 1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#f3efe7;color:inherit;text-decoration:none}
+    .major-nav-card:hover{transform:translateY(-1px);background:#eee8de}
+    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:.8rem;color:inherit;text-decoration:none}
+    .major-nav-no{display:flex;align-items:center;justify-content:center;width:38px;height:34px;border-radius:7px;background:#eee9df;color:var(--text-sub,#675f55);font-weight:700;font-size:.82rem;line-height:1}
     .major-nav-copy strong{display:block;margin:0 0 .25rem;font-size:1rem;line-height:1.5}
     .major-nav-copy span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
-    .middle-nav-list{display:grid;gap:.65rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .middle-nav-item{display:grid;grid-template-columns:30px minmax(0,1fr);gap:.55rem;padding:.75rem;border:1px solid var(--color-border,#e2ddd4);border-radius:12px;background:#fff;color:inherit;text-decoration:none;min-width:0}
-    .middle-nav-no{width:26px;height:26px;margin-top:.05rem;font-size:.7rem}
-    .middle-nav-copy b{display:block;margin:0 0 .15rem;font-size:.82rem;line-height:1.45}
-    .middle-nav-copy span{display:block;font-size:.76rem;line-height:1.5;color:var(--text-sub,#675f55)}
-    .syllabus-groups{display:grid;gap:1.5rem}
-    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
-    .major-name{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
-    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .syllabus-groups{display:grid;gap:1.5rem;margin-top:2rem;padding-top:2rem;border-top:2px solid var(--color-border,#d9d3c8)}
+    .major-group{padding:0 0 1.4rem;border:0;border-radius:0;background:transparent;scroll-margin-top:1rem}
+    .major-group + .major-group{margin-top:2.2rem;padding-top:2.2rem;border-top:2px solid var(--color-border,#d9d3c8)}
+    .major-name{display:flex;align-items:center;gap:.55rem;margin:0 0 1rem;padding:.7rem .9rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:8px;font-size:1.08rem;line-height:1.5}
+    .major-name .major-mark{font-weight:800;letter-spacing:.02em}
+    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem}
     .middle-groups.cols-1{grid-template-columns:1fr}
     .middle-groups.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;scroll-margin-top:1rem;min-width:0}
-    .middle-name{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
-    .item-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
-    .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
-    .item-card:hover{transform:translateY(-1px)}
-    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
-    .item-card h2{display:flex;align-items:center;margin:0;padding:.95rem 1rem;font-size:1rem;line-height:1.5;background:#fff}
+    .middle-group{padding:.35rem 0 0;border:0;border-radius:0;background:transparent;scroll-margin-top:1rem;min-width:0}
+    .middle-name{display:flex;align-items:center;gap:.45rem;margin:0 0 1rem;padding:0 0 .7rem;border-bottom:1px solid var(--color-border,#d9d3c8);font-size:.95rem;line-height:1.5;color:var(--text-main,#342f29)}
+    .middle-name .middle-mark{display:inline-flex;align-items:center;justify-content:center;width:1.8rem;height:1.8rem;border-radius:999px;background:#eee9df;font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55);flex:0 0 auto}
+    .item-grid{display:grid;grid-template-columns:1fr;gap:.65rem;padding-bottom:.35rem}
+    .item-card{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid #e6e0d7;border-radius:10px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
+    .item-card:hover{transform:translateY(-1px);background:#fcfbf8}
+    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.75rem .45rem;border-right:1px solid #e6e0d7;background:#f7f4ee;font-size:.74rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
+    .item-card h2{display:flex;align-items:center;margin:0;padding:.75rem .85rem;font-size:.96rem;line-height:1.5;background:transparent}
+    .middle-group + .middle-group{border-left:1px solid #ece7df;padding-left:1.35rem}
     .top-link-wrap{margin-top:1.5rem}
-    @media (max-width:1000px){.major-nav{grid-template-columns:1fr}.middle-groups.cols-3{grid-template-columns:1fr}}
-    @media (max-width:800px){.middle-groups{grid-template-columns:1fr}}
-    @media (max-width:560px){.major-group{padding:.9rem}.middle-group{padding:.8rem}.item-card{grid-template-columns:72px minmax(0,1fr)}.item-no{padding:.9rem .45rem;font-size:.75rem}.item-card h2{padding:.9rem .9rem}}
+    @media (max-width:1000px){
+      .major-nav{grid-template-columns:1fr}
+      .middle-groups.cols-3{grid-template-columns:1fr}
+    }
+    @media (max-width:800px){
+      .middle-groups{grid-template-columns:1fr}
+      .middle-group + .middle-group{border-left:0;border-top:1px solid #ece7df;padding-left:0;padding-top:1.5rem;margin-top:.25rem}
+    }
+    @media (max-width:560px){
+      .major-group{padding:.9rem}
+      .middle-group{padding:.8rem}
+      .item-card{grid-template-columns:72px minmax(0,1fr)}
+      .item-no{padding:.9rem .45rem;font-size:.75rem}
+      .item-card h2{padding:.9rem .9rem}
+    }
   </style>
 </head>
 <body id="top">
@@ -66,49 +77,32 @@
 
   <div class="container page-flow">
     <nav class="major-nav" aria-label="大分類">
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-4">
-          <span class="major-nav-no">4</span>
-          <span class="major-nav-copy"><strong>開発技術</strong><span>システムをどう作り、開発をどう進めるか</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-8"><span class="middle-nav-no">8</span><span class="middle-nav-copy"><b>システム開発技術</b><span>システム開発の工程と技術</span></span></a>
-          <a class="middle-nav-item" href="#middle-9"><span class="middle-nav-no">9</span><span class="middle-nav-copy"><b>ソフトウェア開発管理技術</b><span>開発プロセスと手法の管理</span></span></a>
-        </div>
-      </div>
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-5">
-          <span class="major-nav-no">5</span>
-          <span class="major-nav-copy"><strong>プロジェクトマネジメント</strong><span>期限・費用・品質を見ながら計画を進める</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-10"><span class="middle-nav-no">10</span><span class="middle-nav-copy"><b>プロジェクトマネジメント</b><span>プロジェクト全体の計画と管理</span></span></a>
-        </div>
-      </div>
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-6">
-          <span class="major-nav-no">6</span>
-          <span class="major-nav-copy"><strong>サービスマネジメント</strong><span>ITサービスを安定して提供し、改善する</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-11"><span class="middle-nav-no">11</span><span class="middle-nav-copy"><b>サービスマネジメント</b><span>サービスの運用と継続的な改善</span></span></a>
-          <a class="middle-nav-item" href="#middle-12"><span class="middle-nav-no">12</span><span class="middle-nav-copy"><b>システム監査</b><span>システムと業務を独立した立場から確認する</span></span></a>
-        </div>
-      </div>
+      <a class="major-nav-card major-nav-head" href="#major-4">
+        <span class="major-nav-no">4</span>
+        <span class="major-nav-copy"><strong>開発技術</strong><span>システムをどう作り、開発をどう進めるか</span></span>
+      </a>
+      <a class="major-nav-card major-nav-head" href="#major-5">
+        <span class="major-nav-no">5</span>
+        <span class="major-nav-copy"><strong>プロジェクトマネジメント</strong><span>期限・費用・品質を見ながら計画を進める</span></span>
+      </a>
+      <a class="major-nav-card major-nav-head" href="#major-6">
+        <span class="major-nav-no">6</span>
+        <span class="major-nav-copy"><strong>サービスマネジメント</strong><span>ITサービスを安定して提供し、改善する</span></span>
+      </a>
     </nav>
 
     <div class="syllabus-groups">
       <section class="major-group" id="major-4">
-        <h2 class="major-name">開発技術</h2>
+        <h2 class="major-name"><span class="major-mark">■4</span>開発技術</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-8">
-            <h3 class="middle-name">システム開発技術</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑧</span>システム開発技術</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-25-system-development-technology/"><span class="item-no">項目25</span><h2>システム開発技術</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-9">
-            <h3 class="middle-name">ソフトウェア開発管理技術</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑨</span>ソフトウェア開発管理技術</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-26-development-process-methods/"><span class="item-no">項目26</span><h2>開発プロセス・手法</h2></a>
             </div>
@@ -117,10 +111,10 @@
       </section>
 
       <section class="major-group" id="major-5">
-        <h2 class="major-name">プロジェクトマネジメント</h2>
+        <h2 class="major-name"><span class="major-mark">■5</span>プロジェクトマネジメント</h2>
         <div class="middle-groups cols-1">
           <section class="middle-group" id="middle-10">
-            <h3 class="middle-name">プロジェクトマネジメント</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑩</span>プロジェクトマネジメント</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-27-project-management/"><span class="item-no">項目27</span><h2>プロジェクトマネジメント</h2></a>
             </div>
@@ -129,10 +123,10 @@
       </section>
 
       <section class="major-group" id="major-6">
-        <h2 class="major-name">サービスマネジメント</h2>
+        <h2 class="major-name"><span class="major-mark">■6</span>サービスマネジメント</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-11">
-            <h3 class="middle-name">サービスマネジメント</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑪</span>サービスマネジメント</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-28-service-management/"><span class="item-no">項目28</span><h2>サービスマネジメント</h2></a>
               <a class="item-card" href="../../topics/r08-29-service-management-system/"><span class="item-no">項目29</span><h2>サービスマネジメントシステム</h2></a>
@@ -140,7 +134,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-12">
-            <h3 class="middle-name">システム監査</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑫</span>システム監査</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-31-system-audit/"><span class="item-no">項目31</span><h2>システム監査</h2></a>
               <a class="item-card" href="../../topics/r08-32-internal-control/"><span class="item-no">項目32</span><h2>内部統制</h2></a>
