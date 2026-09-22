@@ -10,34 +10,45 @@
     .hero-title-row h1{margin:0}
     .hero-subtitle{margin:0;font-size:1rem;font-weight:700;color:var(--text-sub,#675f55)}
     .major-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-    .major-nav-card{display:block;padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#faf9f6;color:inherit;text-decoration:none}
-    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:start;gap:.75rem;color:inherit;text-decoration:none}
-    .major-nav-no,.middle-nav-no{display:flex;align-items:center;justify-content:center;border-radius:999px;background:#eee9df;color:var(--text-sub,#675f55);font-weight:700;line-height:1}
-    .major-nav-no{width:38px;height:34px;border-radius:7px;font-size:.82rem}
+    .major-nav-card{display:block;padding:1.2rem 1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#f3efe7;color:inherit;text-decoration:none}
+    .major-nav-card:hover{transform:translateY(-1px);background:#eee8de}
+    .major-nav-head{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:.8rem;color:inherit;text-decoration:none}
+    .major-nav-no{display:flex;align-items:center;justify-content:center;width:38px;height:34px;border-radius:7px;background:#eee9df;color:var(--text-sub,#675f55);font-weight:700;font-size:.82rem;line-height:1}
     .major-nav-copy strong{display:block;margin:0 0 .25rem;font-size:1rem;line-height:1.5}
     .major-nav-copy span{display:block;font-size:.9rem;line-height:1.6;color:var(--text-sub,#675f55)}
-    .middle-nav-list{display:grid;gap:.65rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--color-border,#d9d3c8)}
-    .middle-nav-item{display:grid;grid-template-columns:30px minmax(0,1fr);gap:.55rem;padding:.75rem;border:1px solid var(--color-border,#e2ddd4);border-radius:12px;background:#fff;color:inherit;text-decoration:none;min-width:0}
-    .middle-nav-no{width:26px;height:26px;margin-top:.05rem;font-size:.7rem}
-    .middle-nav-copy b{display:block;margin:0 0 .15rem;font-size:.82rem;line-height:1.45}
-    .middle-nav-copy span{display:block;font-size:.76rem;line-height:1.5;color:var(--text-sub,#675f55)}
-    .syllabus-groups{display:grid;gap:1.5rem}
-    .major-group{padding:1.15rem;border:1px solid var(--color-border,#d9d3c8);border-radius:20px;background:rgba(250,249,246,.72);scroll-margin-top:1rem}
-    .major-name{margin:0 0 1rem;font-size:1.08rem;line-height:1.5}
-    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .syllabus-groups{display:grid;gap:1.5rem;margin-top:2rem;padding-top:2rem;border-top:2px solid var(--color-border,#d9d3c8)}
+    .major-group{padding:0 0 1.4rem;border:0;border-radius:0;background:transparent;scroll-margin-top:1rem}
+    .major-group + .major-group{margin-top:2.2rem;padding-top:2.2rem;border-top:2px solid var(--color-border,#d9d3c8)}
+    .major-name{display:flex;align-items:center;gap:.55rem;margin:0 0 1rem;padding:.7rem .9rem;border-left:5px solid #8a755d;background:#f3efe7;border-radius:8px;font-size:1.08rem;line-height:1.5}
+    .major-name .major-mark{font-weight:800;letter-spacing:.02em}
+    .middle-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem}
     .middle-groups.cols-1{grid-template-columns:1fr}
     .middle-groups.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .middle-group{padding:1rem;border:1px solid var(--color-border,#d9d3c8);border-radius:16px;background:#fff;scroll-margin-top:1rem;min-width:0}
-    .middle-name{margin:0 0 .8rem;font-size:.92rem;line-height:1.5;color:var(--text-sub,#675f55)}
-    .item-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
-    .item-card{display:grid;grid-template-columns:82px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid var(--color-border,#d9d3c8);border-radius:14px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
-    .item-card:hover{transform:translateY(-1px)}
-    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.95rem .55rem;border-right:1px solid var(--color-border,#d9d3c8);background:#eee9df;font-size:.78rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
-    .item-card h2{display:flex;align-items:center;margin:0;padding:.95rem 1rem;font-size:1rem;line-height:1.5;background:#fff}
+    .middle-group{padding:.35rem 0 0;border:0;border-radius:0;background:transparent;scroll-margin-top:1rem;min-width:0}
+    .middle-name{display:flex;align-items:center;gap:.45rem;margin:0 0 1rem;padding:0 0 .7rem;border-bottom:1px solid var(--color-border,#d9d3c8);font-size:.95rem;line-height:1.5;color:var(--text-main,#342f29)}
+    .middle-name .middle-mark{display:inline-flex;align-items:center;justify-content:center;width:1.8rem;height:1.8rem;border-radius:999px;background:#eee9df;font-size:.78rem;font-weight:700;color:var(--text-sub,#675f55);flex:0 0 auto}
+    .item-grid{display:grid;grid-template-columns:1fr;gap:.65rem;padding-bottom:.35rem}
+    .item-card{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:stretch;min-width:0;padding:0;border:1px solid #e6e0d7;border-radius:10px;background:#fff;color:inherit;text-decoration:none;overflow:hidden}
+    .item-card:hover{transform:translateY(-1px);background:#fcfbf8}
+    .item-no{display:flex;align-items:center;justify-content:center;margin:0;padding:.75rem .45rem;border-right:1px solid #e6e0d7;background:#f7f4ee;font-size:.74rem;font-weight:700;line-height:1.4;color:var(--text-sub,#675f55);white-space:nowrap}
+    .item-card h2{display:flex;align-items:center;margin:0;padding:.75rem .85rem;font-size:.96rem;line-height:1.5;background:transparent}
+    .middle-group + .middle-group{border-left:1px solid #ece7df;padding-left:1.35rem}
     .top-link-wrap{margin-top:1.5rem}
-    @media (max-width:1000px){.major-nav{grid-template-columns:1fr}.middle-groups.cols-3{grid-template-columns:1fr}}
-    @media (max-width:800px){.middle-groups{grid-template-columns:1fr}}
-    @media (max-width:560px){.major-group{padding:.9rem}.middle-group{padding:.8rem}.item-card{grid-template-columns:72px minmax(0,1fr)}.item-no{padding:.9rem .45rem;font-size:.75rem}.item-card h2{padding:.9rem .9rem}}
+    @media (max-width:1000px){
+      .major-nav{grid-template-columns:1fr}
+      .middle-groups.cols-3{grid-template-columns:1fr}
+    }
+    @media (max-width:800px){
+      .middle-groups{grid-template-columns:1fr}
+      .middle-group + .middle-group{border-left:0;border-top:1px solid #ece7df;padding-left:0;padding-top:1.5rem;margin-top:.25rem}
+    }
+    @media (max-width:560px){
+      .major-group{padding:.9rem}
+      .middle-group{padding:.8rem}
+      .item-card{grid-template-columns:72px minmax(0,1fr)}
+      .item-no{padding:.9rem .45rem;font-size:.75rem}
+      .item-card h2{padding:.9rem .9rem}
+    }
   </style>
 </head>
 <body id="top">
@@ -66,49 +77,26 @@
 
   <div class="container page-flow">
     <nav class="major-nav" aria-label="大分類">
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-7">
-          <span class="major-nav-no">7</span>
-          <span class="major-nav-copy"><strong>基礎理論</strong><span>情報を扱うための数学とプログラムの基礎</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-13"><span class="middle-nav-no">13</span><span class="middle-nav-copy"><b>基礎理論</b><span>数学と情報に関する基本的な考え方</span></span></a>
-          <a class="middle-nav-item" href="#middle-14"><span class="middle-nav-no">14</span><span class="middle-nav-copy"><b>アルゴリズムとプログラミング</b><span>データと処理手順を組み立てる</span></span></a>
-        </div>
-      </div>
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-8">
-          <span class="major-nav-no">8</span>
-          <span class="major-nav-copy"><strong>コンピュータシステム</strong><span>コンピュータを構成する装置とソフトウェア</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-15"><span class="middle-nav-no">15</span><span class="middle-nav-copy"><b>コンピュータ構成要素</b><span>処理・記憶・入出力を担う装置</span></span></a>
-          <a class="middle-nav-item" href="#middle-16"><span class="middle-nav-no">16</span><span class="middle-nav-copy"><b>システム構成要素</b><span>システムの構成と評価</span></span></a>
-          <a class="middle-nav-item" href="#middle-17"><span class="middle-nav-no">17</span><span class="middle-nav-copy"><b>ソフトウェア</b><span>OSやファイル、オフィスツール</span></span></a>
-          <a class="middle-nav-item" href="#middle-18"><span class="middle-nav-no">18</span><span class="middle-nav-copy"><b>ハードウェア</b><span>コンピュータと入出力装置</span></span></a>
-        </div>
-      </div>
-      <div class="major-nav-card">
-        <a class="major-nav-head" href="#major-9">
-          <span class="major-nav-no">9</span>
-          <span class="major-nav-copy"><strong>技術要素</strong><span>情報・データ・通信・セキュリティを扱う技術</span></span>
-        </a>
-        <div class="middle-nav-list">
-          <a class="middle-nav-item" href="#middle-19"><span class="middle-nav-no">19</span><span class="middle-nav-copy"><b>情報デザイン</b><span>情報を分かりやすく伝える設計</span></span></a>
-          <a class="middle-nav-item" href="#middle-20"><span class="middle-nav-no">20</span><span class="middle-nav-copy"><b>情報メディア</b><span>文字・画像・音声などの表現</span></span></a>
-          <a class="middle-nav-item" href="#middle-21"><span class="middle-nav-no">21</span><span class="middle-nav-copy"><b>データベース</b><span>データを蓄積し、整えて利用する</span></span></a>
-          <a class="middle-nav-item" href="#middle-22"><span class="middle-nav-no">22</span><span class="middle-nav-copy"><b>ネットワーク</b><span>コンピュータ同士をつないで通信する</span></span></a>
-          <a class="middle-nav-item" href="#middle-23"><span class="middle-nav-no">23</span><span class="middle-nav-copy"><b>セキュリティ</b><span>情報とシステムを脅威から守る</span></span></a>
-        </div>
-      </div>
+      <a class="major-nav-card major-nav-head" href="#major-7">
+        <span class="major-nav-no">7</span>
+        <span class="major-nav-copy"><strong>基礎理論</strong><span>情報を扱うための数学とプログラムの基礎</span></span>
+      </a>
+      <a class="major-nav-card major-nav-head" href="#major-8">
+        <span class="major-nav-no">8</span>
+        <span class="major-nav-copy"><strong>コンピュータシステム</strong><span>コンピュータを構成する装置とソフトウェア</span></span>
+      </a>
+      <a class="major-nav-card major-nav-head" href="#major-9">
+        <span class="major-nav-no">9</span>
+        <span class="major-nav-copy"><strong>技術要素</strong><span>情報・データ・通信・セキュリティを扱う技術</span></span>
+      </a>
     </nav>
 
     <div class="syllabus-groups">
       <section class="major-group" id="major-7">
-        <h2 class="major-name">基礎理論</h2>
+        <h2 class="major-name"><span class="major-mark">■7</span>基礎理論</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-13">
-            <h3 class="middle-name">基礎理論</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑬</span>基礎理論</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-33-discrete-mathematics/"><span class="item-no">項目33</span><h2>離散数学</h2></a>
               <a class="item-card" href="../../topics/r08-34-applied-mathematics/"><span class="item-no">項目34</span><h2>応用数学</h2></a>
@@ -116,7 +104,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-14">
-            <h3 class="middle-name">アルゴリズムとプログラミング</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑭</span>アルゴリズムとプログラミング</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-36-data-structures/"><span class="item-no">項目36</span><h2>データ構造</h2></a>
               <a class="item-card" href="../../topics/r08-37-algorithms-programming/"><span class="item-no">項目37</span><h2>アルゴリズムとプログラミング</h2></a>
@@ -128,10 +116,10 @@
       </section>
 
       <section class="major-group" id="major-8">
-        <h2 class="major-name">コンピュータシステム</h2>
+        <h2 class="major-name"><span class="major-mark">■8</span>コンピュータシステム</h2>
         <div class="middle-groups">
           <section class="middle-group" id="middle-15">
-            <h3 class="middle-name">コンピュータ構成要素</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑮</span>コンピュータ構成要素</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-40-processor/"><span class="item-no">項目40</span><h2>プロセッサ</h2></a>
               <a class="item-card" href="../../topics/r08-41-memory/"><span class="item-no">項目41</span><h2>メモリ</h2></a>
@@ -139,14 +127,14 @@
             </div>
           </section>
           <section class="middle-group" id="middle-16">
-            <h3 class="middle-name">システム構成要素</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑯</span>システム構成要素</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-43-system-configuration/"><span class="item-no">項目43</span><h2>システムの構成</h2></a>
               <a class="item-card" href="../../topics/r08-44-system-evaluation-indicators/"><span class="item-no">項目44</span><h2>システムの評価指標</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-17">
-            <h3 class="middle-name">ソフトウェア</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑰</span>ソフトウェア</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-45-operating-system/"><span class="item-no">項目45</span><h2>オペレーティングシステム</h2></a>
               <a class="item-card" href="../../topics/r08-46-file-system/"><span class="item-no">項目46</span><h2>ファイルシステム</h2></a>
@@ -155,7 +143,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-18">
-            <h3 class="middle-name">ハードウェア</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑱</span>ハードウェア</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-49-hardware/"><span class="item-no">項目49</span><h2>ハードウェア（コンピュータ・入出力装置）</h2></a>
             </div>
@@ -164,24 +152,24 @@
       </section>
 
       <section class="major-group" id="major-9">
-        <h2 class="major-name">技術要素</h2>
+        <h2 class="major-name"><span class="major-mark">■9</span>技術要素</h2>
         <div class="middle-groups cols-3">
           <section class="middle-group" id="middle-19">
-            <h3 class="middle-name">情報デザイン</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑲</span>情報デザイン</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-50-information-design/"><span class="item-no">項目50</span><h2>情報デザイン</h2></a>
               <a class="item-card" href="../../topics/r08-51-interface-design/"><span class="item-no">項目51</span><h2>インタフェース設計</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-20">
-            <h3 class="middle-name">情報メディア</h3>
+            <h3 class="middle-name"><span class="middle-mark">⑳</span>情報メディア</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-52-multimedia-technology/"><span class="item-no">項目52</span><h2>マルチメディア技術</h2></a>
               <a class="item-card" href="../../topics/r08-53-multimedia-applications/"><span class="item-no">項目53</span><h2>マルチメディア応用</h2></a>
             </div>
           </section>
           <section class="middle-group" id="middle-21">
-            <h3 class="middle-name">データベース</h3>
+            <h3 class="middle-name"><span class="middle-mark">㉑</span>データベース</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-54-database-methods/"><span class="item-no">項目54</span><h2>データベース方式</h2></a>
               <a class="item-card" href="../../topics/r08-55-database-design/"><span class="item-no">項目55</span><h2>データベース設計</h2></a>
@@ -190,7 +178,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-22">
-            <h3 class="middle-name">ネットワーク</h3>
+            <h3 class="middle-name"><span class="middle-mark">㉒</span>ネットワーク</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-58-network-methods/"><span class="item-no">項目58</span><h2>ネットワーク方式</h2></a>
               <a class="item-card" href="../../topics/r08-59-communication-protocols/"><span class="item-no">項目59</span><h2>通信プロトコル</h2></a>
@@ -198,7 +186,7 @@
             </div>
           </section>
           <section class="middle-group" id="middle-23">
-            <h3 class="middle-name">セキュリティ</h3>
+            <h3 class="middle-name"><span class="middle-mark">㉓</span>セキュリティ</h3>
             <div class="item-grid">
               <a class="item-card" href="../../topics/r08-61-information-security/"><span class="item-no">項目61</span><h2>情報セキュリティ</h2></a>
               <a class="item-card" href="../../topics/r08-62-information-security-management/"><span class="item-no">項目62</span><h2>情報セキュリティ管理</h2></a>
